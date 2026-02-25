@@ -4,4 +4,19 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
-dependencies = []
+dependencies = [
+    "ipykernel>=7.2.0",
+    "matplotlib>=3.10.8",
+    "weather-model-graphs",
+    "xarray>=2026.2.0",
+]
+
+[tool.uv.workspace]
+members = [
+    "weather-model-graphs",
+]
+
+[tool.uv.sources]
+weather-model-graphs = { workspace = true }
+
+
