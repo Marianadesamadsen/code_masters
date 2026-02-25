@@ -3,10 +3,14 @@ name = "code-masters"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.11,<3.12"
 dependencies = [
+    "cartopy>=0.25.0",
+    "data-generation>=0.0.1",
     "ipykernel>=7.2.0",
     "matplotlib>=3.10.8",
+    "mllam-data-prep",
+    "torch>=2.10.0",
     "weather-model-graphs",
     "xarray>=2026.2.0",
 ]
@@ -14,9 +18,12 @@ dependencies = [
 [tool.uv.workspace]
 members = [
     "weather-model-graphs",
+    "mllam-data-prep",
+    "neural_lam_project",
 ]
 
 [tool.uv.sources]
 weather-model-graphs = { workspace = true }
+mllam-data-prep = { workspace = true }
 
 

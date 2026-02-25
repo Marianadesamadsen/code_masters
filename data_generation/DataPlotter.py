@@ -140,6 +140,5 @@ class DataPlotter:
 
         if out_path:
             anim.save(out_path, writer="pillow", fps=fps)
-            plt.close(fig) 
 
         return anim
