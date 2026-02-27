@@ -190,48 +190,50 @@ def main():
     plt.ylabel("MSE Loss")
     plt.title("Training Loss")
     plt.tight_layout()
+    plt.savefig("training_loss.png")
+    plt.close()
 
-    # ---- Make predictions on ONE graph (first element of batch) ----
-    batch = next(iter(dataloader))
+    # # ---- Make predictions on ONE graph (first element of batch) ----
+    # batch = next(iter(dataloader))
 
-    xt = batch["input"]
-    xtp1 = batch["target"]
-    edge_index = batch["edge_index"]
+    # xt = batch["input"]
+    # xtp1 = batch["target"]
+    # edge_index = batch["edge_index"]
 
-    model.eval()
-    with torch.no_grad():
-        pred = model(xt, edge_index)
+    # model.eval()
+    # with torch.no_grad():
+    #     pred = model(xt, edge_index)
 
-    # Convert to numpy
-    true = xtp1.detach().cpu().numpy().reshape(-1)
-    pred = pred.detach().cpu().numpy().reshape(-1)
+    # # Convert to numpy
+    # true = xtp1.detach().cpu().numpy().reshape(-1)
+    # pred = pred.detach().cpu().numpy().reshape(-1)
 
-    # Sphere coordinates (N,)
-    ds = xr.open_dataset("wave_sphere_data_test.nc")
-    x = ds["x"].values
-    y = ds["y"].values
-    z = ds["z"].values
-    N = x.shape[0]
+    # # Sphere coordinates (N,)
+    # ds = xr.open_dataset("wave_sphere_data_test.nc")
+    # x = ds["x"].values
+    # y = ds["y"].values
+    # z = ds["z"].values
+    # N = x.shape[0]
 
-    # Because batch_size=32, true/pred have length B*N. Plot only first graph:
-    true0 = true[:N]
-    pred0 = pred[:N]
+    # # Because batch_size=32, true/pred have length B*N. Plot only first graph:
+    # true0 = true[:N]
+    # pred0 = pred[:N]
 
-    # ---- 3D scatter plots ----
-    fig = plt.figure(figsize=(12, 5))
+    # # ---- 3D scatter plots ----
+    # fig = plt.figure(figsize=(12, 5))
 
-    ax1 = fig.add_subplot(121, projection="3d")
-    p1 = ax1.scatter(x, y, z, c=true0, cmap="viridis")
-    ax1.set_title("True u(t+1) (graph 0)")
-    fig.colorbar(p1, ax=ax1, shrink=0.7)
+    # ax1 = fig.add_subplot(121, projection="3d")
+    # p1 = ax1.scatter(x, y, z, c=true0, cmap="viridis")
+    # ax1.set_title("True u(t+1) (graph 0)")
+    # fig.colorbar(p1, ax=ax1, shrink=0.7)
 
-    ax2 = fig.add_subplot(122, projection="3d")
-    p2 = ax2.scatter(x, y, z, c=pred0, cmap="viridis")
-    ax2.set_title("Predicted u(t+1) (graph 0)")
-    fig.colorbar(p2, ax=ax2, shrink=0.7)
+    # ax2 = fig.add_subplot(122, projection="3d")
+    # p2 = ax2.scatter(x, y, z, c=pred0, cmap="viridis")
+    # ax2.set_title("Predicted u(t+1) (graph 0)")
+    # fig.colorbar(p2, ax=ax2, shrink=0.7)
 
-    plt.tight_layout()
-    plt.show()
+    # plt.tight_layout()
+    # plt.show()
 
 if __name__ == "__main__":
     main()

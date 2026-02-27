@@ -7,86 +7,28 @@ from matplotlib import cm, colors
 from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 import torch
 
-def triangles_from_m2m_edge_index(edge_index: np.ndarray) -> np.ndarray:
-    """
-    Reconstruct triangles from an undirected graph by finding 3-cliques.
-
-    edge_index: (2, E) array of directed edges (likely contains both directions).
-    Returns: (T, 3) int array of triangle vertex indices.
-    """
-    if edge_index.shape[0] != 2:
-        raise ValueError("edge_index must have shape (2, E)")
-
-    src = edge_index[0]
-    dst = edge_index[1]
-
-    # Build undirected adjacency sets
-    N = int(max(src.max(), dst.max())) + 1
-    nbrs = [set() for _ in range(N)]
-    for u, v in zip(src, dst):
-        if u == v:
-            continue
-        nbrs[int(u)].add(int(v))
-        nbrs[int(v)].add(int(u))
-
-    # Find triangles u < v < w with edges (u,v), (u,w), (v,w)
-    triangles = []
-    for u in range(N):
-        nu = sorted(nbrs[u])
-        # Intersect neighbor sets to find common neighbors
-        for i, v in enumerate(nu):
-            if v <= u:
-                continue
-            common = nbrs[u].intersection(nbrs[v])
-            for w in common:
-                if w > v:  # enforce ordering u < v < w
-                    triangles.append((u, v, w))
-
-    if not triangles:
-        raise RuntimeError(
-            "No triangles found from the graph edges. "
-            "If this is not a triangular mesh graph, clique-triangle reconstruction won't work."
-        )
-
-    return np.asarray(triangles, dtype=np.int64)
-
-
 class DataPlotter:
-    def __init__(self, nc_path: str, graph_dir: str):
-        self.data = xr.open_dataset(nc_path)
+    def __init__(self, nc_path=None, ds=None):
+
+        if ds is not None:
+            self.data = ds
+        else:
+            self.data = xr.open_dataset(nc_path)
 
         # positions from dataset
-        self.P = np.column_stack([self.data["x"].values,
-                                  self.data["y"].values,
-                                  self.data["z"].values]).astype(np.float64)  # (N,3)
-
-        # load graph m2m edges
-        m2m_path = os.path.join(graph_dir, "m2m_edge_index.pt")
-        m2m = torch.load(m2m_path, map_location="cpu")
-
-        # neural-lam stores m2m_edge_index.pt as a list for multi-level graphs; handle both
-        if isinstance(m2m, list):
-            edge_index = m2m[0].detach().cpu().numpy()
-        else:
-            edge_index = m2m.detach().cpu().numpy()
-
-        self.tri = triangles_from_m2m_edge_index(edge_index)  # (T,3)
+        self.P = self.data.attrs["P"].T  # (N,3)
+        self.tri = self.data.attrs["tri"]
+        self.R = self.data.attrs["R"]  # scalar
 
     def animate_sphere(self,
-                       R=None,
                        out_path=None,
                        fps=10,
                        interval=100,
                        cmap_name="viridis"):
 
-        P = self.P  # (N,3)
         tri = np.asarray(self.tri, dtype=int)
         u_data = self.data["u"].values
         time_steps = self.data["time"].values
-
-        if R is None:
-            # infer from max norm of points
-            R = float(np.nanmax(np.linalg.norm(P, axis=1)))
 
         # stable colormap range
         u_min = float(np.nanmin(u_data))
@@ -95,7 +37,7 @@ class DataPlotter:
         cmap = cm.get_cmap(cmap_name)
 
         # Build triangle vertex coordinates (T,3,3)
-        tri_vertices = P[tri]  # each row is (v0,v1,v2) each v is (x,y,z)
+        tri_vertices = self.P[tri]  # each row is (v0,v1,v2) each v is (x,y,z)
 
         fig = plt.figure(figsize=(10, 8))
         ax = fig.add_subplot(111, projection="3d")
@@ -113,9 +55,9 @@ class DataPlotter:
         cbar = fig.colorbar(sm, ax=ax, pad=0.1, shrink=0.8)
         cbar.set_label("u")
 
-        ax.set_xlim(-R, R)
-        ax.set_ylim(-R, R)
-        ax.set_zlim(-R, R)
+        ax.set_xlim(-self.R, self.R)
+        ax.set_ylim(-self.R, self.R)
+        ax.set_zlim(-self.R, self.R)
         ax.set_box_aspect([1, 1, 1])
         ax.set_xlabel("Distance x (m)")
         ax.set_ylabel("Distance y (m)")

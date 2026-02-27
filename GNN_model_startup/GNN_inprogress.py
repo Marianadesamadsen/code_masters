@@ -5,7 +5,7 @@ import torch.nn as nn
 import torch
 import xarray as xr
 import numpy as np
-
+ 
 def tri_to_edge_index(tri: np.ndarray, make_undirected: bool = True) -> np.ndarray:
     """
     tri: (F, 3) triangle indices

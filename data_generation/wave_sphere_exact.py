@@ -3,7 +3,7 @@ from numpy.linalg import eigh
 from scipy.special import lpmv
 from math import pi
 
-def wave_sphere_exact(XYZ, t, f_handle, g_handle, Lmax, c, R):
+def wave_sphere_exact(XYZ, t, f_handle, g_handle, Lmax, c, R, return_coeffs=False):
     """
     Exact spectral solution of u_tt = c^2 Δ_{S^2_R} u on a sphere of radius R.
 
@@ -92,7 +92,7 @@ def wave_sphere_exact(XYZ, t, f_handle, g_handle, Lmax, c, R):
             if m > 0:
                 flm[ell, col_neg] = ((-1) ** m) * np.conj(flm_pos)
                 glm[ell, col_neg] = ((-1) ** m) * np.conj(glm_pos)
-    
+     
 
     non_zero_f = np.sum(np.abs(flm) > 1e-10)
     non_zero_g = np.sum(np.abs(glm) > 1e-10)
@@ -135,6 +135,12 @@ def wave_sphere_exact(XYZ, t, f_handle, g_handle, Lmax, c, R):
 
     if np.isrealobj(fq) and np.isrealobj(gq):
         u = u.real
+
+    if return_coeffs:
+        # also return modal coefficients at time t
+        # flm, glm, ulm shapes: (Lmax+1, 2*Lmax+1) where m index is shifted by +Lmax
+        return u, {"flm": flm, "glm": glm, "ulm": ulm, "mvals": mvals}
+
     return u
 
 
