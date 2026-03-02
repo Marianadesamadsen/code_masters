@@ -38,7 +38,6 @@ class SimulatorWaveEquation:
         )
         return coeffs  # dict with flm/glm/ulm/mvals
 
-
     def simulate(self, title="test", graph_name="1level", savedata: bool = True, savegraph: bool = True):
         u = self.get_u()  # (time, N)
         ds = self.setup_xarray(u)
