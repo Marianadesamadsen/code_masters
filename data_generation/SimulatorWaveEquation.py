@@ -12,7 +12,7 @@ class SimulatorWaveEquation:
         self.Lmax = int(Lmax)
         self.f_handle = f_handle
         self.g_handle = g_handle
-        self.tmax = float(tmax)
+        self.tmax = float(tmax) 
         self.generations = int(generations)
         self.dt = float(dt)
         self.P, tri = self.create_mesh()
@@ -20,6 +20,28 @@ class SimulatorWaveEquation:
         self.time = self.create_time_steps()
         self.xyz = np.asarray(self.P.T, dtype=np.float64)  # (N, 3)
         self.N = self.xyz.shape[0]
+        self.edges = self.tri_to_edges()
+        self.dx = self.R * np.sqrt(4 * np.pi / self.N)
+        self.clf = self.dx < self.dt * self.C  # CFL condition
+        self.clf_value = self.dx / (self.dt * self.C)
+
+    def tri_to_edges(self):
+        edges = []
+
+        for i, j, k in self.tri:
+            edges.append((i, j))
+            edges.append((j, k))
+            edges.append((k, i))
+
+            edges.append((j, i))
+            edges.append((k, j))
+            edges.append((i, k))
+
+        edges = np.array(edges)
+        edges = np.unique(edges, axis=0)
+
+        edge_index = edges.T
+        return edge_index
 
     def get_u(self):
         u = self.data_sim_all()  # (time, N)
@@ -47,6 +69,14 @@ class SimulatorWaveEquation:
             self.save_graph(title, graph_name=graph_name)
         return ds
     
+    def simulate_ensemble(self, fg_list, title="ensemble", savedata=True):
+
+        u = self.data_sim_all_ensemble(fg_list)  # (member, time, N)
+        ds = self.setup_xarray(u)
+        if savedata:
+            self.save_data(ds, title=title)
+        return ds
+    
     def save_data(self, ds, title="test"): 
         nc_path = "../data/nc_files"
         os.makedirs(nc_path, exist_ok=True)
@@ -64,47 +94,80 @@ class SimulatorWaveEquation:
             radius=float(self.R),
         )
 
-    def setup_xarray(self,u):
-        
+    def setup_xarray(self, u):
         N = self.xyz.shape[0]
-        if u.ndim != 2 or u.shape[1] != N:
-            raise ValueError(f"u should have shape (time, {N}); got {u.shape}")
+        Ttri = self.tri.shape[0]
+        E = self.edges.shape[1]  # edges is (2, E)
 
-        if self.tri.ndim != 2 or self.tri.shape[1] != 3:
-            raise ValueError(f"tri should have shape (T, 3); got {self.tri.shape}")
-        T = self.tri.shape[0]
+        if u.ndim == 2:
+            u_dims = ("time", "grid_index")
+            coords = {
+                "time": ("time", self.time),
+                "grid_index": np.arange(N, dtype=np.int64),
+            }
+        elif u.ndim == 3:
+            nmem = u.shape[0]
+            u_dims = ("member", "time", "grid_index")
+            coords = {
+                "member": np.arange(nmem, dtype=np.int64),
+                "time": ("time", self.time),
+                "grid_index": np.arange(N, dtype=np.int64),
+            }
+        else:
+            raise ValueError(f"u must be 2D or 3D; got {u.shape}")
 
         ds = xr.Dataset(
             data_vars={
-                # state over time
-                "u": (("time", "grid_index"), u),
+                "u": (u_dims, u),
 
-                # static features as data vars
                 "x_static": (("grid_index",), self.xyz[:, 0].astype(np.float32)),
                 "y_static": (("grid_index",), self.xyz[:, 1].astype(np.float32)),
                 "z_static": (("grid_index",), self.xyz[:, 2].astype(np.float32)),
+ 
+                # store mesh connectivity as variables (NOT attrs)
+                "tri": (("triangle", "three"), self.tri.astype(np.int64)),          # (Ttri, 3)
+                "edge_index": (("two", "edge"), self.edges.astype(np.int64)),       # (2, E)
+
+                # optional: store P as (3,N) or (N,3); pick one and be consistent
+                "P": (("grid_index", "xyz"), self.xyz.astype(np.float64)),          # (N,3)
             },
             coords={
-                "time": ("time", self.time),
-                "grid_index": np.arange(N, dtype=np.int64),
-
-                # convenience coords for plotting
+                **coords,
                 "x": ("grid_index", self.xyz[:, 0]),
                 "y": ("grid_index", self.xyz[:, 1]),
                 "z": ("grid_index", self.xyz[:, 2]),
+                "triangle": np.arange(Ttri, dtype=np.int64),
+                "edge": np.arange(E, dtype=np.int64),
+                "xyz": np.array(["x", "y", "z"]),
+                "two": np.array([0, 1], dtype=np.int64),
+                "three": np.array([0, 1, 2], dtype=np.int64),
             },
             attrs={
-                "R": float(self.R), 
+                "R": float(self.R),
                 "tmax": float(self.tmax),
                 "C": float(self.C),
                 "Lmax": int(self.Lmax),
                 "dt": float(self.dt),
-                "dx": float(self.R * np.sqrt(4 * np.pi / N)),
-                "P": self.P, 
-                "tri": self.tri,
+                "dx": float(self.dx),
+                "cfl_ok": bool(self.clf),
+                "cfl_value": float(self.clf_value),
             }
-        ) 
+        )
         return ds
+
+    def data_sim_all_ensemble(self, fg_list):
+        u_members = []
+        for (f_i, g_i) in fg_list:
+            # simulate all times for this member
+            u_list = [
+                exact.wave_sphere_exact(
+                    self.P.T, t, f_i, g_i, self.Lmax, self.C, self.R
+                )
+                for t in self.time
+            ]
+            u_members.append(np.stack(u_list, axis=0))  # (time, N)
+
+        return np.stack(u_members, axis=0)  # (member, time, N)
 
     def create_time_steps(self):
         n_steps = int(np.floor(self.tmax / self.dt)) + 1

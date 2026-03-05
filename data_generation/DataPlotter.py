@@ -16,11 +16,13 @@ class DataPlotter:
             self.data = xr.open_dataset(nc_path)
 
         # positions from dataset
-        self.P = self.data.attrs["P"].T  # (N,3)
-        self.tri = self.data.attrs["tri"]
+        P = (self.data["P"].values).T  # (N,3)
+        self.P = P.T if P.shape[0] == 3 else P
+        self.tri = self.data["tri"].values
         self.R = self.data.attrs["R"]  # scalar
 
     def animate_sphere(self,
+                       norm,
                        out_path=None,
                        fps=10,
                        interval=100,
@@ -31,9 +33,6 @@ class DataPlotter:
         time_steps = self.data["time"].values
 
         # stable colormap range
-        u_min = float(np.nanmin(u_data))
-        u_max = float(np.nanmax(u_data))
-        norm = colors.Normalize(vmin=u_min, vmax=u_max)
         cmap = cm.get_cmap(cmap_name)
 
         # Build triangle vertex coordinates (T,3,3)
