@@ -22,8 +22,9 @@ class SimulatorWaveEquation:
         self.N = self.xyz.shape[0]
         self.edges = self.tri_to_edges()
         self.dx = self.R * np.sqrt(4 * np.pi / self.N)
-        self.clf = self.dx < self.dt * self.C  # CFL condition
-        self.clf_value = self.dx / (self.dt * self.C)
+        self.clf = self.dt <= (self.dx / self.C)  # CFL condition
+        self.clf_value = self.C * self.dt / self.dx
+        self.lat, self.lon = self.get_lat_long()
 
     def tri_to_edges(self):
         edges = []
@@ -130,6 +131,9 @@ class SimulatorWaveEquation:
 
                 # optional: store P as (3,N) or (N,3); pick one and be consistent
                 "P": (("grid_index", "xyz"), self.xyz.astype(np.float64)),          # (N,3)
+
+                "lat": (("grid_index",), self.lat.astype(np.float32)),
+                "lon": (("grid_index",), self.lon.astype(np.float32)),
             },
             coords={
                 **coords,

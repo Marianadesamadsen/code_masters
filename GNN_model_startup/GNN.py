@@ -6,7 +6,6 @@ import torch.nn.functional as F
 import pytorch_lightning as pl
 
 from torch_geometric.data import Data
-from torch_geometric.loader import DataLoader as PyGDataLoader
 from torch_geometric.utils import scatter
 
 
