@@ -1,7 +1,7 @@
 import numpy as np
 import os
 import torch
-
+ 
 def tri_to_undirected_edges(tri: np.ndarray) -> np.ndarray:
     tri = np.asarray(tri, dtype=np.int64)
     a = tri[:, [0, 1]]

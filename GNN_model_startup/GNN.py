@@ -93,7 +93,7 @@ class GNNModel(pl.LightningModule):
         self.log("train_loss", loss, on_step=False, on_epoch=True, batch_size=batch.num_graphs)
 
         self.train_losses.append(loss.detach().cpu().item())
-        return loss
+        return loss 
 
     def configure_optimizers(self):
         return torch.optim.Adam(self.parameters(), lr=self.lr)

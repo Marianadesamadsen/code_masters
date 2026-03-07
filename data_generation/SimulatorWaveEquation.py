@@ -5,7 +5,7 @@ from . import savegraph
 from . import mesh_functions as mesh
 from . import wave_sphere_exact as exact
 
-class SimulatorWaveEquation:
+class SimulatorWaveEquation: 
     def __init__(self, R, C, Lmax, tmax, f_handle, g_handle, generations, dt: int = 0.1):
         self.R = float(R)
         self.C = float(C)
@@ -199,5 +199,5 @@ class SimulatorWaveEquation:
         lon = np.arctan2(y, x)
         lat = np.arcsin(np.clip(z / self.R, -1.0, 1.0))
 
-        return lat, lon
+        return lat, lon # radians   
     
