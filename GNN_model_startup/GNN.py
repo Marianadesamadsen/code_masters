@@ -18,7 +18,7 @@ class WaveData(torch.utils.data.Dataset):
         self.mean = self.u.mean()
         self.std = max(self.u.std(), 1e-8)
 
-        edge_index = self.data["edge_index"]  # expected shape (2, E)
+        edge_index = self.data["edge_index"]  
         edge_index = np.asarray(edge_index, dtype=np.int64)
         if edge_index.shape[0] != 2:
             raise ValueError(f"edges must have shape (2,E). Got {edge_index.shape}")
@@ -55,23 +55,16 @@ class GNNModel(pl.LightningModule):
         self.lr = lr
 
     def forward(self, data: Data):
-        """
-        data.x: (N_total, Fin)
-        data.edge_index: (2, E_total)
-        data is a PyG Batch during training.
-        """
+
         x = data.x
         edge_index = data.edge_index
-        src, dst = edge_index[0], edge_index[1]  # (E,), (E,)
+        src, dst = edge_index[0], edge_index[1] 
 
-        # messages on edges: m_e = phi([x_src, x_dst])
         x_src = x[src]
         x_dst = x[dst]
-        m_in = torch.cat([x_src, x_dst], dim=-1)   # (E, 2*Fin)
-        messages = self.phi(m_in)                  # (E, Fm)
+        m_in = torch.cat([x_src, x_dst], dim=-1)  
+        messages = self.phi(m_in)                 
 
-        # aggregate messages per destination node
-        # scatter supports reduce="sum" or "mean"
         if self.aggregate == "sum":
             agg = scatter(messages, dst, dim=0, dim_size=x.size(0), reduce="sum")
         elif self.aggregate == "mean":
@@ -81,9 +74,8 @@ class GNNModel(pl.LightningModule):
         else:
             raise ValueError(f"Unknown aggregate='{self.aggregate}'")
 
-        # update: x_next = psi([x, agg])
-        u_in = torch.cat([x, agg], dim=-1)   # (N_total, Fin+Fm)
-        x_next = x + self.psi(u_in)             # (N_total, Fin_out)
+        u_in = torch.cat([x, agg], dim=-1)   
+        x_next = x + self.psi(u_in)       
         return x_next 
 
     def training_step(self, batch: Data, batch_idx: int):
