@@ -53,7 +53,6 @@ class GNNModel(pl.LightningModule):
         self.psi = psi
         self.aggregate = aggregate
         self.lr = lr
-        self.train_losses = []
 
     def forward(self, data: Data):
         """
@@ -90,11 +89,43 @@ class GNNModel(pl.LightningModule):
     def training_step(self, batch: Data, batch_idx: int):
         pred = self(batch)
         loss = F.smooth_l1_loss(pred,batch.y,beta=0.01) #F.mse_loss(pred, batch.y)
-        self.log("train_loss", loss, on_step=False, on_epoch=True, batch_size=batch.num_graphs)
-
-        self.train_losses.append(loss.detach().cpu().item())
+        self.log("train_loss", loss, on_step=False, on_epoch=True, prog_bar=True, logger=True)
         return loss 
+
+    # def validation_step(self, batch, batch_idx):
+    #     x, y = batch
+    #     y_hat = self(x)
+
+    #     mse = torch.mean((y_hat - y) ** 2)
+    #     rmse = torch.sqrt(mse)
+
+    #     # log epoch-level validation RMSE
+    #     self.log(
+    #         "val_rmse",
+    #         rmse,
+    #         on_step=False,
+    #         on_epoch=True,
+    #         prog_bar=True,
+    #         logger=True,
+    #     )
+
+    # def test_step(self, batch, batch_idx):
+    #     x, y = batch
+    #     y_hat = self(x)
+
+    #     mse = torch.mean((y_hat - y) ** 2)
+    #     rmse = torch.sqrt(mse)
+
+    #     self.log(
+    #         "test_rmse",
+    #         rmse,
+    #         on_step=False,
+    #         on_epoch=True,
+    #         prog_bar=True,
+    #         logger=True,
+    #     )
 
     def configure_optimizers(self):
         return torch.optim.Adam(self.parameters(), lr=self.lr)
+
 

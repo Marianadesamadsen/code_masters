@@ -95,10 +95,21 @@ class SimulatorWaveEquation:
             radius=float(self.R),
         )
 
-    def setup_xarray(self, u):
+    def setup_xarray(self, u, centers=None, sigmas=None, amplitudes=None):
         N = self.xyz.shape[0]
         Ttri = self.tri.shape[0]
         E = self.edges.shape[1]  # edges is (2, E)
+
+        data_vars = {
+            "x_static": (("grid_index",), self.xyz[:, 0].astype(np.float32)),
+            "y_static": (("grid_index",), self.xyz[:, 1].astype(np.float32)),
+            "z_static": (("grid_index",), self.xyz[:, 2].astype(np.float32)),
+            "tri": (("triangle", "three"), self.tri.astype(np.int64)),
+            "edge_index": (("two", "edge"), self.edges.astype(np.int64)),
+            "P": (("grid_index", "xyz"), self.xyz.astype(np.float64)),
+            "lat": (("grid_index",), self.lat.astype(np.float32)),
+            "lon": (("grid_index",), self.lon.astype(np.float32)),
+        }
 
         if u.ndim == 2:
             u_dims = ("time", "grid_index")
@@ -106,35 +117,43 @@ class SimulatorWaveEquation:
                 "time": ("time", self.time),
                 "grid_index": np.arange(N, dtype=np.int64),
             }
+            data_vars["u"] = (u_dims, u)
+
         elif u.ndim == 3:
             nmem = u.shape[0]
-            u_dims = ("member", "time", "grid_index")
+            u_dims = ("ensemble", "time", "grid_index")
             coords = {
-                "member": np.arange(nmem, dtype=np.int64),
+                "ensemble": np.arange(nmem, dtype=np.int64),
                 "time": ("time", self.time),
                 "grid_index": np.arange(N, dtype=np.int64),
             }
+            data_vars["u"] = (u_dims, u)
+
+            if centers is not None:
+                centers = np.asarray(centers, dtype=np.float64)
+                if centers.shape != (nmem, 3):
+                    raise ValueError(f"centers must have shape ({nmem}, 3), got {centers.shape}")
+                data_vars["center"] = (("ensemble", "xyz"), centers)
+
+            if sigmas is not None:
+                sigmas = np.asarray(sigmas, dtype=np.float64)
+                if sigmas.shape != (nmem,):
+                    raise ValueError(f"sigmas must have shape ({nmem},), got {sigmas.shape}")
+                data_vars["sigma"] = (("ensemble",), sigmas)
+                sigma_deg = np.rad2deg(sigmas)
+                data_vars["sigma_deg"] = (("ensemble",), sigma_deg)
+
+            if amplitudes is not None:
+                amplitudes = np.asarray(amplitudes, dtype=np.float64)
+                if amplitudes.shape != (nmem,):
+                    raise ValueError(f"amplitudes must have shape ({nmem},), got {amplitudes.shape}")
+                data_vars["A"] = (("ensemble",), amplitudes)
+
         else:
             raise ValueError(f"u must be 2D or 3D; got {u.shape}")
 
         ds = xr.Dataset(
-            data_vars={
-                "u": (u_dims, u),
-
-                "x_static": (("grid_index",), self.xyz[:, 0].astype(np.float32)),
-                "y_static": (("grid_index",), self.xyz[:, 1].astype(np.float32)),
-                "z_static": (("grid_index",), self.xyz[:, 2].astype(np.float32)),
- 
-                # store mesh connectivity as variables (NOT attrs)
-                "tri": (("triangle", "three"), self.tri.astype(np.int64)),          # (Ttri, 3)
-                "edge_index": (("two", "edge"), self.edges.astype(np.int64)),       # (2, E)
-
-                # optional: store P as (3,N) or (N,3); pick one and be consistent
-                "P": (("grid_index", "xyz"), self.xyz.astype(np.float64)),          # (N,3)
-
-                "lat": (("grid_index",), self.lat.astype(np.float32)),
-                "lon": (("grid_index",), self.lon.astype(np.float32)),
-            },
+            data_vars=data_vars,
             coords={
                 **coords,
                 "x": ("grid_index", self.xyz[:, 0]),
@@ -157,6 +176,27 @@ class SimulatorWaveEquation:
                 "cfl_value": float(self.clf_value),
             }
         )
+        
+        return ds
+    
+    def simulate_ensemble(
+        self,
+        fg_list,
+        title="ensemble",
+        savedata=True,
+        centers=None,
+        sigmas=None,
+        amplitudes=None,
+    ):
+        u = self.data_sim_all_ensemble(fg_list)  # (member, time, N)
+        ds = self.setup_xarray(
+            u,
+            centers=centers,
+            sigmas=sigmas,
+            amplitudes=amplitudes,
+        )
+        if savedata:
+            self.save_data(ds, title=title)
         return ds
 
     def data_sim_all_ensemble(self, fg_list):
