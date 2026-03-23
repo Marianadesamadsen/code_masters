@@ -33,7 +33,7 @@ class DataPlotter:
         tri = np.asarray(self.tri, dtype=int)
         u_data = self.data["u"].values
         time_steps = self.data["time"].values
-
+ 
         # stable colormap range
         cmap = cm.get_cmap(cmap_name)
 
