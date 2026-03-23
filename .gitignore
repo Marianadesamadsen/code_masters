@@ -12,10 +12,12 @@ wheels/
 *.ckpt
 saved_models/
 wandb/
-notebooks/lightning_logs/
+scripts/lightning_logs/
 *.log
 *.pt
 
 data/
 *.zarr/
 *.nc
+data/
+data/nc_files/
