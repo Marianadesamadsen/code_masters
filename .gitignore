@@ -8,3 +8,9 @@ wheels/
 
 # Virtual environments
 .venv
+
+*.ckpt
+saved_models/
+wandb/
+notebooks/lightning_logs/
+*.log
