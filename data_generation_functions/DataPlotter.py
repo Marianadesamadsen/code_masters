@@ -1,11 +1,9 @@
-import os
 import xarray as xr
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 from matplotlib import cm, colors
 from mpl_toolkits.mplot3d.art3d import Poly3DCollection
-import torch
 
 class DataPlotter:
     def __init__(self, nc_path=None, ds=None):
@@ -15,11 +13,10 @@ class DataPlotter:
         else:
             self.data = xr.open_dataset(nc_path)
 
-        # positions from dataset
         P = (self.data["P"].values).T  # (N,3)
         self.P = P.T if P.shape[0] == 3 else P
         self.tri = self.data["tri"].values
-        self.R = self.data.attrs["R"]  # scalar
+        self.R = self.data.attrs["R"]  
 
     def animate_sphere(self,
                        norm,
@@ -27,6 +24,11 @@ class DataPlotter:
                        fps=10,
                        interval=100,
                        cmap_name="viridis"):
+        
+        # Norm input example:
+        # u_min = float(np.nanmin(ds["u"].values))
+        # u_max = float(np.nanmax(ds["u"].values))
+        # norm = colors.Normalize(vmin=u_min, vmax=u_max)
 
         tri = np.asarray(self.tri, dtype=int)
         u_data = self.data["u"].values
@@ -35,8 +37,7 @@ class DataPlotter:
         # stable colormap range
         cmap = cm.get_cmap(cmap_name)
 
-        # Build triangle vertex coordinates (T,3,3)
-        tri_vertices = self.P[tri]  # each row is (v0,v1,v2) each v is (x,y,z)
+        tri_vertices = self.P[tri]  
 
         fig = plt.figure(figsize=(10, 8))
         ax = fig.add_subplot(111, projection="3d")
@@ -67,7 +68,7 @@ class DataPlotter:
             u_face = u[tri].mean(axis=1)   # (T,)
             poly.set_facecolor(cmap(norm(u_face)))
             t = time_steps[frame]
-            t_sec = t #/ np.timedelta64(1, "s")
+            t_sec = t
             ax.set_title(f"Wave equation on sphere (t = {float(t_sec):.6f} s)")
             return [poly]
 

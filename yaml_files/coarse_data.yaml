@@ -1,0 +1,70 @@
+schema_version: v0.6.0
+dataset_version: v0.1.0
+
+output:
+  variables:
+    static: [grid_index, static_feature]
+    state: [time, grid_index, state_feature, ensemble]
+
+  coord_ranges:
+    time:
+      start: 0
+      end: 15.329402499064276
+
+  chunking:
+    time: 1
+
+  splitting:
+    dim: time
+    splits:
+      train:
+        start: 0
+        end: 10.73
+        compute_statistics:
+          ops: [mean, std, diff_mean, diff_std]
+          dims: [grid_index, time, ensemble]
+      val:
+        start: 10.73
+        end: 13.02999
+      test:
+        start: 13.02999
+        end: 15.329402499064276
+
+inputs:
+  wave_sphere:
+    path: C:\\Users\\maria\\OneDrive - Danmarks Tekniske Universitet\\Kandidat\\Masters\\code_masters\\data\\nc_files\\wave_ensemble_100_coarse_new.nc
+    dims: [time, grid_index, ensemble]
+    variables:
+      - u
+    dim_mapping:
+      time:
+        method: rename
+        dim: time
+      grid_index:
+        method: rename
+        dim: grid_index
+      ensemble:
+        method: rename
+        dim: ensemble
+      state_feature:
+        method: stack_variables_by_var_name
+        name_format: "{var_name}"
+    target_output_variable: state
+
+  wave_sphere_static:
+    path: C:\\Users\\maria\\OneDrive - Danmarks Tekniske Universitet\\Kandidat\\Masters\\code_masters\\data\\nc_files\\wave_ensemble_100_coarse_new.nc
+    dims: [grid_index]
+    variables:
+      - x_static
+      - y_static
+      - z_static
+    dim_mapping:
+      grid_index:
+        method: rename
+        dim: grid_index
+      static_feature:
+        method: stack_variables_by_var_name
+        name_format: "{var_name}"
+    target_output_variable: static
+
+    

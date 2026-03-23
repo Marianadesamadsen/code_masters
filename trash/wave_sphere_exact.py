@@ -1,7 +1,7 @@
 import numpy as np
 from numpy.linalg import eigh
 from scipy.special import lpmv
-from math import pi
+from math import pi 
 
 def wave_sphere_exact(XYZ, t, f_handle, g_handle, Lmax, c, R, return_coeffs=False):
     """
