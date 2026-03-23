@@ -14,3 +14,7 @@ saved_models/
 wandb/
 notebooks/lightning_logs/
 *.log
+
+data/
+*.zarr/
+*.nc
