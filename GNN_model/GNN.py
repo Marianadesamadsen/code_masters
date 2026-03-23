@@ -66,15 +66,8 @@ class GNNModel(pl.LightningModule):
         m_in = torch.cat([x_src, x_dst], dim=-1)  
         messages = self.phi(m_in)                 
 
-        if self.aggregate == "sum":
-            agg = scatter(messages, dst, dim=0, dim_size=x.size(0), reduce="sum")
-        elif self.aggregate == "mean":
-            agg = scatter(messages, dst, dim=0, dim_size=x.size(0), reduce="mean")
-        elif self.aggregate == "max":
-            agg = scatter(messages, dst, dim=0, dim_size=x.size(0), reduce="max")
-        else:
-            raise ValueError(f"Unknown aggregate='{self.aggregate}'")
-
+        agg = scatter(messages, dst, dim=0, dim_size=x.size(0), reduce=self.aggregate)
+        
         u_in = torch.cat([x, agg], dim=-1)   
         x_next = x + self.psi(u_in)       
         return x_next 
