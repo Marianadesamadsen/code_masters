@@ -2,12 +2,12 @@
 # This respository includes 3 other repositories:
 mllam-data-prep, neural-lam and weather-model-graphs 
 
-# data:
+# Data 
 Data is saved in the folder called data 
 ATM: the test to make neural-lam working is done using the data set: coarse_data.
 This means that the coarse_data.yaml, config.yaml and graph/graph_coarse_data are connected when running neural-lam 
 
-# generating data 
+# Generating data 
 The functions concerning data generation is in the folder /scripts_data_generation 
 
 # Running code
