@@ -20,7 +20,7 @@ A function call to train_model in neural-lam can be found in /scripts/PY_files/t
 A function call to train_model using the --eval mode in neural-lam can be found in /scripts/PY_files/eval_model1.py
 
 # Own start up of GNN
-Under /GNN_model_startup, there is a start up code for a simple GNN without encode-process-decode developed by me
+Under /GNN_model_startup, there is a start up code for a simple GNN without encode-process-decode developed by me. A test script of running it can be found in scripts/NB_files/test_GNN.ipynb
 
 # Running code in general
 All running scripts are in the folder /scripts
