@@ -1,0 +1,11 @@
+datastore:
+  kind: mdp
+  config_path: coarse_data.yaml
+ 
+training:
+  state_feature_weighting:
+    __config_class__: ManualStateFeatureWeighting
+    weights:
+      u: 1.0
+
+

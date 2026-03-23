@@ -14,10 +14,9 @@ saved_models/
 wandb/
 scripts/lightning_logs/
 *.log
-*.pt
 
-data/
 *.zarr/
 *.nc
-data/
 data/nc_files/
+figures/
+trash/
