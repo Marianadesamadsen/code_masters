@@ -17,7 +17,7 @@ Graphs are created using weather-model-graphs. Example of creating a graph can b
 A function call to train_model in neural-lam can be found in /scripts/PY_files/train_model1.py (this uses coarse_data.yaml, graph_coarse_data, config.yaml)
 
 # Eval GNN using neural-lam
-A function call to train_model using the --eval mode in neural-lam can be found in /scripts/PY_files/eval_model1.py
+A function call to train_model using the --eval mode in neural-lam can be found in /scripts/PY_files/eval_model1.py. Test af eval er forsøgt i filen /scripts/load_mydataset_zarr.py, der opstår noget mærkeligt med kun 10 tidsskridt, har ikke lige nået at undersøge hvorfor. 
 
 # Own start up of GNN
 Under /GNN_model_startup, there is a start up code for a simple GNN without encode-process-decode developed by me. A test script of running it can be found in scripts/NB_files/test_GNN.ipynb
