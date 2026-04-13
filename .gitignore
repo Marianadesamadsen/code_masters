@@ -20,4 +20,6 @@ scripts/lightning_logs/
 data/nc_files/
 figures/
 trash/
+jobs/
+*.pt
 *.zip

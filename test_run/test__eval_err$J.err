@@ -1,0 +1,881 @@
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Seed set to 42
+2026-04-13 08:31:19.150 | WARNING  | neural_lam.datastore.mdp:__init__:67 - Config file has been modified since zarr was created. The old zarr archive (in /zhome/5e/a/152106/code_masters/data/coarse_data.zarr) will be used.To generate new zarr-archive, move the old one first.
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:196: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+wandb: WARNING The anonymous setting has no effect and will be removed in a future version.
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /zhome/5e/a/152106/.netrc.
+wandb: Currently logged in as: s201205 (s201205-danmarks-tekniske-universitet-dtu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run ydpyso8p
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in wandb/run-20260413_083122-ydpyso8p
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run Test coarse data with same mesh correct
+wandb: ⭐️ View project at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/neural_lam
+wandb: 🚀 View run at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/neural_lam/runs/ydpyso8p
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+Restoring states from the checkpoint path at /zhome/5e/a/152106/code_masters/saved_models/train coarse data with same mesh/min_val_loss.ckpt
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:566: The dirpath has changed from '/zhome/5e/a/152106/code_masters/saved_models/train coarse data with same mesh' to '/zhome/5e/a/152106/code_masters/saved_models/Test coarse data with same mesh correct', therefore `best_model_score`, `kth_best_model_path`, `kth_value`, `last_model_path` and `best_k_models` won't be reloaded. Only `best_model_path` will be reloaded.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loaded model weights from the checkpoint at /zhome/5e/a/152106/code_masters/saved_models/train coarse data with same mesh/min_val_loss.ckpt
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/models/ar_model.py:451: FutureWarning: In a future version of xarray the default value for join will change from join='outer' to join='exact'. This change will result in the following ValueError: cannot be aligned with join='exact' because index/labels/sizes are not equal along these coordinates (dimensions): 'elapsed_forecast_duration' ('elapsed_forecast_duration',) The recommendation is to set join explicitly for this case.
+  da_pred_batch = xr.concat(das_pred, dim="start_time")
+2026-04-13 08:32:16.316 | INFO     | neural_lam.models.ar_model:_save_predictions_to_zarr:484 - Saving predictions to /zhome/5e/a/152106/code_masters/test_eval_same_mesh.zarr
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/dtype/npy/string.py:249: UnstableSpecificationWarning: The data type (FixedLengthUTF32(length=1, endianness='little')) does not have a Zarr V3 specification. That means that the representation of arrays saved with this data type may change without warning in a future version of Zarr Python. Arrays stored with this data type may be unreadable by other Zarr libraries. Use this data type at your own risk! Check https://github.com/zarr-developers/zarr-extensions/tree/main/data-types for the status of data type specifications for Zarr V3.
+  v3_unstable_dtype_warning(self)
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/dtype/npy/string.py:249: UnstableSpecificationWarning: The data type (FixedLengthUTF32(length=11, endianness='little')) does not have a Zarr V3 specification. That means that the representation of arrays saved with this data type may change without warning in a future version of Zarr Python. Arrays stored with this data type may be unreadable by other Zarr libraries. Use this data type at your own risk! Check https://github.com/zarr-developers/zarr-extensions/tree/main/data-types for the status of data type specifications for Zarr V3.
+  v3_unstable_dtype_warning(self)
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/models/ar_model.py:451: FutureWarning: In a future version of xarray the default value for join will change from join='outer' to join='exact'. This change will result in the following ValueError: cannot be aligned with join='exact' because index/labels/sizes are not equal along these coordinates (dimensions): 'elapsed_forecast_duration' ('elapsed_forecast_duration',) The recommendation is to set join explicitly for this case.
+  da_pred_batch = xr.concat(das_pred, dim="start_time")
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/dtype/npy/string.py:249: UnstableSpecificationWarning: The data type (FixedLengthUTF32(length=1, endianness='little')) does not have a Zarr V3 specification. That means that the representation of arrays saved with this data type may change without warning in a future version of Zarr Python. Arrays stored with this data type may be unreadable by other Zarr libraries. Use this data type at your own risk! Check https://github.com/zarr-developers/zarr-extensions/tree/main/data-types for the status of data type specifications for Zarr V3.
+  v3_unstable_dtype_warning(self)
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/dtype/npy/string.py:249: UnstableSpecificationWarning: The data type (FixedLengthUTF32(length=11, endianness='little')) does not have a Zarr V3 specification. That means that the representation of arrays saved with this data type may change without warning in a future version of Zarr Python. Arrays stored with this data type may be unreadable by other Zarr libraries. Use this data type at your own risk! Check https://github.com/zarr-developers/zarr-extensions/tree/main/data-types for the status of data type specifications for Zarr V3.
+  v3_unstable_dtype_warning(self)
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/models/ar_model.py:451: FutureWarning: In a future version of xarray the default value for join will change from join='outer' to join='exact'. This change will result in the following ValueError: cannot be aligned with join='exact' because index/labels/sizes are not equal along these coordinates (dimensions): 'elapsed_forecast_duration' ('elapsed_forecast_duration',) The recommendation is to set join explicitly for this case.
+  da_pred_batch = xr.concat(das_pred, dim="start_time")
+2026-04-13 08:32:26.221 | ERROR    | __main__:<module>:4 - An error has been caught in function '<module>', process 'MainProcess' (1557203), thread 'MainThread' (140586538784576):
+Traceback (most recent call last):
+
+> File "/zhome/5e/a/152106/code_masters/scripts/PY_files/eval_model1.py", line 4, in <module>
+    train_model.main([
+    │           └ <function main at 0x7fdb7ff5b880>
+    └ <module 'neural_lam.train_model' from '/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py'>
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 356, in main
+    trainer.test(
+    │       └ <function Trainer.test at 0x7fdb922051c0>
+    └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7fdb7ca39490>
+
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 821, in test
+    return call._call_and_handle_interrupt(
+           │    └ <function _call_and_handle_interrupt at 0x7fdb922c9da0>
+           └ <module 'pytorch_lightning.trainer.call' from '/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lig...
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 49, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+           │           │       └ {}
+           │           └ (GraphLAM(
+           │               (grid_embedder): Sequential(
+           │                 (0): Linear(in_features=5, out_features=64, bias=True)
+           │                 (1): SiLU()
+           │                 (2):...
+           └ <bound method Trainer._test_impl of <pytorch_lightning.trainer.trainer.Trainer object at 0x7fdb7ca39490>>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 864, in _test_impl
+    results = self._run(model, ckpt_path=ckpt_path, weights_only=weights_only)
+              │    │    │                │                       └ False
+              │    │    │                └ '/zhome/5e/a/152106/code_masters/saved_models/train coarse data with same mesh/min_val_loss.ckpt'
+              │    │    └ GraphLAM(
+              │    │        (grid_embedder): Sequential(
+              │    │          (0): Linear(in_features=5, out_features=64, bias=True)
+              │    │          (1): SiLU()
+              │    │          (2): ...
+              │    └ <function Trainer._run at 0x7fdb92205620>
+              └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7fdb7ca39490>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1079, in _run
+    results = self._run_stage()
+              │    └ <function Trainer._run_stage at 0x7fdb92205760>
+              └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7fdb7ca39490>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1116, in _run_stage
+    return self._evaluation_loop.run()
+           │    └ <property object at 0x7fdb921f7290>
+           └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7fdb7ca39490>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/utilities.py", line 179, in _decorator
+    return loop_run(self, *args, **kwargs)
+           │        │      │       └ {}
+           │        │      └ ()
+           │        └ <pytorch_lightning.loops.evaluation_loop._EvaluationLoop object at 0x7fdb7ca28290>
+           └ <function _EvaluationLoop.run at 0x7fdb92381800>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 146, in run
+    self._evaluation_step(batch, batch_idx, dataloader_idx, dataloader_iter)
+    │    │                │      │          │               └ None
+    │    │                │      │          └ 0
+    │    │                │      └ 2
+    │    │                └ [tensor([[[[ 0.0963],
+    │    │                            [ 0.4974],
+    │    │                            [-0.7364],
+    │    │                            ...,
+    │    │                            [-0.7698],
+    │    │                            [-0.3591],
+    │    │                      ...
+    │    └ <function _EvaluationLoop._evaluation_step at 0x7fdb92382480>
+    └ <pytorch_lightning.loops.evaluation_loop._EvaluationLoop object at 0x7fdb7ca28290>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 441, in _evaluation_step
+    output = call._call_strategy_hook(trainer, hook_name, *step_args)
+             │    │                   │        │           └ ([tensor([[[[ 0.0963],
+             │    │                   │        │                       [ 0.4974],
+             │    │                   │        │                       [-0.7364],
+             │    │                   │        │                       ...,
+             │    │                   │        │                       [-0.7698],
+             │    │                   │        │                       [-0.3591],
+             │    │                   │        │                ...
+             │    │                   │        └ 'test_step'
+             │    │                   └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7fdb7ca39490>
+             │    └ <function _call_strategy_hook at 0x7fdb922f8b80>
+             └ <module 'pytorch_lightning.trainer.call' from '/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lig...
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 329, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+             │   │       └ {}
+             │   └ ([tensor([[[[ 0.0963],
+             │               [ 0.4974],
+             │               [-0.7364],
+             │               ...,
+             │               [-0.7698],
+             │               [-0.3591],
+             │        ...
+             └ <bound method Strategy.test_step of <pytorch_lightning.strategies.single_device.SingleDeviceStrategy object at 0x7fdb7fd74690>>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/strategies/strategy.py", line 425, in test_step
+    return self.lightning_module.test_step(*args, **kwargs)
+           │    │                           │       └ {}
+           │    │                           └ ([tensor([[[[ 0.0963],
+           │    │                                       [ 0.4974],
+           │    │                                       [-0.7364],
+           │    │                                       ...,
+           │    │                                       [-0.7698],
+           │    │                                       [-0.3591],
+           │    │                                ...
+           │    └ <property object at 0x7fdb92320040>
+           └ <pytorch_lightning.strategies.single_device.SingleDeviceStrategy object at 0x7fdb7fd74690>
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/models/ar_model.py", line 556, in test_step
+    self._save_predictions_to_zarr(
+    │    └ <function ARModel._save_predictions_to_zarr at 0x7fdb7ff59da0>
+    └ GraphLAM(
+        (grid_embedder): Sequential(
+          (0): Linear(in_features=5, out_features=64, bias=True)
+          (1): SiLU()
+          (2): ...
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/models/ar_model.py", line 487, in _save_predictions_to_zarr
+    ds_pred_batch.to_zarr(
+    │             └ <function Dataset.to_zarr at 0x7fdb823e7600>
+    └ <xarray.Dataset> Size: 185kB
+      Dimensions:                       (state_feature: 1,
+                                         elapsed_...
+
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/dataset.py", line 2390, in to_zarr
+    return to_zarr(  # type: ignore[call-overload,misc]
+           └ <function to_zarr at 0x7fdb9e804ae0>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/writers.py", line 797, in to_zarr
+    dump_to_store(dataset, zstore, writer, encoding=encoding)
+    │             │        │       │                └ {}
+    │             │        │       └ <xarray.backends.common.ArrayWriter object at 0x7fdb6456f580>
+    │             │        └ <xarray.backends.zarr.ZarrStore object at 0x7fdb641b5f80>
+    │             └ <xarray.Dataset> Size: 185kB
+    │               Dimensions:                       (state_feature: 1,
+    │                                                  elapsed_...
+    └ <function dump_to_store at 0x7fdb9e804720>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/writers.py", line 491, in dump_to_store
+    store.store(variables, attrs, check_encoding, writer, unlimited_dims=unlimited_dims)
+    │     │     │          │      │               │                      └ None
+    │     │     │          │      │               └ <xarray.backends.common.ArrayWriter object at 0x7fdb6456f580>
+    │     │     │          │      └ set()
+    │     │     │          └ {}
+    │     │     └ {'state_feature': <xarray.IndexVariable 'state_feature' (state_feature: 1)> Size: 4B
+    │     │       array(['u'], dtype='<U1'), 'elapsed_fore...
+    │     └ <function ZarrStore.store at 0x7fdb9e7c7740>
+    └ <xarray.backends.zarr.ZarrStore object at 0x7fdb641b5f80>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 1039, in store
+    variables_encoded[var_name] = _validate_and_transpose_existing_dims(
+    │                 │           └ <function _validate_and_transpose_existing_dims at 0x7fdb9e7c6ac0>
+    │                 └ 'time'
+    └ {'state_feature_long_name': <xarray.Variable (state_feature: 1)> Size: 4B
+      dask.array<open_dataset-state_feature_long_name, sh...
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 584, in _validate_and_transpose_existing_dims
+    raise ValueError(
+
+ValueError: variable 'time' already exists with different dimension sizes: {'elapsed_forecast_duration': 16} != {'elapsed_forecast_duration': 17}. to_zarr() only supports changing dimension sizes when explicitly appending, but append_dim='start_time'. If you are attempting to write to a subset of the existing store without changing dimension sizes, consider using the region argument in to_zarr().
+Traceback (most recent call last):
+  File "/zhome/5e/a/152106/code_masters/scripts/PY_files/eval_model1.py", line 4, in <module>
+    train_model.main([
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/loguru/_logger.py", line 1297, in catch_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 356, in main
+    trainer.test(
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 821, in test
+    return call._call_and_handle_interrupt(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 49, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 864, in _test_impl
+    results = self._run(model, ckpt_path=ckpt_path, weights_only=weights_only)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1079, in _run
+    results = self._run_stage()
+              ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1116, in _run_stage
+    return self._evaluation_loop.run()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/utilities.py", line 179, in _decorator
+    return loop_run(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 146, in run
+    self._evaluation_step(batch, batch_idx, dataloader_idx, dataloader_iter)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 441, in _evaluation_step
+    output = call._call_strategy_hook(trainer, hook_name, *step_args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 329, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/strategies/strategy.py", line 425, in test_step
+    return self.lightning_module.test_step(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/models/ar_model.py", line 556, in test_step
+    self._save_predictions_to_zarr(
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/models/ar_model.py", line 487, in _save_predictions_to_zarr
+    ds_pred_batch.to_zarr(
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/dataset.py", line 2390, in to_zarr
+    return to_zarr(  # type: ignore[call-overload,misc]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/writers.py", line 797, in to_zarr
+    dump_to_store(dataset, zstore, writer, encoding=encoding)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/writers.py", line 491, in dump_to_store
+    store.store(variables, attrs, check_encoding, writer, unlimited_dims=unlimited_dims)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 1039, in store
+    variables_encoded[var_name] = _validate_and_transpose_existing_dims(
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 584, in _validate_and_transpose_existing_dims
+    raise ValueError(
+ValueError: variable 'time' already exists with different dimension sizes: {'elapsed_forecast_duration': 16} != {'elapsed_forecast_duration': 17}. to_zarr() only supports changing dimension sizes when explicitly appending, but append_dim='start_time'. If you are attempting to write to a subset of the existing store without changing dimension sizes, consider using the region argument in to_zarr().
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Seed set to 42
+2026-04-13 08:34:58.565 | WARNING  | neural_lam.datastore.mdp:__init__:67 - Config file has been modified since zarr was created. The old zarr archive (in /zhome/5e/a/152106/code_masters/data/coarse_data.zarr) will be used.To generate new zarr-archive, move the old one first.
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:196: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+wandb: WARNING The anonymous setting has no effect and will be removed in a future version.
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /zhome/5e/a/152106/.netrc.
+wandb: Currently logged in as: s201205 (s201205-danmarks-tekniske-universitet-dtu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run s9eze9wv
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in wandb/run-20260413_083500-s9eze9wv
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run Test coarse data with same mesh correct
+wandb: ⭐️ View project at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/neural_lam
+wandb: 🚀 View run at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/neural_lam/runs/s9eze9wv
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+Restoring states from the checkpoint path at /zhome/5e/a/152106/code_masters/saved_models/train coarse data with same mesh/min_val_loss.ckpt
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:566: The dirpath has changed from '/zhome/5e/a/152106/code_masters/saved_models/train coarse data with same mesh' to '/zhome/5e/a/152106/code_masters/saved_models/Test coarse data with same mesh correct', therefore `best_model_score`, `kth_best_model_path`, `kth_value`, `last_model_path` and `best_k_models` won't be reloaded. Only `best_model_path` will be reloaded.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loaded model weights from the checkpoint at /zhome/5e/a/152106/code_masters/saved_models/train coarse data with same mesh/min_val_loss.ckpt
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/models/ar_model.py:451: FutureWarning: In a future version of xarray the default value for join will change from join='outer' to join='exact'. This change will result in the following ValueError: cannot be aligned with join='exact' because index/labels/sizes are not equal along these coordinates (dimensions): 'elapsed_forecast_duration' ('elapsed_forecast_duration',) The recommendation is to set join explicitly for this case.
+  da_pred_batch = xr.concat(das_pred, dim="start_time")
+2026-04-13 08:35:48.835 | INFO     | neural_lam.models.ar_model:_save_predictions_to_zarr:484 - Saving predictions to /zhome/5e/a/152106/code_masters/test_eval_same_mesh.zarr
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/dtype/npy/string.py:249: UnstableSpecificationWarning: The data type (FixedLengthUTF32(length=11, endianness='little')) does not have a Zarr V3 specification. That means that the representation of arrays saved with this data type may change without warning in a future version of Zarr Python. Arrays stored with this data type may be unreadable by other Zarr libraries. Use this data type at your own risk! Check https://github.com/zarr-developers/zarr-extensions/tree/main/data-types for the status of data type specifications for Zarr V3.
+  v3_unstable_dtype_warning(self)
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/dtype/npy/string.py:249: UnstableSpecificationWarning: The data type (FixedLengthUTF32(length=1, endianness='little')) does not have a Zarr V3 specification. That means that the representation of arrays saved with this data type may change without warning in a future version of Zarr Python. Arrays stored with this data type may be unreadable by other Zarr libraries. Use this data type at your own risk! Check https://github.com/zarr-developers/zarr-extensions/tree/main/data-types for the status of data type specifications for Zarr V3.
+  v3_unstable_dtype_warning(self)
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/models/ar_model.py:451: FutureWarning: In a future version of xarray the default value for join will change from join='outer' to join='exact'. This change will result in the following ValueError: cannot be aligned with join='exact' because index/labels/sizes are not equal along these coordinates (dimensions): 'elapsed_forecast_duration' ('elapsed_forecast_duration',) The recommendation is to set join explicitly for this case.
+  da_pred_batch = xr.concat(das_pred, dim="start_time")
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/dtype/npy/string.py:249: UnstableSpecificationWarning: The data type (FixedLengthUTF32(length=1, endianness='little')) does not have a Zarr V3 specification. That means that the representation of arrays saved with this data type may change without warning in a future version of Zarr Python. Arrays stored with this data type may be unreadable by other Zarr libraries. Use this data type at your own risk! Check https://github.com/zarr-developers/zarr-extensions/tree/main/data-types for the status of data type specifications for Zarr V3.
+  v3_unstable_dtype_warning(self)
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/dtype/npy/string.py:249: UnstableSpecificationWarning: The data type (FixedLengthUTF32(length=11, endianness='little')) does not have a Zarr V3 specification. That means that the representation of arrays saved with this data type may change without warning in a future version of Zarr Python. Arrays stored with this data type may be unreadable by other Zarr libraries. Use this data type at your own risk! Check https://github.com/zarr-developers/zarr-extensions/tree/main/data-types for the status of data type specifications for Zarr V3.
+  v3_unstable_dtype_warning(self)
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/models/ar_model.py:451: FutureWarning: In a future version of xarray the default value for join will change from join='outer' to join='exact'. This change will result in the following ValueError: cannot be aligned with join='exact' because index/labels/sizes are not equal along these coordinates (dimensions): 'elapsed_forecast_duration' ('elapsed_forecast_duration',) The recommendation is to set join explicitly for this case.
+  da_pred_batch = xr.concat(das_pred, dim="start_time")
+2026-04-13 08:35:52.156 | ERROR    | __main__:<module>:4 - An error has been caught in function '<module>', process 'MainProcess' (3668804), thread 'MainThread' (140630625371968):
+Traceback (most recent call last):
+
+> File "/zhome/5e/a/152106/code_masters/scripts/PY_files/eval_model1.py", line 4, in <module>
+    train_model.main([
+    │           └ <function main at 0x7fe5c3bb7740>
+    └ <module 'neural_lam.train_model' from '/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py'>
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 356, in main
+    trainer.test(
+    │       └ <function Trainer.test at 0x7fe5d5e651c0>
+    └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7fe5c3a01390>
+
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 821, in test
+    return call._call_and_handle_interrupt(
+           │    └ <function _call_and_handle_interrupt at 0x7fe5d5f25da0>
+           └ <module 'pytorch_lightning.trainer.call' from '/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lig...
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 49, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+           │           │       └ {}
+           │           └ (GraphLAM(
+           │               (grid_embedder): Sequential(
+           │                 (0): Linear(in_features=5, out_features=64, bias=True)
+           │                 (1): SiLU()
+           │                 (2):...
+           └ <bound method Trainer._test_impl of <pytorch_lightning.trainer.trainer.Trainer object at 0x7fe5c3a01390>>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 864, in _test_impl
+    results = self._run(model, ckpt_path=ckpt_path, weights_only=weights_only)
+              │    │    │                │                       └ False
+              │    │    │                └ '/zhome/5e/a/152106/code_masters/saved_models/train coarse data with same mesh/min_val_loss.ckpt'
+              │    │    └ GraphLAM(
+              │    │        (grid_embedder): Sequential(
+              │    │          (0): Linear(in_features=5, out_features=64, bias=True)
+              │    │          (1): SiLU()
+              │    │          (2): ...
+              │    └ <function Trainer._run at 0x7fe5d5e65620>
+              └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7fe5c3a01390>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1079, in _run
+    results = self._run_stage()
+              │    └ <function Trainer._run_stage at 0x7fe5d5e65760>
+              └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7fe5c3a01390>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1116, in _run_stage
+    return self._evaluation_loop.run()
+           │    └ <property object at 0x7fe5d5e62840>
+           └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7fe5c3a01390>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/utilities.py", line 179, in _decorator
+    return loop_run(self, *args, **kwargs)
+           │        │      │       └ {}
+           │        │      └ ()
+           │        └ <pytorch_lightning.loops.evaluation_loop._EvaluationLoop object at 0x7fe5c107e3d0>
+           └ <function _EvaluationLoop.run at 0x7fe5d5fe5800>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 146, in run
+    self._evaluation_step(batch, batch_idx, dataloader_idx, dataloader_iter)
+    │    │                │      │          │               └ None
+    │    │                │      │          └ 0
+    │    │                │      └ 2
+    │    │                └ [tensor([[[[ 0.0963],
+    │    │                            [ 0.4974],
+    │    │                            [-0.7364],
+    │    │                            ...,
+    │    │                            [-0.7698],
+    │    │                            [-0.3591],
+    │    │                      ...
+    │    └ <function _EvaluationLoop._evaluation_step at 0x7fe5d5fe6480>
+    └ <pytorch_lightning.loops.evaluation_loop._EvaluationLoop object at 0x7fe5c107e3d0>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 441, in _evaluation_step
+    output = call._call_strategy_hook(trainer, hook_name, *step_args)
+             │    │                   │        │           └ ([tensor([[[[ 0.0963],
+             │    │                   │        │                       [ 0.4974],
+             │    │                   │        │                       [-0.7364],
+             │    │                   │        │                       ...,
+             │    │                   │        │                       [-0.7698],
+             │    │                   │        │                       [-0.3591],
+             │    │                   │        │                ...
+             │    │                   │        └ 'test_step'
+             │    │                   └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7fe5c3a01390>
+             │    └ <function _call_strategy_hook at 0x7fe5d5f54b80>
+             └ <module 'pytorch_lightning.trainer.call' from '/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lig...
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 329, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+             │   │       └ {}
+             │   └ ([tensor([[[[ 0.0963],
+             │               [ 0.4974],
+             │               [-0.7364],
+             │               ...,
+             │               [-0.7698],
+             │               [-0.3591],
+             │        ...
+             └ <bound method Strategy.test_step of <pytorch_lightning.strategies.single_device.SingleDeviceStrategy object at 0x7fe5c3dcea50>>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/strategies/strategy.py", line 425, in test_step
+    return self.lightning_module.test_step(*args, **kwargs)
+           │    │                           │       └ {}
+           │    │                           └ ([tensor([[[[ 0.0963],
+           │    │                                       [ 0.4974],
+           │    │                                       [-0.7364],
+           │    │                                       ...,
+           │    │                                       [-0.7698],
+           │    │                                       [-0.3591],
+           │    │                                ...
+           │    └ <property object at 0x7fe5d5f634c0>
+           └ <pytorch_lightning.strategies.single_device.SingleDeviceStrategy object at 0x7fe5c3dcea50>
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/models/ar_model.py", line 556, in test_step
+    self._save_predictions_to_zarr(
+    │    └ <function ARModel._save_predictions_to_zarr at 0x7fe5c3bb5c60>
+    └ GraphLAM(
+        (grid_embedder): Sequential(
+          (0): Linear(in_features=5, out_features=64, bias=True)
+          (1): SiLU()
+          (2): ...
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/models/ar_model.py", line 487, in _save_predictions_to_zarr
+    ds_pred_batch.to_zarr(
+    │             └ <function Dataset.to_zarr at 0x7fe5c6057600>
+    └ <xarray.Dataset> Size: 185kB
+      Dimensions:                       (state_feature: 1,
+                                         elapsed_...
+
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/dataset.py", line 2390, in to_zarr
+    return to_zarr(  # type: ignore[call-overload,misc]
+           └ <function to_zarr at 0x7fe5e2364ae0>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/writers.py", line 797, in to_zarr
+    dump_to_store(dataset, zstore, writer, encoding=encoding)
+    │             │        │       │                └ {}
+    │             │        │       └ <xarray.backends.common.ArrayWriter object at 0x7fe5a8148f80>
+    │             │        └ <xarray.backends.zarr.ZarrStore object at 0x7fe598123420>
+    │             └ <xarray.Dataset> Size: 185kB
+    │               Dimensions:                       (state_feature: 1,
+    │                                                  elapsed_...
+    └ <function dump_to_store at 0x7fe5e2364720>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/writers.py", line 491, in dump_to_store
+    store.store(variables, attrs, check_encoding, writer, unlimited_dims=unlimited_dims)
+    │     │     │          │      │               │                      └ None
+    │     │     │          │      │               └ <xarray.backends.common.ArrayWriter object at 0x7fe5a8148f80>
+    │     │     │          │      └ set()
+    │     │     │          └ {}
+    │     │     └ {'state_feature': <xarray.IndexVariable 'state_feature' (state_feature: 1)> Size: 4B
+    │     │       array(['u'], dtype='<U1'), 'elapsed_fore...
+    │     └ <function ZarrStore.store at 0x7fe5e2327740>
+    └ <xarray.backends.zarr.ZarrStore object at 0x7fe598123420>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 1039, in store
+    variables_encoded[var_name] = _validate_and_transpose_existing_dims(
+    │                 │           └ <function _validate_and_transpose_existing_dims at 0x7fe5e2326ac0>
+    │                 └ 'time'
+    └ {'state_feature_source_dataset': <xarray.Variable (state_feature: 1)> Size: 44B
+      dask.array<open_dataset-state_feature_source_...
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 584, in _validate_and_transpose_existing_dims
+    raise ValueError(
+
+ValueError: variable 'time' already exists with different dimension sizes: {'elapsed_forecast_duration': 16} != {'elapsed_forecast_duration': 17}. to_zarr() only supports changing dimension sizes when explicitly appending, but append_dim='start_time'. If you are attempting to write to a subset of the existing store without changing dimension sizes, consider using the region argument in to_zarr().
+Traceback (most recent call last):
+  File "/zhome/5e/a/152106/code_masters/scripts/PY_files/eval_model1.py", line 4, in <module>
+    train_model.main([
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/loguru/_logger.py", line 1297, in catch_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 356, in main
+    trainer.test(
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 821, in test
+    return call._call_and_handle_interrupt(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 49, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 864, in _test_impl
+    results = self._run(model, ckpt_path=ckpt_path, weights_only=weights_only)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1079, in _run
+    results = self._run_stage()
+              ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1116, in _run_stage
+    return self._evaluation_loop.run()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/utilities.py", line 179, in _decorator
+    return loop_run(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 146, in run
+    self._evaluation_step(batch, batch_idx, dataloader_idx, dataloader_iter)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 441, in _evaluation_step
+    output = call._call_strategy_hook(trainer, hook_name, *step_args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 329, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/strategies/strategy.py", line 425, in test_step
+    return self.lightning_module.test_step(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/models/ar_model.py", line 556, in test_step
+    self._save_predictions_to_zarr(
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/models/ar_model.py", line 487, in _save_predictions_to_zarr
+    ds_pred_batch.to_zarr(
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/dataset.py", line 2390, in to_zarr
+    return to_zarr(  # type: ignore[call-overload,misc]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/writers.py", line 797, in to_zarr
+    dump_to_store(dataset, zstore, writer, encoding=encoding)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/writers.py", line 491, in dump_to_store
+    store.store(variables, attrs, check_encoding, writer, unlimited_dims=unlimited_dims)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 1039, in store
+    variables_encoded[var_name] = _validate_and_transpose_existing_dims(
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 584, in _validate_and_transpose_existing_dims
+    raise ValueError(
+ValueError: variable 'time' already exists with different dimension sizes: {'elapsed_forecast_duration': 16} != {'elapsed_forecast_duration': 17}. to_zarr() only supports changing dimension sizes when explicitly appending, but append_dim='start_time'. If you are attempting to write to a subset of the existing store without changing dimension sizes, consider using the region argument in to_zarr().
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Seed set to 42
+2026-04-13 08:43:18.544 | WARNING  | neural_lam.datastore.mdp:__init__:67 - Config file has been modified since zarr was created. The old zarr archive (in /zhome/5e/a/152106/code_masters/data/coarse_data.zarr) will be used.To generate new zarr-archive, move the old one first.
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:196: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+wandb: WARNING The anonymous setting has no effect and will be removed in a future version.
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /zhome/5e/a/152106/.netrc.
+wandb: Currently logged in as: s201205 (s201205-danmarks-tekniske-universitet-dtu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run s5ajfza0
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in wandb/run-20260413_084320-s5ajfza0
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run Test coarse data with same mesh correct
+wandb: ⭐️ View project at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/neural_lam
+wandb: 🚀 View run at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/neural_lam/runs/s5ajfza0
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+Restoring states from the checkpoint path at /zhome/5e/a/152106/code_masters/saved_models/train coarse data with same mesh/min_val_loss.ckpt
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:566: The dirpath has changed from '/zhome/5e/a/152106/code_masters/saved_models/train coarse data with same mesh' to '/zhome/5e/a/152106/code_masters/saved_models/Test coarse data with same mesh correct', therefore `best_model_score`, `kth_best_model_path`, `kth_value`, `last_model_path` and `best_k_models` won't be reloaded. Only `best_model_path` will be reloaded.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loaded model weights from the checkpoint at /zhome/5e/a/152106/code_masters/saved_models/train coarse data with same mesh/min_val_loss.ckpt
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/models/ar_model.py:451: FutureWarning: In a future version of xarray the default value for join will change from join='outer' to join='exact'. This change will result in the following ValueError: cannot be aligned with join='exact' because index/labels/sizes are not equal along these coordinates (dimensions): 'elapsed_forecast_duration' ('elapsed_forecast_duration',) The recommendation is to set join explicitly for this case.
+  da_pred_batch = xr.concat(das_pred, dim="start_time")
+2026-04-13 08:44:08.192 | INFO     | neural_lam.models.ar_model:_save_predictions_to_zarr:484 - Saving predictions to /zhome/5e/a/152106/code_masters/test_eval_same_mesh_10.zarr
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/dtype/npy/string.py:249: UnstableSpecificationWarning: The data type (FixedLengthUTF32(length=11, endianness='little')) does not have a Zarr V3 specification. That means that the representation of arrays saved with this data type may change without warning in a future version of Zarr Python. Arrays stored with this data type may be unreadable by other Zarr libraries. Use this data type at your own risk! Check https://github.com/zarr-developers/zarr-extensions/tree/main/data-types for the status of data type specifications for Zarr V3.
+  v3_unstable_dtype_warning(self)
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/dtype/npy/string.py:249: UnstableSpecificationWarning: The data type (FixedLengthUTF32(length=1, endianness='little')) does not have a Zarr V3 specification. That means that the representation of arrays saved with this data type may change without warning in a future version of Zarr Python. Arrays stored with this data type may be unreadable by other Zarr libraries. Use this data type at your own risk! Check https://github.com/zarr-developers/zarr-extensions/tree/main/data-types for the status of data type specifications for Zarr V3.
+  v3_unstable_dtype_warning(self)
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/models/ar_model.py:451: FutureWarning: In a future version of xarray the default value for join will change from join='outer' to join='exact'. This change will result in the following ValueError: cannot be aligned with join='exact' because index/labels/sizes are not equal along these coordinates (dimensions): 'elapsed_forecast_duration' ('elapsed_forecast_duration',) The recommendation is to set join explicitly for this case.
+  da_pred_batch = xr.concat(das_pred, dim="start_time")
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/dtype/npy/string.py:249: UnstableSpecificationWarning: The data type (FixedLengthUTF32(length=1, endianness='little')) does not have a Zarr V3 specification. That means that the representation of arrays saved with this data type may change without warning in a future version of Zarr Python. Arrays stored with this data type may be unreadable by other Zarr libraries. Use this data type at your own risk! Check https://github.com/zarr-developers/zarr-extensions/tree/main/data-types for the status of data type specifications for Zarr V3.
+  v3_unstable_dtype_warning(self)
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/dtype/npy/string.py:249: UnstableSpecificationWarning: The data type (FixedLengthUTF32(length=11, endianness='little')) does not have a Zarr V3 specification. That means that the representation of arrays saved with this data type may change without warning in a future version of Zarr Python. Arrays stored with this data type may be unreadable by other Zarr libraries. Use this data type at your own risk! Check https://github.com/zarr-developers/zarr-extensions/tree/main/data-types for the status of data type specifications for Zarr V3.
+  v3_unstable_dtype_warning(self)
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/models/ar_model.py:451: FutureWarning: In a future version of xarray the default value for join will change from join='outer' to join='exact'. This change will result in the following ValueError: cannot be aligned with join='exact' because index/labels/sizes are not equal along these coordinates (dimensions): 'elapsed_forecast_duration' ('elapsed_forecast_duration',) The recommendation is to set join explicitly for this case.
+  da_pred_batch = xr.concat(das_pred, dim="start_time")
+2026-04-13 08:44:10.865 | ERROR    | __main__:<module>:4 - An error has been caught in function '<module>', process 'MainProcess' (3673054), thread 'MainThread' (140446556251968):
+Traceback (most recent call last):
+
+> File "/zhome/5e/a/152106/code_masters/scripts/PY_files/eval_model1.py", line 4, in <module>
+    train_model.main([
+    │           └ <function main at 0x7fbae851b7e0>
+    └ <module 'neural_lam.train_model' from '/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py'>
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 356, in main
+    trainer.test(
+    │       └ <function Trainer.test at 0x7fbafa9e5260>
+    └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7fbae83fc810>
+
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 821, in test
+    return call._call_and_handle_interrupt(
+           │    └ <function _call_and_handle_interrupt at 0x7fbafaaa9e40>
+           └ <module 'pytorch_lightning.trainer.call' from '/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lig...
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 49, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+           │           │       └ {}
+           │           └ (GraphLAM(
+           │               (grid_embedder): Sequential(
+           │                 (0): Linear(in_features=5, out_features=64, bias=True)
+           │                 (1): SiLU()
+           │                 (2):...
+           └ <bound method Trainer._test_impl of <pytorch_lightning.trainer.trainer.Trainer object at 0x7fbae83fc810>>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 864, in _test_impl
+    results = self._run(model, ckpt_path=ckpt_path, weights_only=weights_only)
+              │    │    │                │                       └ False
+              │    │    │                └ '/zhome/5e/a/152106/code_masters/saved_models/train coarse data with same mesh/min_val_loss.ckpt'
+              │    │    └ GraphLAM(
+              │    │        (grid_embedder): Sequential(
+              │    │          (0): Linear(in_features=5, out_features=64, bias=True)
+              │    │          (1): SiLU()
+              │    │          (2): ...
+              │    └ <function Trainer._run at 0x7fbafa9e56c0>
+              └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7fbae83fc810>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1079, in _run
+    results = self._run_stage()
+              │    └ <function Trainer._run_stage at 0x7fbafa9e5800>
+              └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7fbae83fc810>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1116, in _run_stage
+    return self._evaluation_loop.run()
+           │    └ <property object at 0x7fbafa9d70b0>
+           └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7fbae83fc810>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/utilities.py", line 179, in _decorator
+    return loop_run(self, *args, **kwargs)
+           │        │      │       └ {}
+           │        │      └ ()
+           │        └ <pytorch_lightning.loops.evaluation_loop._EvaluationLoop object at 0x7fbae859bb10>
+           └ <function _EvaluationLoop.run at 0x7fbafa9658a0>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 146, in run
+    self._evaluation_step(batch, batch_idx, dataloader_idx, dataloader_iter)
+    │    │                │      │          │               └ None
+    │    │                │      │          └ 0
+    │    │                │      └ 2
+    │    │                └ [tensor([[[[ 0.0963],
+    │    │                            [ 0.4974],
+    │    │                            [-0.7364],
+    │    │                            ...,
+    │    │                            [-0.7698],
+    │    │                            [-0.3591],
+    │    │                      ...
+    │    └ <function _EvaluationLoop._evaluation_step at 0x7fbafa966520>
+    └ <pytorch_lightning.loops.evaluation_loop._EvaluationLoop object at 0x7fbae859bb10>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 441, in _evaluation_step
+    output = call._call_strategy_hook(trainer, hook_name, *step_args)
+             │    │                   │        │           └ ([tensor([[[[ 0.0963],
+             │    │                   │        │                       [ 0.4974],
+             │    │                   │        │                       [-0.7364],
+             │    │                   │        │                       ...,
+             │    │                   │        │                       [-0.7698],
+             │    │                   │        │                       [-0.3591],
+             │    │                   │        │                ...
+             │    │                   │        └ 'test_step'
+             │    │                   └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7fbae83fc810>
+             │    └ <function _call_strategy_hook at 0x7fbafaadcc20>
+             └ <module 'pytorch_lightning.trainer.call' from '/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lig...
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 329, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+             │   │       └ {}
+             │   └ ([tensor([[[[ 0.0963],
+             │               [ 0.4974],
+             │               [-0.7364],
+             │               ...,
+             │               [-0.7698],
+             │               [-0.3591],
+             │        ...
+             └ <bound method Strategy.test_step of <pytorch_lightning.strategies.single_device.SingleDeviceStrategy object at 0x7fbae83ea950>>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/strategies/strategy.py", line 425, in test_step
+    return self.lightning_module.test_step(*args, **kwargs)
+           │    │                           │       └ {}
+           │    │                           └ ([tensor([[[[ 0.0963],
+           │    │                                       [ 0.4974],
+           │    │                                       [-0.7364],
+           │    │                                       ...,
+           │    │                                       [-0.7698],
+           │    │                                       [-0.3591],
+           │    │                                ...
+           │    └ <property object at 0x7fbafaad7ce0>
+           └ <pytorch_lightning.strategies.single_device.SingleDeviceStrategy object at 0x7fbae83ea950>
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/models/ar_model.py", line 556, in test_step
+    self._save_predictions_to_zarr(
+    │    └ <function ARModel._save_predictions_to_zarr at 0x7fbae8519d00>
+    └ GraphLAM(
+        (grid_embedder): Sequential(
+          (0): Linear(in_features=5, out_features=64, bias=True)
+          (1): SiLU()
+          (2): ...
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/models/ar_model.py", line 487, in _save_predictions_to_zarr
+    ds_pred_batch.to_zarr(
+    │             └ <function Dataset.to_zarr at 0x7fbb06dfb6a0>
+    └ <xarray.Dataset> Size: 185kB
+      Dimensions:                       (state_feature: 1,
+                                         elapsed_...
+
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/dataset.py", line 2390, in to_zarr
+    return to_zarr(  # type: ignore[call-overload,misc]
+           └ <function to_zarr at 0x7fbb06bd0b80>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/writers.py", line 797, in to_zarr
+    dump_to_store(dataset, zstore, writer, encoding=encoding)
+    │             │        │       │                └ {}
+    │             │        │       └ <xarray.backends.common.ArrayWriter object at 0x7fbacc123740>
+    │             │        └ <xarray.backends.zarr.ZarrStore object at 0x7fbaccc5e700>
+    │             └ <xarray.Dataset> Size: 185kB
+    │               Dimensions:                       (state_feature: 1,
+    │                                                  elapsed_...
+    └ <function dump_to_store at 0x7fbb06bd07c0>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/writers.py", line 491, in dump_to_store
+    store.store(variables, attrs, check_encoding, writer, unlimited_dims=unlimited_dims)
+    │     │     │          │      │               │                      └ None
+    │     │     │          │      │               └ <xarray.backends.common.ArrayWriter object at 0x7fbacc123740>
+    │     │     │          │      └ set()
+    │     │     │          └ {}
+    │     │     └ {'state_feature': <xarray.IndexVariable 'state_feature' (state_feature: 1)> Size: 4B
+    │     │       array(['u'], dtype='<U1'), 'elapsed_fore...
+    │     └ <function ZarrStore.store at 0x7fbb06b937e0>
+    └ <xarray.backends.zarr.ZarrStore object at 0x7fbaccc5e700>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 1039, in store
+    variables_encoded[var_name] = _validate_and_transpose_existing_dims(
+    │                 │           └ <function _validate_and_transpose_existing_dims at 0x7fbb06b92b60>
+    │                 └ 'state'
+    └ {'analysis_time': <xarray.Variable (start_time: 4)> Size: 32B
+      dask.array<xarray-analysis_time, shape=(4,), dtype=float64, chu...
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 584, in _validate_and_transpose_existing_dims
+    raise ValueError(
+
+ValueError: variable 'state' already exists with different dimension sizes: {'elapsed_forecast_duration': 16, 'grid_index': 642, 'state_feature': 1} != {'elapsed_forecast_duration': 17, 'grid_index': 642, 'state_feature': 1}. to_zarr() only supports changing dimension sizes when explicitly appending, but append_dim='start_time'. If you are attempting to write to a subset of the existing store without changing dimension sizes, consider using the region argument in to_zarr().
+Traceback (most recent call last):
+  File "/zhome/5e/a/152106/code_masters/scripts/PY_files/eval_model1.py", line 4, in <module>
+    train_model.main([
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/loguru/_logger.py", line 1297, in catch_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 356, in main
+    trainer.test(
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 821, in test
+    return call._call_and_handle_interrupt(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 49, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 864, in _test_impl
+    results = self._run(model, ckpt_path=ckpt_path, weights_only=weights_only)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1079, in _run
+    results = self._run_stage()
+              ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1116, in _run_stage
+    return self._evaluation_loop.run()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/utilities.py", line 179, in _decorator
+    return loop_run(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 146, in run
+    self._evaluation_step(batch, batch_idx, dataloader_idx, dataloader_iter)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 441, in _evaluation_step
+    output = call._call_strategy_hook(trainer, hook_name, *step_args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 329, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/strategies/strategy.py", line 425, in test_step
+    return self.lightning_module.test_step(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/models/ar_model.py", line 556, in test_step
+    self._save_predictions_to_zarr(
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/models/ar_model.py", line 487, in _save_predictions_to_zarr
+    ds_pred_batch.to_zarr(
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/dataset.py", line 2390, in to_zarr
+    return to_zarr(  # type: ignore[call-overload,misc]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/writers.py", line 797, in to_zarr
+    dump_to_store(dataset, zstore, writer, encoding=encoding)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/writers.py", line 491, in dump_to_store
+    store.store(variables, attrs, check_encoding, writer, unlimited_dims=unlimited_dims)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 1039, in store
+    variables_encoded[var_name] = _validate_and_transpose_existing_dims(
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 584, in _validate_and_transpose_existing_dims
+    raise ValueError(
+ValueError: variable 'state' already exists with different dimension sizes: {'elapsed_forecast_duration': 16, 'grid_index': 642, 'state_feature': 1} != {'elapsed_forecast_duration': 17, 'grid_index': 642, 'state_feature': 1}. to_zarr() only supports changing dimension sizes when explicitly appending, but append_dim='start_time'. If you are attempting to write to a subset of the existing store without changing dimension sizes, consider using the region argument in to_zarr().
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Seed set to 42
+2026-04-13 10:21:06.895 | WARNING  | neural_lam.datastore.mdp:__init__:67 - Config file has been modified since zarr was created. The old zarr archive (in /zhome/5e/a/152106/code_masters/data/coarse_data.zarr) will be used.To generate new zarr-archive, move the old one first.
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:196: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+wandb: WARNING The anonymous setting has no effect and will be removed in a future version.
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /zhome/5e/a/152106/.netrc.
+wandb: Currently logged in as: s201205 (s201205-danmarks-tekniske-universitet-dtu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run zl295d3p
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in wandb/run-20260413_102111-zl295d3p
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run Test coarse data with same mesh correct
+wandb: ⭐️ View project at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/neural_lam
+wandb: 🚀 View run at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/neural_lam/runs/zl295d3p
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+Restoring states from the checkpoint path at /zhome/5e/a/152106/code_masters/saved_models/train coarse data with same mesh/min_val_loss.ckpt
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:566: The dirpath has changed from '/zhome/5e/a/152106/code_masters/saved_models/train coarse data with same mesh' to '/zhome/5e/a/152106/code_masters/saved_models/Test coarse data with same mesh correct', therefore `best_model_score`, `kth_best_model_path`, `kth_value`, `last_model_path` and `best_k_models` won't be reloaded. Only `best_model_path` will be reloaded.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loaded model weights from the checkpoint at /zhome/5e/a/152106/code_masters/saved_models/train coarse data with same mesh/min_val_loss.ckpt
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/vis.py:20: UserWarning: The use of `x.T` on tensors of dimension other than 2 to reverse their shape is deprecated and it will throw an error in a future release. Consider `x.mT` to transpose batches of matrices or `x.permute(*torch.arange(x.ndim - 1, -1, -1))` to reverse the dimensions of a tensor. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4480.)
+  errors_np = errors.T.cpu().numpy()  # (d_f, pred_steps)
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/dask/array/core.py:5198: PerformanceWarning: Increasing number of chunks by factor of 1001
+  result = blockwise(

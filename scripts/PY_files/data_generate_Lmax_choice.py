@@ -87,5 +87,3 @@ plt.xlabel(r'$\ell$')
 plt.ylabel('cumulative energy')
 plt.grid(True)
 plt.show()
-
-

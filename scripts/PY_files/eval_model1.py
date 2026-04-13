@@ -1,15 +1,15 @@
-from multiprocessing import freeze_support
 from neural_lam import train_model
 
 if __name__ == "__main__":
-    freeze_support()
     train_model.main([
-        "--config_path", r"C:\Users\maria\OneDrive - Danmarks Tekniske Universitet\Kandidat\Masters\code_masters\data\config.yaml",
-        "--epochs", "10",
+        "--config_path", "/zhome/5e/a/152106/code_masters/data/config.yaml",
         "--graph", "graph_coarse_data",
         "--loss", "mse",
-        "--eval", "val",
-        "--load", r"C:\Users\maria\OneDrive - Danmarks Tekniske Universitet\Kandidat\Masters\code_masters\saved_models\train-graph_lam-4x64-03_23_13-3578\min_val_loss.ckpt",
-        "--save_eval_to_zarr_path", "mydataset.zarr"
+        "--eval", "test",
+        "--load", "/zhome/5e/a/152106/code_masters/saved_models/train coarse data with same mesh/min_val_loss.ckpt",
+        "--ar_steps_eval","10",
+        "--processor_layers","1",
+        "--logger_run_name","Test coarse data with same mesh correct",
+        "--save_eval_to_zarr_path","/zhome/5e/a/152106/code_masters/test_eval_same_mesh_10",
     ])
 

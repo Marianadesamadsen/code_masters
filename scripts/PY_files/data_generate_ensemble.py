@@ -18,7 +18,7 @@ def main():
     dt = T_min / 20 # 0.010361252408621261/3 # 
     N_members = 100
     tmax = dt*1000
-    print("tmax",tmax)
+    print("tmax",tmax) 
     
     rng = np.random.default_rng(42)
 

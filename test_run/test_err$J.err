@@ -1,0 +1,521 @@
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Seed set to 42
+2026-04-12 16:30:28.925 | WARNING  | neural_lam.datastore.mdp:__init__:67 - Config file has been modified since zarr was created. The old zarr archive (in /zhome/5e/a/152106/code_masters/data/coarse_data.zarr) will be used.To generate new zarr-archive, move the old one first.
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:196: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+wandb: WARNING The anonymous setting has no effect and will be removed in a future version.
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /zhome/5e/a/152106/.netrc.
+wandb: Currently logged in as: s201205 (s201205-danmarks-tekniske-universitet-dtu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run j8e53mh7
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in wandb/run-20260412_163037-j8e53mh7
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run train coarse data 1
+wandb: ⭐️ View project at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/neural_lam
+wandb: 🚀 View run at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/neural_lam/runs/j8e53mh7
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/vis.py:20: UserWarning: The use of `x.T` on tensors of dimension other than 2 to reverse their shape is deprecated and it will throw an error in a future release. Consider `x.mT` to transpose batches of matrices or `x.permute(*torch.arange(x.ndim - 1, -1, -1))` to reverse the dimensions of a tensor. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4480.)
+  errors_np = errors.T.cpu().numpy()  # (d_f, pred_steps)
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Metric val_mean_loss improved. New best score: 0.029
+Metric val_mean_loss improved by 0.010 >= min_delta = 0.0001. New best score: 0.019
+Metric val_mean_loss improved by 0.010 >= min_delta = 0.0001. New best score: 0.009
+Metric val_mean_loss improved by 0.004 >= min_delta = 0.0001. New best score: 0.005
+Metric val_mean_loss improved by 0.001 >= min_delta = 0.0001. New best score: 0.004
+Metric val_mean_loss improved by 0.000 >= min_delta = 0.0001. New best score: 0.004
+Metric val_mean_loss improved by 0.001 >= min_delta = 0.0001. New best score: 0.003
+Metric val_mean_loss improved by 0.001 >= min_delta = 0.0001. New best score: 0.002
+
+Detected KeyboardInterrupt, attempting graceful shutdown ...
+[rank: 0] Received SIGTERM: 15
+Terminated
+2026-04-12 17:17:20.473 | ERROR    | __main__:<module>:4 - An error has been caught in function '<module>', process 'MainProcess' (1165176), thread 'MainThread' (140036400068416):
+Traceback (most recent call last):
+
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/multiprocessing/queues.py", line 113, in get
+    if not self._poll(timeout):
+           │    │     └ 4.999998556973878
+           │    └ <bound method _ConnectionBase.poll of <multiprocessing.connection.Connection object at 0x7f5b315ff9d0>>
+           └ <multiprocessing.queues.Queue object at 0x7f5b497c57d0>
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/multiprocessing/connection.py", line 257, in poll
+    return self._poll(timeout)
+           │    │     └ 4.999998556973878
+           │    └ <function Connection._poll at 0x7f5b9e4711c0>
+           └ <multiprocessing.connection.Connection object at 0x7f5b315ff9d0>
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/multiprocessing/connection.py", line 440, in _poll
+    r = wait([self], timeout)
+        │     │      └ 4.999998556973878
+        │     └ <multiprocessing.connection.Connection object at 0x7f5b315ff9d0>
+        └ <function wait at 0x7f5b9e472160>
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/multiprocessing/connection.py", line 948, in wait
+    ready = selector.select(timeout)
+            │        │      └ 4.999998556973878
+            │        └ <function _PollLikeSelector.select at 0x7f5cc35f2e80>
+            └ <selectors.PollSelector object at 0x7f5ae03aba90>
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/selectors.py", line 415, in select
+    fd_event_list = self._selector.poll(timeout)
+                    │    │         │    └ 5000
+                    │    │         └ <method 'poll' of 'select.poll' objects>
+                    │    └ <select.poll object at 0x7f5ae01df7b0>
+                    └ <selectors.PollSelector object at 0x7f5ae03aba90>
+
+KeyboardInterrupt
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 49, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+           │           │       └ {}
+           │           └ (GraphLAM(
+           │               (grid_embedder): Sequential(
+           │                 (0): Linear(in_features=5, out_features=64, bias=True)
+           │                 (1): SiLU()
+           │                 (2):...
+           └ <bound method Trainer._fit_impl of <pytorch_lightning.trainer.trainer.Trainer object at 0x7f5b69302450>>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 630, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path, weights_only=weights_only)
+    │    │    │                │                       └ None
+    │    │    │                └ None
+    │    │    └ GraphLAM(
+    │    │        (grid_embedder): Sequential(
+    │    │          (0): Linear(in_features=5, out_features=64, bias=True)
+    │    │          (1): SiLU()
+    │    │          (2): ...
+    │    └ <function Trainer._run at 0x7f5b76a29a80>
+    └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7f5b69302450>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1079, in _run
+    results = self._run_stage()
+              │    └ <function Trainer._run_stage at 0x7f5b76a29bc0>
+              └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7f5b69302450>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1123, in _run_stage
+    self.fit_loop.run()
+    │    │        └ <function _FitLoop.run at 0x7f5b769cf4c0>
+    │    └ <pytorch_lightning.loops.fit_loop._FitLoop object at 0x7f5b6852b710>
+    └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7f5b69302450>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fit_loop.py", line 217, in run
+    self.advance()
+    │    └ <function _FitLoop.advance at 0x7f5b769cfba0>
+    └ <pytorch_lightning.loops.fit_loop._FitLoop object at 0x7f5b6852b710>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fit_loop.py", line 465, in advance
+    self.epoch_loop.run(self._data_fetcher)
+    │    │          │   │    └ <pytorch_lightning.loops.fetchers._PrefetchDataFetcher object at 0x7f5b314be0d0>
+    │    │          │   └ <pytorch_lightning.loops.fit_loop._FitLoop object at 0x7f5b6852b710>
+    │    │          └ <function _TrainingEpochLoop.run at 0x7f5b769cdb20>
+    │    └ <pytorch_lightning.loops.training_epoch_loop._TrainingEpochLoop object at 0x7f5b6852b990>
+    └ <pytorch_lightning.loops.fit_loop._FitLoop object at 0x7f5b6852b710>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 154, in run
+    self.on_advance_end(data_fetcher)
+    │    │              └ <pytorch_lightning.loops.fetchers._PrefetchDataFetcher object at 0x7f5b314be0d0>
+    │    └ <function _TrainingEpochLoop.on_advance_end at 0x7f5b769ce200>
+    └ <pytorch_lightning.loops.training_epoch_loop._TrainingEpochLoop object at 0x7f5b6852b990>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 406, in on_advance_end
+    self.val_loop.run()
+    │    │        └ <function _no_grad_context.<locals>._decorator at 0x7f5b76badd00>
+    │    └ <pytorch_lightning.loops.evaluation_loop._EvaluationLoop object at 0x7f5b684d2d90>
+    └ <pytorch_lightning.loops.training_epoch_loop._TrainingEpochLoop object at 0x7f5b6852b990>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/utilities.py", line 179, in _decorator
+    return loop_run(self, *args, **kwargs)
+           │        │      │       └ {}
+           │        │      └ ()
+           │        └ <pytorch_lightning.loops.evaluation_loop._EvaluationLoop object at 0x7f5b684d2d90>
+           └ <function _EvaluationLoop.run at 0x7f5b76badc60>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 139, in run
+    batch, batch_idx, dataloader_idx = next(data_fetcher)
+    │      │                                └ <pytorch_lightning.loops.fetchers._PrefetchDataFetcher object at 0x7f5ae0348fd0>
+    │      └ 23
+    └ [tensor([[[[-0.1304],
+                [-0.1548],
+                [-0.0601],
+                ...,
+                [-0.2452],
+                [-0.2289],
+          ...
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fetchers.py", line 134, in __next__
+    batch = super().__next__()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fetchers.py", line 61, in __next__
+    batch = next(self.iterator)
+                 │    └ <pytorch_lightning.utilities.combined_loader.CombinedLoader object at 0x7f5b3112c950>
+                 └ <pytorch_lightning.loops.fetchers._PrefetchDataFetcher object at 0x7f5ae0348fd0>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/combined_loader.py", line 341, in __next__
+    out = next(self._iterator)
+               │    └ None
+               └ <pytorch_lightning.utilities.combined_loader.CombinedLoader object at 0x7f5b3112c950>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/combined_loader.py", line 142, in __next__
+    out = next(self.iterators[0])
+               │    └ []
+               └ <pytorch_lightning.utilities.combined_loader._Sequential object at 0x7f5ae0258a90>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 741, in __next__
+    data = self._next_data()
+           │    └ <function _MultiProcessingDataLoaderIter._next_data at 0x7f5b9ed594e0>
+           └ <torch.utils.data.dataloader._MultiProcessingDataLoaderIter object at 0x7f5b3112c450>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1524, in _next_data
+    idx, data = self._get_data()
+    │           │    └ <function _MultiProcessingDataLoaderIter._get_data at 0x7f5b9ed59440>
+    │           └ <torch.utils.data.dataloader._MultiProcessingDataLoaderIter object at 0x7f5b3112c450>
+    └ 27
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1483, in _get_data
+    success, data = self._try_get_data()
+                    │    └ <function _MultiProcessingDataLoaderIter._try_get_data at 0x7f5b9ed593a0>
+                    └ <torch.utils.data.dataloader._MultiProcessingDataLoaderIter object at 0x7f5b3112c450>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1310, in _try_get_data
+    data = self._data_queue.get(timeout=timeout)
+           │    │           │           └ 5.0
+           │    │           └ <function Queue.get at 0x7f5b8685d080>
+           │    └ <multiprocessing.queues.Queue object at 0x7f5b497c57d0>
+           └ <torch.utils.data.dataloader._MultiProcessingDataLoaderIter object at 0x7f5b3112c450>
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/multiprocessing/queues.py", line 120, in get
+    self._rlock.release()
+    │    │      └ <built-in method release of _multiprocessing.SemLock object at 0x7f5b3113f770>
+    │    └ <Lock(owner=None)>
+    └ <multiprocessing.queues.Queue object at 0x7f5b497c57d0>
+
+KeyboardInterrupt
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/multiprocessing/connection.py", line 948, in wait
+    ready = selector.select(timeout)
+            │        │      └ 5.0
+            │        └ <function _PollLikeSelector.select at 0x7f5cc35f2e80>
+            └ <selectors.PollSelector object at 0x7f5b4af17c10>
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/selectors.py", line 415, in select
+    fd_event_list = self._selector.poll(timeout)
+                    │    │         │    └ 5000
+                    │    │         └ <method 'poll' of 'select.poll' objects>
+                    │    └ <select.poll object at 0x7f5b49742550>
+                    └ <selectors.PollSelector object at 0x7f5b4af17c10>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/_utils/signal_handling.py", line 73, in handler
+    _error_if_any_worker_fails()
+    └ <built-in function _error_if_any_worker_fails>
+
+RuntimeError: DataLoader worker (pid 1166450) is killed by signal: Terminated. 
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+> File "/zhome/5e/a/152106/code_masters/scripts/PY_files/train_model1.py", line 4, in <module>
+    train_model.main([
+    │           └ <function main at 0x7f5b69243ec0>
+    └ <module 'neural_lam.train_model' from '/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py'>
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 364, in main
+    trainer.fit(model=model, datamodule=data_module, ckpt_path=args.load)
+    │       │         │                 │                      │    └ None
+    │       │         │                 │                      └ Namespace(config_path='/zhome/5e/a/152106/code_masters/data/config.yaml', model='graph_lam', seed=42, num_workers=4, num_node...
+    │       │         │                 └ <neural_lam.weather_dataset.WeatherDataModule object at 0x7f5b69060b10>
+    │       │         └ GraphLAM(
+    │       │             (grid_embedder): Sequential(
+    │       │               (0): Linear(in_features=5, out_features=64, bias=True)
+    │       │               (1): SiLU()
+    │       │               (2): ...
+    │       └ <function Trainer.fit at 0x7f5b76a29120>
+    └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7f5b69302450>
+
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 584, in fit
+    call._call_and_handle_interrupt(
+    │    └ <function _call_and_handle_interrupt at 0x7f5b76aede40>
+    └ <module 'pytorch_lightning.trainer.call' from '/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lig...
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 62, in _call_and_handle_interrupt
+    trainer._teardown()
+    │       └ <function Trainer._teardown at 0x7f5b76a29b20>
+    └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7f5b69302450>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1106, in _teardown
+    loop.teardown()
+    │    └ <function _EvaluationLoop.teardown at 0x7f5b76bae2a0>
+    └ <pytorch_lightning.loops.evaluation_loop._EvaluationLoop object at 0x7f5b684d2d90>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 325, in teardown
+    self._data_fetcher.teardown()
+    │    │             └ <function _DataFetcher.teardown at 0x7f5b76cb4fe0>
+    │    └ <pytorch_lightning.loops.fetchers._PrefetchDataFetcher object at 0x7f5ae0348fd0>
+    └ <pytorch_lightning.loops.evaluation_loop._EvaluationLoop object at 0x7f5b684d2d90>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fetchers.py", line 82, in teardown
+    self._combined_loader.reset()
+    │    │                └ <function CombinedLoader.reset at 0x7f5b76fd34c0>
+    │    └ <pytorch_lightning.utilities.combined_loader.CombinedLoader object at 0x7f5b3112c950>
+    └ <pytorch_lightning.loops.fetchers._PrefetchDataFetcher object at 0x7f5ae0348fd0>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/combined_loader.py", line 367, in reset
+    _shutdown_workers_and_reset_iterator(iterable)
+    │                                    └ <torch.utils.data.dataloader.DataLoader object at 0x7f5b322f3910>
+    └ <function _shutdown_workers_and_reset_iterator at 0x7f5b76fd1bc0>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/combined_loader.py", line 400, in _shutdown_workers_and_reset_iterator
+    dataloader._iterator._shutdown_workers()
+    │          │         └ <function _MultiProcessingDataLoaderIter._shutdown_workers at 0x7f5b9ed59760>
+    │          └ <torch.utils.data.dataloader._MultiProcessingDataLoaderIter object at 0x7f5b3112c450>
+    └ <torch.utils.data.dataloader.DataLoader object at 0x7f5b322f3910>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1671, in _shutdown_workers
+    w.join(timeout=_utils.MP_STATUS_CHECK_INTERVAL)
+    │ │            │      └ 5.0
+    │ │            └ <module 'torch.utils.data._utils' from '/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/_...
+    │ └ <function BaseProcess.join at 0x7f5b9f177f60>
+    └ <SpawnProcess name='SpawnProcess-4' pid=1166613 parent=1165176 stopped exitcode=-SIGTERM daemon>
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/multiprocessing/process.py", line 149, in join
+    res = self._popen.wait(timeout)
+          │    │      │    └ 5.0
+          │    │      └ <function Popen.wait at 0x7f5b31127380>
+          │    └ <multiprocessing.popen_spawn_posix.Popen object at 0x7f5b31169610>
+          └ <SpawnProcess name='SpawnProcess-4' pid=1166613 parent=1165176 stopped exitcode=-SIGTERM daemon>
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/multiprocessing/popen_fork.py", line 40, in wait
+    if not wait([self.sentinel], timeout):
+           │     │    │          └ 5.0
+           │     │    └ 77
+           │     └ <multiprocessing.popen_spawn_posix.Popen object at 0x7f5b31169610>
+           └ <function wait at 0x7f5b9e472160>
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/multiprocessing/connection.py", line 940, in wait
+    with _WaitSelector() as selector:
+         │                  └ <selectors.PollSelector object at 0x7f5b4af17c10>
+         └ <class 'selectors.PollSelector'>
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/selectors.py", line 202, in __exit__
+    def __exit__(self, *args):
+                 │      └ (<class 'RuntimeError'>, RuntimeError('DataLoader worker (pid 1166450) is killed by signal: Terminated. '), <traceback object...
+                 └ <selectors.PollSelector object at 0x7f5b4af17c10>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/_utils/signal_handling.py", line 73, in handler
+    _error_if_any_worker_fails()
+    └ <built-in function _error_if_any_worker_fails>
+
+RuntimeError: DataLoader worker (pid 1167527) is killed by signal: Terminated. 
+Traceback (most recent call last):
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/multiprocessing/queues.py", line 113, in get
+    if not self._poll(timeout):
+           ^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/multiprocessing/connection.py", line 257, in poll
+    return self._poll(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/multiprocessing/connection.py", line 440, in _poll
+    r = wait([self], timeout)
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/multiprocessing/connection.py", line 948, in wait
+    ready = selector.select(timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/selectors.py", line 415, in select
+    fd_event_list = self._selector.poll(timeout)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 49, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 630, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path, weights_only=weights_only)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1079, in _run
+    results = self._run_stage()
+              ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1123, in _run_stage
+    self.fit_loop.run()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fit_loop.py", line 217, in run
+    self.advance()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fit_loop.py", line 465, in advance
+    self.epoch_loop.run(self._data_fetcher)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 154, in run
+    self.on_advance_end(data_fetcher)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 406, in on_advance_end
+    self.val_loop.run()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/utilities.py", line 179, in _decorator
+    return loop_run(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 139, in run
+    batch, batch_idx, dataloader_idx = next(data_fetcher)
+                                       ^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fetchers.py", line 134, in __next__
+    batch = super().__next__()
+            ^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fetchers.py", line 61, in __next__
+    batch = next(self.iterator)
+            ^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/combined_loader.py", line 341, in __next__
+    out = next(self._iterator)
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/combined_loader.py", line 142, in __next__
+    out = next(self.iterators[0])
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 741, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1524, in _next_data
+    idx, data = self._get_data()
+                ^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1483, in _get_data
+    success, data = self._try_get_data()
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1310, in _try_get_data
+    data = self._data_queue.get(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/multiprocessing/queues.py", line 120, in get
+    self._rlock.release()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/multiprocessing/connection.py", line 948, in wait
+    ready = selector.select(timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/selectors.py", line 415, in select
+    fd_event_list = self._selector.poll(timeout)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/_utils/signal_handling.py", line 73, in handler
+    _error_if_any_worker_fails()
+RuntimeError: DataLoader worker (pid 1166450) is killed by signal: Terminated. 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/zhome/5e/a/152106/code_masters/scripts/PY_files/train_model1.py", line 4, in <module>
+    train_model.main([
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/loguru/_logger.py", line 1297, in catch_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 364, in main
+    trainer.fit(model=model, datamodule=data_module, ckpt_path=args.load)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 584, in fit
+    call._call_and_handle_interrupt(
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 62, in _call_and_handle_interrupt
+    trainer._teardown()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1106, in _teardown
+    loop.teardown()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 325, in teardown
+    self._data_fetcher.teardown()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fetchers.py", line 82, in teardown
+    self._combined_loader.reset()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/combined_loader.py", line 367, in reset
+    _shutdown_workers_and_reset_iterator(iterable)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/combined_loader.py", line 400, in _shutdown_workers_and_reset_iterator
+    dataloader._iterator._shutdown_workers()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1671, in _shutdown_workers
+    w.join(timeout=_utils.MP_STATUS_CHECK_INTERVAL)
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/multiprocessing/process.py", line 149, in join
+    res = self._popen.wait(timeout)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/multiprocessing/popen_fork.py", line 40, in wait
+    if not wait([self.sentinel], timeout):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/multiprocessing/connection.py", line 940, in wait
+    with _WaitSelector() as selector:
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/selectors.py", line 202, in __exit__
+    def __exit__(self, *args):
+    
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/_utils/signal_handling.py", line 73, in handler
+    _error_if_any_worker_fails()
+RuntimeError: DataLoader worker (pid 1167527) is killed by signal: Terminated. 
+Exception ignored in atexit callback: <function _start_and_connect_service.<locals>.teardown_atexit at 0x7f5b4976f600>
+Traceback (most recent call last):
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/lib/service/service_connection.py", line 73, in teardown_atexit
+    conn.teardown(hooks.exit_code)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/lib/service/service_connection.py", line 344, in teardown
+    self._asyncer.run(publish_teardown_and_close)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/lib/asyncio_manager.py", line 137, in run
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/lib/asyncio_manager.py", line 220, in _wrap
+    return await fn()
+           ^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/lib/service/service_connection.py", line 335, in publish_teardown_and_close
+    await self._client.publish(
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/lib/service/service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/lib/service/service_client.py", line 78, in _send_server_request
+    raise self._broken_exc.with_traceback(self._broken_tb)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/lib/service/service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/lib/service/service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/streams.py", line 392, in drain
+    await self._protocol._drain_helper()
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/streams.py", line 166, in _drain_helper
+    raise ConnectionResetError('Connection lost')
+ConnectionResetError: Connection lost
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Seed set to 42
+2026-04-12 17:24:55.474 | WARNING  | neural_lam.datastore.mdp:__init__:67 - Config file has been modified since zarr was created. The old zarr archive (in /zhome/5e/a/152106/code_masters/data/coarse_data.zarr) will be used.To generate new zarr-archive, move the old one first.
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:196: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+wandb: WARNING The anonymous setting has no effect and will be removed in a future version.
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /zhome/5e/a/152106/.netrc.
+wandb: Currently logged in as: s201205 (s201205-danmarks-tekniske-universitet-dtu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run eu7s9uob
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in wandb/run-20260412_172501-eu7s9uob
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run train coarse data with same mesh
+wandb: ⭐️ View project at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/neural_lam
+wandb: 🚀 View run at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/neural_lam/runs/eu7s9uob
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/vis.py:20: UserWarning: The use of `x.T` on tensors of dimension other than 2 to reverse their shape is deprecated and it will throw an error in a future release. Consider `x.mT` to transpose batches of matrices or `x.permute(*torch.arange(x.ndim - 1, -1, -1))` to reverse the dimensions of a tensor. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4480.)
+  errors_np = errors.T.cpu().numpy()  # (d_f, pred_steps)
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Metric val_mean_loss improved. New best score: 0.034
+Metric val_mean_loss improved by 0.019 >= min_delta = 0.0001. New best score: 0.015
+Metric val_mean_loss improved by 0.005 >= min_delta = 0.0001. New best score: 0.010
+Metric val_mean_loss improved by 0.001 >= min_delta = 0.0001. New best score: 0.009
+Metric val_mean_loss improved by 0.005 >= min_delta = 0.0001. New best score: 0.004
+Metric val_mean_loss improved by 0.000 >= min_delta = 0.0001. New best score: 0.004
+Metric val_mean_loss improved by 0.000 >= min_delta = 0.0001. New best score: 0.004
+Monitored metric val_mean_loss did not improve in the last 10 records. Best score: 0.004. Signaling Trainer to stop.
