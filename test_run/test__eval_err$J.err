@@ -879,3 +879,238 @@ Loaded model weights from the checkpoint at /zhome/5e/a/152106/code_masters/save
   errors_np = errors.T.cpu().numpy()  # (d_f, pred_steps)
 /zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/dask/array/core.py:5198: PerformanceWarning: Increasing number of chunks by factor of 1001
   result = blockwise(
+2026-04-13 10:30:36.820 | ERROR    | __main__:<module>:4 - An error has been caught in function '<module>', process 'MainProcess' (1328097), thread 'MainThread' (139849690892096):
+Traceback (most recent call last):
+
+> File "/zhome/5e/a/152106/code_masters/scripts/PY_files/eval_model1.py", line 4, in <module>
+    train_model.main([
+    │           └ <function main at 0x7f2ff07276a0>
+    └ <module 'neural_lam.train_model' from '/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py'>
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 357, in main
+    trainer.test(
+    │       └ <function Trainer.test at 0x7f3002a651c0>
+    └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7f2ff0edcbd0>
+
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 821, in test
+    return call._call_and_handle_interrupt(
+           │    └ <function _call_and_handle_interrupt at 0x7f3002b21da0>
+           └ <module 'pytorch_lightning.trainer.call' from '/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lig...
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 49, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+           │           │       └ {}
+           │           └ (GraphLAM(
+           │               (grid_embedder): Sequential(
+           │                 (0): Linear(in_features=5, out_features=64, bias=True)
+           │                 (1): SiLU()
+           │                 (2):...
+           └ <bound method Trainer._test_impl of <pytorch_lightning.trainer.trainer.Trainer object at 0x7f2ff0edcbd0>>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 864, in _test_impl
+    results = self._run(model, ckpt_path=ckpt_path, weights_only=weights_only)
+              │    │    │                │                       └ False
+              │    │    │                └ '/zhome/5e/a/152106/code_masters/saved_models/train coarse data with same mesh/min_val_loss.ckpt'
+              │    │    └ GraphLAM(
+              │    │        (grid_embedder): Sequential(
+              │    │          (0): Linear(in_features=5, out_features=64, bias=True)
+              │    │          (1): SiLU()
+              │    │          (2): ...
+              │    └ <function Trainer._run at 0x7f3002a65620>
+              └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7f2ff0edcbd0>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1079, in _run
+    results = self._run_stage()
+              │    └ <function Trainer._run_stage at 0x7f3002a65760>
+              └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7f2ff0edcbd0>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1116, in _run_stage
+    return self._evaluation_loop.run()
+           │    └ <property object at 0x7f3002a56cf0>
+           └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7f2ff0edcbd0>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/utilities.py", line 179, in _decorator
+    return loop_run(self, *args, **kwargs)
+           │        │      │       └ {}
+           │        │      └ ()
+           │        └ <pytorch_lightning.loops.evaluation_loop._EvaluationLoop object at 0x7f2ff0532cd0>
+           └ <function _EvaluationLoop.run at 0x7f3002bdd800>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 153, in run
+    return self.on_run_end()
+           │    └ <function _EvaluationLoop.on_run_end at 0x7f3002bddda0>
+           └ <pytorch_lightning.loops.evaluation_loop._EvaluationLoop object at 0x7f2ff0532cd0>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 296, in on_run_end
+    self._on_evaluation_epoch_end()
+    │    └ <function _EvaluationLoop._on_evaluation_epoch_end at 0x7f3002bde200>
+    └ <pytorch_lightning.loops.evaluation_loop._EvaluationLoop object at 0x7f2ff0532cd0>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 379, in _on_evaluation_epoch_end
+    call._call_lightning_module_hook(trainer, hook_name)
+    │    │                           │        └ 'on_test_epoch_end'
+    │    │                           └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7f2ff0edcbd0>
+    │    └ <function _call_lightning_module_hook at 0x7f3002b547c0>
+    └ <module 'pytorch_lightning.trainer.call' from '/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lig...
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 177, in _call_lightning_module_hook
+    output = fn(*args, **kwargs)
+             │   │       └ {}
+             │   └ ()
+             └ <bound method ARModel.on_test_epoch_end of GraphLAM(
+                 (grid_embedder): Sequential(
+                   (0): Linear(in_features=5, out_featur...
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/models/ar_model.py", line 844, in on_test_epoch_end
+    loss_map_figs = [
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/models/ar_model.py", line 845, in <listcomp>
+    vis.plot_spatial_error(
+    │   └ <function plot_spatial_error at 0x7f2ff0724680>
+    └ <module 'neural_lam.vis' from '/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/vis.py'>
+
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/contextlib.py", line 81, in inner
+    return func(*args, **kwds)
+           │     │       └ {'error': tensor(0.0081, device='cuda:0'), 'datastore': <neural_lam.datastore.mdp.MDPDatastore object at 0x7f2ff147f890>, 'ti...
+           │     └ ()
+           └ <function plot_spatial_error at 0x7f2ff07245e0>
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/vis.py", line 155, in plot_spatial_error
+    extent = datastore.get_xy_extent("state")
+             │         └ <functools._lru_cache_wrapper object at 0x7f300ee7e8d0>
+             └ <neural_lam.datastore.mdp.MDPDatastore object at 0x7f2ff147f890>
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/base.py", line 335, in get_xy_extent
+    xy = self.get_xy(category, stacked=True)
+         │    │      └ 'state'
+         │    └ <function MDPDatastore.get_xy at 0x7f2ff0e54d60>
+         └ <neural_lam.datastore.mdp.MDPDatastore object at 0x7f2ff147f890>
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py", line 502, in get_xy
+    da_xy = da_xy.stack(grid_index=self.CARTESIAN_COORDS).transpose(
+            │     │                │    └ ['x', 'y', 'z']
+            │     │                └ <neural_lam.datastore.mdp.MDPDatastore object at 0x7f2ff147f890>
+            │     └ <function DataArray.stack at 0x7f2ff2bfc180>
+            └ <xarray.DataArray 'x' (grid_coord: 2, x: 169, y: 167)> Size: 452kB
+              array([[[-1.        , -1.        , -1.        , ..., -1.  ...
+
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/util/deprecation_helpers.py", line 144, in wrapper
+    return func(*args, **kwargs)
+           │     │       └ {'grid_index': ['x', 'y', 'z']}
+           │     └ (<xarray.DataArray 'x' (grid_coord: 2, x: 169, y: 167)> Size: 452kB
+           │       array([[[-1.        , -1.        , -1.        , ..., -1. ...
+           └ <function DataArray.stack at 0x7f2ff2bfc0e0>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/dataarray.py", line 2986, in stack
+    ds = self._to_temp_dataset().stack(
+         │    └ <function DataArray._to_temp_dataset at 0x7f2ff2bf4ae0>
+         └ <xarray.DataArray 'x' (grid_coord: 2, x: 169, y: 167)> Size: 452kB
+           array([[[-1.        , -1.        , -1.        , ..., -1.  ...
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/util/deprecation_helpers.py", line 144, in wrapper
+    return func(*args, **kwargs)
+           │     │       └ {'create_index': True, 'index_cls': <class 'xarray.core.indexes.PandasMultiIndex'>, 'grid_index': ['x', 'y', 'z']}
+           │     └ (<xarray.Dataset> Size: 454kB
+           │       Dimensions:       (x: 169, y: 167, grid_coord: 2)
+           │       Coordinates:
+           │         * x             (x) float64 1k...
+           └ <function Dataset.stack at 0x7f2ff2becf40>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/dataset.py", line 5293, in stack
+    result = result._stack_once(dims, new_dim, index_cls, create_index)
+             │      │           │     │        │          └ True
+             │      │           │     │        └ <class 'xarray.core.indexes.PandasMultiIndex'>
+             │      │           │     └ 'grid_index'
+             │      │           └ ['x', 'y', 'z']
+             │      └ <function Dataset._stack_once at 0x7f2ff2becea0>
+             └ <xarray.Dataset> Size: 454kB
+               Dimensions:       (x: 169, y: 167, grid_coord: 2)
+               Coordinates:
+                 * x             (x) float64 1kB...
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/dataset.py", line 5206, in _stack_once
+    shape = [self.sizes[d] for d in vdims]
+             │    │                 └ ['x', 'y', 'z']
+             │    └ <property object at 0x7f2ff2be8360>
+             └ <xarray.Dataset> Size: 454kB
+               Dimensions:       (x: 169, y: 167, grid_coord: 2)
+               Coordinates:
+                 * x             (x) float64 1kB...
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/dataset.py", line 5206, in <listcomp>
+    shape = [self.sizes[d] for d in vdims]
+             │    │     │      └ 'z'
+             │    │     └ 'z'
+             │    └ <property object at 0x7f2ff2be8360>
+             └ <xarray.Dataset> Size: 454kB
+               Dimensions:       (x: 169, y: 167, grid_coord: 2)
+               Coordinates:
+                 * x             (x) float64 1kB...
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/utils.py", line 506, in __getitem__
+    return self.mapping[key]
+           │    │       └ 'z'
+           │    └ <member 'mapping' of 'Frozen' objects>
+           └ Frozen({'x': 169, 'y': 167, 'grid_coord': 2})
+
+KeyError: 'z'
+Traceback (most recent call last):
+  File "/zhome/5e/a/152106/code_masters/scripts/PY_files/eval_model1.py", line 4, in <module>
+    train_model.main([
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/loguru/_logger.py", line 1297, in catch_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 357, in main
+    trainer.test(
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 821, in test
+    return call._call_and_handle_interrupt(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 49, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 864, in _test_impl
+    results = self._run(model, ckpt_path=ckpt_path, weights_only=weights_only)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1079, in _run
+    results = self._run_stage()
+              ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1116, in _run_stage
+    return self._evaluation_loop.run()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/utilities.py", line 179, in _decorator
+    return loop_run(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 153, in run
+    return self.on_run_end()
+           ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 296, in on_run_end
+    self._on_evaluation_epoch_end()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 379, in _on_evaluation_epoch_end
+    call._call_lightning_module_hook(trainer, hook_name)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 177, in _call_lightning_module_hook
+    output = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/models/ar_model.py", line 844, in on_test_epoch_end
+    loss_map_figs = [
+                    ^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/models/ar_model.py", line 845, in <listcomp>
+    vis.plot_spatial_error(
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/contextlib.py", line 81, in inner
+    return func(*args, **kwds)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/vis.py", line 155, in plot_spatial_error
+    extent = datastore.get_xy_extent("state")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/base.py", line 335, in get_xy_extent
+    xy = self.get_xy(category, stacked=True)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py", line 502, in get_xy
+    da_xy = da_xy.stack(grid_index=self.CARTESIAN_COORDS).transpose(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/util/deprecation_helpers.py", line 144, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/dataarray.py", line 2986, in stack
+    ds = self._to_temp_dataset().stack(
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/util/deprecation_helpers.py", line 144, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/dataset.py", line 5293, in stack
+    result = result._stack_once(dims, new_dim, index_cls, create_index)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/dataset.py", line 5206, in _stack_once
+    shape = [self.sizes[d] for d in vdims]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/dataset.py", line 5206, in <listcomp>
+    shape = [self.sizes[d] for d in vdims]
+             ~~~~~~~~~~^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/utils.py", line 506, in __getitem__
+    return self.mapping[key]
+           ~~~~~~~~~~~~^^^^^
+KeyError: 'z'

@@ -271,3 +271,6 @@ device_name: cuda
 devices arg: auto
 Loaded graph with 1284 nodes (642 grid, 642 mesh)
 Edges in subgraphs: m2m=3840, g2m=2568, m2g=2568
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35/35 0:00:12 • 0:00:00 5.56it/s 
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mTest coarse data with same mesh correct[0m at: [34mhttps://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/neural_lam/runs/zl295d3p[0m
