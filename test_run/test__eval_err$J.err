@@ -841,3 +841,41 @@ Traceback (most recent call last):
   File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 584, in _validate_and_transpose_existing_dims
     raise ValueError(
 ValueError: variable 'state' already exists with different dimension sizes: {'elapsed_forecast_duration': 16, 'grid_index': 642, 'state_feature': 1} != {'elapsed_forecast_duration': 17, 'grid_index': 642, 'state_feature': 1}. to_zarr() only supports changing dimension sizes when explicitly appending, but append_dim='start_time'. If you are attempting to write to a subset of the existing store without changing dimension sizes, consider using the region argument in to_zarr().
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Seed set to 42
+2026-04-13 10:21:06.895 | WARNING  | neural_lam.datastore.mdp:__init__:67 - Config file has been modified since zarr was created. The old zarr archive (in /zhome/5e/a/152106/code_masters/data/coarse_data.zarr) will be used.To generate new zarr-archive, move the old one first.
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:196: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+wandb: WARNING The anonymous setting has no effect and will be removed in a future version.
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /zhome/5e/a/152106/.netrc.
+wandb: Currently logged in as: s201205 (s201205-danmarks-tekniske-universitet-dtu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run zl295d3p
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in wandb/run-20260413_102111-zl295d3p
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run Test coarse data with same mesh correct
+wandb: ⭐️ View project at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/neural_lam
+wandb: 🚀 View run at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/neural_lam/runs/zl295d3p
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:279: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+Restoring states from the checkpoint path at /zhome/5e/a/152106/code_masters/saved_models/train coarse data with same mesh/min_val_loss.ckpt
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:566: The dirpath has changed from '/zhome/5e/a/152106/code_masters/saved_models/train coarse data with same mesh' to '/zhome/5e/a/152106/code_masters/saved_models/Test coarse data with same mesh correct', therefore `best_model_score`, `kth_best_model_path`, `kth_value`, `last_model_path` and `best_k_models` won't be reloaded. Only `best_model_path` will be reloaded.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loaded model weights from the checkpoint at /zhome/5e/a/152106/code_masters/saved_models/train coarse data with same mesh/min_val_loss.ckpt
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/vis.py:20: UserWarning: The use of `x.T` on tensors of dimension other than 2 to reverse their shape is deprecated and it will throw an error in a future release. Consider `x.mT` to transpose batches of matrices or `x.permute(*torch.arange(x.ndim - 1, -1, -1))` to reverse the dimensions of a tensor. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4480.)
+  errors_np = errors.T.cpu().numpy()  # (d_f, pred_steps)
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/dask/array/core.py:5198: PerformanceWarning: Increasing number of chunks by factor of 1001
+  result = blockwise(

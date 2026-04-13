@@ -21,3 +21,4 @@ data/nc_files/
 figures/
 trash/
 jobs/
+*.pt
