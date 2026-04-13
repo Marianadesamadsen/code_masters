@@ -64,10 +64,10 @@ for (name, g), ax in zip(graph_components.items(), axes.flatten()):
     ax.set_aspect(1.0)
 
 
-wmg.save.to_neural_lam(
-    graph_components,          # {"g2m": nx.DiGraph, "m2m": nx.DiGraph, "m2g": nx.DiGraph}
-    output_directory = "data/graph/graph_coarse_data",
-)
+# wmg.save.to_neural_lam(
+#     graph_components,          # {"g2m": nx.DiGraph, "m2m": nx.DiGraph, "m2g": nx.DiGraph}
+#     output_directory = "data/graph/graph_coarse_data",
+# )
 plt.show()
 
 

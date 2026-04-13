@@ -20,3 +20,4 @@ scripts/lightning_logs/
 data/nc_files/
 figures/
 trash/
+*.zip
