@@ -16,7 +16,7 @@ def main():
     T_min = 2 * np.pi / omega_max
     print("dt compute",T_min / 20 )
     dt = T_min / 20 # 0.010361252408621261/3 # 
-    N_members = 100
+    N_members = 3
     tmax = dt*1000
     print("tmax",tmax) 
     
@@ -79,22 +79,22 @@ def main():
 
     print(f"N = {sim.N}")
     print(f"dt = {dt}")
-    print(f"dx = {sim.dx_allan}")
+    print(f"dx = {sim.dx_true}")
     print(f"cfl: {sim.cfl_value}")
 
     t_start = time.perf_counter()
     ds,u = sim.simulate_ensemble(
         fg_list,
-        title="wave_ensemble_100",
+        title="wave_ensemble_3",
         savedata=False,
         centers=centers,
         sigmas=sigmas,
-        amplitudes=amplitudes,
+        amplitudes=amplitudes, 
     )
     print("time simulation: ", time.perf_counter() - t_start)
 
     t_start = time.perf_counter()
-    sim.save_data(ds, title="wave_ensemble_100_coarse")
+    sim.save_data(ds, title="wave_ensemble_3_coarse")
     print("time save",time.perf_counter()-t_start)
 
 if __name__ == "__main__":

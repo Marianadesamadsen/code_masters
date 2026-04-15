@@ -41,7 +41,7 @@ xyz = sim.xyz
 
 coords = np.stack([long, lat], axis=1)   # (N,2) 
 
-graph_keisler = wmg.create.archetype.create_keisler_graph(coords,xyz, mesh_node_distance=0.5,coords_crs=ccrs.PlateCarree(),graph_crs=ccrs.PlateCarree())
+graph_keisler = wmg.create.archetype.create_keisler_graph(coords, mesh_node_distance=0.5,coords_crs=ccrs.PlateCarree(),graph_crs=ccrs.PlateCarree())
 fig, ax = plt.subplots(figsize=(15, 9), subplot_kw={"projection": ccrs.PlateCarree()})
 wmg.visualise.nx_draw_with_pos_and_attr(
     graph_keisler, ax=ax, node_size=10, edge_color_attr="component", node_color_attr="type"
@@ -64,9 +64,27 @@ for (name, g), ax in zip(graph_components.items(), axes.flatten()):
     ax.set_aspect(1.0)
 
 
+fig.savefig("data/graph/graph_test/graph_components2.png")
+
+
+fig, axes = plt.subplots(len(graph_components), 1, figsize=(8, 4 * len(graph_components)))
+
+if len(graph_components) == 1:
+    axes = [axes]
+
+for ax, (name, g) in zip(axes, graph_components.items()):
+    lengths = np.array([data["len"] for _, _, data in g.edges(data=True)])
+    ax.hist(lengths, bins=30)
+    ax.set_title(f"{name} edge lengths")
+    ax.set_xlabel("length")
+    ax.set_ylabel("count")
+
+plt.tight_layout()
+fig.savefig("data/graph/graph_test/edge_length_histograms_2nn.png")
+
 wmg.save.to_neural_lam(
     graph_components,          # {"g2m": nx.DiGraph, "m2m": nx.DiGraph, "m2g": nx.DiGraph}
-    output_directory = "data/graph/graph_sub2_mesh_4_nearest_neighbor",  # directory to save the graph data
+    output_directory = "data/graph/graph_same_mesh_grid_2_nearest_neighbor",  # directory to save the graph data
 )
 
 

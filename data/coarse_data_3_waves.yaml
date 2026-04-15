@@ -1,0 +1,70 @@
+schema_version: v0.6.0
+dataset_version: v0.1.0
+
+output:
+  variables:
+    static: [grid_index, static_feature]
+    state: [time, grid_index, state_feature, ensemble_member]
+
+  coord_ranges:
+    time:
+      start: 0
+      end: 15.329402499064276
+
+  chunking:
+    time: 1
+
+  splitting:
+    dim: ensemble_member 
+    splits:
+      train:
+        start: 0
+        end: 0 
+        compute_statistics:
+          ops: [mean, std, diff_mean, diff_std]
+          dims: [grid_index, time, ensemble_member]
+      val:
+        start: 1
+        end: 1 
+      test:
+        start: 2 
+        end: 2 
+
+inputs:
+  wave_sphere:
+    path: data/nc_files/wave_ensemble_3_coarse.nc
+    dims: [time, grid_index, ensemble_member]
+    variables:
+      - u
+    dim_mapping:
+      time:
+        method: rename
+        dim: time
+      grid_index:
+        method: rename
+        dim: grid_index
+      ensemble_member:
+        method: rename
+        dim: ensemble_member
+      state_feature:
+        method: stack_variables_by_var_name
+        name_format: "{var_name}"
+    target_output_variable: state
+
+  wave_sphere_static:
+    path: data/nc_files/wave_ensemble_3_coarse.nc
+    dims: [grid_index]
+    variables:
+      - x_static
+      - y_static
+      - z_static
+    dim_mapping:
+      grid_index:
+        method: rename
+        dim: grid_index
+      static_feature:
+        method: stack_variables_by_var_name
+        name_format: "{var_name}"
+    target_output_variable: static
+
+    

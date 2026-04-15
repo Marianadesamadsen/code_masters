@@ -23,3 +23,4 @@ trash/
 jobs/
 *.pt
 *.zip
+test_eval_with_zarr

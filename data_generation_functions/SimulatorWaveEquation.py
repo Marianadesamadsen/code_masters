@@ -16,7 +16,8 @@ class SimulatorWaveEquation:
         self.dt = float(dt)
         self.P, tri = self.create_mesh()
         self.tri = np.asarray(tri)  # (N,3)
-        self.time = self.create_time_steps() 
+        self.time = self.create_time_steps()
+        self.time_datetime = self.time#self.time.astype("timedelta64[s]")  # convert to timedelta for xarray
         self.xyz = np.asarray(self.P.T, dtype=np.float64)  # (N, 3)
         self.N = self.xyz.shape[0]
         self.edges = self.tri_to_edges() # (N,2)
@@ -80,7 +81,7 @@ class SimulatorWaveEquation:
         return ds
     
     def save_data(self, ds, title="test"): 
-        nc_path = "../data/nc_files"
+        nc_path = "data/nc_files"
         os.makedirs(nc_path, exist_ok=True)
         ds.to_netcdf(os.path.join(nc_path, f"{title}.nc"))
 
@@ -96,41 +97,39 @@ class SimulatorWaveEquation:
             "tri": (("triangle", "three"), self.tri),
             "edge_index": (("two", "edge"), self.edges),
             "P": (("grid_index", "xyz"), self.xyz),
-            "lat": (("grid_index",), self.lat),
-            "lon": (("grid_index",), self.lon),
         }
 
         if u.ndim == 2:
             u_dims = ("time", "grid_index")
             coords = {
-                "time": ("time", self.time),
+                "time": ("time", self.time_datetime),
                 "grid_index": np.arange(N),
             }
             data_vars["u"] = (u_dims, u)
 
         elif u.ndim == 3:
             nmem = u.shape[0]
-            u_dims = ("ensemble", "time", "grid_index")
+            u_dims = ("ensemble_member", "time", "grid_index")
             coords = {
-                "ensemble": np.arange(nmem),
-                "time": ("time", self.time),
+                "ensemble_member": np.arange(nmem),
+                "time": ("time", self.time_datetime),
                 "grid_index": np.arange(N),
             }
             data_vars["u"] = (u_dims, u)
 
             if centers is not None:
                 centers = np.asarray(centers)
-                data_vars["center"] = (("ensemble", "xyz"), centers)
+                data_vars["center"] = (("ensemble_member", "xyz"), centers)
 
             if sigmas is not None:
                 sigmas = np.asarray(sigmas)
-                data_vars["sigma"] = (("ensemble",), sigmas) # radians
+                data_vars["sigma"] = (("ensemble_member",), sigmas) # radians
                 sigma_deg = np.rad2deg(sigmas)
-                data_vars["sigma_deg"] = (("ensemble",), sigma_deg)
+                data_vars["sigma_deg"] = (("ensemble_member",), sigma_deg)
 
             if amplitudes is not None:
                 amplitudes = np.asarray(amplitudes)
-                data_vars["A"] = (("ensemble",), amplitudes)
+                data_vars["A"] = (("ensemble_member",), amplitudes)
 
         else:
             raise ValueError(f"u must be 2D or 3D; got {u.shape}")
@@ -139,9 +138,11 @@ class SimulatorWaveEquation:
             data_vars=data_vars,
             coords={
                 **coords,
-                "x": ("grid_index", self.xyz[:, 0]),
-                "y": ("grid_index", self.xyz[:, 1]),
-                "z": ("grid_index", self.xyz[:, 2]),
+                # "x": ("grid_index", self.xyz[:, 0]),
+                # "y": ("grid_index", self.xyz[:, 1]),
+                # "z": ("grid_index", self.xyz[:, 2]),
+                "lat": ("grid_index", self.lat),
+                "lon": ("grid_index", self.lon),
                 "triangle": np.arange(Ttri),
                 "edge": np.arange(E),
                 "xyz": np.array(["x", "y", "z"]),

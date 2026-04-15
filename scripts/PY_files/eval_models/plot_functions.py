@@ -138,7 +138,7 @@ def plot_amplitude_over_time(pred, target):
     fig, ax = plt.subplots(figsize=(8, 4))
     ax.plot(a_true, label="True")
     ax.plot(a_pred, label="Predicted")
-    ax.set_xlabel("Lead time index")
+    ax.set_xlabel("roll out  index")
     ax.set_ylabel("Max |u|")
     ax.set_title("Amplitude evolution")
     ax.legend()
@@ -157,7 +157,7 @@ def plot_correlation_over_time(pred, target):
 
     fig, ax = plt.subplots(figsize=(8, 4))
     ax.plot(corrs)
-    ax.set_xlabel("Lead time index")
+    ax.set_xlabel("roll out  index")
     ax.set_ylabel("Correlation")
     ax.set_title("Prediction-target correlation over time")
     fig.tight_layout()
