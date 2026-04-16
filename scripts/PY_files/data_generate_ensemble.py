@@ -9,15 +9,15 @@ import time
 def main():
 
     R = 1.0 
-    C = 1.0
+    C = 2
     Lmax = 20
-    generations = 3
+    generations = 4
     omega_max = (C / R) * np.sqrt(Lmax * (Lmax + 1))
     T_min = 2 * np.pi / omega_max
     print("dt compute",T_min / 20 )
     dt = T_min / 20 # 0.010361252408621261/3 # 
-    N_members = 3
-    tmax = dt*1000
+    N_members = 20
+    tmax = dt*500
     print("tmax",tmax) 
     
     rng = np.random.default_rng(42)
@@ -85,7 +85,7 @@ def main():
     t_start = time.perf_counter()
     ds,u = sim.simulate_ensemble(
         fg_list,
-        title="wave_ensemble_3",
+        title="wave_ensemble_20_coarse_500_timesteps_sub4_wp2",
         savedata=False,
         centers=centers,
         sigmas=sigmas,
@@ -94,7 +94,7 @@ def main():
     print("time simulation: ", time.perf_counter() - t_start)
 
     t_start = time.perf_counter()
-    sim.save_data(ds, title="wave_ensemble_3_coarse")
+    sim.save_data(ds, title="mp_vs_wavespeed/wave_ensemble_20_coarse_500_timesteps_sub4_wp2")
     print("time save",time.perf_counter()-t_start)
 
 if __name__ == "__main__":
