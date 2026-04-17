@@ -81,6 +81,6 @@ class DataPlotter:
         )
 
         if out_path:
-            anim.save(out_path, writer="pillow", fps=fps)
+            anim.save(out_path, writer="ffmpeg", fps=fps) # pillow
 
         return anim

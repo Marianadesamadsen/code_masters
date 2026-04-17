@@ -14,7 +14,8 @@ import matplotlib.pyplot as plt
 from data_generation_functions import DataPlotter
 from matplotlib import colors
 
-plot_animations = True
+plot_animations_1step = False
+plot_animations_rollout = True
 
 # paths
 ds_geo = xr.open_dataset(r"./data/nc_files/start_up_tests/wave_ensemble_10_coarse.nc")
@@ -68,11 +69,6 @@ for wave in range(num_waves):
     time_1step_1wave = time_1wave[:, 0]
     error_1step_1wave = pred_1step_1wave - target_1step_1wave
 
-    # This setup is for dataplotter 3Ds
-    ds_pred = helper.setup_simple_xarray(pred_1step_1wave[:100,:], time_1step_1wave[:100], P, tri, R=R)
-    ds_true = helper.setup_simple_xarray(target_1step_1wave[:100,:], time_1step_1wave[:100], P, tri, R=R)
-    ds_err = helper.setup_simple_xarray(error_1step_1wave[:100,:], time_1step_1wave[:100], P, tri, R=R)
-
     # Plotting error metrics over time 1-step 1-wave
     fig_errors = plot_funcs.plot_error_metrics(errors_dict["rmse"][:,wave,:].mean(axis=1), errors_dict["mae"][:,wave,:].mean(axis=1), errors_dict["err_max"][:,wave,:].mean(axis=1), time_1step_1wave)
     fig_errors.savefig(os.path.join(plot_dir, f"error_metrics_1_step_wave{wave}.png"), dpi=200, bbox_inches="tight")
@@ -86,17 +82,23 @@ for wave in range(num_waves):
     fig_rollout_error = plot_funcs.plot_rollout_error_growth(errors_dict["rmse"][:, wave, :].mean(axis=0), errors_dict["mae"][:, wave, :].mean(axis=0))
     fig_rollout_error.savefig(os.path.join(plot_dir, f"rollout_error_growth_wave{wave}.png"), dpi=200, bbox_inches="tight")
 
-    fig_heatmap_L2norm = plot_funcs.plot_L2_norm_heatmap(errors_dict["L2_error"][:, wave, :])
-    fig_heatmap_L2norm.savefig(os.path.join(plot_dir, f"heatmap_L2_norm_wave{wave}.png"), dpi=200, bbox_inches="tight")
+    # fig_heatmap_L2norm = plot_funcs.plot_E_norm_heatmap(errors_dict["E_error"][:, wave, :])
+    # fig_heatmap_L2norm.savefig(os.path.join(plot_dir, f"heatmap_E_norm_wave{wave}.png"), dpi=200, bbox_inches="tight")
 
-    fig_L2_norm = plot_funcs.plot_L2_norm(errors_dict["L2_pred"][:, wave, :].mean(axis=1), errors_dict["L2_true"][:, wave, :].mean(axis=1))
-    fig_L2_norm.savefig(os.path.join(plot_dir, f"plot_l2_energy_overall_wave{wave}.png"), dpi=200, bbox_inches="tight")
+    # fig_L2_norm = plot_funcs.plot_E_norm(errors_dict["E_pred"][:, wave, :].mean(axis=1), errors_dict["E_true"][:, wave, :].mean(axis=1))
+    # fig_L2_norm.savefig(os.path.join(plot_dir, f"plot_E_energy_overall_wave{wave}.png"), dpi=200, bbox_inches="tight")
 
     fig_max_error = plot_funcs.plot_max_over_time(errors_dict["max_pred"][:, wave, :].mean(axis=0), errors_dict["max_true"][:, wave, :].mean(axis=0))
     fig_max_error.savefig(os.path.join(plot_dir, f"plot_max_over_time_overall_wave{wave}.png"), dpi=200, bbox_inches="tight")
 
 
-    if plot_animations:
+    if plot_animations_1step:
+
+        # This setup is for dataplotter 3Ds
+        ds_pred = helper.setup_simple_xarray(pred_1step_1wave[:100,:], time_1step_1wave[:100], P, tri, R=R)
+        ds_true = helper.setup_simple_xarray(target_1step_1wave[:100,:], time_1step_1wave[:100], P, tri, R=R)
+        ds_err = helper.setup_simple_xarray(error_1step_1wave[:100,:], time_1step_1wave[:100], P, tri, R=R)
+
         # Color scales
         field_norm = helper.color_scales(pred_1step_1wave, target_1step_1wave)
 
@@ -123,6 +125,46 @@ for wave in range(num_waves):
         anim_err = plotter_err.animate_sphere(
             norm=err_norm,
             out_path=os.path.join(anim_dir, f"error_all_wave{wave}.gif"),
+            fps=10,
+        )
+
+    if plot_animations_rollout:
+        pred_all_1feature = pred_all[:,:,:,:,0]
+        target_all_1feature = target_all[:,:,:,:,0]
+        error_all_1feature = pred_all_1feature - target_all_1feature
+        rolloutidx = 100 
+
+        # This setup is for dataplotter 3Ds
+        ds_pred = helper.setup_simple_xarray(pred_all_1feature[rolloutidx,wave], np.arange(num_roll_outs), P, tri, R=R)
+        ds_true = helper.setup_simple_xarray(target_all_1feature[rolloutidx,wave], np.arange(num_roll_outs), P, tri, R=R)
+        ds_err = helper.setup_simple_xarray(error_all_1feature[rolloutidx,wave], np.arange(num_roll_outs), P, tri, R=R)
+
+        # Color scales
+        field_norm = helper.color_scales(pred_all_1feature[rolloutidx,wave], target_all_1feature[rolloutidx,wave])
+
+        err_abs = float(np.nanmax(np.abs(error_all_1feature[rolloutidx,wave])))
+        err_norm = colors.Normalize(vmin=-err_abs, vmax=err_abs)
+
+        # Sphere animations
+        plotter_pred = DataPlotter.DataPlotter(ds=ds_pred)
+        plotter_true = DataPlotter.DataPlotter(ds=ds_true)
+        plotter_err = DataPlotter.DataPlotter(ds=ds_err)
+
+        anim_pred = plotter_pred.animate_sphere(
+            norm=field_norm,
+            out_path=os.path.join(anim_dir, f"pred_rollout_idx{rolloutidx}_wave{wave}.mp4"),
+            fps=10,
+        )
+
+        anim_true = plotter_true.animate_sphere(
+            norm=field_norm,
+            out_path=os.path.join(anim_dir, f"true_rollout_idx{rolloutidx}_wave{wave}.mp4"),
+            fps=10,
+        )
+
+        anim_err = plotter_err.animate_sphere(
+            norm=err_norm,
+            out_path=os.path.join(anim_dir, f"error_rollout_idx{rolloutidx}_wave{wave}.mp4"),
             fps=10,
         )
 

@@ -50,18 +50,18 @@ def plot_rmse_heatmap(rmse):
 
     return fig
 
-def plot_L2_norm_heatmap(L2_error):
+def plot_E_norm_heatmap(E_error):
 
     # Plot heatmap
     fig, ax = plt.subplots(figsize=(8, 5))
-    im = ax.imshow(L2_error, aspect="auto", origin="lower")
+    im = ax.imshow(E_error, aspect="auto", origin="lower")
 
     ax.set_xlabel("Roll out")
     ax.set_ylabel("Test data index")
-    ax.set_title("L2 error heatmap")
+    ax.set_title("E error heatmap")
 
     cbar = fig.colorbar(im, ax=ax)
-    cbar.set_label("L2 error")
+    cbar.set_label("E error")
 
     fig.tight_layout()
     return fig
@@ -91,10 +91,10 @@ def plot_pred_vs_true_scatter(u_pred, u_true):
     fig.tight_layout()
     return fig
 
-def plot_L2_norm(L2_pred, L2_true):
+def plot_E_norm(E_pred, E_true):
     fig, ax = plt.subplots(figsize=(8, 4))
-    ax.plot(L2_true, label="True")
-    ax.plot(L2_pred, label="Predicted")
+    ax.plot(E_true, label="True")
+    ax.plot(E_pred, label="Predicted")
     ax.set_xlabel("Roll out index")
     ax.set_ylabel(r"$\|u\|_2^2$")
     ax.set_title("Energy over time")

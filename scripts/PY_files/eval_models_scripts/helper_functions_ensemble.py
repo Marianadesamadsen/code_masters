@@ -69,9 +69,9 @@ def compute_errors(u_pred, u_true, axis=2):
     rmse = np.sqrt(np.mean(err**2, axis=axis))
     mse = np.mean(err**2, axis=axis)
     mae = np.mean(np.abs(err), axis=axis)
-    L2_pred = np.sqrt(np.mean(u_pred**2, axis=axis))
-    L2_true = np.sqrt(np.mean(u_true**2, axis=axis))
-    L2_error = np.abs(L2_pred - L2_true)
+    E_pred = np.mean(u_pred**2, axis=axis)
+    E_true = np.mean(u_true**2, axis=axis)
+    E_error = np.abs(E_pred - E_true)
     err_max = np.max(np.abs(err), axis=axis)
     err_abs = float(np.nanmax(np.abs(err)))
     max_pred = np.max(np.abs(u_pred), axis=axis)
@@ -84,9 +84,9 @@ def compute_errors(u_pred, u_true, axis=2):
         "mae": mae,
         "err_max": err_max,
         "err_abs": err_abs,
-        "L2_pred": L2_pred,
-        "L2_true": L2_true,
-        "L2_error": L2_error,
+        "E_pred": E_pred,
+        "E_true": E_true,
+        "E_error": E_error,
         "max_pred": max_pred,
         "max_true": max_true,
     }

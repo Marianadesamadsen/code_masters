@@ -10,7 +10,7 @@ R = 1 # Radius
 C = 1 # Wave speed 
 Lmax = 5 # Maximum degree of spherical harmonics 
 tmax = 10 # Maximum time  
-generations = 3 # level of refinement for the grid
+generations = 4 # level of refinement for the grid
 x0,y0,z0 = R,R,R # Initial position of the gaussian pulse
 omega = C/R*np.sqrt(Lmax*(Lmax+1)) 
 T_period = 2*np.pi/omega
@@ -64,8 +64,7 @@ for (name, g), ax in zip(graph_components.items(), axes.flatten()):
     ax.set_aspect(1.0)
 
 
-fig.savefig("data/graph/graph_test/graph_components2.png")
-
+fig.savefig("data/graph/graph_test/graph_components4sub.png")
 
 fig, axes = plt.subplots(len(graph_components), 1, figsize=(8, 4 * len(graph_components)))
 
@@ -80,11 +79,11 @@ for ax, (name, g) in zip(axes, graph_components.items()):
     ax.set_ylabel("count")
 
 plt.tight_layout()
-fig.savefig("data/graph/graph_test/edge_length_histograms_2nn.png")
+fig.savefig("data/yaml_files/mp_vs_wavespeed/wavespeed1/graph/edge_length_histograms_2nn.png")
 
 wmg.save.to_neural_lam(
     graph_components,          # {"g2m": nx.DiGraph, "m2m": nx.DiGraph, "m2g": nx.DiGraph}
-    output_directory = "data/graph/graph_same_mesh_grid_2_nearest_neighbor",  # directory to save the graph data
+    output_directory = "data/yaml_files/mp_vs_wavespeed/wavespeed1/graph/same_mesh_grid_1_nearest_neighbor",  # directory to save the graph data
 )
 
 
