@@ -41,7 +41,7 @@ def plot_error_histogram(err):
 def plot_rmse_heatmap(rmse):
 
     fig, ax = plt.subplots(figsize=(8, 5))
-    im = ax.imshow(rmse, aspect="auto", origin="lower")
+    im = ax.pcolormesh(rmse, shading="nearest")
     ax.set_xlabel("rollout")
     ax.set_ylabel("Test data index")
     ax.set_title(f"RMSE for wave")

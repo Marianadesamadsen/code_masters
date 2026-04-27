@@ -1,8 +1,5 @@
 import xarray as xr
-ds = xr.open_zarr("data/coarse_data_10_waves.zarr")
 
-print(ds["state__train__mean"].values)
-print(ds["state__train__std"].values)
-print(ds["state__train__diff_mean"].values)
-print(ds["state__train__diff_std"].values)
-print(ds["ensemble_member"].values)
+ds = xr.open_zarr("data/yaml_files/faster_training_tuning/data_chunking_3.zarr")
+print(ds)
+print(ds["state"].chunks)

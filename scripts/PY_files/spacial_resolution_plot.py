@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Grid spacing
-dx =  0.04140430782935302#0.010361252408621272#0.0175  # radians
+dx =  0.020718449365429062#0.010361252408621272#0.0175  # radians
 
 # Gaussian widths
 sigma6 = np.deg2rad(15.0)
@@ -29,4 +29,4 @@ plt.ylabel("Amplitude")
 plt.title(f"Inspection of spatial resolution with dx={dx}")
 plt.legend()
 plt.tight_layout()
-plt.show()
+plt.savefig("spatial_resolution_plot.png")
