@@ -1,0 +1,19 @@
+program: data/yaml_files/hyperparameter_tuning/sweep_lr_bs.py
+project: para_sweeping_lr_bs_2
+name: para_sweeping_lr_bs_2
+method: grid
+
+metric:
+  name: val_mean_loss
+  goal: minimize
+
+parameters:
+  lr:
+    values: [!!float 1e-4, !!float 3e-4, !!float 1e-3, !!float 3e-3]
+  batch_size:
+    values: [8, 16, 32, 64]
+
+command:
+  - ${env}
+  - ${interpreter}
+  - ${program}
