@@ -26,6 +26,7 @@ dependencies = [
 members = [
     "weather-model-graphs",
     "mllam-data-prep",
+    "neural_lam_project",
     "neural-lam",
 ]
 
@@ -33,5 +34,12 @@ members = [
 weather-model-graphs = { workspace = true }
 mllam-data-prep = { workspace = true }
 neural-lam = { workspace = true }
+# Tilføj torch her for at tvinge den til at bruge CUDA-indekset
+torch = { index = "pytorch-cu126" }
+
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true
 
 
