@@ -14,8 +14,7 @@ wandb/
 scripts/lightning_logs/
 *.log
 
-*.zarr
-*.nc
+data/
 figures/
 trash/
 *.pt
