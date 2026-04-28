@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 dx =  0.020718449365429062#0.010361252408621272#0.0175  # radians
 
 # Gaussian widths
-sigma6 = np.deg2rad(15.0)
+sigma6 = np.deg2rad(1.0)
 sigma10 = np.deg2rad(20.0)
 
 # Angular distance axis
@@ -29,4 +29,4 @@ plt.ylabel("Amplitude")
 plt.title(f"Inspection of spatial resolution with dx={dx}")
 plt.legend()
 plt.tight_layout()
-plt.savefig("spatial_resolution_plot.png")
+plt.show()#savefig("spatial_resolution_plot.png")

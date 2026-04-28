@@ -80,8 +80,7 @@ class SimulatorWaveEquation:
             self.save_data(ds, title=title)
         return ds
     
-    def save_data(self, ds, title="test"): 
-        nc_path = "data/nc_files"
+    def save_data(self, ds, nc_path, title="test"): 
         os.makedirs(nc_path, exist_ok=True)
         ds.to_netcdf(os.path.join(nc_path, f"{title}.nc"))
 

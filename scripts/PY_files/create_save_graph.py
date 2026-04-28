@@ -15,7 +15,9 @@ x0,y0,z0 = R,R,R # Initial position of the gaussian pulse
 omega = C/R*np.sqrt(Lmax*(Lmax+1)) 
 T_period = 2*np.pi/omega
 dt = T_period/20 # Time step 
-print("dt =", dt) 
+
+outputdir = "GNN_training/graphs/gsub4_msub1_nn7"
+outputdir_fig =  "GNN_training/graphs/gsub4_msub1_nn7.png"
 
 # Initial condition: Gaussian pulse centered at (x0, y0, z0)
 def f_handle(x, y, z):
@@ -64,7 +66,7 @@ for (name, g), ax in zip(graph_components.items(), axes.flatten()):
     ax.set_aspect(1.0)
 
 
-fig.savefig("data/graph/graph_test/graph_components4sub.png")
+fig.savefig(outputdir_fig)
 
 fig, axes = plt.subplots(len(graph_components), 1, figsize=(8, 4 * len(graph_components)))
 
@@ -79,11 +81,12 @@ for ax, (name, g) in zip(axes, graph_components.items()):
     ax.set_ylabel("count")
 
 plt.tight_layout()
-fig.savefig("data/yaml_files/mp_vs_wavespeed/wavespeed1/graph/edge_length_histograms_2nn.png")
+plt.close()
+#fig.savefig("data/yaml_files/mp_vs_wavespeed/wavespeed1/graph/edge_length_histograms_2nn.png")
 
 wmg.save.to_neural_lam(
     graph_components,          # {"g2m": nx.DiGraph, "m2m": nx.DiGraph, "m2g": nx.DiGraph}
-    output_directory = "data/yaml_files/mp_vs_wavespeed/wavespeed1/graph/same_mesh_grid_1_nearest_neighbor",  # directory to save the graph data
+    output_directory = outputdir,  # directory to save the graph data
 )
 
 

@@ -10,13 +10,17 @@ wheels/
 .venv
 
 *.ckpt
+saved_models/
 wandb/
 scripts/lightning_logs/
 *.log
 
-data/
+*.zarr
+*.nc
+data/nc_files/
 figures/
 trash/
+jobs/
 *.pt
 *.zip
 test_eval_with_zarr

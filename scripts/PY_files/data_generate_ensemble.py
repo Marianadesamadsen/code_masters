@@ -17,8 +17,13 @@ def main():
     print("dt compute",T_min / 20 )
     dt = T_min / 20 # 0.010361252408621261/3 # 
     N_members = 28
-    tmax = dt*400
+    tmax = dt*300
     print("tmax",tmax) 
+    title = "wave_28_ts_300_g4_sigmamin_15"
+    nc_path = r"GNN_training\one_wave\nc_files"
+
+    sigma_range=(15.0, 20.0)
+    A_range=(1.0, 2.0)
     
     rng = np.random.default_rng(42)
 
@@ -76,8 +81,8 @@ def main():
         N_members=N_members,
         R=R,
         rng=rng,
-        sigma_range=(15.0, 20.0),
-        A_range=(1.0, 2.0),
+        sigma_range=sigma_range,
+        A_range=A_range,
         decimals=10,
     )
 
@@ -109,7 +114,7 @@ def main():
     t_start = time.perf_counter()
     ds,u = sim.simulate_ensemble(
         fg_list,
-        title="wave_ensemble_28_coarse_400_timesteps_sub4",
+        title=title,
         savedata=False,
         centers=centers,
         sigmas=sigmas,
@@ -118,7 +123,7 @@ def main():
     print("time simulation: ", time.perf_counter() - t_start)
 
     t_start = time.perf_counter()
-    sim.save_data(ds, title="wave_ensemble_28_waves_400_timesteps_sub4")
+    sim.save_data(ds,nc_path =nc_path, title=title)
     print("time save",time.perf_counter()-t_start)
 
 if __name__ == "__main__":

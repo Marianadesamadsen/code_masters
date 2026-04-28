@@ -17,7 +17,7 @@ T_min = 2 * np.pi / omega_max
 print("dt:",T_min / 20)
 dt = T_min / 20  # 0.010361252408621268/3 # 
 print("used dt:",dt)
-tmax = dt*500
+tmax = dt*600
 print("tmax:",tmax)
 rng = np.random.default_rng(42)
 
@@ -54,8 +54,8 @@ u_min = float(np.nanmin(ds["u"].values))
 u_max = float(np.nanmax(ds["u"].values))
 norm = colors.Normalize(vmin=u_min, vmax=u_max)
 plot_true = dp.DataPlotter(ds=ds)
-anim_true = plot_true.animate_sphere(norm=norm,out_path="final_data.gif", fps=15)
-plt.close()
+#anim_true = plot_true.animate_sphere(norm=norm,out_path="final_data.gif", fps=15)
+#plt.close()
 
 
 print("dx Allan:",sim.dx_true)
@@ -78,7 +78,7 @@ import matplotlib.pyplot as plt
 plt.semilogy(E,'-o')   # avoid log(0)
 plt.xlabel("$\ell$")
 plt.ylabel("$\sum_m |u_{\ell m}|^2$") 
-plt.savefig('degree_spectrum.png')
+plt.show()
 
 cum = np.cumsum(E) / np.sum(E)
 plt.figure()
