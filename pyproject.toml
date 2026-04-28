@@ -26,7 +26,6 @@ dependencies = [
 members = [
     "weather-model-graphs",
     "mllam-data-prep",
-    "neural_lam_project",
     "neural-lam",
 ]
 
