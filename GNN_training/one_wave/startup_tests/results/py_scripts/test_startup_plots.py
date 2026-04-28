@@ -19,9 +19,9 @@ plot_animations_rollout = True
 
 # paths
 ds_geo = xr.open_dataset(r".\GNN_training\one_wave\nc_files\wave_28_ts_600_g4_sigmamin_15.nc")
-raw_dir = r"./GNN_training\one_wave\startup_tests\results\raw_preds"
-plot_dir = r"./GNN_training\one_wave\startup_tests\results\plots"
-anim_dir = r"./GNN_training\one_wave\startup_tests\results\animations"
+raw_dir = r"./GNN_training\one_wave\startup_tests\results_ar50\raw_preds"
+plot_dir = r"./GNN_training\one_wave\startup_tests\results_ar50\plots"
+anim_dir = r"./GNN_training\one_wave\startup_tests\results_ar50\animations"
 
 os.makedirs(plot_dir, exist_ok=True)
 os.makedirs(anim_dir, exist_ok=True)
