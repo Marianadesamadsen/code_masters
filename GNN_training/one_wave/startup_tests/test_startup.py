@@ -13,7 +13,7 @@ args = [
 "--batch_size", "32" ,
 "--logger-project" ,"startup_waves" ,
 "--precompute_in_memory", "True",
-"--save_eval_to_zarr_path", "GNN_training\one_wave\startup_tests\results"
+"--save_eval_to_zarr_path", "GNN_training/one_wave/startup_tests/results"
 ]
 
 main(args)
