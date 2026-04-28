@@ -41,4 +41,4 @@ source .venv/bin/activate
 
 export PYTHONPATH=/zhome/5e/a/152106/code_masters/neural-lam:$PYTHONPATH
 
-wandb agent s201205-danmarks-tekniske-universitet-dtu/parameter_sweeping/ei3qgnya
+wandb agent s201205-danmarks-tekniske-universitet-dtu/parameter_sweeping/odhz9t2l
