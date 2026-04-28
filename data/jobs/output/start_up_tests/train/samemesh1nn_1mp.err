@@ -1,0 +1,1404 @@
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Seed set to 42
+2026-04-15 13:48:03.814 | WARNING  | neural_lam.datastore.mdp:__init__:69 - Config file has been modified since zarr was created. The old zarr archive (in /zhome/5e/a/152106/code_masters/data/coarse_data.zarr) will be used.To generate new zarr-archive, move the old one first.
+2026-04-15 13:48:04.283 | INFO     | neural_lam.utils:log_on_rank_zero:457 - The loaded datastore contains the following features:
+2026-04-15 13:48:04.283 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  state   : u
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:210: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+2026-04-15 13:48:04.284 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  static  : x_static y_static z_static
+2026-04-15 13:48:04.284 | INFO     | neural_lam.utils:log_on_rank_zero:457 - With the following splits (over time):
+2026-04-15 13:48:04.332 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  train   : 0 to 69
+2026-04-15 13:48:04.338 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  val     : 69 to 84
+2026-04-15 13:48:04.345 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  test    : 84 to 99
+2026-04-15 13:48:04.782 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Loaded graph with 1284 nodes (642 grid, 642 mesh)
+2026-04-15 13:48:04.786 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Edges in subgraphs: m2m=3840, g2m=642, m2g=642
+2026-04-15 13:48:04.794 | INFO     | neural_lam.utils:setup_training_logger:514 - Wandb resume mode: None (id: None)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+wandb: WARNING The anonymous setting has no effect and will be removed in a future version.
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /zhome/5e/a/152106/.netrc.
+wandb: Currently logged in as: s201205 (s201205-danmarks-tekniske-universitet-dtu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run h6swadpo
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in wandb/run-20260415_134806-h6swadpo
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run train 1mp same mesh 1 nearest neighbor
+wandb: ⭐️ View project at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/neural_lam
+wandb: 🚀 View run at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/neural_lam/runs/h6swadpo
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:295: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:295: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:881: Checkpoint directory /zhome/5e/a/152106/code_masters/saved_models/train 1mp same mesh 1 nearest neighbor exists and is not empty.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Seed set to 42
+2026-04-15 14:32:01.089 | WARNING  | neural_lam.datastore.mdp:__init__:69 - Config file has been modified since zarr was created. The old zarr archive (in /zhome/5e/a/152106/code_masters/data/coarse_data.zarr) will be used.To generate new zarr-archive, move the old one first.
+2026-04-15 14:32:01.277 | INFO     | neural_lam.utils:log_on_rank_zero:457 - The loaded datastore contains the following features:
+2026-04-15 14:32:01.278 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  state   : u
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:210: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+2026-04-15 14:32:01.280 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  static  : x_static y_static z_static
+2026-04-15 14:32:01.280 | INFO     | neural_lam.utils:log_on_rank_zero:457 - With the following splits (over time):
+2026-04-15 14:32:01.359 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  train   : 0 to 69
+2026-04-15 14:32:01.365 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  val     : 69 to 84
+2026-04-15 14:32:01.371 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  test    : 84 to 99
+2026-04-15 14:32:02.700 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Loaded graph with 1284 nodes (642 grid, 642 mesh)
+2026-04-15 14:32:02.739 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Edges in subgraphs: m2m=3840, g2m=642, m2g=642
+2026-04-15 14:32:02.770 | INFO     | neural_lam.utils:setup_training_logger:514 - Wandb resume mode: None (id: None)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+wandb: WARNING The anonymous setting has no effect and will be removed in a future version.
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /zhome/5e/a/152106/.netrc.
+wandb: Currently logged in as: s201205 (s201205-danmarks-tekniske-universitet-dtu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run gmalgwl2
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in wandb/run-20260415_143206-gmalgwl2
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run train 1mp same mesh 1 nearest neighbor
+wandb: ⭐️ View project at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/neural_lam
+wandb: 🚀 View run at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/neural_lam/runs/gmalgwl2
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:295: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:295: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:881: Checkpoint directory /zhome/5e/a/152106/code_masters/saved_models/train 1mp same mesh 1 nearest neighbor exists and is not empty.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+                                                     2026-04-15 15:20:27.237 | ERROR    | __main__:<module>:402 - An error has been caught in function '<module>', process 'MainProcess' (2812752), thread 'MainThread' (140280740554560):
+Traceback (most recent call last):
+
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+
+> File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 402, in <module>
+    main()
+    └ <function main at 0x7f944cf5c040>
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 398, in main
+    trainer.fit(model=model, datamodule=data_module, ckpt_path=args.load)
+    │       │         │                 │                      │    └ None
+    │       │         │                 │                      └ Namespace(config_path='/zhome/5e/a/152106/code_masters/data/config.yaml', model='graph_lam', seed=42, num_workers=4, num_node...
+    │       │         │                 └ <neural_lam.weather_dataset.WeatherDataModule object at 0x7f944cde2950>
+    │       │         └ GraphLAM(
+    │       │             (grid_embedder): Sequential(
+    │       │               (0): Linear(in_features=5, out_features=64, bias=True)
+    │       │               (1): SiLU()
+    │       │               (2): ...
+    │       └ <function Trainer.fit at 0x7f945f1d0d60>
+    └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7f944d117710>
+
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 584, in fit
+    call._call_and_handle_interrupt(
+    │    └ <function _call_and_handle_interrupt at 0x7f945f495e40>
+    └ <module 'pytorch_lightning.trainer.call' from '/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lig...
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 49, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+           │           │       └ {}
+           │           └ (GraphLAM(
+           │               (grid_embedder): Sequential(
+           │                 (0): Linear(in_features=5, out_features=64, bias=True)
+           │                 (1): SiLU()
+           │                 (2):...
+           └ <bound method Trainer._fit_impl of <pytorch_lightning.trainer.trainer.Trainer object at 0x7f944d117710>>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 630, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path, weights_only=weights_only)
+    │    │    │                │                       └ None
+    │    │    │                └ None
+    │    │    └ GraphLAM(
+    │    │        (grid_embedder): Sequential(
+    │    │          (0): Linear(in_features=5, out_features=64, bias=True)
+    │    │          (1): SiLU()
+    │    │          (2): ...
+    │    └ <function Trainer._run at 0x7f945f1d16c0>
+    └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7f944d117710>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1079, in _run
+    results = self._run_stage()
+              │    └ <function Trainer._run_stage at 0x7f945f1d1800>
+              └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7f944d117710>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1123, in _run_stage
+    self.fit_loop.run()
+    │    │        └ <function _FitLoop.run at 0x7f945f377100>
+    │    └ <pytorch_lightning.loops.fit_loop._FitLoop object at 0x7f944d64f350>
+    └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7f944d117710>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fit_loop.py", line 217, in run
+    self.advance()
+    │    └ <function _FitLoop.advance at 0x7f945f3777e0>
+    └ <pytorch_lightning.loops.fit_loop._FitLoop object at 0x7f944d64f350>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fit_loop.py", line 465, in advance
+    self.epoch_loop.run(self._data_fetcher)
+    │    │          │   │    └ None
+    │    │          │   └ <pytorch_lightning.loops.fit_loop._FitLoop object at 0x7f944d64f350>
+    │    │          └ <function _TrainingEpochLoop.run at 0x7f945f375760>
+    │    └ <pytorch_lightning.loops.training_epoch_loop._TrainingEpochLoop object at 0x7f944cd7be10>
+    └ <pytorch_lightning.loops.fit_loop._FitLoop object at 0x7f944d64f350>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 153, in run
+    self.advance(data_fetcher)
+    │    │       └ <pytorch_lightning.loops.fetchers._PrefetchDataFetcher object at 0x7f944c20fb90>
+    │    └ <function _TrainingEpochLoop.advance at 0x7f945f375da0>
+    └ <pytorch_lightning.loops.training_epoch_loop._TrainingEpochLoop object at 0x7f944cd7be10>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 311, in advance
+    batch, _, __ = next(data_fetcher)
+                        └ <pytorch_lightning.loops.fetchers._PrefetchDataFetcher object at 0x7f944c20fb90>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fetchers.py", line 134, in __next__
+    batch = super().__next__()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fetchers.py", line 61, in __next__
+    batch = next(self.iterator)
+                 │    └ None
+                 └ <pytorch_lightning.loops.fetchers._PrefetchDataFetcher object at 0x7f944c20fb90>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/combined_loader.py", line 341, in __next__
+    out = next(self._iterator)
+               │    └ None
+               └ <pytorch_lightning.utilities.combined_loader.CombinedLoader object at 0x7f941cd4a350>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/combined_loader.py", line 78, in __next__
+    out[i] = next(self.iterators[i])
+    │   │         │    │         └ 0
+    │   │         │    └ []
+    │   │         └ <pytorch_lightning.utilities.combined_loader._MaxSizeCycle object at 0x7f942c365990>
+    │   └ 0
+    └ [None]
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 741, in __next__
+    data = self._next_data()
+           │    └ <function _MultiProcessingDataLoaderIter._next_data at 0x7f9482ab2020>
+           └ <torch.utils.data.dataloader._MultiProcessingDataLoaderIter object at 0x7f941cd0f4d0>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1518, in _next_data
+    return self._process_data(data, worker_id)
+           │    │             │     └ 3
+           │    │             └ <torch._utils.ExceptionWrapper object at 0x7f941cd9b350>
+           │    └ <function _MultiProcessingDataLoaderIter._process_data at 0x7f9482ab2160>
+           └ <torch.utils.data.dataloader._MultiProcessingDataLoaderIter object at 0x7f941cd0f4d0>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1586, in _process_data
+    data.reraise()
+    │    └ <function ExceptionWrapper.reraise at 0x7f95a70ee340>
+    └ <torch._utils.ExceptionWrapper object at 0x7f941cd9b350>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/_utils.py", line 775, in reraise
+    raise exception
+          └ OSError('Caught OSError in DataLoader worker process 3.\nOriginal Traceback (most recent call last):\n  File "/zhome/5e/a/152...
+
+OSError: Caught OSError in DataLoader worker process 3.
+Original Traceback (most recent call last):
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/_utils/worker.py", line 358, in _worker_loop
+    data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 54, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 54, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/weather_dataset.py", line 514, in __getitem__
+    init_states = torch.tensor(da_init_states.values, dtype=tensor_dtype)
+                               ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/dataarray.py", line 798, in values
+    return self.variable.values
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/variable.py", line 556, in values
+    return _as_array_or_item(self._data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/variable.py", line 336, in _as_array_or_item
+    data = np.asarray(data)
+           ^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/dask/array/core.py", line 1718, in __array__
+    x = self.compute()
+        ^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/dask/base.py", line 377, in compute
+    (result,) = compute(self, traverse=False, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/dask/base.py", line 685, in compute
+    results = schedule(expr, keys, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 686, in __array__
+    return np.asarray(self.get_duck_array(), dtype=dtype, copy=copy)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 691, in get_duck_array
+    return self.array.get_duck_array()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 924, in get_duck_array
+    return self.array.get_duck_array()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 764, in get_duck_array
+    array = self.array[self.key]
+            ~~~~~~~~~~^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 267, in __getitem__
+    return indexing.explicit_indexing_adapter(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 1156, in explicit_indexing_adapter
+    result = raw_indexing_method(raw_key.tuple)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 230, in _getitem
+    return self._array[key]
+           ~~~~~~~~~~~^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/array.py", line 2868, in __getitem__
+    return self.get_orthogonal_selection(pure_selection, fields=fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/array.py", line 3339, in get_orthogonal_selection
+    return sync(
+           ^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/sync.py", line 159, in sync
+    raise return_result
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/sync.py", line 119, in _runner
+    return await coro
+           ^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/array.py", line 1565, in _get_selection
+    await self.codec_pipeline.read(
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/codec_pipeline.py", line 473, in read
+    await concurrent_map(
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/common.py", line 116, in concurrent_map
+    return await asyncio.gather(*[asyncio.ensure_future(run(item)) for item in items])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/common.py", line 114, in run
+    return await func(*item)
+           ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/codec_pipeline.py", line 270, in read_batch
+    chunk_bytes_batch = await concurrent_map(
+                        ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/common.py", line 116, in concurrent_map
+    return await asyncio.gather(*[asyncio.ensure_future(run(item)) for item in items])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/common.py", line 114, in run
+    return await func(*item)
+           ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/storage/_common.py", line 168, in get
+    return await self.store.get(self.path, prototype=prototype, byte_range=byte_range)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/storage/_local.py", line 205, in get
+    return await asyncio.to_thread(_get, path, prototype, byte_range)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/storage/_local.py", line 32, in _get
+    return prototype.buffer.from_bytes(path.read_bytes())
+                                       ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/pathlib.py", line 1050, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/pathlib.py", line 1044, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 116] Stale file handle: '/zhome/5e/a/152106/code_masters/data/coarse_data.zarr/state__train__std/c/0'
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 402, in <module>
+    main()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/loguru/_logger.py", line 1297, in catch_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 398, in main
+    trainer.fit(model=model, datamodule=data_module, ckpt_path=args.load)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 584, in fit
+    call._call_and_handle_interrupt(
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 49, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 630, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path, weights_only=weights_only)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1079, in _run
+    results = self._run_stage()
+              ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1123, in _run_stage
+    self.fit_loop.run()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fit_loop.py", line 217, in run
+    self.advance()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fit_loop.py", line 465, in advance
+    self.epoch_loop.run(self._data_fetcher)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 153, in run
+    self.advance(data_fetcher)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 311, in advance
+    batch, _, __ = next(data_fetcher)
+                   ^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fetchers.py", line 134, in __next__
+    batch = super().__next__()
+            ^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fetchers.py", line 61, in __next__
+    batch = next(self.iterator)
+            ^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/combined_loader.py", line 341, in __next__
+    out = next(self._iterator)
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/combined_loader.py", line 78, in __next__
+    out[i] = next(self.iterators[i])
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 741, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1518, in _next_data
+    return self._process_data(data, worker_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1586, in _process_data
+    data.reraise()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/_utils.py", line 775, in reraise
+    raise exception
+OSError: Caught OSError in DataLoader worker process 3.
+Original Traceback (most recent call last):
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/_utils/worker.py", line 358, in _worker_loop
+    data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 54, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 54, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/weather_dataset.py", line 514, in __getitem__
+    init_states = torch.tensor(da_init_states.values, dtype=tensor_dtype)
+                               ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/dataarray.py", line 798, in values
+    return self.variable.values
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/variable.py", line 556, in values
+    return _as_array_or_item(self._data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/variable.py", line 336, in _as_array_or_item
+    data = np.asarray(data)
+           ^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/dask/array/core.py", line 1718, in __array__
+    x = self.compute()
+        ^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/dask/base.py", line 377, in compute
+    (result,) = compute(self, traverse=False, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/dask/base.py", line 685, in compute
+    results = schedule(expr, keys, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 686, in __array__
+    return np.asarray(self.get_duck_array(), dtype=dtype, copy=copy)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 691, in get_duck_array
+    return self.array.get_duck_array()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 924, in get_duck_array
+    return self.array.get_duck_array()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 764, in get_duck_array
+    array = self.array[self.key]
+            ~~~~~~~~~~^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 267, in __getitem__
+    return indexing.explicit_indexing_adapter(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 1156, in explicit_indexing_adapter
+    result = raw_indexing_method(raw_key.tuple)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 230, in _getitem
+    return self._array[key]
+           ~~~~~~~~~~~^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/array.py", line 2868, in __getitem__
+    return self.get_orthogonal_selection(pure_selection, fields=fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/array.py", line 3339, in get_orthogonal_selection
+    return sync(
+           ^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/sync.py", line 159, in sync
+    raise return_result
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/sync.py", line 119, in _runner
+    return await coro
+           ^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/array.py", line 1565, in _get_selection
+    await self.codec_pipeline.read(
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/codec_pipeline.py", line 473, in read
+    await concurrent_map(
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/common.py", line 116, in concurrent_map
+    return await asyncio.gather(*[asyncio.ensure_future(run(item)) for item in items])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/common.py", line 114, in run
+    return await func(*item)
+           ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/codec_pipeline.py", line 270, in read_batch
+    chunk_bytes_batch = await concurrent_map(
+                        ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/common.py", line 116, in concurrent_map
+    return await asyncio.gather(*[asyncio.ensure_future(run(item)) for item in items])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/common.py", line 114, in run
+    return await func(*item)
+           ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/storage/_common.py", line 168, in get
+    return await self.store.get(self.path, prototype=prototype, byte_range=byte_range)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/storage/_local.py", line 205, in get
+    return await asyncio.to_thread(_get, path, prototype, byte_range)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/storage/_local.py", line 32, in _get
+    return prototype.buffer.from_bytes(path.read_bytes())
+                                       ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/pathlib.py", line 1050, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/pathlib.py", line 1044, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 116] Stale file handle: '/zhome/5e/a/152106/code_masters/data/coarse_data.zarr/state__train__std/c/0'
+
+2026-04-15 15:21:22.383 | ERROR    | __main__:<module>:402 - An error has been caught in function '<module>', process 'MainProcess' (2425410), thread 'MainThread' (140579924891456):
+Traceback (most recent call last):
+
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+
+> File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 402, in <module>
+    main()
+    └ <function main at 0x7fd9f5b540e0>
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 398, in main
+    trainer.fit(model=model, datamodule=data_module, ckpt_path=args.load)
+    │       │         │                 │                      │    └ None
+    │       │         │                 │                      └ Namespace(config_path='/zhome/5e/a/152106/code_masters/data/config.yaml', model='graph_lam', seed=42, num_workers=4, num_node...
+    │       │         │                 └ <neural_lam.weather_dataset.WeatherDataModule object at 0x7fd9f5b5a7d0>
+    │       │         └ GraphLAM(
+    │       │             (grid_embedder): Sequential(
+    │       │               (0): Linear(in_features=5, out_features=64, bias=True)
+    │       │               (1): SiLU()
+    │       │               (2): ...
+    │       └ <function Trainer.fit at 0x7fda08014d60>
+    └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7fd9f70e4d90>
+
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 584, in fit
+    call._call_and_handle_interrupt(
+    │    └ <function _call_and_handle_interrupt at 0x7fda080d9e40>
+    └ <module 'pytorch_lightning.trainer.call' from '/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lig...
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 49, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+           │           │       └ {}
+           │           └ (GraphLAM(
+           │               (grid_embedder): Sequential(
+           │                 (0): Linear(in_features=5, out_features=64, bias=True)
+           │                 (1): SiLU()
+           │                 (2):...
+           └ <bound method Trainer._fit_impl of <pytorch_lightning.trainer.trainer.Trainer object at 0x7fd9f70e4d90>>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 630, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path, weights_only=weights_only)
+    │    │    │                │                       └ None
+    │    │    │                └ None
+    │    │    └ GraphLAM(
+    │    │        (grid_embedder): Sequential(
+    │    │          (0): Linear(in_features=5, out_features=64, bias=True)
+    │    │          (1): SiLU()
+    │    │          (2): ...
+    │    └ <function Trainer._run at 0x7fda080156c0>
+    └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7fd9f70e4d90>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1079, in _run
+    results = self._run_stage()
+              │    └ <function Trainer._run_stage at 0x7fda08015800>
+              └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7fd9f70e4d90>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1123, in _run_stage
+    self.fit_loop.run()
+    │    │        └ <function _FitLoop.run at 0x7fda07fbb100>
+    │    └ <pytorch_lightning.loops.fit_loop._FitLoop object at 0x7fd9f59f8690>
+    └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7fd9f70e4d90>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fit_loop.py", line 217, in run
+    self.advance()
+    │    └ <function _FitLoop.advance at 0x7fda07fbb7e0>
+    └ <pytorch_lightning.loops.fit_loop._FitLoop object at 0x7fd9f59f8690>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fit_loop.py", line 465, in advance
+    self.epoch_loop.run(self._data_fetcher)
+    │    │          │   │    └ None
+    │    │          │   └ <pytorch_lightning.loops.fit_loop._FitLoop object at 0x7fd9f59f8690>
+    │    │          └ <function _TrainingEpochLoop.run at 0x7fda07fb9760>
+    │    └ <pytorch_lightning.loops.training_epoch_loop._TrainingEpochLoop object at 0x7fd9f5a23a50>
+    └ <pytorch_lightning.loops.fit_loop._FitLoop object at 0x7fd9f59f8690>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 153, in run
+    self.advance(data_fetcher)
+    │    │       └ <pytorch_lightning.loops.fetchers._PrefetchDataFetcher object at 0x7fd9bdac8f10>
+    │    └ <function _TrainingEpochLoop.advance at 0x7fda07fb9da0>
+    └ <pytorch_lightning.loops.training_epoch_loop._TrainingEpochLoop object at 0x7fd9f5a23a50>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 311, in advance
+    batch, _, __ = next(data_fetcher)
+                        └ <pytorch_lightning.loops.fetchers._PrefetchDataFetcher object at 0x7fd9bdac8f10>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fetchers.py", line 134, in __next__
+    batch = super().__next__()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fetchers.py", line 61, in __next__
+    batch = next(self.iterator)
+                 │    └ None
+                 └ <pytorch_lightning.loops.fetchers._PrefetchDataFetcher object at 0x7fd9bdac8f10>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/combined_loader.py", line 341, in __next__
+    out = next(self._iterator)
+               │    └ None
+               └ <pytorch_lightning.utilities.combined_loader.CombinedLoader object at 0x7fd9becbd990>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/combined_loader.py", line 78, in __next__
+    out[i] = next(self.iterators[i])
+    │   │         │    │         └ 0
+    │   │         │    └ []
+    │   │         └ <pytorch_lightning.utilities.combined_loader._MaxSizeCycle object at 0x7fd9d81e9310>
+    │   └ 0
+    └ [None]
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 741, in __next__
+    data = self._next_data()
+           │    └ <function _MultiProcessingDataLoaderIter._next_data at 0x7fda2b742020>
+           └ <torch.utils.data.dataloader._MultiProcessingDataLoaderIter object at 0x7fd9bdac8b10>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1518, in _next_data
+    return self._process_data(data, worker_id)
+           │    │             │     └ 2
+           │    │             └ <torch._utils.ExceptionWrapper object at 0x7fd9bebe37d0>
+           │    └ <function _MultiProcessingDataLoaderIter._process_data at 0x7fda2b742160>
+           └ <torch.utils.data.dataloader._MultiProcessingDataLoaderIter object at 0x7fd9bdac8b10>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1586, in _process_data
+    data.reraise()
+    │    └ <function ExceptionWrapper.reraise at 0x7fdb4fd9e340>
+    └ <torch._utils.ExceptionWrapper object at 0x7fd9bebe37d0>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/_utils.py", line 775, in reraise
+    raise exception
+          └ OSError('Caught OSError in DataLoader worker process 2.\nOriginal Traceback (most recent call last):\n  File "/zhome/5e/a/152...
+
+OSError: Caught OSError in DataLoader worker process 2.
+Original Traceback (most recent call last):
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/_utils/worker.py", line 358, in _worker_loop
+    data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 54, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 54, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/weather_dataset.py", line 510, in __getitem__
+    ) = self._build_item_dataarrays(idx=idx)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/weather_dataset.py", line 435, in _build_item_dataarrays
+    da_init_states = (
+                     ^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/_typed_ops.py", line 576, in __truediv__
+    return self._binary_op(other, operator.truediv)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/dataarray.py", line 4909, in _binary_op
+    coords, indexes = self.coords._merge_raw(
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/coordinates.py", line 518, in _merge_raw
+    variables, indexes = merge_coordinates_without_align(
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/structure/merge.py", line 465, in merge_coordinates_without_align
+    merged_coords, merged_indexes = merge_collected(
+                                    ^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/structure/merge.py", line 321, in merge_collected
+    equals_this_var, merged_vars[name] = unique_variable(
+                                         ^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/structure/merge.py", line 169, in unique_variable
+    equals = getattr(out, compat_str)(var)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/variable.py", line 1895, in broadcast_equals
+    return self.equals(other, equiv=equiv)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/variable.py", line 1879, in equals
+    self._data is other._data or equiv(self.data, other.data)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/duck_array_ops.py", line 366, in array_equiv
+    return bool(array_all(flag_array))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/dask/array/core.py", line 1882, in __bool__
+    return bool(self.compute())
+                ^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/dask/base.py", line 377, in compute
+    (result,) = compute(self, traverse=False, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/dask/base.py", line 685, in compute
+    results = schedule(expr, keys, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 686, in __array__
+    return np.asarray(self.get_duck_array(), dtype=dtype, copy=copy)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 691, in get_duck_array
+    return self.array.get_duck_array()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 924, in get_duck_array
+    return self.array.get_duck_array()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 764, in get_duck_array
+    array = self.array[self.key]
+            ~~~~~~~~~~^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 267, in __getitem__
+    return indexing.explicit_indexing_adapter(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 1156, in explicit_indexing_adapter
+    result = raw_indexing_method(raw_key.tuple)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 230, in _getitem
+    return self._array[key]
+           ~~~~~~~~~~~^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/array.py", line 2868, in __getitem__
+    return self.get_orthogonal_selection(pure_selection, fields=fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/array.py", line 3339, in get_orthogonal_selection
+    return sync(
+           ^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/sync.py", line 159, in sync
+    raise return_result
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/sync.py", line 119, in _runner
+    return await coro
+           ^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/array.py", line 1565, in _get_selection
+    await self.codec_pipeline.read(
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/codec_pipeline.py", line 473, in read
+    await concurrent_map(
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/common.py", line 116, in concurrent_map
+    return await asyncio.gather(*[asyncio.ensure_future(run(item)) for item in items])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/common.py", line 114, in run
+    return await func(*item)
+           ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/codec_pipeline.py", line 270, in read_batch
+    chunk_bytes_batch = await concurrent_map(
+                        ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/common.py", line 116, in concurrent_map
+    return await asyncio.gather(*[asyncio.ensure_future(run(item)) for item in items])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/common.py", line 114, in run
+    return await func(*item)
+           ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/storage/_common.py", line 168, in get
+    return await self.store.get(self.path, prototype=prototype, byte_range=byte_range)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/storage/_local.py", line 205, in get
+    return await asyncio.to_thread(_get, path, prototype, byte_range)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/storage/_local.py", line 32, in _get
+    return prototype.buffer.from_bytes(path.read_bytes())
+                                       ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/pathlib.py", line 1050, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/pathlib.py", line 1044, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 116] Stale file handle: '/zhome/5e/a/152106/code_masters/data/coarse_data.zarr/state_feature_source_dataset/c/0'
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 402, in <module>
+    main()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/loguru/_logger.py", line 1297, in catch_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 398, in main
+    trainer.fit(model=model, datamodule=data_module, ckpt_path=args.load)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 584, in fit
+    call._call_and_handle_interrupt(
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 49, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 630, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path, weights_only=weights_only)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1079, in _run
+    results = self._run_stage()
+              ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1123, in _run_stage
+    self.fit_loop.run()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fit_loop.py", line 217, in run
+    self.advance()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fit_loop.py", line 465, in advance
+    self.epoch_loop.run(self._data_fetcher)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 153, in run
+    self.advance(data_fetcher)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 311, in advance
+    batch, _, __ = next(data_fetcher)
+                   ^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fetchers.py", line 134, in __next__
+    batch = super().__next__()
+            ^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fetchers.py", line 61, in __next__
+    batch = next(self.iterator)
+            ^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/combined_loader.py", line 341, in __next__
+    out = next(self._iterator)
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/combined_loader.py", line 78, in __next__
+    out[i] = next(self.iterators[i])
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 741, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1518, in _next_data
+    return self._process_data(data, worker_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1586, in _process_data
+    data.reraise()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/_utils.py", line 775, in reraise
+    raise exception
+OSError: Caught OSError in DataLoader worker process 2.
+Original Traceback (most recent call last):
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/_utils/worker.py", line 358, in _worker_loop
+    data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 54, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 54, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/weather_dataset.py", line 510, in __getitem__
+    ) = self._build_item_dataarrays(idx=idx)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/weather_dataset.py", line 435, in _build_item_dataarrays
+    da_init_states = (
+                     ^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/_typed_ops.py", line 576, in __truediv__
+    return self._binary_op(other, operator.truediv)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/dataarray.py", line 4909, in _binary_op
+    coords, indexes = self.coords._merge_raw(
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/coordinates.py", line 518, in _merge_raw
+    variables, indexes = merge_coordinates_without_align(
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/structure/merge.py", line 465, in merge_coordinates_without_align
+    merged_coords, merged_indexes = merge_collected(
+                                    ^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/structure/merge.py", line 321, in merge_collected
+    equals_this_var, merged_vars[name] = unique_variable(
+                                         ^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/structure/merge.py", line 169, in unique_variable
+    equals = getattr(out, compat_str)(var)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/variable.py", line 1895, in broadcast_equals
+    return self.equals(other, equiv=equiv)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/variable.py", line 1879, in equals
+    self._data is other._data or equiv(self.data, other.data)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/duck_array_ops.py", line 366, in array_equiv
+    return bool(array_all(flag_array))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/dask/array/core.py", line 1882, in __bool__
+    return bool(self.compute())
+                ^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/dask/base.py", line 377, in compute
+    (result,) = compute(self, traverse=False, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/dask/base.py", line 685, in compute
+    results = schedule(expr, keys, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 686, in __array__
+    return np.asarray(self.get_duck_array(), dtype=dtype, copy=copy)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 691, in get_duck_array
+    return self.array.get_duck_array()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 924, in get_duck_array
+    return self.array.get_duck_array()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 764, in get_duck_array
+    array = self.array[self.key]
+            ~~~~~~~~~~^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 267, in __getitem__
+    return indexing.explicit_indexing_adapter(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 1156, in explicit_indexing_adapter
+    result = raw_indexing_method(raw_key.tuple)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 230, in _getitem
+    return self._array[key]
+           ~~~~~~~~~~~^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/array.py", line 2868, in __getitem__
+    return self.get_orthogonal_selection(pure_selection, fields=fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/array.py", line 3339, in get_orthogonal_selection
+    return sync(
+           ^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/sync.py", line 159, in sync
+    raise return_result
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/sync.py", line 119, in _runner
+    return await coro
+           ^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/array.py", line 1565, in _get_selection
+    await self.codec_pipeline.read(
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/codec_pipeline.py", line 473, in read
+    await concurrent_map(
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/common.py", line 116, in concurrent_map
+    return await asyncio.gather(*[asyncio.ensure_future(run(item)) for item in items])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/common.py", line 114, in run
+    return await func(*item)
+           ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/codec_pipeline.py", line 270, in read_batch
+    chunk_bytes_batch = await concurrent_map(
+                        ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/common.py", line 116, in concurrent_map
+    return await asyncio.gather(*[asyncio.ensure_future(run(item)) for item in items])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/common.py", line 114, in run
+    return await func(*item)
+           ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/storage/_common.py", line 168, in get
+    return await self.store.get(self.path, prototype=prototype, byte_range=byte_range)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/storage/_local.py", line 205, in get
+    return await asyncio.to_thread(_get, path, prototype, byte_range)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/storage/_local.py", line 32, in _get
+    return prototype.buffer.from_bytes(path.read_bytes())
+                                       ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/pathlib.py", line 1050, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/pathlib.py", line 1044, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 116] Stale file handle: '/zhome/5e/a/152106/code_masters/data/coarse_data.zarr/state_feature_source_dataset/c/0'
+
+/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/multiprocessing/resource_tracker.py:254: UserWarning: resource_tracker: There appear to be 4 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Seed set to 42
+2026-04-15 15:24:21.505 | INFO     | neural_lam.utils:log_on_rank_zero:457 - The loaded datastore contains the following features:
+2026-04-15 15:24:21.505 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  state   : u
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:210: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+2026-04-15 15:24:21.506 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  static  : x_static y_static z_static
+2026-04-15 15:24:21.506 | INFO     | neural_lam.utils:log_on_rank_zero:457 - With the following splits (over time):
+2026-04-15 15:24:21.519 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  train   : 0 to 69
+2026-04-15 15:24:21.526 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  val     : 69 to 84
+2026-04-15 15:24:21.532 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  test    : 84 to 99
+2026-04-15 15:24:21.615 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Loaded graph with 1284 nodes (642 grid, 642 mesh)
+2026-04-15 15:24:21.619 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Edges in subgraphs: m2m=3840, g2m=642, m2g=642
+2026-04-15 15:24:21.626 | INFO     | neural_lam.utils:setup_training_logger:514 - Wandb resume mode: None (id: None)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+wandb: WARNING The anonymous setting has no effect and will be removed in a future version.
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /zhome/5e/a/152106/.netrc.
+wandb: Currently logged in as: s201205 (s201205-danmarks-tekniske-universitet-dtu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run wwphbbrl
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in wandb/run-20260415_152423-wwphbbrl
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run train 2 waves
+wandb: ⭐️ View project at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/neural_lam
+wandb: 🚀 View run at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/neural_lam/runs/wwphbbrl
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:295: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:295: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+
+Detected KeyboardInterrupt, attempting graceful shutdown ...
+Exception ignored in atexit callback: <function _start_and_connect_service.<locals>.teardown_atexit at 0x7fbf45628220>
+Traceback (most recent call last):
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/lib/service/service_connection.py", line 73, in teardown_atexit
+    conn.teardown(hooks.exit_code)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/lib/service/service_connection.py", line 344, in teardown
+    self._asyncer.run(publish_teardown_and_close)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/lib/asyncio_manager.py", line 137, in run
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/lib/asyncio_manager.py", line 220, in _wrap
+    return await fn()
+           ^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/lib/service/service_connection.py", line 335, in publish_teardown_and_close
+    await self._client.publish(
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/lib/service/service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/lib/service/service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/lib/service/service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/streams.py", line 380, in drain
+    raise exc
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/lib/service/service_client.py", line 127, in _forward_responses
+    while response := await self._read_server_response():
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/lib/service/service_client.py", line 141, in _read_server_response
+    header = await self._reader.readexactly(_HEADER_BYTE_INT_LEN)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/streams.py", line 750, in readexactly
+    await self._wait_for_data('readexactly')
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/streams.py", line 543, in _wait_for_data
+    await self._waiter
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/selector_events.py", line 999, in _read_ready__data_received
+    data = self._sock.recv(self.max_size)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [Errno 104] Connection reset by peer
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Seed set to 42
+2026-04-15 15:35:02.515 | WARNING  | neural_lam.datastore.mdp:__init__:69 - Config file has been modified since zarr was created. The old zarr archive (in /zhome/5e/a/152106/code_masters/data/coarse_data.zarr) will be used.To generate new zarr-archive, move the old one first.
+2026-04-15 15:35:02.599 | INFO     | neural_lam.utils:log_on_rank_zero:457 - The loaded datastore contains the following features:
+2026-04-15 15:35:02.599 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  state   : u
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:210: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+2026-04-15 15:35:02.600 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  static  : x_static y_static z_static
+2026-04-15 15:35:02.601 | INFO     | neural_lam.utils:log_on_rank_zero:457 - With the following splits (over time):
+2026-04-15 15:35:02.612 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  train   : 0 to 69
+2026-04-15 15:35:02.619 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  val     : 69 to 84
+2026-04-15 15:35:02.625 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  test    : 84 to 99
+2026-04-15 15:35:02.737 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Loaded graph with 1284 nodes (642 grid, 642 mesh)
+2026-04-15 15:35:02.740 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Edges in subgraphs: m2m=3840, g2m=642, m2g=642
+2026-04-15 15:35:02.748 | INFO     | neural_lam.utils:setup_training_logger:514 - Wandb resume mode: None (id: None)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+wandb: WARNING The anonymous setting has no effect and will be removed in a future version.
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /zhome/5e/a/152106/.netrc.
+wandb: Currently logged in as: s201205 (s201205-danmarks-tekniske-universitet-dtu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run 9xcgbiu4
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in wandb/run-20260415_153505-9xcgbiu4
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run train 2 waves
+wandb: ⭐️ View project at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/neural_lam
+wandb: 🚀 View run at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/neural_lam/runs/9xcgbiu4
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:295: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:295: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Metric val_mean_loss improved. New best score: 0.060
+2026-04-15 16:43:44.741 | ERROR    | __main__:<module>:402 - An error has been caught in function '<module>', process 'MainProcess' (2470907), thread 'MainThread' (140089457620800):
+Traceback (most recent call last):
+
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+
+> File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 402, in <module>
+    main()
+    └ <function main at 0x7f67c3ad4040>
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 398, in main
+    trainer.fit(model=model, datamodule=data_module, ckpt_path=args.load)
+    │       │         │                 │                      │    └ None
+    │       │         │                 │                      └ Namespace(config_path='/zhome/5e/a/152106/code_masters/data/config.yaml', model='graph_lam', seed=42, num_workers=4, num_node...
+    │       │         │                 └ <neural_lam.weather_dataset.WeatherDataModule object at 0x7f67c3b85610>
+    │       │         └ GraphLAM(
+    │       │             (grid_embedder): Sequential(
+    │       │               (0): Linear(in_features=5, out_features=64, bias=True)
+    │       │               (1): SiLU()
+    │       │               (2): ...
+    │       └ <function Trainer.fit at 0x7f67d5dc0d60>
+    └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7f67c4da7e10>
+
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 584, in fit
+    call._call_and_handle_interrupt(
+    │    └ <function _call_and_handle_interrupt at 0x7f67d5e85e40>
+    └ <module 'pytorch_lightning.trainer.call' from '/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lig...
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 49, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+           │           │       └ {}
+           │           └ (GraphLAM(
+           │               (grid_embedder): Sequential(
+           │                 (0): Linear(in_features=5, out_features=64, bias=True)
+           │                 (1): SiLU()
+           │                 (2):...
+           └ <bound method Trainer._fit_impl of <pytorch_lightning.trainer.trainer.Trainer object at 0x7f67c4da7e10>>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 630, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path, weights_only=weights_only)
+    │    │    │                │                       └ None
+    │    │    │                └ None
+    │    │    └ GraphLAM(
+    │    │        (grid_embedder): Sequential(
+    │    │          (0): Linear(in_features=5, out_features=64, bias=True)
+    │    │          (1): SiLU()
+    │    │          (2): ...
+    │    └ <function Trainer._run at 0x7f67d5dc16c0>
+    └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7f67c4da7e10>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1079, in _run
+    results = self._run_stage()
+              │    └ <function Trainer._run_stage at 0x7f67d5dc1800>
+              └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7f67c4da7e10>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1123, in _run_stage
+    self.fit_loop.run()
+    │    │        └ <function _FitLoop.run at 0x7f67d5d67100>
+    │    └ <pytorch_lightning.loops.fit_loop._FitLoop object at 0x7f67c3ab36d0>
+    └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7f67c4da7e10>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fit_loop.py", line 217, in run
+    self.advance()
+    │    └ <function _FitLoop.advance at 0x7f67d5d677e0>
+    └ <pytorch_lightning.loops.fit_loop._FitLoop object at 0x7f67c3ab36d0>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fit_loop.py", line 465, in advance
+    self.epoch_loop.run(self._data_fetcher)
+    │    │          │   │    └ None
+    │    │          │   └ <pytorch_lightning.loops.fit_loop._FitLoop object at 0x7f67c3ab36d0>
+    │    │          └ <function _TrainingEpochLoop.run at 0x7f67d5d65760>
+    │    └ <pytorch_lightning.loops.training_epoch_loop._TrainingEpochLoop object at 0x7f67c059edd0>
+    └ <pytorch_lightning.loops.fit_loop._FitLoop object at 0x7f67c3ab36d0>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 153, in run
+    self.advance(data_fetcher)
+    │    │       └ <pytorch_lightning.loops.fetchers._PrefetchDataFetcher object at 0x7f679821f990>
+    │    └ <function _TrainingEpochLoop.advance at 0x7f67d5d65da0>
+    └ <pytorch_lightning.loops.training_epoch_loop._TrainingEpochLoop object at 0x7f67c059edd0>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 311, in advance
+    batch, _, __ = next(data_fetcher)
+                        └ <pytorch_lightning.loops.fetchers._PrefetchDataFetcher object at 0x7f679821f990>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fetchers.py", line 134, in __next__
+    batch = super().__next__()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fetchers.py", line 61, in __next__
+    batch = next(self.iterator)
+                 │    └ None
+                 └ <pytorch_lightning.loops.fetchers._PrefetchDataFetcher object at 0x7f679821f990>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/combined_loader.py", line 341, in __next__
+    out = next(self._iterator)
+               │    └ None
+               └ <pytorch_lightning.utilities.combined_loader.CombinedLoader object at 0x7f679840e510>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/combined_loader.py", line 78, in __next__
+    out[i] = next(self.iterators[i])
+    │   │         │    │         └ 0
+    │   │         │    └ []
+    │   │         └ <pytorch_lightning.utilities.combined_loader._MaxSizeCycle object at 0x7f67980f8c10>
+    │   └ 0
+    └ [None]
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 741, in __next__
+    data = self._next_data()
+           │    └ <function _MultiProcessingDataLoaderIter._next_data at 0x7f67f94fe020>
+           └ <torch.utils.data.dataloader._MultiProcessingDataLoaderIter object at 0x7f6798cb9850>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1548, in _next_data
+    return self._process_data(data, worker_id)
+           │    │             │     └ 3
+           │    │             └ <torch._utils.ExceptionWrapper object at 0x7f679810cfd0>
+           │    └ <function _MultiProcessingDataLoaderIter._process_data at 0x7f67f94fe160>
+           └ <torch.utils.data.dataloader._MultiProcessingDataLoaderIter object at 0x7f6798cb9850>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1586, in _process_data
+    data.reraise()
+    │    └ <function ExceptionWrapper.reraise at 0x7f691db7e340>
+    └ <torch._utils.ExceptionWrapper object at 0x7f679810cfd0>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/_utils.py", line 775, in reraise
+    raise exception
+          └ OSError('Caught OSError in DataLoader worker process 3.\nOriginal Traceback (most recent call last):\n  File "/zhome/5e/a/152...
+
+OSError: Caught OSError in DataLoader worker process 3.
+Original Traceback (most recent call last):
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/_utils/worker.py", line 358, in _worker_loop
+    data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 54, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 54, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/weather_dataset.py", line 514, in __getitem__
+    init_states = torch.tensor(da_init_states.values, dtype=tensor_dtype)
+                               ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/dataarray.py", line 798, in values
+    return self.variable.values
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/variable.py", line 556, in values
+    return _as_array_or_item(self._data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/variable.py", line 336, in _as_array_or_item
+    data = np.asarray(data)
+           ^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/dask/array/core.py", line 1718, in __array__
+    x = self.compute()
+        ^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/dask/base.py", line 377, in compute
+    (result,) = compute(self, traverse=False, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/dask/base.py", line 685, in compute
+    results = schedule(expr, keys, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 686, in __array__
+    return np.asarray(self.get_duck_array(), dtype=dtype, copy=copy)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 691, in get_duck_array
+    return self.array.get_duck_array()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 924, in get_duck_array
+    return self.array.get_duck_array()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 764, in get_duck_array
+    array = self.array[self.key]
+            ~~~~~~~~~~^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 267, in __getitem__
+    return indexing.explicit_indexing_adapter(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 1156, in explicit_indexing_adapter
+    result = raw_indexing_method(raw_key.tuple)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 230, in _getitem
+    return self._array[key]
+           ~~~~~~~~~~~^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/array.py", line 2868, in __getitem__
+    return self.get_orthogonal_selection(pure_selection, fields=fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/array.py", line 3339, in get_orthogonal_selection
+    return sync(
+           ^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/sync.py", line 159, in sync
+    raise return_result
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/sync.py", line 119, in _runner
+    return await coro
+           ^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/array.py", line 1565, in _get_selection
+    await self.codec_pipeline.read(
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/codec_pipeline.py", line 473, in read
+    await concurrent_map(
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/common.py", line 116, in concurrent_map
+    return await asyncio.gather(*[asyncio.ensure_future(run(item)) for item in items])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/common.py", line 114, in run
+    return await func(*item)
+           ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/codec_pipeline.py", line 270, in read_batch
+    chunk_bytes_batch = await concurrent_map(
+                        ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/common.py", line 116, in concurrent_map
+    return await asyncio.gather(*[asyncio.ensure_future(run(item)) for item in items])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/common.py", line 114, in run
+    return await func(*item)
+           ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/storage/_common.py", line 168, in get
+    return await self.store.get(self.path, prototype=prototype, byte_range=byte_range)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/storage/_local.py", line 205, in get
+    return await asyncio.to_thread(_get, path, prototype, byte_range)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/storage/_local.py", line 32, in _get
+    return prototype.buffer.from_bytes(path.read_bytes())
+                                       ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/pathlib.py", line 1050, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/pathlib.py", line 1044, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 116] Stale file handle: '/zhome/5e/a/152106/code_masters/data/coarse_data.zarr/state__train__mean/c/0'
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 402, in <module>
+    main()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/loguru/_logger.py", line 1297, in catch_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 398, in main
+    trainer.fit(model=model, datamodule=data_module, ckpt_path=args.load)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 584, in fit
+    call._call_and_handle_interrupt(
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 49, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 630, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path, weights_only=weights_only)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1079, in _run
+    results = self._run_stage()
+              ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1123, in _run_stage
+    self.fit_loop.run()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fit_loop.py", line 217, in run
+    self.advance()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fit_loop.py", line 465, in advance
+    self.epoch_loop.run(self._data_fetcher)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 153, in run
+    self.advance(data_fetcher)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 311, in advance
+    batch, _, __ = next(data_fetcher)
+                   ^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fetchers.py", line 134, in __next__
+    batch = super().__next__()
+            ^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fetchers.py", line 61, in __next__
+    batch = next(self.iterator)
+            ^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/combined_loader.py", line 341, in __next__
+    out = next(self._iterator)
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/combined_loader.py", line 78, in __next__
+    out[i] = next(self.iterators[i])
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 741, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1548, in _next_data
+    return self._process_data(data, worker_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1586, in _process_data
+    data.reraise()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/_utils.py", line 775, in reraise
+    raise exception
+OSError: Caught OSError in DataLoader worker process 3.
+Original Traceback (most recent call last):
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/_utils/worker.py", line 358, in _worker_loop
+    data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 54, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 54, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/weather_dataset.py", line 514, in __getitem__
+    init_states = torch.tensor(da_init_states.values, dtype=tensor_dtype)
+                               ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/dataarray.py", line 798, in values
+    return self.variable.values
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/variable.py", line 556, in values
+    return _as_array_or_item(self._data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/variable.py", line 336, in _as_array_or_item
+    data = np.asarray(data)
+           ^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/dask/array/core.py", line 1718, in __array__
+    x = self.compute()
+        ^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/dask/base.py", line 377, in compute
+    (result,) = compute(self, traverse=False, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/dask/base.py", line 685, in compute
+    results = schedule(expr, keys, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 686, in __array__
+    return np.asarray(self.get_duck_array(), dtype=dtype, copy=copy)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 691, in get_duck_array
+    return self.array.get_duck_array()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 924, in get_duck_array
+    return self.array.get_duck_array()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 764, in get_duck_array
+    array = self.array[self.key]
+            ~~~~~~~~~~^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 267, in __getitem__
+    return indexing.explicit_indexing_adapter(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 1156, in explicit_indexing_adapter
+    result = raw_indexing_method(raw_key.tuple)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 230, in _getitem
+    return self._array[key]
+           ~~~~~~~~~~~^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/array.py", line 2868, in __getitem__
+    return self.get_orthogonal_selection(pure_selection, fields=fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/array.py", line 3339, in get_orthogonal_selection
+    return sync(
+           ^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/sync.py", line 159, in sync
+    raise return_result
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/sync.py", line 119, in _runner
+    return await coro
+           ^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/array.py", line 1565, in _get_selection
+    await self.codec_pipeline.read(
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/codec_pipeline.py", line 473, in read
+    await concurrent_map(
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/common.py", line 116, in concurrent_map
+    return await asyncio.gather(*[asyncio.ensure_future(run(item)) for item in items])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/common.py", line 114, in run
+    return await func(*item)
+           ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/codec_pipeline.py", line 270, in read_batch
+    chunk_bytes_batch = await concurrent_map(
+                        ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/common.py", line 116, in concurrent_map
+    return await asyncio.gather(*[asyncio.ensure_future(run(item)) for item in items])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/common.py", line 114, in run
+    return await func(*item)
+           ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/storage/_common.py", line 168, in get
+    return await self.store.get(self.path, prototype=prototype, byte_range=byte_range)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/storage/_local.py", line 205, in get
+    return await asyncio.to_thread(_get, path, prototype, byte_range)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/storage/_local.py", line 32, in _get
+    return prototype.buffer.from_bytes(path.read_bytes())
+                                       ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/pathlib.py", line 1050, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/pathlib.py", line 1044, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 116] Stale file handle: '/zhome/5e/a/152106/code_masters/data/coarse_data.zarr/state__train__mean/c/0'
+

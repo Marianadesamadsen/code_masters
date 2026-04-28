@@ -1,0 +1,107 @@
+/zhome/5e/a/152106/code_masters/.venv/bin/python
+Python 3.11.15
+Sat Apr 25 00:16:04 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.126.20             Driver Version: 580.126.20     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           On  |   00000000:D8:00.0 Off |                    0 |
+| N/A   36C    P0             26W /  250W |       0MiB /  32768MiB |      0%   E. Process |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+torch.cuda.is_available(): True
+device_name: cuda
+devices arg: auto
+┏━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓
+┃   ┃ Name              ┃ Type              ┃ Params ┃ Mode  ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩
+│ 0 │ grid_embedder     │ Sequential        │  4.7 K │ train │     0 │
+│ 1 │ g2m_embedder      │ Sequential        │  4.5 K │ train │     0 │
+│ 2 │ m2g_embedder      │ Sequential        │  4.5 K │ train │     0 │
+│ 3 │ g2m_gnn           │ InteractionNet    │ 29.2 K │ train │     0 │
+│ 4 │ encoding_grid_mlp │ Sequential        │  8.4 K │ train │     0 │
+│ 5 │ m2g_gnn           │ InteractionNet    │ 29.2 K │ train │     0 │
+│ 6 │ output_map        │ Sequential        │  4.2 K │ train │     0 │
+│ 7 │ mesh_embedder     │ Sequential        │  4.5 K │ train │     0 │
+│ 8 │ m2m_embedder      │ Sequential        │  4.5 K │ train │     0 │
+│ 9 │ processor         │ Sequential_3bdb23 │ 29.2 K │ train │     0 │
+└───┴───────────────────┴───────────────────┴────────┴───────┴───────┘
+Trainable params: 123 K                                                         
+Non-trainable params: 0                                                         
+Total params: 123 K                                                             
+Total estimated model params size (MB): 0                                       
+Modules in train mode: 71                                                       
+Modules in eval mode: 0                                                         
+Total FLOPs: 0                                                                  
+[train batch 50] avg inter-batch gap=5.0988s, avg compute=0.0957s
+[epoch 0] epoch_time=601.55s, inter-batch gap=4.8837s, compute=0.0949s
+[train batch 50] avg inter-batch gap=4.5079s, avg compute=0.0953s
+[epoch 1] epoch_time=569.91s, inter-batch gap=4.6486s, compute=0.0947s
+[train batch 50] avg inter-batch gap=4.6717s, avg compute=0.0958s
+[epoch 2] epoch_time=577.01s, inter-batch gap=4.7616s, compute=0.0950s
+[train batch 50] avg inter-batch gap=4.6373s, avg compute=0.0955s
+[epoch 3] epoch_time=573.28s, inter-batch gap=4.6976s, compute=0.0949s
+[train batch 50] avg inter-batch gap=4.6928s, avg compute=0.0956s
+[epoch 4] epoch_time=553.25s, inter-batch gap=4.5350s, compute=0.0947s
+[train batch 50] avg inter-batch gap=4.6719s, avg compute=0.0953s
+[epoch 5] epoch_time=573.66s, inter-batch gap=4.7270s, compute=0.0948s
+[train batch 50] avg inter-batch gap=4.6468s, avg compute=0.0953s
+[epoch 6] epoch_time=576.56s, inter-batch gap=4.7453s, compute=0.0947s
+[train batch 50] avg inter-batch gap=4.6377s, avg compute=0.0954s
+[epoch 7] epoch_time=572.28s, inter-batch gap=4.7177s, compute=0.0947s
+[train batch 50] avg inter-batch gap=4.6608s, avg compute=0.0954s
+[epoch 8] epoch_time=567.95s, inter-batch gap=4.6468s, compute=0.0948s
+[train batch 50] avg inter-batch gap=4.6098s, avg compute=0.0954s
+[epoch 9] epoch_time=571.11s, inter-batch gap=4.6944s, compute=0.0948s
+[train batch 50] avg inter-batch gap=4.5674s, avg compute=0.0955s
+[epoch 10] epoch_time=576.73s, inter-batch gap=4.6992s, compute=0.0949s
+[train batch 50] avg inter-batch gap=4.5881s, avg compute=0.0953s
+[epoch 11] epoch_time=575.23s, inter-batch gap=4.7163s, compute=0.0948s
+[train batch 50] avg inter-batch gap=4.6782s, avg compute=0.0954s
+[epoch 12] epoch_time=576.35s, inter-batch gap=4.7453s, compute=0.0946s
+[train batch 50] avg inter-batch gap=4.6128s, avg compute=0.0956s
+[epoch 13] epoch_time=579.54s, inter-batch gap=4.8041s, compute=0.0949s
+[train batch 50] avg inter-batch gap=4.6573s, avg compute=0.0957s
+[epoch 14] epoch_time=577.90s, inter-batch gap=4.7459s, compute=0.0948s
+[train batch 50] avg inter-batch gap=4.5596s, avg compute=0.0953s
+[epoch 15] epoch_time=562.14s, inter-batch gap=4.5659s, compute=0.0947s
+[train batch 50] avg inter-batch gap=4.8442s, avg compute=0.0953s
+[epoch 16] epoch_time=578.76s, inter-batch gap=4.8219s, compute=0.0946s
+[train batch 50] avg inter-batch gap=4.3772s, avg compute=0.0953s
+[epoch 17] epoch_time=530.41s, inter-batch gap=4.3223s, compute=0.0946s
+[train batch 50] avg inter-batch gap=4.3349s, avg compute=0.0953s
+[epoch 18] epoch_time=541.34s, inter-batch gap=4.4265s, compute=0.0947s
+[train batch 50] avg inter-batch gap=4.4205s, avg compute=0.0954s
+[epoch 19] epoch_time=553.47s, inter-batch gap=4.5435s, compute=0.0948s
+[train batch 50] avg inter-batch gap=4.3059s, avg compute=0.0953s
+[epoch 20] epoch_time=546.98s, inter-batch gap=4.4423s, compute=0.0945s
+[train batch 50] avg inter-batch gap=4.3149s, avg compute=0.0953s
+[epoch 21] epoch_time=539.72s, inter-batch gap=4.4164s, compute=0.0947s
+[train batch 50] avg inter-batch gap=4.2712s, avg compute=0.0954s
+[epoch 22] epoch_time=537.65s, inter-batch gap=4.4048s, compute=0.0949s
+[train batch 50] avg inter-batch gap=4.2845s, avg compute=0.0953s
+[epoch 23] epoch_time=535.29s, inter-batch gap=4.3931s, compute=0.0945s
+[train batch 50] avg inter-batch gap=4.2604s, avg compute=0.0954s
+[epoch 24] epoch_time=535.06s, inter-batch gap=4.3761s, compute=0.0946s
+[train batch 50] avg inter-batch gap=4.1982s, avg compute=0.0951s
+[epoch 25] epoch_time=513.15s, inter-batch gap=4.2181s, compute=0.0944s
+[train batch 50] avg inter-batch gap=4.0270s, avg compute=0.0954s
+[epoch 26] epoch_time=493.50s, inter-batch gap=4.0232s, compute=0.0947s
+Epoch 26/99 ━━━━━━━━━━━━━━━━━ 94/94 0:06:45 • 0:00:00 0.30it/s v_num: x1k1      
+                                                               train_loss_step: 
+                                                               0.000            
+                                                               train_loss_epoch:
+                                                               0.000            
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mchunking_3_bs_128[0m at: [34mhttps://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/faster%20training%20tuning/runs/t61fx1k1[0m

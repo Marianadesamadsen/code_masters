@@ -1,0 +1,530 @@
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Seed set to 42
+2026-04-20 19:31:33.105 | INFO     | neural_lam.utils:log_on_rank_zero:457 - The loaded datastore contains the following features:
+2026-04-20 19:31:33.106 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  state   : u
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:210: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+2026-04-20 19:31:33.106 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  static  : x_static y_static z_static
+2026-04-20 19:31:33.107 | INFO     | neural_lam.utils:log_on_rank_zero:457 - With the following splits (over time):
+2026-04-20 19:31:33.117 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  train   : 0 to 15
+2026-04-20 19:31:33.124 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  val     : 16 to 18
+2026-04-20 19:31:33.130 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  test    : 19 to 19
+2026-04-20 19:31:33.200 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Loaded graph with 5124 nodes (2562 grid, 2562 mesh)
+2026-04-20 19:31:33.204 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Edges in subgraphs: m2m=15360, g2m=2562, m2g=2562
+2026-04-20 19:31:33.211 | INFO     | neural_lam.utils:setup_training_logger:514 - Wandb resume mode: None (id: None)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+wandb: WARNING The anonymous setting has no effect and will be removed in a future version.
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /zhome/5e/a/152106/.netrc.
+wandb: Currently logged in as: s201205 (s201205-danmarks-tekniske-universitet-dtu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run 8hetd5ly
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in wandb/run-20260420_193134-8hetd5ly
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run batch_size_32
+wandb: ⭐️ View project at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/faster%20training%20tuning
+wandb: 🚀 View run at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/faster%20training%20tuning/runs/8hetd5ly
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:295: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:295: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py:424: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  self.check_worker_number_rationality()
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py:432: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  self.check_worker_number_rationality()
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py:424: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  self.check_worker_number_rationality()
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py:432: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  self.check_worker_number_rationality()
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Metric val_mean_loss improved. New best score: 0.205
+Metric val_mean_loss improved by 0.049 >= min_delta = 0.0001. New best score: 0.156
+Metric val_mean_loss improved by 0.113 >= min_delta = 0.0001. New best score: 0.043
+Metric val_mean_loss improved by 0.027 >= min_delta = 0.0001. New best score: 0.016
+Metric val_mean_loss improved by 0.004 >= min_delta = 0.0001. New best score: 0.012
+Metric val_mean_loss improved by 0.002 >= min_delta = 0.0001. New best score: 0.010
+Monitored metric val_mean_loss did not improve in the last 10 records. Best score: 0.010. Signaling Trainer to stop.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Seed set to 42
+2026-04-21 06:25:18.956 | INFO     | neural_lam.utils:log_on_rank_zero:457 - The loaded datastore contains the following features:
+2026-04-21 06:25:18.956 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  state   : u
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:210: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+2026-04-21 06:25:18.959 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  static  : x_static y_static z_static
+2026-04-21 06:25:18.959 | INFO     | neural_lam.utils:log_on_rank_zero:457 - With the following splits (over time):
+2026-04-21 06:25:18.973 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  train   : 0 to 15
+2026-04-21 06:25:18.980 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  val     : 16 to 18
+2026-04-21 06:25:18.987 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  test    : 19 to 19
+2026-04-21 06:25:19.090 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Loaded graph with 5124 nodes (2562 grid, 2562 mesh)
+2026-04-21 06:25:19.094 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Edges in subgraphs: m2m=15360, g2m=2562, m2g=2562
+2026-04-21 06:25:19.104 | INFO     | neural_lam.utils:setup_training_logger:514 - Wandb resume mode: None (id: None)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+wandb: WARNING The anonymous setting has no effect and will be removed in a future version.
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /zhome/5e/a/152106/.netrc.
+wandb: Currently logged in as: s201205 (s201205-danmarks-tekniske-universitet-dtu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run ypdujdub
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in wandb/run-20260421_062521-ypdujdub
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run batch_size_32
+wandb: ⭐️ View project at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/faster%20training%20tuning
+wandb: 🚀 View run at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/faster%20training%20tuning/runs/ypdujdub
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:295: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:295: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:881: Checkpoint directory /zhome/5e/a/152106/code_masters/saved_models/batch_size_32 exists and is not empty.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Metric val_mean_loss improved. New best score: 0.205
+Metric val_mean_loss improved by 0.049 >= min_delta = 0.0001. New best score: 0.156
+Metric val_mean_loss improved by 0.113 >= min_delta = 0.0001. New best score: 0.043
+2026-04-21 08:16:34.785 | ERROR    | __main__:<module>:402 - An error has been caught in function '<module>', process 'MainProcess' (1353287), thread 'MainThread' (140627837843264):
+Traceback (most recent call last):
+
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+
+> File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 402, in <module>
+    main()
+    └ <function main at 0x7fe51da282c0>
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 398, in main
+    trainer.fit(model=model, datamodule=data_module, ckpt_path=args.load)
+    │       │         │                 │                      │    └ None
+    │       │         │                 │                      └ Namespace(config_path='data/yaml_files/faster_training_tuning/config_batch_size_16.yaml', model='graph_lam', seed=42, num_wor...
+    │       │         │                 └ <neural_lam.weather_dataset.WeatherDataModule object at 0x7fe51da2dfd0>
+    │       │         └ GraphLAM(
+    │       │             (grid_embedder): Sequential(
+    │       │               (0): Linear(in_features=5, out_features=64, bias=True)
+    │       │               (1): SiLU()
+    │       │               (2): ...
+    │       └ <function Trainer.fit at 0x7fe52fd0ccc0>
+    └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7fe51e28cad0>
+
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 584, in fit
+    call._call_and_handle_interrupt(
+    │    └ <function _call_and_handle_interrupt at 0x7fe52fdcdda0>
+    └ <module 'pytorch_lightning.trainer.call' from '/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lig...
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 49, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+           │           │       └ {}
+           │           └ (GraphLAM(
+           │               (grid_embedder): Sequential(
+           │                 (0): Linear(in_features=5, out_features=64, bias=True)
+           │                 (1): SiLU()
+           │                 (2):...
+           └ <bound method Trainer._fit_impl of <pytorch_lightning.trainer.trainer.Trainer object at 0x7fe51e28cad0>>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 630, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path, weights_only=weights_only)
+    │    │    │                │                       └ None
+    │    │    │                └ None
+    │    │    └ GraphLAM(
+    │    │        (grid_embedder): Sequential(
+    │    │          (0): Linear(in_features=5, out_features=64, bias=True)
+    │    │          (1): SiLU()
+    │    │          (2): ...
+    │    └ <function Trainer._run at 0x7fe52fd0d620>
+    └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7fe51e28cad0>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1079, in _run
+    results = self._run_stage()
+              │    └ <function Trainer._run_stage at 0x7fe52fd0d760>
+              └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7fe51e28cad0>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1123, in _run_stage
+    self.fit_loop.run()
+    │    │        └ <function _FitLoop.run at 0x7fe52fcb7060>
+    │    └ <pytorch_lightning.loops.fit_loop._FitLoop object at 0x7fe51e173850>
+    └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7fe51e28cad0>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fit_loop.py", line 217, in run
+    self.advance()
+    │    └ <function _FitLoop.advance at 0x7fe52fcb7740>
+    └ <pytorch_lightning.loops.fit_loop._FitLoop object at 0x7fe51e173850>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fit_loop.py", line 465, in advance
+    self.epoch_loop.run(self._data_fetcher)
+    │    │          │   │    └ None
+    │    │          │   └ <pytorch_lightning.loops.fit_loop._FitLoop object at 0x7fe51e173850>
+    │    │          └ <function _TrainingEpochLoop.run at 0x7fe52fcb56c0>
+    │    └ <pytorch_lightning.loops.training_epoch_loop._TrainingEpochLoop object at 0x7fe51c2fa510>
+    └ <pytorch_lightning.loops.fit_loop._FitLoop object at 0x7fe51e173850>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 153, in run
+    self.advance(data_fetcher)
+    │    │       └ <pytorch_lightning.loops.fetchers._PrefetchDataFetcher object at 0x7fe4528cd3d0>
+    │    └ <function _TrainingEpochLoop.advance at 0x7fe52fcb5d00>
+    └ <pytorch_lightning.loops.training_epoch_loop._TrainingEpochLoop object at 0x7fe51c2fa510>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 311, in advance
+    batch, _, __ = next(data_fetcher)
+                        └ <pytorch_lightning.loops.fetchers._PrefetchDataFetcher object at 0x7fe4528cd3d0>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fetchers.py", line 134, in __next__
+    batch = super().__next__()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fetchers.py", line 61, in __next__
+    batch = next(self.iterator)
+                 │    └ None
+                 └ <pytorch_lightning.loops.fetchers._PrefetchDataFetcher object at 0x7fe4528cd3d0>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/combined_loader.py", line 341, in __next__
+    out = next(self._iterator)
+               │    └ None
+               └ <pytorch_lightning.utilities.combined_loader.CombinedLoader object at 0x7fe4e6773e10>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/combined_loader.py", line 78, in __next__
+    out[i] = next(self.iterators[i])
+    │   │         │    │         └ 0
+    │   │         │    └ []
+    │   │         └ <pytorch_lightning.utilities.combined_loader._MaxSizeCycle object at 0x7fe44c306ed0>
+    │   └ 0
+    └ [None]
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 741, in __next__
+    data = self._next_data()
+           │    └ <function _MultiProcessingDataLoaderIter._next_data at 0x7fe5534b5f80>
+           └ <torch.utils.data.dataloader._MultiProcessingDataLoaderIter object at 0x7fe452f8ac10>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1548, in _next_data
+    return self._process_data(data, worker_id)
+           │    │             │     └ 0
+           │    │             └ <torch._utils.ExceptionWrapper object at 0x7fe452a53510>
+           │    └ <function _MultiProcessingDataLoaderIter._process_data at 0x7fe5534b60c0>
+           └ <torch.utils.data.dataloader._MultiProcessingDataLoaderIter object at 0x7fe452f8ac10>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1586, in _process_data
+    data.reraise()
+    │    └ <function ExceptionWrapper.reraise at 0x7fe677aee2a0>
+    └ <torch._utils.ExceptionWrapper object at 0x7fe452a53510>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/_utils.py", line 775, in reraise
+    raise exception
+          └ RuntimeError('Caught RuntimeError in DataLoader worker process 0.\nOriginal Traceback (most recent call last):\n  File "numco...
+
+RuntimeError: Caught RuntimeError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "numcodecs/zstd.pyx", line 224, in numcodecs.zstd.decompress
+  File "numcodecs/zstd.pyx", line 396, in numcodecs.zstd.findTotalContentSize
+RuntimeError: Could not set determine zstd frame size: b'Unknown frame descriptor'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/_utils/worker.py", line 358, in _worker_loop
+    data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 54, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 54, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/weather_dataset.py", line 514, in __getitem__
+    init_states = torch.tensor(da_init_states.values, dtype=tensor_dtype)
+                               ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/dataarray.py", line 798, in values
+    return self.variable.values
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/variable.py", line 556, in values
+    return _as_array_or_item(self._data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/variable.py", line 336, in _as_array_or_item
+    data = np.asarray(data)
+           ^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/dask/array/core.py", line 1718, in __array__
+    x = self.compute()
+        ^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/dask/base.py", line 377, in compute
+    (result,) = compute(self, traverse=False, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/dask/base.py", line 685, in compute
+    results = schedule(expr, keys, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 686, in __array__
+    return np.asarray(self.get_duck_array(), dtype=dtype, copy=copy)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 691, in get_duck_array
+    return self.array.get_duck_array()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 924, in get_duck_array
+    return self.array.get_duck_array()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 764, in get_duck_array
+    array = self.array[self.key]
+            ~~~~~~~~~~^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 267, in __getitem__
+    return indexing.explicit_indexing_adapter(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 1156, in explicit_indexing_adapter
+    result = raw_indexing_method(raw_key.tuple)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 230, in _getitem
+    return self._array[key]
+           ~~~~~~~~~~~^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/array.py", line 2868, in __getitem__
+    return self.get_orthogonal_selection(pure_selection, fields=fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/array.py", line 3339, in get_orthogonal_selection
+    return sync(
+           ^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/sync.py", line 159, in sync
+    raise return_result
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/sync.py", line 119, in _runner
+    return await coro
+           ^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/array.py", line 1565, in _get_selection
+    await self.codec_pipeline.read(
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/codec_pipeline.py", line 473, in read
+    await concurrent_map(
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/common.py", line 116, in concurrent_map
+    return await asyncio.gather(*[asyncio.ensure_future(run(item)) for item in items])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/common.py", line 114, in run
+    return await func(*item)
+           ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/codec_pipeline.py", line 275, in read_batch
+    chunk_array_batch = await self.decode_batch(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/codec_pipeline.py", line 190, in decode_batch
+    chunk_bytes_batch = await bb_codec.decode(
+                        ^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/abc/codec.py", line 159, in decode
+    return await _batching_helper(self._decode_single, chunks_and_specs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/abc/codec.py", line 467, in _batching_helper
+    return await concurrent_map(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/common.py", line 116, in concurrent_map
+    return await asyncio.gather(*[asyncio.ensure_future(run(item)) for item in items])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/common.py", line 114, in run
+    return await func(*item)
+           ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/abc/codec.py", line 480, in wrap
+    return await func(chunk, chunk_spec)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/codecs/zstd.py", line 79, in _decode_single
+    return await asyncio.to_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/buffer/cpu.py", line 219, in as_numpy_array_wrapper
+    return prototype.buffer.from_bytes(func(buf.as_numpy_array()))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "numcodecs/zstd.pyx", line 443, in numcodecs.zstd.Zstd.decode
+  File "numcodecs/zstd.pyx", line 226, in numcodecs.zstd.decompress
+RuntimeError: Zstd decompression error: invalid input data
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 402, in <module>
+    main()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/loguru/_logger.py", line 1297, in catch_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 398, in main
+    trainer.fit(model=model, datamodule=data_module, ckpt_path=args.load)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 584, in fit
+    call._call_and_handle_interrupt(
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 49, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 630, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path, weights_only=weights_only)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1079, in _run
+    results = self._run_stage()
+              ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1123, in _run_stage
+    self.fit_loop.run()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fit_loop.py", line 217, in run
+    self.advance()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fit_loop.py", line 465, in advance
+    self.epoch_loop.run(self._data_fetcher)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 153, in run
+    self.advance(data_fetcher)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 311, in advance
+    batch, _, __ = next(data_fetcher)
+                   ^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fetchers.py", line 134, in __next__
+    batch = super().__next__()
+            ^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/fetchers.py", line 61, in __next__
+    batch = next(self.iterator)
+            ^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/combined_loader.py", line 341, in __next__
+    out = next(self._iterator)
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/combined_loader.py", line 78, in __next__
+    out[i] = next(self.iterators[i])
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 741, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1548, in _next_data
+    return self._process_data(data, worker_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1586, in _process_data
+    data.reraise()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/_utils.py", line 775, in reraise
+    raise exception
+RuntimeError: Caught RuntimeError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "numcodecs/zstd.pyx", line 224, in numcodecs.zstd.decompress
+  File "numcodecs/zstd.pyx", line 396, in numcodecs.zstd.findTotalContentSize
+RuntimeError: Could not set determine zstd frame size: b'Unknown frame descriptor'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/_utils/worker.py", line 358, in _worker_loop
+    data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 54, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 54, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/weather_dataset.py", line 514, in __getitem__
+    init_states = torch.tensor(da_init_states.values, dtype=tensor_dtype)
+                               ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/dataarray.py", line 798, in values
+    return self.variable.values
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/variable.py", line 556, in values
+    return _as_array_or_item(self._data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/variable.py", line 336, in _as_array_or_item
+    data = np.asarray(data)
+           ^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/dask/array/core.py", line 1718, in __array__
+    x = self.compute()
+        ^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/dask/base.py", line 377, in compute
+    (result,) = compute(self, traverse=False, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/dask/base.py", line 685, in compute
+    results = schedule(expr, keys, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 686, in __array__
+    return np.asarray(self.get_duck_array(), dtype=dtype, copy=copy)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 691, in get_duck_array
+    return self.array.get_duck_array()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 924, in get_duck_array
+    return self.array.get_duck_array()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 764, in get_duck_array
+    array = self.array[self.key]
+            ~~~~~~~~~~^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 267, in __getitem__
+    return indexing.explicit_indexing_adapter(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/core/indexing.py", line 1156, in explicit_indexing_adapter
+    result = raw_indexing_method(raw_key.tuple)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 230, in _getitem
+    return self._array[key]
+           ~~~~~~~~~~~^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/array.py", line 2868, in __getitem__
+    return self.get_orthogonal_selection(pure_selection, fields=fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/array.py", line 3339, in get_orthogonal_selection
+    return sync(
+           ^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/sync.py", line 159, in sync
+    raise return_result
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/sync.py", line 119, in _runner
+    return await coro
+           ^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/array.py", line 1565, in _get_selection
+    await self.codec_pipeline.read(
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/codec_pipeline.py", line 473, in read
+    await concurrent_map(
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/common.py", line 116, in concurrent_map
+    return await asyncio.gather(*[asyncio.ensure_future(run(item)) for item in items])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/common.py", line 114, in run
+    return await func(*item)
+           ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/codec_pipeline.py", line 275, in read_batch
+    chunk_array_batch = await self.decode_batch(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/codec_pipeline.py", line 190, in decode_batch
+    chunk_bytes_batch = await bb_codec.decode(
+                        ^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/abc/codec.py", line 159, in decode
+    return await _batching_helper(self._decode_single, chunks_and_specs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/abc/codec.py", line 467, in _batching_helper
+    return await concurrent_map(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/common.py", line 116, in concurrent_map
+    return await asyncio.gather(*[asyncio.ensure_future(run(item)) for item in items])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/common.py", line 114, in run
+    return await func(*item)
+           ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/abc/codec.py", line 480, in wrap
+    return await func(chunk, chunk_spec)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/codecs/zstd.py", line 79, in _decode_single
+    return await asyncio.to_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/buffer/cpu.py", line 219, in as_numpy_array_wrapper
+    return prototype.buffer.from_bytes(func(buf.as_numpy_array()))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "numcodecs/zstd.pyx", line 443, in numcodecs.zstd.Zstd.decode
+  File "numcodecs/zstd.pyx", line 226, in numcodecs.zstd.decompress
+RuntimeError: Zstd decompression error: invalid input data
+

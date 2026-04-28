@@ -1,0 +1,151 @@
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Seed set to 42
+2026-04-22 16:46:15.957 | WARNING  | neural_lam.datastore.mdp:__init__:69 - Config file has been modified since zarr was created. The old zarr archive (in data/yaml_files/faster_training_tuning/data_chunking_3.zarr) will be used.To generate new zarr-archive, move the old one first.
+2026-04-22 16:46:16.167 | INFO     | neural_lam.utils:log_on_rank_zero:457 - The loaded datastore contains the following features:
+2026-04-22 16:46:16.167 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  state   : u
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:210: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+2026-04-22 16:46:16.169 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  static  : x_static y_static z_static
+2026-04-22 16:46:16.169 | INFO     | neural_lam.utils:log_on_rank_zero:457 - With the following splits (over time):
+2026-04-22 16:46:16.190 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  train   : 0 to 15
+2026-04-22 16:46:16.197 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  val     : 16 to 18
+2026-04-22 16:46:16.204 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  test    : 19 to 19
+2026-04-22 16:46:16.313 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Loaded graph with 5124 nodes (2562 grid, 2562 mesh)
+2026-04-22 16:46:16.317 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Edges in subgraphs: m2m=15360, g2m=2562, m2g=2562
+2026-04-22 16:46:16.325 | INFO     | neural_lam.utils:setup_training_logger:514 - Wandb resume mode: None (id: None)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+wandb: WARNING The anonymous setting has no effect and will be removed in a future version.
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /zhome/5e/a/152106/.netrc.
+wandb: Currently logged in as: s201205 (s201205-danmarks-tekniske-universitet-dtu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run yk6em9xa
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in wandb/run-20260422_164618-yk6em9xa
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run chunking_3_bs_32_nw_8
+wandb: ⭐️ View project at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/faster%20training%20tuning
+wandb: 🚀 View run at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/faster%20training%20tuning/runs/yk6em9xa
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:295: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:295: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Metric val_mean_loss improved. New best score: 0.205
+Metric val_mean_loss improved by 0.049 >= min_delta = 0.0001. New best score: 0.156
+Metric val_mean_loss improved by 0.113 >= min_delta = 0.0001. New best score: 0.043
+Metric val_mean_loss improved by 0.027 >= min_delta = 0.0001. New best score: 0.016
+Metric val_mean_loss improved by 0.004 >= min_delta = 0.0001. New best score: 0.012
+Metric val_mean_loss improved by 0.002 >= min_delta = 0.0001. New best score: 0.010
+Monitored metric val_mean_loss did not improve in the last 10 records. Best score: 0.010. Signaling Trainer to stop.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Seed set to 42
+2026-04-24 21:05:55.305 | INFO     | neural_lam.utils:log_on_rank_zero:457 - The loaded datastore contains the following features:
+2026-04-24 21:05:55.305 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  state   : u
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:210: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+2026-04-24 21:05:55.307 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  static  : x_static y_static z_static
+2026-04-24 21:05:55.307 | INFO     | neural_lam.utils:log_on_rank_zero:457 - With the following splits (over time):
+2026-04-24 21:05:55.326 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  train   : 0 to 19
+2026-04-24 21:05:55.333 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  val     : 20 to 23
+2026-04-24 21:05:55.339 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  test    : 24 to 27
+2026-04-24 21:05:55.498 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Loaded graph with 5124 nodes (2562 grid, 2562 mesh)
+2026-04-24 21:05:55.502 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Edges in subgraphs: m2m=15360, g2m=2562, m2g=2562
+2026-04-24 21:05:55.514 | INFO     | neural_lam.utils:setup_training_logger:514 - Wandb resume mode: None (id: None)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+wandb: WARNING The anonymous setting has no effect and will be removed in a future version.
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /zhome/5e/a/152106/.netrc.
+wandb: Currently logged in as: s201205 (s201205-danmarks-tekniske-universitet-dtu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run ncsdfpmv
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in wandb/run-20260424_210558-ncsdfpmv
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run chunking_3_bs_32_nw_8
+wandb: ⭐️ View project at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/faster%20training%20tuning
+wandb: 🚀 View run at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/faster%20training%20tuning/runs/ncsdfpmv
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:295: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:295: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:881: Checkpoint directory /zhome/5e/a/152106/code_masters/saved_models/chunking_3_bs_32_nw_8 exists and is not empty.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Metric val_mean_loss improved. New best score: 0.121
+Metric val_mean_loss improved by 0.090 >= min_delta = 0.0001. New best score: 0.031
+Metric val_mean_loss improved by 0.010 >= min_delta = 0.0001. New best score: 0.021
+Metric val_mean_loss improved by 0.001 >= min_delta = 0.0001. New best score: 0.020
+Metric val_mean_loss improved by 0.003 >= min_delta = 0.0001. New best score: 0.017
+Metric val_mean_loss improved by 0.006 >= min_delta = 0.0001. New best score: 0.011
+Metric val_mean_loss improved by 0.007 >= min_delta = 0.0001. New best score: 0.003
+Monitored metric val_mean_loss did not improve in the last 10 records. Best score: 0.003. Signaling Trainer to stop.

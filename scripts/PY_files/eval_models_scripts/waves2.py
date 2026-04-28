@@ -110,7 +110,7 @@ for wave in range(num_waves):
         pred_all_1feature = pred_all[:,:,:,:,0]
         target_all_1feature = target_all[:,:,:,:,0]
         error_all_1feature = pred_all_1feature - target_all_1feature
-        rolloutidx = 0
+        rolloutidx = 10
 
         # This setup is for dataplotter 3Ds
         ds_pred = helper.setup_simple_xarray(pred_all_1feature[rolloutidx,wave], np.arange(num_roll_outs), P, tri, R=R)

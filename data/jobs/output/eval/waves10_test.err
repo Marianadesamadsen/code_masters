@@ -1,0 +1,281 @@
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Seed set to 42
+2026-04-27 13:23:25.683 | INFO     | mllam_data_prep.create_dataset:create_dataset:176 - Loading dataset wave_sphere from data/nc_files/wave_ensemble_10_coarse.nc
+2026-04-27 13:23:25.736 | ERROR    | __main__:<module>:415 - An error has been caught in function '<module>', process 'MainProcess' (2004495), thread 'MainThread' (139870452660032):
+Traceback (most recent call last):
+
+  File "/zhome/5e/a/152106/code_masters/mllam-data-prep/mllam_data_prep/create_dataset.py", line 178, in create_dataset
+    ds_input = load_input_dataset(fp=path)
+               │                     └ 'data/nc_files/wave_ensemble_10_coarse.nc'
+               └ <function load_input_dataset at 0x7f34c668c9a0>
+
+  File "/zhome/5e/a/152106/code_masters/mllam-data-prep/mllam_data_prep/ops/loading.py", line 21, in load_input_dataset
+    ds = xr.open_zarr(fp)
+         │  │         └ 'data/nc_files/wave_ensemble_10_coarse.nc'
+         │  └ <function open_zarr at 0x7f34e46bf1a0>
+         └ <module 'xarray' from '/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/__init__.py'>
+
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 1609, in open_zarr
+    ds = open_dataset(
+         └ <function open_dataset at 0x7f34e46eaf20>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/api.py", line 607, in open_dataset
+    backend_ds = backend.open_dataset(
+                 │       └ <function ZarrBackendEntrypoint.open_dataset at 0x7f34e46e84a0>
+                 └ <ZarrBackendEntrypoint>
+                     Open zarr files (.zarr) using zarr in Xarray
+                     Learn more at https://docs.xarray.dev/en/stable/gene...
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 1683, in open_dataset
+    store = ZarrStore.open_group(
+            │         └ <classmethod(<function ZarrStore.open_group at 0x7f34e46bf2e0>)>
+            └ <class 'xarray.backends.zarr.ZarrStore'>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 722, in open_group
+    ) = _get_open_params(
+        └ <function _get_open_params at 0x7f34e46e8360>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 1891, in _get_open_params
+    zarr_root_group = zarr.open_consolidated(store, **open_kwargs)
+                      │    │                 │        └ {'mode': 'r', 'synchronizer': None, 'storage_options': None, 'zarr_format': None}
+                      │    │                 └ '/zhome/5e/a/152106/code_masters/data/nc_files/wave_ensemble_10_coarse.nc'
+                      │    └ <function open_consolidated at 0x7f34c75e65c0>
+                      └ <module 'zarr' from '/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/__init__.py'>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/synchronous.py", line 238, in open_consolidated
+    sync(async_api.open_consolidated(*args, use_consolidated=use_consolidated, **kwargs))
+    │    │         │                  │                      │                   └ {'mode': 'r', 'synchronizer': None, 'storage_options': None, 'zarr_format': None}
+    │    │         │                  │                      └ True
+    │    │         │                  └ ('/zhome/5e/a/152106/code_masters/data/nc_files/wave_ensemble_10_coarse.nc',)
+    │    │         └ <function open_consolidated at 0x7f34c75e53a0>
+    │    └ <module 'zarr.api.asynchronous' from '/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronou...
+    └ <function sync at 0x7f34c757e980>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/sync.py", line 159, in sync
+    raise return_result
+          └ FileNotFoundError('/zhome/5e/a/152106/code_masters/data/nc_files/wave_ensemble_10_coarse.nc does not exist')
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/sync.py", line 119, in _runner
+    return await coro
+                 └ <coroutine object open_consolidated at 0x7f34c5f0ee30>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronous.py", line 415, in open_consolidated
+    return await open_group(*args, use_consolidated=use_consolidated, **kwargs)
+                 │           │                      │                   └ {'mode': 'r', 'synchronizer': None, 'storage_options': None, 'zarr_format': None}
+                 │           │                      └ True
+                 │           └ ('/zhome/5e/a/152106/code_masters/data/nc_files/wave_ensemble_10_coarse.nc',)
+                 └ <function open_group at 0x7f34c75e5940>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronous.py", line 860, in open_group
+    store_path = await make_store_path(store, mode=mode, storage_options=storage_options, path=path)
+                       │               │           │                     │                     └ None
+                       │               │           │                     └ None
+                       │               │           └ 'r'
+                       │               └ '/zhome/5e/a/152106/code_masters/data/nc_files/wave_ensemble_10_coarse.nc'
+                       └ <function make_store_path at 0x7f34c7568900>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/storage/_common.py", line 422, in make_store_path
+    store = await make_store(store_like, mode=mode, storage_options=storage_options)
+                  │          │                │                     └ None
+                  │          │                └ 'r'
+                  │          └ '/zhome/5e/a/152106/code_masters/data/nc_files/wave_ensemble_10_coarse.nc'
+                  └ <function make_store at 0x7f34c7535300>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/storage/_common.py", line 351, in make_store
+    return await make_store(Path(store_like), mode=mode, storage_options=storage_options)
+                 │          │    │                 │                     └ None
+                 │          │    │                 └ 'r'
+                 │          │    └ '/zhome/5e/a/152106/code_masters/data/nc_files/wave_ensemble_10_coarse.nc'
+                 │          └ <class 'pathlib.Path'>
+                 └ <function make_store at 0x7f34c7535300>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/storage/_common.py", line 341, in make_store
+    return await LocalStore.open(root=store_like, mode=mode, read_only=_read_only)
+                 │          │         │                │               └ True
+                 │          │         │                └ 'r'
+                 │          │         └ PosixPath('/zhome/5e/a/152106/code_masters/data/nc_files/wave_ensemble_10_coarse.nc')
+                 │          └ <classmethod(<function LocalStore.open at 0x7f34c75358a0>)>
+                 └ <class 'zarr.storage._local.LocalStore'>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/storage/_local.py", line 160, in open
+    await store._open()
+          │     └ <function LocalStore._open at 0x7f34c7535940>
+          └ LocalStore('file:///zhome/5e/a/152106/code_masters/data/nc_files/wave_ensemble_10_coarse.nc')
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/storage/_local.py", line 172, in _open
+    raise FileNotFoundError(f"{self.root} does not exist")
+
+FileNotFoundError: /zhome/5e/a/152106/code_masters/data/nc_files/wave_ensemble_10_coarse.nc does not exist
+
+
+The above exception was the direct cause of the following exception:
+
+
+Traceback (most recent call last):
+
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+
+> File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 415, in <module>
+    main()
+    └ <function main at 0x7f34c5f584a0>
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 308, in main
+    config, datastore = load_config_and_datastore(config_path=args.config_path)
+                        │                                     │    └ 'data/yaml_files/start_up_tests/config_10_waves.yaml'
+                        │                                     └ Namespace(config_path='data/yaml_files/start_up_tests/config_10_waves.yaml', model='graph_lam', seed=42, num_workers=4, num_n...
+                        └ <function load_config_and_datastore at 0x7f34c9de8f40>
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/config.py", line 184, in load_config_and_datastore
+    datastore = init_datastore(
+                └ <function init_datastore at 0x7f34e47300e0>
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/__init__.py", line 25, in init_datastore
+    datastore = DatastoreClass(config_path=config_path)
+                │                          └ PosixPath('data/yaml_files/start_up_tests/coarse_data_10_waves.yaml')
+                └ <class 'neural_lam.datastore.mdp.MDPDatastore'>
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py", line 82, in __init__
+    self._ds = mdp.create_dataset(config=self._config)
+    │    │     │   │                     │    └ Config(output=Output(variables={'static': ['grid_index', 'static_feature'], 'state': ['time', 'grid_index', 'state_feature', ...
+    │    │     │   │                     └ <neural_lam.datastore.mdp.MDPDatastore object at 0x7f34c62aa6d0>
+    │    │     │   └ <function create_dataset at 0x7f34c668d260>
+    │    │     └ <module 'mllam_data_prep' from '/zhome/5e/a/152106/code_masters/mllam-data-prep/mllam_data_prep/__init__.py'>
+    │    └ None
+    └ <neural_lam.datastore.mdp.MDPDatastore object at 0x7f34c62aa6d0>
+
+  File "/zhome/5e/a/152106/code_masters/mllam-data-prep/mllam_data_prep/create_dataset.py", line 180, in create_dataset
+    raise Exception(f"Error loading dataset {dataset_name} from {path}") from ex
+
+Exception: Error loading dataset wave_sphere from data/nc_files/wave_ensemble_10_coarse.nc
+Traceback (most recent call last):
+  File "/zhome/5e/a/152106/code_masters/mllam-data-prep/mllam_data_prep/create_dataset.py", line 178, in create_dataset
+    ds_input = load_input_dataset(fp=path)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/mllam-data-prep/mllam_data_prep/ops/loading.py", line 21, in load_input_dataset
+    ds = xr.open_zarr(fp)
+         ^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 1609, in open_zarr
+    ds = open_dataset(
+         ^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/api.py", line 607, in open_dataset
+    backend_ds = backend.open_dataset(
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 1683, in open_dataset
+    store = ZarrStore.open_group(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 722, in open_group
+    ) = _get_open_params(
+        ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 1891, in _get_open_params
+    zarr_root_group = zarr.open_consolidated(store, **open_kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/synchronous.py", line 238, in open_consolidated
+    sync(async_api.open_consolidated(*args, use_consolidated=use_consolidated, **kwargs))
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/sync.py", line 159, in sync
+    raise return_result
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/sync.py", line 119, in _runner
+    return await coro
+           ^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronous.py", line 415, in open_consolidated
+    return await open_group(*args, use_consolidated=use_consolidated, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronous.py", line 860, in open_group
+    store_path = await make_store_path(store, mode=mode, storage_options=storage_options, path=path)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/storage/_common.py", line 422, in make_store_path
+    store = await make_store(store_like, mode=mode, storage_options=storage_options)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/storage/_common.py", line 351, in make_store
+    return await make_store(Path(store_like), mode=mode, storage_options=storage_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/storage/_common.py", line 341, in make_store
+    return await LocalStore.open(root=store_like, mode=mode, read_only=_read_only)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/storage/_local.py", line 160, in open
+    await store._open()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/storage/_local.py", line 172, in _open
+    raise FileNotFoundError(f"{self.root} does not exist")
+FileNotFoundError: /zhome/5e/a/152106/code_masters/data/nc_files/wave_ensemble_10_coarse.nc does not exist
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 415, in <module>
+    main()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/loguru/_logger.py", line 1297, in catch_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 308, in main
+    config, datastore = load_config_and_datastore(config_path=args.config_path)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/config.py", line 184, in load_config_and_datastore
+    datastore = init_datastore(
+                ^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/__init__.py", line 25, in init_datastore
+    datastore = DatastoreClass(config_path=config_path)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py", line 82, in __init__
+    self._ds = mdp.create_dataset(config=self._config)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/mllam-data-prep/mllam_data_prep/create_dataset.py", line 180, in create_dataset
+    raise Exception(f"Error loading dataset {dataset_name} from {path}") from ex
+Exception: Error loading dataset wave_sphere from data/nc_files/wave_ensemble_10_coarse.nc
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Seed set to 42
+2026-04-27 18:47:35.896 | INFO     | mllam_data_prep.create_dataset:create_dataset:176 - Loading dataset wave_sphere from data/nc_files/start_up_tests/wave_ensemble_10_coarse.nc
+2026-04-27 18:47:36.152 | INFO     | mllam_data_prep.create_dataset:create_dataset:190 - Extracting selected variables from dataset wave_sphere
+2026-04-27 18:47:36.152 | INFO     | mllam_data_prep.create_dataset:create_dataset:236 - Mapping dimensions and variables for dataset wave_sphere to state
+2026-04-27 18:47:37.959 | INFO     | mllam_data_prep.create_dataset:create_dataset:176 - Loading dataset wave_sphere_static from data/nc_files/start_up_tests/wave_ensemble_10_coarse.nc
+2026-04-27 18:47:37.972 | INFO     | mllam_data_prep.create_dataset:create_dataset:190 - Extracting selected variables from dataset wave_sphere_static
+2026-04-27 18:47:37.973 | INFO     | mllam_data_prep.create_dataset:create_dataset:236 - Mapping dimensions and variables for dataset wave_sphere_static to static
+2026-04-27 18:47:38.061 | INFO     | mllam_data_prep.create_dataset:_merge_dataarrays_by_target:72 - Merging dataarrays for target variable `state`
+2026-04-27 18:47:38.091 | INFO     | mllam_data_prep.create_dataset:_merge_dataarrays_by_target:72 - Merging dataarrays for target variable `static`
+/zhome/5e/a/152106/code_masters/mllam-data-prep/mllam_data_prep/create_dataset.py:105: FutureWarning: In a future version of xarray the default value for compat will change from compat='no_conflicts' to compat='override'. This is likely to lead to different results when combining overlapping variables with the same name. To opt in to new defaults and get rid of these warnings now use `set_options(use_new_combine_kwarg_defaults=True) or set compat explicitly.
+  ds = xr.merge(dataarrays, join="exact")
+/zhome/5e/a/152106/code_masters/mllam-data-prep/mllam_data_prep/create_dataset.py:105: FutureWarning: In a future version of xarray the default value for compat will change from compat='no_conflicts' to compat='override'. This is likely to lead to different results when combining overlapping variables with the same name. To opt in to new defaults and get rid of these warnings now use `set_options(use_new_combine_kwarg_defaults=True) or set compat explicitly.
+  ds = xr.merge(dataarrays, join="exact")
+2026-04-27 18:47:38.125 | INFO     | mllam_data_prep.create_dataset:create_dataset:274 - Chunking dataset with {}
+2026-04-27 18:47:38.199 | INFO     | mllam_data_prep.create_dataset:create_dataset:282 - Setting splitting information to define `['train', 'val', 'test']` splits along dimension `ensemble_member`
+2026-04-27 18:47:38.292 | INFO     | mllam_data_prep.create_dataset:create_dataset:292 - Computing statistics for split train
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/dtype/npy/string.py:249: UnstableSpecificationWarning: The data type (FixedLengthUTF32(length=1, endianness='little')) does not have a Zarr V3 specification. That means that the representation of arrays saved with this data type may change without warning in a future version of Zarr Python. Arrays stored with this data type may be unreadable by other Zarr libraries. Use this data type at your own risk! Check https://github.com/zarr-developers/zarr-extensions/tree/main/data-types for the status of data type specifications for Zarr V3.
+  v3_unstable_dtype_warning(self)
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/dtype/npy/string.py:249: UnstableSpecificationWarning: The data type (FixedLengthUTF32(length=11, endianness='little')) does not have a Zarr V3 specification. That means that the representation of arrays saved with this data type may change without warning in a future version of Zarr Python. Arrays stored with this data type may be unreadable by other Zarr libraries. Use this data type at your own risk! Check https://github.com/zarr-developers/zarr-extensions/tree/main/data-types for the status of data type specifications for Zarr V3.
+  v3_unstable_dtype_warning(self)
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/dtype/npy/string.py:249: UnstableSpecificationWarning: The data type (FixedLengthUTF32(length=18, endianness='little')) does not have a Zarr V3 specification. That means that the representation of arrays saved with this data type may change without warning in a future version of Zarr Python. Arrays stored with this data type may be unreadable by other Zarr libraries. Use this data type at your own risk! Check https://github.com/zarr-developers/zarr-extensions/tree/main/data-types for the status of data type specifications for Zarr V3.
+  v3_unstable_dtype_warning(self)
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/dtype/npy/string.py:249: UnstableSpecificationWarning: The data type (FixedLengthUTF32(length=5, endianness='little')) does not have a Zarr V3 specification. That means that the representation of arrays saved with this data type may change without warning in a future version of Zarr Python. Arrays stored with this data type may be unreadable by other Zarr libraries. Use this data type at your own risk! Check https://github.com/zarr-developers/zarr-extensions/tree/main/data-types for the status of data type specifications for Zarr V3.
+  v3_unstable_dtype_warning(self)
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/dtype/npy/string.py:249: UnstableSpecificationWarning: The data type (FixedLengthUTF32(length=8, endianness='little')) does not have a Zarr V3 specification. That means that the representation of arrays saved with this data type may change without warning in a future version of Zarr Python. Arrays stored with this data type may be unreadable by other Zarr libraries. Use this data type at your own risk! Check https://github.com/zarr-developers/zarr-extensions/tree/main/data-types for the status of data type specifications for Zarr V3.
+  v3_unstable_dtype_warning(self)
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-04-27 18:47:39.739 | INFO     | neural_lam.utils:log_on_rank_zero:457 - The loaded datastore contains the following features:
+2026-04-27 18:47:39.740 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  state   : u
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:210: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+2026-04-27 18:47:39.741 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  static  : x_static y_static z_static
+2026-04-27 18:47:39.741 | INFO     | neural_lam.utils:log_on_rank_zero:457 - With the following splits (over time):
+2026-04-27 18:47:39.796 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  train   : 0 to 5
+2026-04-27 18:47:39.796 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  val     : 6 to 7
+2026-04-27 18:47:39.797 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  test    : 8 to 9
+2026-04-27 18:47:40.479 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Loaded graph with 1284 nodes (642 grid, 642 mesh)
+2026-04-27 18:47:40.533 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Edges in subgraphs: m2m=3840, g2m=642, m2g=642
+2026-04-27 18:47:40.542 | INFO     | neural_lam.utils:setup_training_logger:514 - Wandb resume mode: None (id: None)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+wandb: WARNING The anonymous setting has no effect and will be removed in a future version.
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /zhome/5e/a/152106/.netrc.
+wandb: Currently logged in as: s201205 (s201205-danmarks-tekniske-universitet-dtu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in wandb/run-20260427_184745-5d4knf6n
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run test 10 waves 100 ar steps
+wandb: ⭐️ View project at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/test_10_waves
+wandb: 🚀 View run at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/test_10_waves/runs/5d4knf6n
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:295: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+Restoring states from the checkpoint path at /zhome/5e/a/152106/code_masters/saved_models/train 10 waves/min_val_loss.ckpt
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:566: The dirpath has changed from '/zhome/5e/a/152106/code_masters/saved_models/train 10 waves' to '/zhome/5e/a/152106/code_masters/saved_models/test 10 waves 100 ar steps', therefore `best_model_score`, `kth_best_model_path`, `kth_value`, `last_model_path` and `best_k_models` won't be reloaded. Only `best_model_path` will be reloaded.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loaded model weights from the checkpoint at /zhome/5e/a/152106/code_masters/saved_models/train 10 waves/min_val_loss.ckpt
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]

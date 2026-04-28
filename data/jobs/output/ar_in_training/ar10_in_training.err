@@ -1,0 +1,180 @@
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Seed set to 42
+2026-04-28 14:53:04.436 | INFO     | neural_lam.utils:log_on_rank_zero:457 - The loaded datastore contains the following features:
+2026-04-28 14:53:04.436 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  state   : u
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:210: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+2026-04-28 14:53:04.446 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  static  : x_static y_static z_static
+2026-04-28 14:53:04.446 | INFO     | neural_lam.utils:log_on_rank_zero:457 - With the following splits (over time):
+2026-04-28 14:53:04.583 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  train   : 0 to 19
+2026-04-28 14:53:04.594 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  val     : 20 to 23
+2026-04-28 14:53:04.603 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  test    : 24 to 27
+2026-04-28 14:53:12.765 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Loaded graph with 5124 nodes (2562 grid, 2562 mesh)
+2026-04-28 14:53:13.030 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Edges in subgraphs: m2m=15360, g2m=2562, m2g=2562
+2026-04-28 14:53:13.053 | INFO     | neural_lam.utils:setup_training_logger:514 - Wandb resume mode: None (id: None)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+wandb: WARNING The anonymous setting has no effect and will be removed in a future version.
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /zhome/5e/a/152106/.netrc.
+wandb: Currently logged in as: s201205 (s201205-danmarks-tekniske-universitet-dtu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run 76l943iq
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in wandb/run-20260428_145315-76l943iq
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ar10_in_training
+wandb: ⭐️ View project at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/ar_in_training
+wandb: 🚀 View run at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/ar_in_training/runs/76l943iq
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:295: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+2026-04-28 14:53:38.355 | INFO     | neural_lam.weather_dataset:_precompute_samples:164 - Precomputing train samples in memory
+2026-04-28 15:57:17.398 | INFO     | neural_lam.weather_dataset:_precompute_samples:270 - Precomputed arrays: init=(11760, 2, 2562, 1), target=(11760, 10, 2562, 1), forcing=(11760, 10, 2562, 0), times=(11760, 10)
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:295: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+2026-04-28 15:57:17.643 | INFO     | neural_lam.weather_dataset:_precompute_samples:164 - Precomputing val samples in memory
+2026-04-28 16:00:21.293 | INFO     | neural_lam.weather_dataset:_precompute_samples:270 - Precomputed arrays: init=(2352, 2, 2562, 1), target=(2352, 10, 2562, 1), forcing=(2352, 10, 2562, 0), times=(2352, 10)
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:434: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=9` in the `DataLoader` to improve performance.
+2026-04-28 16:00:55.987 | ERROR    | __main__:<module>:415 - An error has been caught in function '<module>', process 'MainProcess' (133666), thread 'MainThread' (139939487815488):
+Traceback (most recent call last):
+
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+
+> File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 415, in <module>
+    main()
+    └ <function main at 0x7f44d8e7ca40>
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 411, in main
+    trainer.fit(model=model, datamodule=data_module, ckpt_path=args.load)
+    │       │         │                 │                      │    └ None
+    │       │         │                 │                      └ Namespace(config_path='data/yaml_files/faster_training_tuning/config_in_memory.yaml', model='graph_lam', seed=42, num_workers...
+    │       │         │                 └ <neural_lam.weather_dataset.WeatherDataModule object at 0x7f44d902f590>
+    │       │         └ GraphLAM(
+    │       │             (grid_embedder): Sequential(
+    │       │               (0): Linear(in_features=5, out_features=64, bias=True)
+    │       │               (1): SiLU()
+    │       │               (2): ...
+    │       └ <function Trainer.fit at 0x7f44eb31d080>
+    └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7f44d91e0550>
+
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 584, in fit
+    call._call_and_handle_interrupt(
+    │    └ <function _call_and_handle_interrupt at 0x7f44eb3ddd00>
+    └ <module 'pytorch_lightning.trainer.call' from '/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lig...
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 49, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+           │           │       └ {}
+           │           └ (GraphLAM(
+           │               (grid_embedder): Sequential(
+           │                 (0): Linear(in_features=5, out_features=64, bias=True)
+           │                 (1): SiLU()
+           │                 (2):...
+           └ <bound method Trainer._fit_impl of <pytorch_lightning.trainer.trainer.Trainer object at 0x7f44d91e0550>>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 630, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path, weights_only=weights_only)
+    │    │    │                │                       └ None
+    │    │    │                └ None
+    │    │    └ GraphLAM(
+    │    │        (grid_embedder): Sequential(
+    │    │          (0): Linear(in_features=5, out_features=64, bias=True)
+    │    │          (1): SiLU()
+    │    │          (2): ...
+    │    └ <function Trainer._run at 0x7f44eb31d9e0>
+    └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7f44d91e0550>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1079, in _run
+    results = self._run_stage()
+              │    └ <function Trainer._run_stage at 0x7f44eb31db20>
+              └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7f44d91e0550>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1121, in _run_stage
+    self._run_sanity_check()
+    │    └ <function Trainer._run_sanity_check at 0x7f44eb31dbc0>
+    └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7f44d91e0550>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1150, in _run_sanity_check
+    val_loop.run()
+    │        └ <function _no_grad_context.<locals>._decorator at 0x7f44eb2a5c60>
+    └ <pytorch_lightning.loops.evaluation_loop._EvaluationLoop object at 0x7f44d8176810>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/utilities.py", line 179, in _decorator
+    return loop_run(self, *args, **kwargs)
+           │        │      │       └ {}
+           │        │      └ ()
+           │        └ <pytorch_lightning.loops.evaluation_loop._EvaluationLoop object at 0x7f44d8176810>
+           └ <function _EvaluationLoop.run at 0x7f44eb2a5bc0>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 153, in run
+    return self.on_run_end()
+           │    └ <function _EvaluationLoop.on_run_end at 0x7f44eb2a6160>
+           └ <pytorch_lightning.loops.evaluation_loop._EvaluationLoop object at 0x7f44d8176810>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 296, in on_run_end
+    self._on_evaluation_epoch_end()
+    │    └ <function _EvaluationLoop._on_evaluation_epoch_end at 0x7f44eb2a65c0>
+    └ <pytorch_lightning.loops.evaluation_loop._EvaluationLoop object at 0x7f44d8176810>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 379, in _on_evaluation_epoch_end
+    call._call_lightning_module_hook(trainer, hook_name)
+    │    │                           │        └ 'on_validation_epoch_end'
+    │    │                           └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7f44d91e0550>
+    │    └ <function _call_lightning_module_hook at 0x7f44eb408b80>
+    └ <module 'pytorch_lightning.trainer.call' from '/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lig...
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 177, in _call_lightning_module_hook
+    output = fn(*args, **kwargs)
+             │   │       └ {}
+             │   └ ()
+             └ <bound method ARModel.on_validation_epoch_end of GraphLAM(
+                 (grid_embedder): Sequential(
+                   (0): Linear(in_features=5, out_...
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/models/ar_model.py", line 471, in on_validation_epoch_end
+    figs = self._plot_prediction_snapshots(
+           │    └ <function ARModel._plot_prediction_snapshots at 0x7f44d8e63060>
+           └ GraphLAM(
+               (grid_embedder): Sequential(
+                 (0): Linear(in_features=5, out_features=64, bias=True)
+                 (1): SiLU()
+                 (2): ...
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/models/ar_model.py", line 1072, in _plot_prediction_snapshots
+
+AttributeError: 'NoneType' object has no attribute 'path'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 415, in <module>
+    main()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/loguru/_logger.py", line 1297, in catch_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 411, in main
+    trainer.fit(model=model, datamodule=data_module, ckpt_path=args.load)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 584, in fit
+    call._call_and_handle_interrupt(
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 49, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 630, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path, weights_only=weights_only)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1079, in _run
+    results = self._run_stage()
+              ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1121, in _run_stage
+    self._run_sanity_check()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1150, in _run_sanity_check
+    val_loop.run()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/utilities.py", line 179, in _decorator
+    return loop_run(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 153, in run
+    return self.on_run_end()
+           ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 296, in on_run_end
+    self._on_evaluation_epoch_end()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 379, in _on_evaluation_epoch_end
+    call._call_lightning_module_hook(trainer, hook_name)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 177, in _call_lightning_module_hook
+    output = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/models/ar_model.py", line 471, in on_validation_epoch_end
+    figs = self._plot_prediction_snapshots(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/models/ar_model.py", line 1072, in _plot_prediction_snapshots
+AttributeError: 'NoneType' object has no attribute 'path'

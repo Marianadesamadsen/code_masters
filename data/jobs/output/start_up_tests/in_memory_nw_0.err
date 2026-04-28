@@ -1,0 +1,112 @@
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Seed set to 42
+2026-04-22 08:58:06.705 | INFO     | neural_lam.utils:log_on_rank_zero:457 - The loaded datastore contains the following features:
+2026-04-22 08:58:06.705 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  state   : u
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:210: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+2026-04-22 08:58:06.706 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  static  : x_static y_static z_static
+2026-04-22 08:58:06.706 | INFO     | neural_lam.utils:log_on_rank_zero:457 - With the following splits (over time):
+2026-04-22 08:58:06.718 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  train   : 0 to 15
+2026-04-22 08:58:06.724 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  val     : 16 to 18
+2026-04-22 08:58:06.731 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  test    : 19 to 19
+2026-04-22 08:58:06.814 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Loaded graph with 5124 nodes (2562 grid, 2562 mesh)
+2026-04-22 08:58:06.818 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Edges in subgraphs: m2m=15360, g2m=2562, m2g=2562
+2026-04-22 08:58:06.825 | INFO     | neural_lam.utils:setup_training_logger:514 - Wandb resume mode: None (id: None)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+wandb: WARNING The anonymous setting has no effect and will be removed in a future version.
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /zhome/5e/a/152106/.netrc.
+wandb: Currently logged in as: s201205 (s201205-danmarks-tekniske-universitet-dtu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run api8nft1
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in wandb/run-20260422_085809-api8nft1
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run in_memory_nw_0
+wandb: ⭐️ View project at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/faster%20training%20tuning
+wandb: 🚀 View run at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/faster%20training%20tuning/runs/api8nft1
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:295: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+2026-04-22 08:58:12.198 | INFO     | neural_lam.weather_dataset:_precompute_samples:164 - Precomputing train samples in memory
+2026-04-22 09:26:15.909 | INFO     | neural_lam.weather_dataset:_precompute_samples:252 - Precomputed arrays: init=(7952, 2, 2562, 1), target=(7952, 1, 2562, 1), forcing=(7952, 1, 2562, 0), times=(7952, 1)
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:295: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+2026-04-22 09:26:15.984 | INFO     | neural_lam.weather_dataset:_precompute_samples:164 - Precomputing val samples in memory
+2026-04-22 09:27:29.869 | INFO     | neural_lam.weather_dataset:_precompute_samples:252 - Precomputed arrays: init=(1464, 2, 2562, 1), target=(1464, 10, 2562, 1), forcing=(1464, 10, 2562, 0), times=(1464, 10)
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:434: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=9` in the `DataLoader` to improve performance.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:434: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=9` in the `DataLoader` to improve performance.
+Metric val_mean_loss improved. New best score: 0.104
+Metric val_mean_loss improved by 0.069 >= min_delta = 0.0001. New best score: 0.035
+Metric val_mean_loss improved by 0.005 >= min_delta = 0.0001. New best score: 0.030
+Metric val_mean_loss improved by 0.001 >= min_delta = 0.0001. New best score: 0.029
+Metric val_mean_loss improved by 0.005 >= min_delta = 0.0001. New best score: 0.023
+Metric val_mean_loss improved by 0.003 >= min_delta = 0.0001. New best score: 0.020
+Metric val_mean_loss improved by 0.001 >= min_delta = 0.0001. New best score: 0.019
+Metric val_mean_loss improved by 0.007 >= min_delta = 0.0001. New best score: 0.012
+Metric val_mean_loss improved by 0.000 >= min_delta = 0.0001. New best score: 0.012
+Metric val_mean_loss improved by 0.001 >= min_delta = 0.0001. New best score: 0.010
+Metric val_mean_loss improved by 0.001 >= min_delta = 0.0001. New best score: 0.009
+Metric val_mean_loss improved by 0.001 >= min_delta = 0.0001. New best score: 0.008
+Metric val_mean_loss improved by 0.001 >= min_delta = 0.0001. New best score: 0.007
+Metric val_mean_loss improved by 0.001 >= min_delta = 0.0001. New best score: 0.007
+Metric val_mean_loss improved by 0.001 >= min_delta = 0.0001. New best score: 0.005
+Monitored metric val_mean_loss did not improve in the last 10 records. Best score: 0.005. Signaling Trainer to stop.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Seed set to 42
+2026-04-23 16:03:02.884 | INFO     | neural_lam.utils:log_on_rank_zero:457 - The loaded datastore contains the following features:
+2026-04-23 16:03:02.884 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  state   : u
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:210: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+2026-04-23 16:03:02.886 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  static  : x_static y_static z_static
+2026-04-23 16:03:02.886 | INFO     | neural_lam.utils:log_on_rank_zero:457 - With the following splits (over time):
+2026-04-23 16:03:02.956 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  train   : 0 to 19
+2026-04-23 16:03:02.963 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  val     : 20 to 23
+2026-04-23 16:03:02.969 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  test    : 24 to 27
+2026-04-23 16:03:03.439 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Loaded graph with 5124 nodes (2562 grid, 2562 mesh)
+2026-04-23 16:03:03.470 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Edges in subgraphs: m2m=15360, g2m=2562, m2g=2562
+2026-04-23 16:03:03.480 | INFO     | neural_lam.utils:setup_training_logger:514 - Wandb resume mode: None (id: None)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+wandb: WARNING The anonymous setting has no effect and will be removed in a future version.
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /zhome/5e/a/152106/.netrc.
+wandb: Currently logged in as: s201205 (s201205-danmarks-tekniske-universitet-dtu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in wandb/run-20260423_160307-cauf3z9s
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run in_memory_nw_0
+wandb: ⭐️ View project at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/faster%20training%20tuning
+wandb: 🚀 View run at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/faster%20training%20tuning/runs/cauf3z9s
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:295: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+2026-04-23 16:03:13.248 | INFO     | neural_lam.weather_dataset:_precompute_samples:164 - Precomputing train samples in memory
+2026-04-23 17:03:27.876 | INFO     | neural_lam.weather_dataset:_precompute_samples:252 - Precomputed arrays: init=(11940, 2, 2562, 1), target=(11940, 1, 2562, 1), forcing=(11940, 1, 2562, 0), times=(11940, 1)
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:295: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+2026-04-23 17:03:27.959 | INFO     | neural_lam.weather_dataset:_precompute_samples:164 - Precomputing val samples in memory
+2026-04-23 17:06:02.924 | INFO     | neural_lam.weather_dataset:_precompute_samples:252 - Precomputed arrays: init=(2352, 2, 2562, 1), target=(2352, 10, 2562, 1), forcing=(2352, 10, 2562, 0), times=(2352, 10)
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:881: Checkpoint directory /zhome/5e/a/152106/code_masters/saved_models/in_memory_nw_0 exists and is not empty.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:434: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=9` in the `DataLoader` to improve performance.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:434: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=9` in the `DataLoader` to improve performance.
+Metric val_mean_loss improved. New best score: 0.078
+Metric val_mean_loss improved by 0.043 >= min_delta = 0.0001. New best score: 0.035
+Metric val_mean_loss improved by 0.000 >= min_delta = 0.0001. New best score: 0.035
+Metric val_mean_loss improved by 0.004 >= min_delta = 0.0001. New best score: 0.030
+Metric val_mean_loss improved by 0.013 >= min_delta = 0.0001. New best score: 0.018
+Metric val_mean_loss improved by 0.004 >= min_delta = 0.0001. New best score: 0.013
+Metric val_mean_loss improved by 0.006 >= min_delta = 0.0001. New best score: 0.007
+Metric val_mean_loss improved by 0.001 >= min_delta = 0.0001. New best score: 0.006
+Metric val_mean_loss improved by 0.001 >= min_delta = 0.0001. New best score: 0.005
+Metric val_mean_loss improved by 0.001 >= min_delta = 0.0001. New best score: 0.004
+Metric val_mean_loss improved by 0.001 >= min_delta = 0.0001. New best score: 0.003
+Metric val_mean_loss improved by 0.001 >= min_delta = 0.0001. New best score: 0.002
+Metric val_mean_loss improved by 0.000 >= min_delta = 0.0001. New best score: 0.002
+Monitored metric val_mean_loss did not improve in the last 10 records. Best score: 0.002. Signaling Trainer to stop.
