@@ -10,11 +10,11 @@ args = [
 "--epochs" , "100",
 "--processor_layers", "1" ,
 "--logger_run_name", "test_startup_bs_32",
-"--load", "saved_models\startup_bs_32\min_val_loss.ckpt" ,
+"--load", "saved_models\startup_bs_32\min_val_loss-v1.ckpt" ,
 "--batch_size", "32" ,
 "--logger-project" ,"startup_waves" ,
 "--precompute_in_memory", "True",
-"--save_eval_to_zarr_path", "GNN_training/one_wave/startup_tests/results/results_ar50",
+"--save_eval_to_zarr_path", "GNN_training/one_wave/startup_tests/results_new_precompute",
 "--ar_steps_eval", "50" 
 ]
 

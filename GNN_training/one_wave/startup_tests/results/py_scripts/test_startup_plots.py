@@ -13,15 +13,16 @@ import matplotlib.pyplot as plt
 
 from data_generation_functions import DataPlotterAll
 from matplotlib import colors
+from matplotlib.colors import Normalize
 
 plot_animations_1step = False
 plot_animations_rollout = True
 
 # paths
 ds_geo = xr.open_dataset(r".\GNN_training\one_wave\nc_files\wave_28_ts_600_g4_sigmamin_15.nc")
-raw_dir = r"./GNN_training\one_wave\startup_tests\results_ar50\raw_preds"
-plot_dir = r"./GNN_training\one_wave\startup_tests\results_ar50\plots"
-anim_dir = r"./GNN_training\one_wave\startup_tests\results_ar50\animations"
+raw_dir = r"./GNN_training\one_wave\startup_tests\results_new_precompute\raw_preds"
+plot_dir = r"./GNN_training\one_wave\startup_tests\results_new_precompute\plots"
+anim_dir = r"./GNN_training\one_wave\startup_tests\results_new_precompute\animations"
 
 os.makedirs(plot_dir, exist_ok=True)
 os.makedirs(anim_dir, exist_ok=True)
@@ -118,10 +119,10 @@ for wave in range(num_waves):
         ds_err = helper.setup_simple_xarray(error_all_1feature[rolloutidx,wave], np.arange(num_roll_outs), P, tri, R=R)
 
         # Color scales
-        field_norm = helper.color_scales(pred_all_1feature[rolloutidx,wave], target_all_1feature[rolloutidx,wave])
-
-        err_abs = float(np.nanmax(np.abs(error_all_1feature[rolloutidx,wave])))
-        err_norm = colors.Normalize(vmin=-err_abs, vmax=err_abs)
+        params = np.load(r"GNN_training\one_wave\norm_parameter\norm.npy", allow_pickle=True).item()
+        field_norm = Normalize(**params)
+        params_error = np.load(r"GNN_training\one_wave\norm_parameter\norm_error.npy", allow_pickle=True).item()
+        err_norm = Normalize(**params)
 
         # Sphere animations
         plotter = DataPlotterAll.DataPlotter(ds=ds_true)
