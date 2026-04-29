@@ -384,16 +384,53 @@ def compute_wave_energy(u, ut, out, c=1.0):
 
     return energy
 
+def gnn_nodes_to_fem(u_node, out):
+    """
+    Convert GNN nodal values on out["P"].T to FEM element values.
+
+    u_node: shape (N_nodes,)
+    returns: shape (Np, K)
+    """
+    tri = out["tri"]
+    r = out["r"]
+    s = out["s"]
+
+    # These are the interpolation weights from the triangle vertices
+    lam1 = -(r + s) / 2.0
+    lam2 = (1.0 + r) / 2.0
+    lam3 = (1.0 + s) / 2.0
+
+    u1 = u_node[tri[:, 0]]  # values at vertex 1 of each triangle, shape (K,)
+    u2 = u_node[tri[:, 1]]
+    u3 = u_node[tri[:, 2]]
+
+    u_fem = (
+        lam1[:, None] * u1[None, :]
+        + lam2[:, None] * u2[None, :]
+        + lam3[:, None] * u3[None, :]
+    )
+
+    return u_fem
+
+def gnn_series_to_fem(u_array_node, out):
+    """
+    u_array_node: shape (time, N_nodes)
+    returns: shape (time, Np, K)
+    """
+    return np.stack([gnn_nodes_to_fem(u_t, out) for u_t in u_array_node], axis=0)
+
 def compute_energy_over_time(u_array,generation,R=1,c=1,N=6,dt=1):
 
-    ut_array = (u_array[2:] - u_array[:-2]) / (2 * dt)
     out = surface_mass_integration(N=N, generation=generation, R=R)
+    u_fem = gnn_series_to_fem(u_array, out)
+    ut_array = (u_fem[2:] - u_fem[:-2]) / (2 * dt)
+
     E = []
     for idx in range(len(ut_array)):
-        Et = compute_wave_energy(u_array[idx+1], ut_array[idx],out,c)
+        Et = compute_wave_energy(u_fem[idx+1], ut_array[idx],out,c)
         E.append(Et)
     
-    return E
+    return np.array(E)
 
 if __name__ == "__main__":
 
