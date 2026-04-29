@@ -8,12 +8,12 @@ args = [
 "--num_workers" ,"0",
 "--epochs" , "100",
 "--processor_layers", "1" ,
-"--logger_run_name", "startup_testotherprecompute_original",
+"--logger_run_name", "train_with_energy_tracking",
 "--batch_size", "32" ,
 "--logger-project" ,"startup_waves" ,
 "--precompute_in_memory", "True"
 ]
-
+            
 main(args)
 
 

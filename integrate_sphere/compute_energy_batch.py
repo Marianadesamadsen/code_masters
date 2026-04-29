@@ -321,27 +321,16 @@ def surface_mass_integration(N=6, generation=3, R=1.0):
         "total_area": total_area,
     }
 
-def compute_wave_energy(u, ut, out, c=1.0):
+def compute_wave_energy_batch(u, ut, out, c=1.0):
     """
-    Compute discrete wave energy on the sphere.
+    Compute discrete wave energy for a batch.
 
-    Parameters
-    ----------
-    u : ndarray
-        Displacement values, shape (Np, K).
-    ut : ndarray
-        Time derivative values, shape (Np, K).
-    out : dict
-        Output from surface_mass_integration.
-    c : float
-        Wave speed.
+    u  shape: (B, Np, K)
+    ut shape: (B, Np, K)
 
-    Returns
-    -------
-    energy : float
-        Discrete wave energy.
+    returns shape: (B,)
     """
-    
+
     Dr = out["Dr"]
     Ds = out["Ds"]
     MassMatrix = out["MassMatrix"]
@@ -355,168 +344,131 @@ def compute_wave_energy(u, ut, out, c=1.0):
     sy2D = out["sy2D"]
     sz2D = out["sz2D"]
 
-    K = u.shape[1]
-
-    energy = 0.0
+    B, Np, K = u.shape
+    energy = np.zeros(B, dtype=np.float64)
 
     for k in range(K):
-        uk = u[:, k]
-        utk = ut[:, k]
+        uk = u[:, :, k]      # (B, Np)
+        utk = ut[:, :, k]    # (B, Np)
 
         # Reference derivatives
-        ur = Dr @ uk
-        us = Ds @ uk
+        ur = uk @ Dr.T       # (B, Np)
+        us = uk @ Ds.T       # (B, Np)
 
-        # Surface gradient in Cartesian coordinates
-        ux = rx2D[:, k] * ur + sx2D[:, k] * us
-        uy = ry2D[:, k] * ur + sy2D[:, k] * us
-        uz = rz2D[:, k] * ur + sz2D[:, k] * us
+        # Surface gradient
+        ux = rx2D[:, k][None, :] * ur + sx2D[:, k][None, :] * us
+        uy = ry2D[:, k][None, :] * ur + sy2D[:, k][None, :] * us
+        uz = rz2D[:, k][None, :] * ur + sz2D[:, k][None, :] * us
 
         grad_u_sq = ux**2 + uy**2 + uz**2
 
-        # Curved-element mass matrix
         Mk = np.diag(J2D[:, k]) @ MassMatrix
 
-        kinetic = utk.T @ Mk @ utk
-        potential = grad_u_sq.T @ Mk @ np.ones_like(grad_u_sq)
+        kinetic = np.einsum("bi,ij,bj->b", utk, Mk, utk)
+        potential = np.einsum("bi,ij,j->b", grad_u_sq, Mk, np.ones(Np))
 
         energy += 0.5 * (kinetic + c**2 * potential)
 
     return energy
 
-def gnn_nodes_to_fem(u_node, out):
-    """
-    Convert GNN nodal values on out["P"].T to FEM element values.
 
-    u_node: shape (N_nodes,)
-    returns: shape (Np, K)
+def gnn_nodes_to_fem_batch(u_node, out):
     """
+    Convert GNN nodal values to FEM element values.
+
+    u_node shape:
+        (T, N_nodes) or (B, T, N_nodes)
+
+    returns:
+        (T, Np, K) or (B, T, Np, K)
+    """
+
     tri = out["tri"]
     r = out["r"]
     s = out["s"]
 
-    # These are the interpolation weights from the triangle vertices
     lam1 = -(r + s) / 2.0
     lam2 = (1.0 + r) / 2.0
     lam3 = (1.0 + s) / 2.0
 
-    u1 = u_node[tri[:, 0]]  # values at vertex 1 of each triangle, shape (K,)
-    u2 = u_node[tri[:, 1]]
-    u3 = u_node[tri[:, 2]]
+    u_node = np.asarray(u_node)
 
-    u_fem = (
-        lam1[:, None] * u1[None, :]
-        + lam2[:, None] * u2[None, :]
-        + lam3[:, None] * u3[None, :]
-    )
+    if u_node.ndim == 2:
+        u1 = u_node[:, tri[:, 0]]  # (T, K)
+        u2 = u_node[:, tri[:, 1]]
+        u3 = u_node[:, tri[:, 2]]
 
-    return u_fem
+        return (
+            lam1[None, :, None] * u1[:, None, :]
+            + lam2[None, :, None] * u2[:, None, :]
+            + lam3[None, :, None] * u3[:, None, :]
+        )
 
-def gnn_series_to_fem(u_array_node, out):
+    if u_node.ndim == 3:
+        u1 = u_node[:, :, tri[:, 0]]  # (B, T, K)
+        u2 = u_node[:, :, tri[:, 1]]
+        u3 = u_node[:, :, tri[:, 2]]
+
+        return (
+            lam1[None, None, :, None] * u1[:, :, None, :]
+            + lam2[None, None, :, None] * u2[:, :, None, :]
+            + lam3[None, None, :, None] * u3[:, :, None, :]
+        )
+
+    raise ValueError(f"Expected shape (T, N_nodes) or (B, T, N_nodes), got {u_node.shape}")
+
+
+def compute_energy_over_time(u_array, generation=4, R=1, c=1, N=6, dt=1, out=None):
     """
-    u_array_node: shape (time, N_nodes)
-    returns: shape (time, Np, K)
+    Compute wave energy over time.
+
+    Accepts:
+        u_array shape (T, N_nodes)
+        or
+        u_array shape (B, T, N_nodes)
+
+    Returns:
+        shape (T-2,) for single trajectory
+        shape (B, T-2) for batch
     """
-    return np.stack([gnn_nodes_to_fem(u_t, out) for u_t in u_array_node], axis=0)
 
-def compute_energy_over_time(u_array,generation,R=1,c=1,N=6,dt=1):
+    if out is None:
+        out = surface_mass_integration(N=N, generation=generation, R=R)
 
-    out = surface_mass_integration(N=N, generation=generation, R=R)
-    u_fem = gnn_series_to_fem(u_array, out)
-    ut_array = (u_fem[2:] - u_fem[:-2]) / (2 * dt)
+    u_array = np.asarray(u_array)
+    u_fem = gnn_nodes_to_fem_batch(u_array, out)
 
-    E = []
-    for idx in range(len(ut_array)):
-        Et = compute_wave_energy(u_fem[idx+1], ut_array[idx],out,c)
-        E.append(Et)
-    
-    return np.array(E)
+    if u_array.ndim == 2:
+        # u_fem shape: (T, Np, K)
+        ut_array = (u_fem[2:] - u_fem[:-2]) / (2 * dt)
 
-if __name__ == "__main__":
+        E = []
+        for t in range(ut_array.shape[0]):
+            Et = compute_wave_energy_batch(
+                u_fem[t + 1][None, :, :],
+                ut_array[t][None, :, :],
+                out,
+                c,
+            )[0]
+            E.append(Et)
 
-    # Parameters
-    N = 6
-    generation = 3
-    R = 1.0
-    c = 1.0
+        return np.asarray(E)
 
-    dt = 0.01
-    num_times = 200
+    if u_array.ndim == 3:
+        # u_fem shape: (B, T, Np, K)
+        ut_array = (u_fem[:, 2:] - u_fem[:, :-2]) / (2 * dt)
 
-    # Build geometry once so we can generate test data
-    out = surface_mass_integration(N=N, generation=generation, R=R)
+        B, Tm2, Np, K = ut_array.shape
+        E = np.zeros((B, Tm2), dtype=np.float64)
 
-    x = out["x3D"]
+        for t in range(Tm2):
+            E[:, t] = compute_wave_energy_batch(
+                u_fem[:, t + 1],
+                ut_array[:, t],
+                out,
+                c,
+            )
 
-    omega = c * np.sqrt(2.0) / R
+        return E
 
-    times = np.arange(num_times) * dt
-
-    u_true_list = []
-    u_pred_list = []
-
-    for t in times:
-        # Exact l=1 wave: u = x cos(omega t)
-        u_true_t = x * np.cos(omega * t)
-
-        # Fake prediction: slightly damped and slightly noisy
-        damping = 1.0 - 0.0005 * t
-        noise = 0.001 * np.random.randn(*u_true_t.shape)
-
-        u_pred_t = damping * u_true_t + noise
-
-        u_true_list.append(u_true_t)
-        u_pred_list.append(u_pred_t)
-
-    u_true = np.array(u_true_list)  # shape (time, Np, K)
-    u_pred = np.array(u_pred_list)  # shape (time, Np, K)
-
-    # print("u_true shape:", u_true.shape)
-    # print("u_pred shape:", u_pred.shape)
-
-    # Compute energies
-    E_true = compute_energy_over_time(
-        u_true,
-        generation=generation,
-        R=R,
-        c=c,
-        N=N,
-        dt=dt,
-    )
-
-    E_pred = compute_energy_over_time(
-        u_pred,
-        generation=generation,
-        R=R,
-        c=c,
-        N=N,
-        dt=dt,
-    )
-
-    # Exact continuous energy for l=1 wave
-    E_exact = 4.0 * np.pi * c**2 * R**2 / 3.0
-
-    print()
-    print("Exact continuous energy:", E_exact)
-
-    print()
-    print("True energy:")
-    print("min:", E_true.min())
-    print("max:", E_true.max())
-    print("mean:", E_true.mean())
-    print("relative variation:", (E_true.max() - E_true.min()) / E_true.mean())
-    print("relative mean error:", abs(E_true.mean() - E_exact) / E_exact)
-
-    print()
-    print("Pred energy:")
-    print("min:", E_pred.min())
-    print("max:", E_pred.max())
-    print("mean:", E_pred.mean())
-    print("relative variation:", (E_pred.max() - E_pred.min()) / E_pred.mean())
-    print("relative mean error:", abs(E_pred.mean() - E_exact) / E_exact)
-
-    print()
-    print("Energy error pred - true:")
-    energy_error = E_pred - E_true
-    print("mean error:", energy_error.mean())
-    print("max abs error:", np.max(np.abs(energy_error)))
+    raise ValueError(f"Expected shape (T, N_nodes) or (B, T, N_nodes), got {u_array.shape}")
