@@ -9,13 +9,13 @@ args = [
 "--num_workers" ,"0",
 "--epochs" , "100",
 "--processor_layers", "1" ,
-"--logger_run_name", "test_startup_finaltest",
-"--load", "saved_models\startup_final\min_val_loss.ckpt" ,
+"--logger_run_name", "test_train_with_energy_tracking",
+"--load", "saved_models/train_with_energy_tracking/min_val_loss.ckpt" ,
 "--batch_size", "32" ,
 "--logger-project" ,"startup_waves" ,
 "--precompute_in_memory", "True",
-"--save_eval_to_zarr_path", "GNN_training/one_wave/startup_tests/results_ar10_new",
-"--ar_steps_eval", "10" 
+"--save_eval_to_zarr_path", "GNN_training/one_wave/startup_tests/results_withenergy",
+"--ar_steps_eval", "50" 
 ]
 
 main(args)

@@ -10,7 +10,7 @@ sys.path.insert(0, "./")
 import scripts.PY_files.eval_models_scripts.helper_functions_ensemble as helper
 import scripts.PY_files.eval_models_scripts.plot_functions as plot_funcs
 import matplotlib.pyplot as plt
-
+from integrate_sphere.compute_energy import compute_energy_over_time
 from data_generation_functions import DataPlotterAll
 from matplotlib import colors
 
@@ -51,7 +51,7 @@ def plot_results(ds_geo_dir,raw_dir,plot_dir,anim_dir, generations, plot_animati
 
     # Full rollout metrics
     # Average over nodes and features, keep rollout and time
-    errors_dict = helper.compute_errors(pred_all, target_all,generations, axis=(3, 4))
+    errors_dict = helper.compute_errors(pred_all, target_all, generations, axis=(3, 4))
 
     for wave in range(num_waves):
 
@@ -81,9 +81,38 @@ def plot_results(ds_geo_dir,raw_dir,plot_dir,anim_dir, generations, plot_animati
         fig_max_error = plot_funcs.plot_max_over_time(errors_dict["max_pred"][:, wave, :].mean(axis=0), errors_dict["max_true"][:, wave, :].mean(axis=0))
         fig_max_error.savefig(os.path.join(plot_dir, f"plot_max_over_time_overall_wave{wave}.png"), dpi=200, bbox_inches="tight")
 
-        fig_energy = plot_funcs.plot_energy_over_time(errors_dict["max_pred"][:, wave, :],errors_dict["max_true"][:, wave, :])
+        # Computing energy
+        pred_energy_input = pred_1wave[:, :, :, 0].mean(axis=0)
+        target_energy_input = target_1wave[:, :, :, 0].mean(axis=0)
+
+        if isinstance(pred_energy_input, torch.Tensor):
+            pred_energy_input = pred_energy_input.detach().cpu().numpy()
+
+        if isinstance(target_energy_input, torch.Tensor):
+            target_energy_input = target_energy_input.detach().cpu().numpy()
+
+        dt = float(ds_geo.attrs["dt"])
+        E_pred = compute_energy_over_time(
+            pred_energy_input,
+            generation=generations,
+            R=1,
+            c=1,
+            N=6,
+            dt=dt,
+        )
+        E_target = compute_energy_over_time(
+            target_energy_input,
+            generation=generations,
+            R=1,
+            c=1,
+            N=6,
+            dt=dt,
+        )
+
+        fig_energy = plot_funcs.plot_energy_over_time(E_pred, E_target)
         fig_energy.savefig(os.path.join(plot_dir, f"energy_over_time_wave{wave}.png"))
 
+        plt.close("all")
 
         if plot_animations_1step:
 

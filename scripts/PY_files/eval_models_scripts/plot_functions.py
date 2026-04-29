@@ -8,7 +8,7 @@ def plot_error_metrics(rmse, mae, max_err, time):
     ax.plot(time, rmse, label="RMSE")
     ax.plot(time, mae, label="MAE")
     ax.plot(time, max_err, label="Max error")
-    ax.set_xlabel("Time (s)")
+    ax.set_xlabel("Start time (initial condition)")
     ax.set_ylabel("Error")
     ax.set_title("Error metrics over time")
     ax.legend()
@@ -60,13 +60,29 @@ def plot_max_over_time(a_pred, a_true):
     return fig
 
 def plot_energy_over_time(E_pred, E_true):
-    
-    fig, ax = plt.subplots(figsize=(8, 4))
-    ax.plot(E_pred, label="Predicted")
-    ax.plot(E_true, label="True")
-    ax.set_xlabel("AR rollout")
-    ax.set_ylabel("Energy")
-    ax.set_title("Energy over time")
-    ax.legend()
+    E_pred = np.asarray(E_pred)
+    E_true = np.asarray(E_true)
+    E_err = E_pred - E_true
+
+    rollout = np.arange(len(E_pred))
+
+    fig, axes = plt.subplots(3, 1, figsize=(8, 6), sharex=True)
+
+    # True energy
+    axes[0].plot(rollout, E_true)
+    axes[0].set_ylabel("Energy")
+    axes[0].set_title("True energy")
+
+    # Predicted energy
+    axes[1].plot(rollout, E_pred)
+    axes[1].semilogy("Energy")
+    axes[1].set_title("Predicted energy")
+
+    # Error
+    axes[2].plor(rollout, E_err)
+    axes[2].set_ylabel("Error")
+    axes[2].set_xlabel("AR rollout")
+    axes[2].set_title("Energy error (pred - true)")
+
     fig.tight_layout()
     return fig
