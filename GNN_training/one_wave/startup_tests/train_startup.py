@@ -8,7 +8,7 @@ args = [
 "--num_workers" ,"0",
 "--epochs" , "100",
 "--processor_layers", "1" ,
-"--logger_run_name", "startup_new_test",
+"--logger_run_name", "startup_testotherprecompute_original",
 "--batch_size", "32" ,
 "--logger-project" ,"startup_waves" ,
 "--precompute_in_memory", "True"

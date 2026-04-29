@@ -341,7 +341,7 @@ def compute_wave_energy(u, ut, out, c=1.0):
     energy : float
         Discrete wave energy.
     """
-
+    
     Dr = out["Dr"]
     Ds = out["Ds"]
     MassMatrix = out["MassMatrix"]
@@ -384,78 +384,102 @@ def compute_wave_energy(u, ut, out, c=1.0):
 
     return energy
 
+def compute_energy_over_time(u_array,generation,R=1,c=1,N=6,dt=1):
 
-def test_field(out, t=0.0, omega=1.0):
-    x = out["x3D"]
-    y = out["y3D"]
+    ut_array = (u_array[2:] - u_array[:-2]) / (2 * dt)
+    out = surface_mass_integration(N=N, generation=generation, R=R)
+    E = []
+    for idx in range(len(ut_array)):
+        Et = compute_wave_energy(u_array[idx+1], ut_array[idx],out,c)
+        E.append(Et)
+    
+    return E
 
-    u = x * np.cos(omega * t) + y * np.sin(omega * t)
-    ut = -omega * x * np.sin(omega * t) + omega * y * np.cos(omega * t)
+if __name__ == "__main__":
 
-    return u, ut
+    # Parameters
+    N = 6
+    generation = 3
+    R = 1.0
+    c = 1.0
 
-def exact_l1_wave(out, t, c=1.0, R=1.0):
+    dt = 0.01
+    num_times = 200
+
+    # Build geometry once so we can generate test data
+    out = surface_mass_integration(N=N, generation=generation, R=R)
+
     x = out["x3D"]
 
     omega = c * np.sqrt(2.0) / R
 
-    u = x * np.cos(omega * t)
-    ut = -omega * x * np.sin(omega * t)
+    times = np.arange(num_times) * dt
 
-    return u, ut
-
-
-def exact_l1_energy(c=1.0, R=1.0):
-    return 4.0 * np.pi * c**2 * R**2 / 3.0
-
-if __name__ == "__main__":
-    out = surface_mass_integration(N=6, generation=3, R=1.0)
-
-    u = out["x3D"] * 0.0
-    ut = out["x3D"] * 0.0
-
-    # Example field
-    u = out["x3D"]   # just a test function
-    ut = 0.0 * u
-
-    E = compute_wave_energy(u, ut, out, c=1.0)
-
-    print(E)
-    out = surface_mass_integration(N=6, generation=3, R=1.0)
-
-    times = np.linspace(0, 2*np.pi, 20)
-    energies = []
+    u_true_list = []
+    u_pred_list = []
 
     for t in times:
-        u, ut = test_field(out, t)
-        E = compute_wave_energy(u, ut, out, c=1.0)
-        energies.append(E)
+        # Exact l=1 wave: u = x cos(omega t)
+        u_true_t = x * np.cos(omega * t)
 
-    energies = np.array(energies)
+        # Fake prediction: slightly damped and slightly noisy
+        damping = 1.0 - 0.0005 * t
+        noise = 0.001 * np.random.randn(*u_true_t.shape)
 
-    print("Energy min:", energies.min())
-    print("Energy max:", energies.max())
-    print("Relative variation:", (energies.max() - energies.min()) / energies.mean())
+        u_pred_t = damping * u_true_t + noise
 
-    out = surface_mass_integration(N=6, generation=3, R=1.0)
+        u_true_list.append(u_true_t)
+        u_pred_list.append(u_pred_t)
 
-    c = 1.0
-    R = 1.0
+    u_true = np.array(u_true_list)  # shape (time, Np, K)
+    u_pred = np.array(u_pred_list)  # shape (time, Np, K)
 
-    E_exact = exact_l1_energy(c=c, R=R)
+    print("u_true shape:", u_true.shape)
+    print("u_pred shape:", u_pred.shape)
 
-    times = np.linspace(0, 2*np.pi, 20)
-    E_num = []
+    # Compute energies
+    E_true = compute_energy_over_time(
+        u_true,
+        generation=generation,
+        R=R,
+        c=c,
+        N=N,
+        dt=dt,
+    )
 
-    for t in times:
-        u, ut = exact_l1_wave(out, t, c=c, R=R)
-        E_num.append(compute_wave_energy(u, ut, out, c=c))
+    E_pred = compute_energy_over_time(
+        u_pred,
+        generation=generation,
+        R=R,
+        c=c,
+        N=N,
+        dt=dt,
+    )
 
-    E_num = np.array(E_num)
+    # Exact continuous energy for l=1 wave
+    E_exact = 4.0 * np.pi * c**2 * R**2 / 3.0
 
-    print("Exact energy:", E_exact)
-    print("Numerical min:", E_num.min())
-    print("Numerical max:", E_num.max())
-    print("Mean numerical:", E_num.mean())
-    print("Relative error:", abs(E_num.mean() - E_exact) / E_exact)
-    print("Relative variation:", (E_num.max() - E_num.min()) / E_num.mean())
+    print()
+    print("Exact continuous energy:", E_exact)
+
+    print()
+    print("True energy:")
+    print("min:", E_true.min())
+    print("max:", E_true.max())
+    print("mean:", E_true.mean())
+    print("relative variation:", (E_true.max() - E_true.min()) / E_true.mean())
+    print("relative mean error:", abs(E_true.mean() - E_exact) / E_exact)
+
+    print()
+    print("Pred energy:")
+    print("min:", E_pred.min())
+    print("max:", E_pred.max())
+    print("mean:", E_pred.mean())
+    print("relative variation:", (E_pred.max() - E_pred.min()) / E_pred.mean())
+    print("relative mean error:", abs(E_pred.mean() - E_exact) / E_exact)
+
+    print()
+    print("Energy error pred - true:")
+    energy_error = E_pred - E_true
+    print("mean error:", energy_error.mean())
+    print("max abs error:", np.max(np.abs(energy_error)))

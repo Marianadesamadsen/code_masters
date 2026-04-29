@@ -4,6 +4,7 @@ from matplotlib import colors
 import torch
 import numpy as np
 import xarray as xr
+from integrate_sphere.compute_energy import compute_energy_over_time
 
 
 def all_raw_files(raw_dir):
@@ -59,7 +60,7 @@ def setup_simple_xarray(u, time, P, tri, R=1):
 
     return ds    
 
-def compute_errors(u_pred, u_true, axis=2):
+def compute_errors(u_pred, u_true, generation, axis=2):
     if torch.is_tensor(u_pred):
         u_pred = u_pred.detach().cpu().numpy()
     if torch.is_tensor(u_true):
@@ -69,8 +70,8 @@ def compute_errors(u_pred, u_true, axis=2):
     rmse = np.sqrt(np.mean(err**2, axis=axis))
     mse = np.mean(err**2, axis=axis)
     mae = np.mean(np.abs(err), axis=axis)
-    E_pred = np.mean(u_pred**2, axis=axis)
-    E_true = np.mean(u_true**2, axis=axis)
+    E_pred = 0#compute_energy_over_time(u_pred,generation,R=1,c=1,N=6,dt=1)
+    E_true = 0#compute_energy_over_time(u_true,generation,R=1,c=1,N=6,dt=1)
     E_error = np.abs(E_pred - E_true)
     err_max = np.max(np.abs(err), axis=axis)
     err_abs = float(np.nanmax(np.abs(err)))

@@ -43,7 +43,7 @@ export PYTHONPATH=/zhome/5e/a/152106/code_masters/neural-lam:$PYTHONPATH
 
 which python
 python --version
-nvidia-smi
+nvidia-smi 
 python -m neural_lam.train_model \
     --config_path "GNN_training\one_wave\yaml_files\config_wave_28_ts_600_g4_sigmamin_15.yaml" \
     --graph "GNN_training\graphs\gsub4_msub4_nn1" \
@@ -59,4 +59,3 @@ python -m neural_lam.train_model \
     --precompute_in_memory True \
 
 
- 
