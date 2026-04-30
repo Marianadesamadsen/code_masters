@@ -5,7 +5,7 @@
 #BSUB -q gpuv100
 
 ### -- set the job Name --
-#BSUB -J ar10_in_training
+#BSUB -J ar10_in_training_mp3
 
 ### -- ask for number of cores (default: 1) --
 #BSUB -n 10
@@ -31,8 +31,8 @@
 ### -- Specify the output and error file. %J is the job-id --
 ### -- -o and -e mean append, -oo and -eo mean overwrite --
 
-#BSUB -oo GNN_training/one_wave/different_AR/outputs/ar10_in_training.out
-#BSUB -ee GNN_training/one_wave/different_AR/outputs/ar10_in_training.err
+#BSUB -oo GNN_training/one_wave/different_AR/outputs/ar10_in_training_mp3.out
+#BSUB -ee GNN_training/one_wave/different_AR/outputs/ar10_in_training_mp3.err
 
 # -- end of LSF options --
 
@@ -51,8 +51,8 @@ python -m neural_lam.train_model \
     --seed 42 \
     --num_workers 0 \
     --epochs 100 \
-    --processor_layers 1 \
-    --logger_run_name "ar10_in_training" \
+    --processor_layers 3 \
+    --logger_run_name "ar10_in_training_mp3" \
     --batch_size 32 \
     --logger-project "ar_in_training" \
     --ar_steps_train 10 \

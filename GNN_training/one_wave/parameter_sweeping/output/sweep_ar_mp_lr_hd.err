@@ -1,0 +1,200 @@
+wandb: Starting wandb agent 🕵️
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /zhome/5e/a/152106/.netrc.
+2026-04-30 01:19:43,248 - wandb.wandb_agent - INFO - Running runs: []
+2026-04-30 01:19:44,072 - wandb.wandb_agent - INFO - Agent received command: run
+2026-04-30 01:19:44,072 - wandb.wandb_agent - INFO - Agent starting run with config:
+	ar_steps_train: 1
+	batch_size: 32
+	hidden_dim: 64
+	lr: 0.001
+2026-04-30 01:19:44,080 - wandb.wandb_agent - INFO - About to run command: /usr/bin/env python GNN_training/one_wave/parameter_sweeping/py_PS/sweep_ar_mp_lr_hd.py
+2026-04-30 01:19:49,088 - wandb.wandb_agent - INFO - Running runs: ['pkbrr0bw']
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /zhome/5e/a/152106/.netrc.
+wandb: Currently logged in as: s201205 (s201205-danmarks-tekniske-universitet-dtu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run pkbrr0bw
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /zhome/5e/a/152106/code_masters/wandb/run-20260430_012239-pkbrr0bw
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run curious-sweep-1
+wandb: ⭐️ View project at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/sweep_ar_mp_lr_hd
+wandb: 🧹 View sweep at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/sweep_ar_mp_lr_hd/sweeps/8ce75bzu
+wandb: 🚀 View run at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/sweep_ar_mp_lr_hd/runs/pkbrr0bw
+Traceback (most recent call last):
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/wandb_config.py", line 166, in __getattr__
+    return self.__getitem__(key)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/wandb_config.py", line 131, in __getitem__
+    return self._items[key]
+           ~~~~~~~~~~~^^^^^
+KeyError: 'ar'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/zhome/5e/a/152106/code_masters/GNN_training/one_wave/parameter_sweeping/py_PS/sweep_ar_mp_lr_hd.py", line 14, in <module>
+    "--processor_layers", str(cfg.ar) ,
+                              ^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/wandb_config.py", line 168, in __getattr__
+    raise AttributeError(
+AttributeError: <class 'wandb.sdk.wandb_config.Config'> object has no attribute 'ar'
+2026-04-30 01:24:04,829 - wandb.wandb_agent - INFO - Cleaning up finished run: pkbrr0bw
+2026-04-30 01:24:05,606 - wandb.wandb_agent - INFO - Agent received command: run
+2026-04-30 01:24:05,606 - wandb.wandb_agent - INFO - Agent starting run with config:
+	ar_steps_train: 1
+	batch_size: 32
+	hidden_dim: 64
+	lr: 0.005
+2026-04-30 01:24:05,613 - wandb.wandb_agent - INFO - About to run command: /usr/bin/env python GNN_training/one_wave/parameter_sweeping/py_PS/sweep_ar_mp_lr_hd.py
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+2026-04-30 01:24:10,621 - wandb.wandb_agent - INFO - Running runs: ['ph66kg4a']
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /zhome/5e/a/152106/.netrc.
+wandb: Currently logged in as: s201205 (s201205-danmarks-tekniske-universitet-dtu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run ph66kg4a
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /zhome/5e/a/152106/code_masters/wandb/run-20260430_012439-ph66kg4a
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run deep-sweep-2
+wandb: ⭐️ View project at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/sweep_ar_mp_lr_hd
+wandb: 🧹 View sweep at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/sweep_ar_mp_lr_hd/sweeps/8ce75bzu
+wandb: 🚀 View run at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/sweep_ar_mp_lr_hd/runs/ph66kg4a
+Traceback (most recent call last):
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/wandb_config.py", line 166, in __getattr__
+    return self.__getitem__(key)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/wandb_config.py", line 131, in __getitem__
+    return self._items[key]
+           ~~~~~~~~~~~^^^^^
+KeyError: 'ar'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/zhome/5e/a/152106/code_masters/GNN_training/one_wave/parameter_sweeping/py_PS/sweep_ar_mp_lr_hd.py", line 14, in <module>
+    "--processor_layers", str(cfg.ar) ,
+                              ^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/wandb_config.py", line 168, in __getattr__
+    raise AttributeError(
+AttributeError: <class 'wandb.sdk.wandb_config.Config'> object has no attribute 'ar'
+2026-04-30 01:24:47,098 - wandb.wandb_agent - INFO - Cleaning up finished run: ph66kg4a
+2026-04-30 01:24:47,902 - wandb.wandb_agent - INFO - Agent received command: run
+2026-04-30 01:24:47,902 - wandb.wandb_agent - INFO - Agent starting run with config:
+	ar_steps_train: 1
+	batch_size: 32
+	hidden_dim: 64
+	lr: 0.01
+2026-04-30 01:24:47,908 - wandb.wandb_agent - INFO - About to run command: /usr/bin/env python GNN_training/one_wave/parameter_sweeping/py_PS/sweep_ar_mp_lr_hd.py
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+2026-04-30 01:24:52,916 - wandb.wandb_agent - INFO - Running runs: ['lpd7xjgm']
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /zhome/5e/a/152106/.netrc.
+wandb: Currently logged in as: s201205 (s201205-danmarks-tekniske-universitet-dtu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run lpd7xjgm
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /zhome/5e/a/152106/code_masters/wandb/run-20260430_012520-lpd7xjgm
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run expert-sweep-3
+wandb: ⭐️ View project at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/sweep_ar_mp_lr_hd
+wandb: 🧹 View sweep at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/sweep_ar_mp_lr_hd/sweeps/8ce75bzu
+wandb: 🚀 View run at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/sweep_ar_mp_lr_hd/runs/lpd7xjgm
+Traceback (most recent call last):
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/wandb_config.py", line 166, in __getattr__
+    return self.__getitem__(key)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/wandb_config.py", line 131, in __getitem__
+    return self._items[key]
+           ~~~~~~~~~~~^^^^^
+KeyError: 'ar'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/zhome/5e/a/152106/code_masters/GNN_training/one_wave/parameter_sweeping/py_PS/sweep_ar_mp_lr_hd.py", line 14, in <module>
+    "--processor_layers", str(cfg.ar) ,
+                              ^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/wandb_config.py", line 168, in __getattr__
+    raise AttributeError(
+AttributeError: <class 'wandb.sdk.wandb_config.Config'> object has no attribute 'ar'
+2026-04-30 01:25:29,367 - wandb.wandb_agent - INFO - Cleaning up finished run: lpd7xjgm
+2026-04-30 01:25:30,070 - wandb.wandb_agent - INFO - Agent received command: run
+2026-04-30 01:25:30,070 - wandb.wandb_agent - INFO - Agent starting run with config:
+	ar_steps_train: 1
+	batch_size: 32
+	hidden_dim: 128
+	lr: 0.001
+2026-04-30 01:25:30,076 - wandb.wandb_agent - INFO - About to run command: /usr/bin/env python GNN_training/one_wave/parameter_sweeping/py_PS/sweep_ar_mp_lr_hd.py
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+2026-04-30 01:25:35,084 - wandb.wandb_agent - INFO - Running runs: ['6grzth7z']
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /zhome/5e/a/152106/.netrc.
+wandb: Currently logged in as: s201205 (s201205-danmarks-tekniske-universitet-dtu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run 6grzth7z
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /zhome/5e/a/152106/code_masters/wandb/run-20260430_012600-6grzth7z
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run tough-sweep-4
+wandb: ⭐️ View project at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/sweep_ar_mp_lr_hd
+wandb: 🧹 View sweep at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/sweep_ar_mp_lr_hd/sweeps/8ce75bzu
+wandb: 🚀 View run at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/sweep_ar_mp_lr_hd/runs/6grzth7z
+Traceback (most recent call last):
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/wandb_config.py", line 166, in __getattr__
+    return self.__getitem__(key)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/wandb_config.py", line 131, in __getitem__
+    return self._items[key]
+           ~~~~~~~~~~~^^^^^
+KeyError: 'ar'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/zhome/5e/a/152106/code_masters/GNN_training/one_wave/parameter_sweeping/py_PS/sweep_ar_mp_lr_hd.py", line 14, in <module>
+    "--processor_layers", str(cfg.ar) ,
+                              ^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/wandb_config.py", line 168, in __getattr__
+    raise AttributeError(
+AttributeError: <class 'wandb.sdk.wandb_config.Config'> object has no attribute 'ar'
+2026-04-30 01:26:06,362 - wandb.wandb_agent - INFO - Cleaning up finished run: 6grzth7z
+2026-04-30 01:26:07,139 - wandb.wandb_agent - INFO - Agent received command: run
+2026-04-30 01:26:07,139 - wandb.wandb_agent - INFO - Agent starting run with config:
+	ar_steps_train: 1
+	batch_size: 32
+	hidden_dim: 128
+	lr: 0.005
+2026-04-30 01:26:07,145 - wandb.wandb_agent - INFO - About to run command: /usr/bin/env python GNN_training/one_wave/parameter_sweeping/py_PS/sweep_ar_mp_lr_hd.py
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:65: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+2026-04-30 01:26:12,153 - wandb.wandb_agent - INFO - Running runs: ['k7pz43bk']
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /zhome/5e/a/152106/.netrc.
+wandb: Currently logged in as: s201205 (s201205-danmarks-tekniske-universitet-dtu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run k7pz43bk
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /zhome/5e/a/152106/code_masters/wandb/run-20260430_012639-k7pz43bk
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run treasured-sweep-5
+wandb: ⭐️ View project at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/sweep_ar_mp_lr_hd
+wandb: 🧹 View sweep at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/sweep_ar_mp_lr_hd/sweeps/8ce75bzu
+wandb: 🚀 View run at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/sweep_ar_mp_lr_hd/runs/k7pz43bk
+Traceback (most recent call last):
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/wandb_config.py", line 166, in __getattr__
+    return self.__getitem__(key)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/wandb_config.py", line 131, in __getitem__
+    return self._items[key]
+           ~~~~~~~~~~~^^^^^
+KeyError: 'ar'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/zhome/5e/a/152106/code_masters/GNN_training/one_wave/parameter_sweeping/py_PS/sweep_ar_mp_lr_hd.py", line 14, in <module>
+    "--processor_layers", str(cfg.ar) ,
+                              ^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/wandb_config.py", line 168, in __getattr__
+    raise AttributeError(
+AttributeError: <class 'wandb.sdk.wandb_config.Config'> object has no attribute 'ar'
+2026-04-30 01:26:48,660 - wandb.wandb_agent - ERROR - Detected 5 failed runs in a row, shutting down.
+2026-04-30 01:26:48,661 - wandb.wandb_agent - INFO - To change this value set WANDB_AGENT_MAX_INITIAL_FAILURES=val
+wandb: Terminating and syncing runs. Press ctrl-c to kill.

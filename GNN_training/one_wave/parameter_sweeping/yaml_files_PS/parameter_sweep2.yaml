@@ -1,0 +1,22 @@
+program: GNN_training/one_wave/parameter_sweeping/py_PS/sweep_ar_mp_lr_hd.py
+project: sweep_ar_mp_lr_hd
+name: sweep_ar_mp_lr_hd
+method: grid
+
+metric:
+  name: val_mean_loss
+  goal: minimize
+
+parameters:
+  lr:
+    values: [0.001, 0.005, 0.01]
+  processor_layers:
+    values: [1,5,10]
+  ar_steps_train:
+    values: [1,10]
+
+  
+command:
+  - ${env}
+  - ${interpreter}
+  - ${program}

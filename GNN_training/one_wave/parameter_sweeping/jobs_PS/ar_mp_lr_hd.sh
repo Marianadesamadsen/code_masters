@@ -2,19 +2,19 @@
 
 ### General options
 ### –- specify queue --
-#BSUB -q gpuv100
+#BSUB -q gpua100
 
 ### -- set the job Name --
-#BSUB -J ar10_in_training
+#BSUB -J sweep_ar_mp_lr_hd
 
 ### -- ask for number of cores (default: 1) --
-#BSUB -n 10
+#BSUB -n 4
 
 ### -- Select the resources: 1 gpu in exclusive process mode --
 #BSUB -gpu "num=1:mode=exclusive_process"
 
 ### -- set walltime limit: hh:mm --  maximum 24 hours for GPU-queues right now
-#BSUB -W 20:00
+#BSUB -W 24:00
 
 ### request 3GB of system-memory
 #BSUB -R "rusage[mem=5GB]"
@@ -31,8 +31,8 @@
 ### -- Specify the output and error file. %J is the job-id --
 ### -- -o and -e mean append, -oo and -eo mean overwrite --
 
-#BSUB -oo GNN_training/one_wave/different_AR/outputs/ar10_in_training.out
-#BSUB -ee GNN_training/one_wave/different_AR/outputs/ar10_in_training.err
+#BSUB -o GNN_training/one_wave/parameter_sweeping/output/sweep_ar_mp_lr_hd.out
+#BSUB -e GNN_training/one_wave/parameter_sweeping/output/sweep_ar_mp_lr_hd.err
 
 # -- end of LSF options --
 
@@ -41,21 +41,4 @@ source .venv/bin/activate
 
 export PYTHONPATH=/zhome/5e/a/152106/code_masters/neural-lam:$PYTHONPATH
 
-which python
-python --version
-nvidia-smi 
-python -m neural_lam.train_model \
-    --config_path "GNN_training/one_wave/yaml_files/config_wave_28_ts_600_g4_sigmamin_15.yaml" \
-    --graph "GNN_training/graphs/gsub4_msub4_nn1" \
-    --loss "mse" \
-    --seed 42 \
-    --num_workers 0 \
-    --epochs 100 \
-    --processor_layers 1 \
-    --logger_run_name "ar10_in_training" \
-    --batch_size 32 \
-    --logger-project "ar_in_training" \
-    --ar_steps_train 10 \
-    --precompute_in_memory True \
-
-
+wandb agent s201205-danmarks-tekniske-universitet-dtu/sweep_ar_mp_lr_hd/klp600kz

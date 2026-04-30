@@ -1,0 +1,38 @@
+/bin/bash: line 1: GNN_training/one_wave/different_AR/jobs_AR/ar10_in_training_mp3.sh: Permission denied
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 28327488: <NONAME> in cluster <dcc> Exited
+
+Job <NONAME> was submitted from host <hpclogin1> by user <s201205> in cluster <dcc> at Wed Apr 29 20:18:19 2026
+Job was executed on host(s) <n-62-11-68>, in queue <hpc>, as user <s201205> in cluster <dcc> at Wed Apr 29 20:18:21 2026
+</zhome/5e/a/152106> was used as the home directory.
+</zhome/5e/a/152106/code_masters> was used as the working directory.
+Started at Wed Apr 29 20:18:21 2026
+Terminated at Wed Apr 29 20:18:22 2026
+Results reported at Wed Apr 29 20:18:22 2026
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+GNN_training/one_wave/different_AR/jobs_AR/ar10_in_training_mp3.sh
+------------------------------------------------------------
+
+Exited with exit code 126.
+
+Resource usage summary:
+
+    CPU time :                                   0.35 sec.
+    Max Memory :                                 -
+    Average Memory :                             -
+    Total Requested Memory :                     1024.00 MB
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              -
+    Max Threads :                                -
+    Run time :                                   1 sec.
+    Turnaround time :                            3 sec.
+
+The output (if any) is above this job summary.
+
