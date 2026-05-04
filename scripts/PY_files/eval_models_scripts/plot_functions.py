@@ -75,11 +75,11 @@ def plot_energy_over_time(E_pred, E_true):
 
     # Predicted energy
     axes[1].plot(rollout, E_pred)
-    axes[1].semilogy("Energy")
+    axes[1].set_ylabel("Energy")
     axes[1].set_title("Predicted energy")
 
     # Error
-    axes[2].plor(rollout, E_err)
+    axes[2].plot(rollout, E_err)
     axes[2].set_ylabel("Error")
     axes[2].set_xlabel("AR rollout")
     axes[2].set_title("Energy error (pred - true)")
