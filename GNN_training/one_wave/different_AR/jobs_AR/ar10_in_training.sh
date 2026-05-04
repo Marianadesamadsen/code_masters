@@ -56,6 +56,6 @@ python -m neural_lam.train_model \
     --batch_size 32 \
     --logger-project "ar_in_training" \
     --ar_steps_train 10 \
-    --precompute_in_memory True \
+    --precompute_in_memory True \ 
 
 
