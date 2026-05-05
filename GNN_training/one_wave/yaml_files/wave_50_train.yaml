@@ -16,7 +16,7 @@ output:
     splits:
       train:
         start: 40
-        end: 114
+        end: 89
         compute_statistics:
           ops: [mean, std, diff_mean, diff_std]
           dims: [grid_index, time, ensemble_member]
