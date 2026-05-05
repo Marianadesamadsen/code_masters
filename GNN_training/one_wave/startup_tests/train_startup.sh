@@ -8,7 +8,7 @@
 #BSUB -J test_startup
 
 ### -- ask for number of cores (default: 1) --
-#BSUB -n 10
+#BSUB -n 6
 
 ### -- Select the resources: 1 gpu in exclusive process mode --
 #BSUB -gpu "num=1:mode=exclusive_process"
@@ -31,8 +31,8 @@
 ### -- Specify the output and error file. %J is the job-id --
 ### -- -o and -e mean append, -oo and -eo mean overwrite --
 
-#BSUB -o GNN_training/one_wave/startup_tests/output.out
-#BSUB -e GNN_training/one_wave/startup_tests/output.err
+#BSUB -o GNN_training/one_wave/startup_tests/output/train_startup.out
+#BSUB -e GNN_training/one_wave/startup_tests/output/train_startup.err
 # -- end of LSF options --
 
 cd /zhome/5e/a/152106/code_masters
@@ -43,4 +43,4 @@ export PYTHONPATH=/zhome/5e/a/152106/code_masters/neural-lam:$PYTHONPATH
 which python
 python --version
 nvidia-smi
-python -m GNN_training/one_wave/startup_tests/test_startup.py
+python GNN_training/one_wave/startup_tests/train_startup.py
