@@ -16,10 +16,10 @@ def main():
     T_min = 2 * np.pi / omega_max
     print("dt compute",T_min / 20 )
     dt = T_min / 20 # 0.010361252408621261/3 # 
-    N_members = 28
-    tmax = dt*300
+    N_members = 140
+    tmax = dt*600
     print("tmax",tmax) 
-    title = "wave_28_ts_300_g4_sigmamin_15"
+    title = "wave_140_ts_600_g4_sigmamin_15"
     nc_path = r"GNN_training\one_wave\nc_files"
 
     sigma_range=(15.0, 20.0)

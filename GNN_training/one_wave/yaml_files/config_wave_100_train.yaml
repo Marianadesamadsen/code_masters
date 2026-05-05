@@ -1,6 +1,6 @@
 datastore:
   kind: mdp
-  config_path: wave_100_train.yaml
+  config_path: wave_28_ts_600_g4_sigmamin_15.yaml
  
 training:
   state_feature_weighting:
