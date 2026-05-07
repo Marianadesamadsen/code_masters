@@ -29,7 +29,7 @@ output:
 
 inputs:
   wave_sphere:
-    path: GNN_training/one_wave/nc_files/GNN_training/one_wave/nc_files/wave_140_ts_600_g4_sigmamin_15.nc
+    path: GNN_training/one_wave/nc_files/wave_140_ts_600_g4_sigmamin_15.nc
     dims: [time, grid_index, ensemble_member]
     variables:
       - u
@@ -49,7 +49,7 @@ inputs:
     target_output_variable: state
 
   wave_sphere_static:
-    path: GNN_training/one_wave/nc_files/GNN_training/one_wave/nc_files/wave_140_ts_600_g4_sigmamin_15.nc
+    path: GNN_training/one_wave/nc_files/wave_140_ts_600_g4_sigmamin_15.nc
     dims: [grid_index]
     variables:
       - x_static
