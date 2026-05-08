@@ -9,27 +9,35 @@ output:
   coord_ranges:
     time:
       start: 0
-      end: 7.393404112806504
+      end: 7.381081772618494
+
+  chunking:
+    state_feature: 1
+    ensemble_member: 50
+    time: 600
+    grid_index: 2562
+    static_feature: 3
+      
       
   splitting:
     dim: ensemble_member 
     splits:
       train:
-        start: 40
-        end: 64
+        start: 100
+        end: 124
         compute_statistics:
           ops: [mean, std, diff_mean, diff_std]
           dims: [grid_index, time, ensemble_member]
       val:
         start: 0
-        end: 19 
+        end: 49 
       test:
-        start: 20
-        end: 39
+        start: 50
+        end: 99
 
 inputs:
   wave_sphere:
-    path: GNN_training/one_wave/nc_files/wave_140_ts_600_g4_sigmamin_15.nc
+    path: GNN_training/one_wave/nc_files/wave_200_ts_600_g4_sigmamin_15.nc
     dims: [time, grid_index, ensemble_member]
     variables:
       - u
@@ -49,7 +57,7 @@ inputs:
     target_output_variable: state
 
   wave_sphere_static:
-    path: GNN_training/one_wave/nc_files/wave_140_ts_600_g4_sigmamin_15.nc
+    path: GNN_training/one_wave/nc_files/wave_200_ts_600_g4_sigmamin_15.nc
     dims: [grid_index]
     variables:
       - x_static

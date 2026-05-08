@@ -82,7 +82,11 @@ class SimulatorWaveEquation:
     
     def save_data(self, ds, nc_path, title="test"): 
         os.makedirs(nc_path, exist_ok=True)
-        ds.to_netcdf(os.path.join(nc_path, f"{title}.nc"))
+        ds.to_netcdf(
+            os.path.join(nc_path, f"{title}.nc"),
+            engine="netcdf4",
+            format="NETCDF4",
+        )
 
     def setup_xarray(self, u, centers=None, sigmas=None, amplitudes=None):
         N = self.xyz.shape[0]
@@ -153,7 +157,6 @@ class SimulatorWaveEquation:
                 "Lmax": int(self.Lmax),
                 "dt": float(self.dt),
                 "dx": float(self.dx_true),
-                "cfl_ok": bool(self.cfl),
                 "cfl_value": float(self.cfl_value),
             }
         )
@@ -202,7 +205,7 @@ class SimulatorWaveEquation:
         return np.stack(u_members, axis=0)
 
     def create_time_steps(self):
-        n_steps = int(np.floor(self.tmax / self.dt)) + 1
+        n_steps = int(np.floor(self.tmax / self.dt)) 
         return np.arange(n_steps) * self.dt
     
     def create_mesh(self):

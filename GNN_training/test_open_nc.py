@@ -1,6 +1,6 @@
 import xarray as xr
 
-ds = xr.open_dataset("GNN_training/one_wave/nc_files/wave_28_ts_600_g4_sigmamin_15.nc")
+ds = xr.open_dataset("GNN_training/one_wave/nc_files/wave_200_ts_600_g4_sigmamin_15.nc")
 
 print(ds["time"].values[-1])
 print(len(ds["time"].values))

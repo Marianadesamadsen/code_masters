@@ -14,7 +14,7 @@
 #BSUB -gpu "num=1:mode=exclusive_process"
 
 ### -- set walltime limit: hh:mm --  maximum 24 hours for GPU-queues right now
-#BSUB -W 8:00
+#BSUB -W 24:00
 
 ### request 3GB of system-memory
 #BSUB -R "rusage[mem=5GB]"
@@ -49,7 +49,7 @@ python -m neural_lam.train_model \
     --loss mse \
     --seed 42 \
     --num_workers 0 \
-    --epochs 100 \
+    --epochs 200 \
     --processor_layers 1 \
     --logger_run_name train_100 \
     --batch_size 32 \
