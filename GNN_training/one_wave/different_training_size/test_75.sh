@@ -14,7 +14,7 @@
 #BSUB -gpu "num=1:mode=exclusive_process"
 
 ### -- set walltime limit: hh:mm --  maximum 24 hours for GPU-queues right now
-#BSUB -W 5:00
+#BSUB -W 1:00
 
 ### request 3GB of system-memory
 #BSUB -R "rusage[mem=5GB]"
@@ -57,6 +57,6 @@ python -m neural_lam.train_model \
     --logger-project different_training_size_test \
     --eval "test" \
     --load "saved_models/train_75/min_val_loss.ckpt" \
-    --ar_steps_eval "50" \
-    --save_eval_to_zarr_path "GNN_training/one_wave/different_training_size/test_75_results"
+    --ar_steps_eval "20" \
+    --save_eval_to_zarr_path "GNN_training/one_wave/different_training_size/test_75_results.zarr"
 
