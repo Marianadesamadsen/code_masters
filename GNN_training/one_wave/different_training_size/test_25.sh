@@ -58,5 +58,5 @@ python -m neural_lam.train_model \
     --eval "test" \
     --load "saved_models/train_25/min_val_loss-v3.ckpt" \
     --ar_steps_eval "10" \
-    --save_eval_to_zarr_path "GNN_training/one_wave/different_training_size/test_25_results"
+    --save_eval_to_zarr_path "GNN_training/one_wave/different_training_size/test_25_results.zarr"
 
