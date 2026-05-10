@@ -14,7 +14,7 @@ args = [
 "--precompute_in_memory", "True",
 "--eval", "test",
 "--load", "saved_models/train_75/min_val_loss.ckpt",
-"--ar_steps_eval", "50",
+"--ar_steps_eval", "20",
 "--save_eval_to_zarr_path", "GNN_training/one_wave/different_training_size/test_75_results.zarr"
 ]
 
