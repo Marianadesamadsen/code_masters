@@ -1,0 +1,19 @@
+program: GNN_training\one_wave\parameter_sweeping\py_PS\sweep_lr_bs.py
+project: parameter_sweeping_lr_vs_bs
+name: parameter_sweeping_lr_vs_bs
+method: grid
+
+metric:
+  name: val_mean_loss
+  goal: minimize
+
+parameters:
+  lr:
+    values: [0.001, 0.005, 0.01]
+  batch_size:
+    values: [16, 32, 64]
+  
+command:
+  - ${env}
+  - ${interpreter}
+  - ${program}

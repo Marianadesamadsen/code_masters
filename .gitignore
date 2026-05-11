@@ -20,7 +20,8 @@ scripts/lightning_logs/
 data/nc_files/
 figures/
 trash/
-jobs/
 *.pt
 *.zip
 test_eval_with_zarr
+test_eval_same_mesh_10.zarr
+tmp/

@@ -5,7 +5,6 @@ import torch
 import numpy as np
 import xarray as xr
 
-
 def all_raw_files(raw_dir):
     pred_files = sorted(
         [f for f in os.listdir(raw_dir) if re.match(r"pred_batch_\d+\.pt", f)],
@@ -58,8 +57,8 @@ def setup_simple_xarray(u, time, P, tri, R=1):
     )
 
     return ds    
-
-def compute_errors(u_pred, u_true, axis=2):
+ 
+def compute_errors(u_pred, u_true, generation, axis=2):
     if torch.is_tensor(u_pred):
         u_pred = u_pred.detach().cpu().numpy()
     if torch.is_tensor(u_true):
@@ -69,9 +68,6 @@ def compute_errors(u_pred, u_true, axis=2):
     rmse = np.sqrt(np.mean(err**2, axis=axis))
     mse = np.mean(err**2, axis=axis)
     mae = np.mean(np.abs(err), axis=axis)
-    E_pred = np.mean(u_pred**2, axis=axis)
-    E_true = np.mean(u_true**2, axis=axis)
-    E_error = np.abs(E_pred - E_true)
     err_max = np.max(np.abs(err), axis=axis)
     err_abs = float(np.nanmax(np.abs(err)))
     max_pred = np.max(np.abs(u_pred), axis=axis)
@@ -84,9 +80,6 @@ def compute_errors(u_pred, u_true, axis=2):
         "mae": mae,
         "err_max": err_max,
         "err_abs": err_abs,
-        "E_pred": E_pred,
-        "E_true": E_true,
-        "E_error": E_error,
         "max_pred": max_pred,
         "max_true": max_true,
     }

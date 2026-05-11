@@ -8,16 +8,16 @@ import os
 
 R = 1.0
 C = 1.0
-Lmax = 20
+Lmax = 25
 A = 1
-generations = 3
+generations = 4
 
 omega_max = (C / R) * np.sqrt(Lmax * (Lmax + 1))
 T_min = 2 * np.pi / omega_max
 print("dt:",T_min / 20)
 dt = T_min / 20  # 0.010361252408621268/3 # 
 print("used dt:",dt)
-tmax = dt*1000
+tmax = dt*600
 print("tmax:",tmax)
 rng = np.random.default_rng(42)
 
@@ -48,18 +48,17 @@ sim = simu.SimulatorWaveEquation(
     dt=dt,
 )
 
-# ds = sim.simulate(savedata=False)
-# from matplotlib import cm, colors
-# u_min = float(np.nanmin(ds["u"].values))
-# u_max = float(np.nanmax(ds["u"].values))
-# norm = colors.Normalize(vmin=u_min, vmax=u_max)
-# plot_true = dp.DataPlotter(ds=ds)
-# anim_true = plot_true.animate_sphere(norm=norm,out_path="coarse_data_test.gif", fps=15)
-# plt.close()
+ds = sim.simulate(savedata=False)
+from matplotlib import cm, colors
+u_min = float(np.nanmin(ds["u"].values))
+u_max = float(np.nanmax(ds["u"].values))
+norm = colors.Normalize(vmin=u_min, vmax=u_max)
+plot_true = dp.DataPlotter(ds=ds)
+#anim_true = plot_true.animate_sphere(norm=norm,out_path="final_data.gif", fps=15)
+#plt.close()
 
-print("dx elem",sim.dx_elem)
-print("dx:",sim.dx)
-print("dx Allan:",sim.dx_allan)
+
+print("dx Allan:",sim.dx_true)
 
 def degree_spectrum(ulm):
     Lmax = ulm.shape[0] - 1
@@ -79,6 +78,7 @@ import matplotlib.pyplot as plt
 plt.semilogy(E,'-o')   # avoid log(0)
 plt.xlabel("$\ell$")
 plt.ylabel("$\sum_m |u_{\ell m}|^2$") 
+plt.show()
 
 cum = np.cumsum(E) / np.sum(E)
 plt.figure()
@@ -86,4 +86,4 @@ plt.plot(cum, '-o')
 plt.xlabel(r'$\ell$')
 plt.ylabel('cumulative energy')
 plt.grid(True)
-plt.show()
+

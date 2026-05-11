@@ -11,7 +11,7 @@ import scripts.PY_files.eval_models_scripts.helper_functions_ensemble as helper
 import scripts.PY_files.eval_models_scripts.plot_functions as plot_funcs
 import matplotlib.pyplot as plt
 
-from data_generation_functions import DataPlotter
+from data_generation_functions import DataPlotterAll
 from matplotlib import colors
 
 plot_animations_1step = False
@@ -62,7 +62,7 @@ for wave in range(num_waves):
     pred_1wave = pred_all[:,wave,:,:,:]
     target_1wave = target_all[:,wave,:,:,:]
     time_1wave = time_all[:,wave,:]
-
+ 
     # 1-step 1-wave 1-feature
     pred_1step_1wave = pred_1wave[:, 0, :, 0]
     target_1step_1wave = target_1wave[:, 0, :, 0]
@@ -105,28 +105,6 @@ for wave in range(num_waves):
         err_abs = float(np.nanmax(np.abs(error_1step_1wave)))
         err_norm = colors.Normalize(vmin=-err_abs, vmax=err_abs)
 
-        # Sphere animations
-        plotter_pred = DataPlotter.DataPlotter(ds=ds_pred)
-        plotter_true = DataPlotter.DataPlotter(ds=ds_true)
-        plotter_err = DataPlotter.DataPlotter(ds=ds_err)
-
-        anim_pred = plotter_pred.animate_sphere(
-            norm=field_norm,
-            out_path=os.path.join(anim_dir, f"pred_all_wave{wave}.gif"),
-            fps=10,
-        )
-
-        anim_true = plotter_true.animate_sphere(
-            norm=field_norm,
-            out_path=os.path.join(anim_dir, f"true_all_wave{wave}.gif"),
-            fps=10,
-        )
-
-        anim_err = plotter_err.animate_sphere(
-            norm=err_norm,
-            out_path=os.path.join(anim_dir, f"error_all_wave{wave}.gif"),
-            fps=10,
-        )
 
     if plot_animations_rollout:
         pred_all_1feature = pred_all[:,:,:,:,0]
@@ -146,26 +124,21 @@ for wave in range(num_waves):
         err_norm = colors.Normalize(vmin=-err_abs, vmax=err_abs)
 
         # Sphere animations
-        plotter_pred = DataPlotter.DataPlotter(ds=ds_pred)
-        plotter_true = DataPlotter.DataPlotter(ds=ds_true)
-        plotter_err = DataPlotter.DataPlotter(ds=ds_err)
+        plotter = DataPlotterAll.DataPlotter(ds=ds_true)
 
-        anim_pred = plotter_pred.animate_sphere(
-            norm=field_norm,
-            out_path=os.path.join(anim_dir, f"pred_rollout_idx{rolloutidx}_wave{wave}.mp4"),
+        anim = plotter.animate_three_spheres(
+            ds_pred=ds_pred,
+            ds_target=ds_true,
+            ds_error=ds_err,
+            out_path=os.path.join(anim_dir, f"result_rollout_idx{rolloutidx}_wave{wave}.gif"),
             fps=10,
-        )
-
-        anim_true = plotter_true.animate_sphere(
-            norm=field_norm,
-            out_path=os.path.join(anim_dir, f"true_rollout_idx{rolloutidx}_wave{wave}.mp4"),
-            fps=10,
-        )
-
-        anim_err = plotter_err.animate_sphere(
-            norm=err_norm,
-            out_path=os.path.join(anim_dir, f"error_rollout_idx{rolloutidx}_wave{wave}.mp4"),
-            fps=10,
+            interval=100,
+            pred_target_cmap="viridis",
+            error_cmap="coolwarm",
+            pred_target_norm=field_norm,
+            error_norm=err_norm,
+            titles=("Prediction", "Target", "Error"),
+            colorbar_label="u",
         )
 
 

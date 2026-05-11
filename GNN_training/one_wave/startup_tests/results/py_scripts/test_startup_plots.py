@@ -1,0 +1,145 @@
+import os
+import re
+from time import time
+import torch
+import xarray as xr
+import numpy as np
+import sys
+
+sys.path.insert(0, "./")
+import scripts.PY_files.eval_models_scripts.helper_functions_ensemble as helper
+import scripts.PY_files.eval_models_scripts.plot_functions as plot_funcs
+import matplotlib.pyplot as plt
+
+from data_generation_functions import DataPlotterAll
+from matplotlib import colors
+from matplotlib.colors import Normalize
+
+plot_animations_1step = False
+plot_animations_rollout = True
+
+# paths
+ds_geo = xr.open_dataset(r".\GNN_training\one_wave\nc_files\wave_28_ts_600_g4_sigmamin_15.nc")
+raw_dir = r"./GNN_training\one_wave\startup_tests\results_new_precompute\raw_preds"
+plot_dir = r"./GNN_training\one_wave\startup_tests\results_new_precompute\plots"
+anim_dir = r"./GNN_training\one_wave\startup_tests\results_new_precompute\animations"
+
+os.makedirs(plot_dir, exist_ok=True)
+os.makedirs(anim_dir, exist_ok=True)
+
+# Load all raw predictions
+pred_files, target_files, time_files = helper.all_raw_files(raw_dir)
+
+pred_all, target_all, time_all = helper.concat_all_batches(
+    raw_dir, pred_files, target_files, time_files
+)
+
+# Split up to waves and time steps
+num_time_steps_all, num_roll_outs, num_nodes, num_features = pred_all.shape
+num_waves = int(np.ceil(len(pred_all)/len(ds_geo["time"])))
+num_time_steps = int(len(pred_all)/num_waves) #ds_geo.attrs["tmax"]/ds_geo.attrs["dt"]
+
+pred_all = pred_all.reshape(num_time_steps, num_waves, num_roll_outs, num_nodes, num_features)
+target_all = target_all.reshape(num_time_steps, num_waves, num_roll_outs, num_nodes, num_features)
+time_all = time_all.reshape(num_time_steps, num_waves, num_roll_outs)
+
+print("combined pred shape:  ", tuple(pred_all.shape))
+print("combined target shape:", tuple(target_all.shape))
+print("combined time shape:  ", tuple(time_all.shape))
+
+# Geometry from original dataset
+P = ds_geo["P"].values
+tri = ds_geo["tri"].values
+R = ds_geo.attrs["R"]
+
+#####################################################################
+
+# Full rollout metrics
+# Average over nodes and features, keep rollout and time
+errors_dict = helper.compute_errors(pred_all, target_all, axis=(3, 4))
+print(num_waves)
+for wave in range(num_waves):
+
+    pred_1wave = pred_all[:,wave,:,:,:]
+    target_1wave = target_all[:,wave,:,:,:]
+    time_1wave = time_all[:,wave,:]
+ 
+    # 1-step 1-wave 1-feature
+    pred_1step_1wave = pred_1wave[:, 0, :, 0]
+    target_1step_1wave = target_1wave[:, 0, :, 0]
+    time_1step_1wave = time_1wave[:, 0]
+    error_1step_1wave = pred_1step_1wave - target_1step_1wave
+
+    # Plotting error metrics over time 1-step 1-wave
+    fig_errors = plot_funcs.plot_error_metrics(errors_dict["rmse"][:,wave,:].mean(axis=1), errors_dict["mae"][:,wave,:].mean(axis=1), errors_dict["err_max"][:,wave,:].mean(axis=1), time_1step_1wave)
+    fig_errors.savefig(os.path.join(plot_dir, f"error_metrics_1_step_wave{wave}.png"), dpi=200, bbox_inches="tight")
+
+    fig_hist = plot_funcs.plot_error_histogram(error_1step_1wave)
+    fig_hist.savefig(os.path.join(plot_dir, f"error_histogram_1_step_wave{wave}.png"), dpi=200, bbox_inches="tight")
+
+    fig_rmse_heatmap = plot_funcs.plot_rmse_heatmap(errors_dict["rmse"][:, wave, :])
+    fig_rmse_heatmap.savefig(os.path.join(plot_dir, f"heatmap_rmse_wave{wave}.png"), dpi=200, bbox_inches="tight")
+
+    fig_rollout_error = plot_funcs.plot_rollout_error_growth(errors_dict["rmse"][:, wave, :].mean(axis=0), errors_dict["mae"][:, wave, :].mean(axis=0))
+    fig_rollout_error.savefig(os.path.join(plot_dir, f"rollout_error_growth_wave{wave}.png"), dpi=200, bbox_inches="tight")
+
+    # fig_heatmap_L2norm = plot_funcs.plot_E_norm_heatmap(errors_dict["E_error"][:, wave, :])
+    # fig_heatmap_L2norm.savefig(os.path.join(plot_dir, f"heatmap_E_norm_wave{wave}.png"), dpi=200, bbox_inches="tight")
+
+    # fig_L2_norm = plot_funcs.plot_E_norm(errors_dict["E_pred"][:, wave, :].mean(axis=1), errors_dict["E_true"][:, wave, :].mean(axis=1))
+    # fig_L2_norm.savefig(os.path.join(plot_dir, f"plot_E_energy_overall_wave{wave}.png"), dpi=200, bbox_inches="tight")
+
+    fig_max_error = plot_funcs.plot_max_over_time(errors_dict["max_pred"][:, wave, :].mean(axis=0), errors_dict["max_true"][:, wave, :].mean(axis=0))
+    fig_max_error.savefig(os.path.join(plot_dir, f"plot_max_over_time_overall_wave{wave}.png"), dpi=200, bbox_inches="tight")
+
+
+    if plot_animations_1step:
+
+        # This setup is for dataplotter 3Ds
+        ds_pred = helper.setup_simple_xarray(pred_1step_1wave[:100,:], time_1step_1wave[:100], P, tri, R=R)
+        ds_true = helper.setup_simple_xarray(target_1step_1wave[:100,:], time_1step_1wave[:100], P, tri, R=R)
+        ds_err = helper.setup_simple_xarray(error_1step_1wave[:100,:], time_1step_1wave[:100], P, tri, R=R)
+
+        # Color scales
+        field_norm = helper.color_scales(pred_1step_1wave, target_1step_1wave)
+
+        err_abs = float(np.nanmax(np.abs(error_1step_1wave)))
+        err_norm = colors.Normalize(vmin=-err_abs, vmax=err_abs)
+
+
+    if plot_animations_rollout:
+        pred_all_1feature = pred_all[:,:,:,:,0]
+        target_all_1feature = target_all[:,:,:,:,0]
+        error_all_1feature = pred_all_1feature - target_all_1feature
+        rolloutidx = 100
+
+        # This setup is for dataplotter 3Ds
+        ds_pred = helper.setup_simple_xarray(pred_all_1feature[rolloutidx,wave], np.arange(num_roll_outs), P, tri, R=R)
+        ds_true = helper.setup_simple_xarray(target_all_1feature[rolloutidx,wave], np.arange(num_roll_outs), P, tri, R=R)
+        ds_err = helper.setup_simple_xarray(error_all_1feature[rolloutidx,wave], np.arange(num_roll_outs), P, tri, R=R)
+
+        # Color scales
+        params = np.load(r"GNN_training\one_wave\norm_parameter\norm.npy", allow_pickle=True).item()
+        field_norm = Normalize(**params)
+        params_error = np.load(r"GNN_training\one_wave\norm_parameter\norm_error.npy", allow_pickle=True).item()
+        err_norm = Normalize(**params)
+
+        # Sphere animations
+        plotter = DataPlotterAll.DataPlotter(ds=ds_true)
+
+        anim = plotter.animate_three_spheres(
+            ds_pred=ds_pred,
+            ds_target=ds_true,
+            ds_error=ds_err,
+            out_path=os.path.join(anim_dir, f"result_rollout_idx{rolloutidx}_wave{wave}.gif"),
+            fps=10,
+            interval=100,
+            pred_target_cmap="viridis",
+            error_cmap="coolwarm",
+            pred_target_norm=field_norm,
+            error_norm=err_norm,
+            titles=("Prediction", "Target", "Error"),
+            colorbar_label="u",
+        )
+
+

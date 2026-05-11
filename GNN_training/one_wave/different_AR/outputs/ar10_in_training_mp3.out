@@ -1,0 +1,49 @@
+/zhome/5e/a/152106/code_masters/.venv/bin/python
+Python 3.11.15
+Thu Apr 30 08:42:49 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.126.20             Driver Version: 580.126.20     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-SXM2-32GB           On  |   00000000:16:00.0 Off |                    0 |
+| N/A   35C    P0             40W /  300W |       0MiB /  32768MiB |      0%   E. Process |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+torch.cuda.is_available(): True
+device_name: cuda
+devices arg: auto
+┏━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓
+┃   ┃ Name              ┃ Type              ┃ Params ┃ Mode  ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩
+│ 0 │ grid_embedder     │ Sequential        │  4.7 K │ train │     0 │
+│ 1 │ g2m_embedder      │ Sequential        │  4.5 K │ train │     0 │
+│ 2 │ m2g_embedder      │ Sequential        │  4.5 K │ train │     0 │
+│ 3 │ g2m_gnn           │ InteractionNet    │ 29.2 K │ train │     0 │
+│ 4 │ encoding_grid_mlp │ Sequential        │  8.4 K │ train │     0 │
+│ 5 │ m2g_gnn           │ InteractionNet    │ 29.2 K │ train │     0 │
+│ 6 │ output_map        │ Sequential        │  4.2 K │ train │     0 │
+│ 7 │ mesh_embedder     │ Sequential        │  4.5 K │ train │     0 │
+│ 8 │ m2m_embedder      │ Sequential        │  4.5 K │ train │     0 │
+│ 9 │ processor         │ Sequential_e1947a │ 87.6 K │ train │     0 │
+└───┴───────────────────┴───────────────────┴────────┴───────┴───────┘
+Trainable params: 181 K                                                         
+Non-trainable params: 0                                                         
+Total params: 181 K                                                             
+Total estimated model params size (MB): 0                                       
+Modules in train mode: 95                                                       
+Modules in eval mode: 0                                                         
+Total FLOPs: 0                                                                  
+Epoch 0/99                          0/368 0:00:00 • -:--:-- 0.00it/s v_num: 5ig2
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mar10_in_training_mp3[0m at: [34mhttps://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/ar_in_training/runs/ewxj5ig2[0m

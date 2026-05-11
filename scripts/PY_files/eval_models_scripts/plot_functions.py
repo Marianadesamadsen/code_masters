@@ -1,28 +1,15 @@
+from matplotlib.colors import LogNorm
 import numpy as np
 import matplotlib.pyplot as plt
 import torch
 
-def plot_1_step(rmse,max_err,time):
-
-    assert len(rmse) == len(max_err) == len(time), "Input arrays must have the same length"
-
-    fig,ax = plt.subplots(figsize=(8, 4))
-    ax.plot(time, rmse, label="RMSE")
-    ax.plot(time, max_err, label="Max error")
-    ax.set_xlabel("Time (s)")
-    ax.set_ylabel("Error")
-    ax.legend()
-    ax.set_title("1-step error over full test set")
-    plt.tight_layout()
-    
-    return fig
 
 def plot_error_metrics(rmse, mae, max_err, time):
     fig, ax = plt.subplots(figsize=(8, 4))
     ax.plot(time, rmse, label="RMSE")
     ax.plot(time, mae, label="MAE")
     ax.plot(time, max_err, label="Max error")
-    ax.set_xlabel("Time (s)")
+    ax.set_xlabel("Start time (initial condition)")
     ax.set_ylabel("Error")
     ax.set_title("Error metrics over time")
     ax.legend()
@@ -38,32 +25,17 @@ def plot_error_histogram(err):
     fig.tight_layout()
     return fig
 
-def plot_rmse_heatmap(rmse):
-
-    fig, ax = plt.subplots(figsize=(8, 5))
-    im = ax.imshow(rmse, aspect="auto", origin="lower")
-    ax.set_xlabel("rollout")
-    ax.set_ylabel("Test data index")
-    ax.set_title(f"RMSE for wave")
-    fig.colorbar(im, ax=ax, label="RMSE")
-    fig.tight_layout()
-
-    return fig
-
-def plot_E_norm_heatmap(E_error):
-
-    # Plot heatmap
-    fig, ax = plt.subplots(figsize=(8, 5))
-    im = ax.imshow(E_error, aspect="auto", origin="lower")
-
-    ax.set_xlabel("Roll out")
-    ax.set_ylabel("Test data index")
-    ax.set_title("E error heatmap")
-
-    cbar = fig.colorbar(im, ax=ax)
-    cbar.set_label("E error")
-
-    fig.tight_layout()
+def plot_rmse_heatmap(rmse): 
+    fig, ax = plt.subplots(figsize=(8, 5)) 
+    im = ax.imshow(rmse, aspect="auto",
+                    origin="lower", 
+                    interpolation="nearest",
+                    norm=LogNorm(vmin=1e-4, vmax=1e-1))
+    ax.set_xlabel("rollout") 
+    ax.set_ylabel("Test data index") 
+    ax.set_title(f"RMSE for wave") 
+    fig.colorbar(im, ax=ax, label="RMSE") 
+    fig.tight_layout() 
     return fig
 
 def plot_rollout_error_growth(rmse, mae):
@@ -71,7 +43,7 @@ def plot_rollout_error_growth(rmse, mae):
     fig, ax = plt.subplots(figsize=(8, 4))
     ax.plot(rmse, label="RMSE")
     ax.plot(mae, label="MAE")
-    ax.set_xlabel("Roll out index")
+    ax.set_xlabel("AR rollout")
     ax.set_ylabel("Error")
     ax.set_title("Error growth over rollout")
     ax.legend()
@@ -79,37 +51,44 @@ def plot_rollout_error_growth(rmse, mae):
      
     return fig
 
-def plot_pred_vs_true_scatter(u_pred, u_true):
-    fig, ax = plt.subplots(figsize=(5, 5))
-    ax.scatter(u_true.ravel(), u_pred.ravel(), s=2, alpha=0.3)
-    mn = min(np.min(u_true), np.min(u_pred))
-    mx = max(np.max(u_true), np.max(u_pred))
-    ax.plot([mn, mx], [mn, mx], linestyle="--")
-    ax.set_xlabel("True")
-    ax.set_ylabel("Predicted")
-    ax.set_title("Predicted vs true values")
-    fig.tight_layout()
-    return fig
-
-def plot_E_norm(E_pred, E_true):
-    fig, ax = plt.subplots(figsize=(8, 4))
-    ax.plot(E_true, label="True")
-    ax.plot(E_pred, label="Predicted")
-    ax.set_xlabel("Roll out index")
-    ax.set_ylabel(r"$\|u\|_2^2$")
-    ax.set_title("Energy over time")
-    ax.legend()
-    fig.tight_layout()
-    return fig
-
 def plot_max_over_time(a_pred, a_true):
     
     fig, ax = plt.subplots(figsize=(8, 4))
     ax.plot(a_true, label="True")
     ax.plot(a_pred, label="Predicted")
-    ax.set_xlabel("roll out  index")
+    ax.set_xlabel("AR rollout")
     ax.set_ylabel("Max |u|")
     ax.set_title("Max evolution")
+    ax.grid(True)
     ax.legend()
+    ax.set_xticks(np.arange(len(a_true)))
+    fig.tight_layout()
+    return fig
+
+def plot_energy_over_time(E_pred, E_true):
+    E_pred = np.asarray(E_pred)
+    E_true = np.asarray(E_true)
+    E_err = E_pred - E_true
+
+    rollout = np.arange(len(E_pred))
+
+    fig, axes = plt.subplots(3, 1, figsize=(8, 6), sharex=True)
+
+    # True energy
+    axes[0].plot(rollout, E_true)
+    axes[0].set_ylabel("Energy")
+    axes[0].set_title("True energy")
+
+    # Predicted energy
+    axes[1].plot(rollout, E_pred)
+    axes[1].set_ylabel("Energy")
+    axes[1].set_title("Predicted energy")
+
+    # Error
+    axes[2].plot(rollout, E_err)
+    axes[2].set_ylabel("Error")
+    axes[2].set_xlabel("AR rollout")
+    axes[2].set_title("Energy error (pred - true)")
+
     fig.tight_layout()
     return fig
