@@ -14,7 +14,6 @@ from integrate_sphere.compute_energy import compute_energy_over_time
 from data_generation_functions import DataPlotterAll
 from matplotlib import colors
 
-
 def plot_results(ds_geo_dir,raw_dir,plot_dir,anim_dir, generations, plot_animations_1step = False, plot_animations_rollout = True):
     
     ds_geo = xr.open_dataset(ds_geo_dir)

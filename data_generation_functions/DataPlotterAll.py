@@ -34,6 +34,8 @@ class DataPlotter:
         error_norm=None,
         titles=("Prediction", "Target", "Error"),
         colorbar_label="u",
+        elev = 20,
+        azim = 160
     ):
         """
         Create one animation with 3 side-by-side sphere plots:
@@ -105,12 +107,19 @@ class DataPlotter:
 
         tri_vertices = P_plot[tri]
 
-        fig = plt.figure(figsize=(18, 5))
+        fig = plt.figure(figsize=(12, 4))
         axes = [
             fig.add_subplot(1, 3, 1, projection="3d"),
             fig.add_subplot(1, 3, 2, projection="3d"),
             fig.add_subplot(1, 3, 3, projection="3d"),
         ]
+        fig.subplots_adjust(
+            left=0.02,
+            right=0.98,
+            bottom=0.02,
+            top=0.92,
+            wspace=0.05
+        )
 
         datasets = [
             (u_pred, titles[0], cmap_pred_target, pred_target_norm),
@@ -135,12 +144,12 @@ class DataPlotter:
             ax.set_box_aspect([1, 1, 1])
             ax.set_xlabel("x")
             ax.set_ylabel("y")
-            ax.set_zlabel("z")
+            ax.set_zlabel("z",labelpad=-5)
             ax.set_title(title)
 
             sm = cm.ScalarMappable(norm=norm, cmap=cmap)
             sm.set_array([])
-            cbar = fig.colorbar(sm, ax=ax, pad=0.05, shrink=0.75)
+            cbar = fig.colorbar(sm, ax=ax, pad=0.07, shrink=0.75)
             cbar.set_label("error" if title.lower() == "error" else colorbar_label)
 
             polys.append(poly)
@@ -152,7 +161,10 @@ class DataPlotter:
                 u = u_data[frame]                 # (N,)
                 u_face = u[tri].mean(axis=1)     # (n_triangles,)
                 poly.set_facecolor(cmap(norm(u_face)))
-                ax.set_title(f"{title}\nt = {current_time:.6f} s")
+                ax.set_title(f"{title}\n AR rollout: {current_time:.6f}") #(f"{title}\nt = {current_time:.6f} s")
+
+                 # Rotate sphere
+                ax.view_init(elev=elev, azim=azim)
 
             return polys
 

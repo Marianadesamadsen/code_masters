@@ -1,3 +1,4 @@
+from matplotlib.colors import LogNorm
 import numpy as np
 import matplotlib.pyplot as plt
 import torch
@@ -26,7 +27,10 @@ def plot_error_histogram(err):
 
 def plot_rmse_heatmap(rmse): 
     fig, ax = plt.subplots(figsize=(8, 5)) 
-    im = ax.pcolormesh(rmse, shading="nearest") 
+    im = ax.imshow(rmse, aspect="auto",
+                    origin="lower", 
+                    interpolation="nearest",
+                    norm=LogNorm(vmin=1e-4, vmax=1e-1))
     ax.set_xlabel("rollout") 
     ax.set_ylabel("Test data index") 
     ax.set_title(f"RMSE for wave") 
@@ -55,7 +59,9 @@ def plot_max_over_time(a_pred, a_true):
     ax.set_xlabel("AR rollout")
     ax.set_ylabel("Max |u|")
     ax.set_title("Max evolution")
+    ax.grid(True)
     ax.legend()
+    ax.set_xticks(np.arange(len(a_true)))
     fig.tight_layout()
     return fig
 
