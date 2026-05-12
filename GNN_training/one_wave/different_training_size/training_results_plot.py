@@ -38,7 +38,7 @@ ax.grid()
 plt.tight_layout()
 plt.savefig('GNN_training/one_wave/different_training_size/all_results_plot/train_loss_rollout1.png')
 
-# --- Convergence plot: best validation loss vs training size ---
+##########################3 Convergence plot: best validation loss vs training size
 
 best_val_loss = []
 best_train_loss = []
@@ -52,7 +52,6 @@ for size in data_sizes:
     best_val_loss.append(df_val_loss_1[val_col].min())
     best_train_loss.append(df_train_loss[train_col].min())
 
-    # energy at the epoch where validation loss is best
     best_epoch = df_val_loss_1[val_col].idxmin()
     best_rel_energy.append(df_rel_energy_1.loc[best_epoch, energy_col])
 
