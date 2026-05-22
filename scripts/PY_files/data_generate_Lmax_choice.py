@@ -8,7 +8,7 @@ import os
 
 R = 1.0
 C = 1.0
-Lmax = 25
+Lmax = 33
 A = 1
 generations = 4
 
@@ -34,7 +34,7 @@ def f_handle(x, y, z):
     cos_alpha = np.clip(dot / R**2, -1.0, 1.0)
 
     alpha = np.arccos(cos_alpha)
-    sigma = np.deg2rad(15.0)
+    sigma = np.deg2rad(8.0)
     return A*np.exp(-(alpha**2) / (2*sigma**2))
 
 sim = simu.SimulatorWaveEquation(
@@ -64,7 +64,6 @@ def degree_spectrum(ulm):
     Lmax = ulm.shape[0] - 1
     spec = np.zeros(Lmax + 1)
     for ell in range(Lmax + 1):
-        # valid m for this ell are -ell..ell, which correspond to columns (Lmax-ell):(Lmax+ell+1)
         col0 = Lmax - ell
         col1 = Lmax + ell+1 
         spec[ell] = np.sum(np.abs(ulm[ell, col0:col1])**2)
@@ -78,7 +77,7 @@ import matplotlib.pyplot as plt
 plt.semilogy(E,'-o')   # avoid log(0)
 plt.xlabel("$\ell$")
 plt.ylabel("$\sum_m |u_{\ell m}|^2$") 
-plt.show()
+plt.savefig("Lmax_choice.png")
 
 cum = np.cumsum(E) / np.sum(E)
 plt.figure()

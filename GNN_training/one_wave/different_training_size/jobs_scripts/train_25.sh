@@ -2,7 +2,7 @@
 
 ### General options
 ### –- specify queue --
-#BSUB -q gpuv100
+#BSUB -q gpua40
 
 ### -- set the job Name --
 #BSUB -J train_25
@@ -14,7 +14,7 @@
 #BSUB -gpu "num=1:mode=exclusive_process"
 
 ### -- set walltime limit: hh:mm --  maximum 24 hours for GPU-queues right now
-#BSUB -W 10:00
+#BSUB -W 14:00
 
 ### request 3GB of system-memory
 #BSUB -R "rusage[mem=5GB]"
@@ -55,8 +55,8 @@ python -m neural_lam.train_model \
     --logger-project different_training_size \
     --precompute_in_memory \
     --checkpoint_every_n_steps 20000 \
-    --val_time_stride 10 \
-    --max_steps 150000 \
+    --val_time_stride 15 \
+    --max_steps 200000 \
     --lr 0.0009 
 
 

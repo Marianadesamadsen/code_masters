@@ -10,7 +10,7 @@ from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 
 sys.path.insert(0, "./")
 import scripts.PY_files.eval_models_scripts.helper_functions_ensemble as helper
-
+ 
 
 def plot_results(
     ds_geo_dir,
@@ -76,8 +76,8 @@ def plot_results(
     target_50 = all_target[2]
     pred_100 = all_pred[3]
     target_100 = all_target[3]
-    u_min = float(np.nanmin([arr.min() for arr in all_pred + all_target]))
-    u_max = float(np.nanmax([arr.max() for arr in all_pred + all_target]))
+    u_min = float(np.nanmin([np.nanmin(arr) for arr in all_pred + all_target]))
+    u_max = float(np.nanmax([np.nanmax(arr) for arr in all_pred + all_target]))
     field_norm = colors.Normalize(vmin=u_min, vmax=u_max)
 
     err_abs = float(np.nanmax([np.nanmax(np.abs(arr)) for arr in all_error]))
@@ -93,14 +93,14 @@ def plot_results(
             rows=rows,
             out_path=os.path.join(
                 anim_dir,
-                f"training_size_comparison_rollout_idx{rolloutidx}.gif",
+                f"training_size_comparison_rollout_idx{rolloutidx}.mp4",
             ),
             fps=10,
             interval=100,
             pred_target_cmap="viridis",
             error_cmap="coolwarm",
             pred_target_norm=field_norm,
-            error_norm=err_norm,
+            error_norm=None,
             titles=("Prediction", "Target", "Error"),
             colorbar_label="u",
             azim=azim,
@@ -197,13 +197,15 @@ def animate_sphere_rows(
         all_error.append(u_error)
 
     if pred_target_norm is None:
-        u_min = float(np.nanmin([arr.min() for arr in all_pred_target]))
-        u_max = float(np.nanmax([arr.max() for arr in all_pred_target]))
+        u_min = float(np.nanmin([np.nanmin(arr) for arr in all_pred_target]))
+        u_max = float(np.nanmax([np.nanmax(arr) for arr in all_pred_target]))
         pred_target_norm = colors.Normalize(vmin=u_min, vmax=u_max)
 
-    if error_norm is None:
-        err_abs = float(np.nanmax([np.nanmax(np.abs(arr)) for arr in all_error]))
-        error_norm = colors.Normalize(vmin=-err_abs, vmax=err_abs)
+    # One fixed-in-time error norm per row
+    row_error_norms = []
+    for u_error in all_error:
+        err_abs = float(np.nanmax(np.abs(u_error)))
+        row_error_norms.append(colors.Normalize(vmin=-err_abs, vmax=err_abs))
 
     cmap_pred_target = cm.get_cmap(pred_target_cmap)
     cmap_error = cm.get_cmap(error_cmap)
@@ -214,10 +216,12 @@ def animate_sphere_rows(
     plot_info = []
 
     for r, (u_pred, u_target, u_error, row_label) in enumerate(row_data):
+
+        error_norm_row = error_norm if error_norm is not None else row_error_norms[r]
         datasets = [
             (u_pred, titles[0], cmap_pred_target, pred_target_norm),
             (u_target, titles[1], cmap_pred_target, pred_target_norm),
-            (u_error, titles[2], cmap_error, error_norm),
+            (u_error, titles[2], cmap_error, error_norm_row),
         ]
 
         for c, (u_data, title, cmap, norm) in enumerate(datasets):
@@ -258,6 +262,7 @@ def animate_sphere_rows(
 
             sm = cm.ScalarMappable(norm=norm, cmap=cmap)
             sm.set_array([])
+            sm.set_clim(norm.vmin, norm.vmax)
 
             cbar = fig.colorbar(sm, ax=ax, pad=0.07, shrink=0.75)
             cbar.set_label("error" if title.lower() == "error" else colorbar_label)

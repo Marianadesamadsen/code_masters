@@ -2,7 +2,7 @@
 
 ### General options
 ### –- specify queue --
-#BSUB -q gpul40s
+#BSUB -q gpua100
 
 ### -- set the job Name --
 #BSUB -J train_100_test
@@ -54,9 +54,10 @@ python -m neural_lam.train_model \
     --processor_layers 1 \
     --logger_run_name test_100 \
     --batch_size 32 \
+    --precompute_in_memory \
     --logger-project different_training_size_test \
     --eval "test" \
-    --load "saved_models/train_100/min_val_loss-v1.ckpt" \
-    --ar_steps_eval "20" \
-    --save_eval_to_zarr_path "GNN_training/one_wave/different_training_size/test_100_results.zarr"
+    --load "saved_models/train_100/step-step=200000.ckpt" \
+    --ar_steps_eval "30" \
+    --save_eval_to_zarr_path "GNN_training/one_wave/different_training_size/test_100_results_new.zarr"
 

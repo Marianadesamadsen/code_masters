@@ -1,0 +1,53 @@
+/zhome/5e/a/152106/code_masters/.venv/bin/python
+Python 3.11.15
+Fri May 15 09:52:52 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 595.71.05              Driver Version: 595.71.05      CUDA Version: 13.2     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A40                     On  |   00000000:B1:00.0 Off |                    0 |
+|  0%   63C    P0             70W /  300W |       0MiB /  46068MiB |      0%   E. Process |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+torch.cuda.is_available(): True
+device_name: cuda
+devices arg: auto
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃           Test metric           ┃          DataLoader 0           ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ test_energy_abs_error_rollout1  │       1.0240463018417358        │
+│ test_energy_abs_error_rollout10 │       0.8950214982032776        │
+│ test_energy_abs_error_rollout2  │        1.134767770767212        │
+│ test_energy_abs_error_rollout3  │       1.1750625371932983        │
+│ test_energy_abs_error_rollout5  │       1.1611049175262451        │
+│ test_energy_rel_error_rollout1  │       0.2574463486671448        │
+│ test_energy_rel_error_rollout10 │       0.2374318689107895        │
+│ test_energy_rel_error_rollout2  │       0.28491801023483276       │
+│ test_energy_rel_error_rollout3  │       0.2945490777492523        │
+│ test_energy_rel_error_rollout5  │       0.2905689775943756        │
+│    test_loss_unroll10_epoch     │       0.1771341860294342        │
+│     test_loss_unroll1_epoch     │      0.0006374583463184536      │
+│     test_loss_unroll2_epoch     │      0.0036054938100278378      │
+│     test_loss_unroll3_epoch     │      0.009966101497411728       │
+│     test_loss_unroll5_epoch     │      0.034934282302856445       │
+│   test_mean_energy_abs_error    │        2.170609951019287        │
+│  test_mean_energy_ratio_error   │        0.642766535282135        │
+│   test_mean_energy_rel_error    │        0.642766535282135        │
+│      test_mean_loss_epoch       │       0.6234708428382874        │
+│   test_mean_pred_energy_drift   │        3.11383318901062         │
+│  test_mean_target_energy_drift  │      0.0018259788630530238      │
+└─────────────────────────────────┴─────────────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 888/888 0:09:59 • 0:00:00 1.53it/s 
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mtest_1[0m at: [34mhttps://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/different_training_size_test/runs/5obfix2p[0m

@@ -53,10 +53,11 @@ python -m neural_lam.train_model \
     --epochs 200 \
     --processor_layers 1 \
     --logger_run_name test_50 \
+    --precompute_in_memory \
     --batch_size 32 \
     --logger-project different_training_size_test \
     --eval "test" \
-    --load "saved_models/train_50/min_val_loss-v1.ckpt" \
-    --ar_steps_eval "10" \
-    --save_eval_to_zarr_path "GNN_training/one_wave/different_training_size/test_50_results"
+    --load "saved_models/train_50/step-step=200000.ckpt" \
+    --ar_steps_eval "30" \
+    --save_eval_to_zarr_path "GNN_training/one_wave/different_training_size/test_50_results_new.zarr"
 

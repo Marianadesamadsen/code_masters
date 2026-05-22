@@ -6,7 +6,7 @@ sys.path.insert(0, './')
 import data_generation_functions.SimulatorWaveEquation as simu
 import time
 
-def main():
+def main(): 
 
     R = 1.0 
     C = 1 
