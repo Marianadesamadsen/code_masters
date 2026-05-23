@@ -57,6 +57,155 @@ METRIC_FILENAMES = {
     "rmse": "test_rmse_per_sample.csv",
 }
 
+def add_initial_parameters_to_samples(df_metric, df_meta, metadata):
+    df = attach_metadata(df_metric, df_meta)
+
+    ensemble_members = df["ensemble_member"].to_numpy(dtype=int)
+
+    df["sigma"] = metadata["sigmas"][ensemble_members]
+    df["A"] = metadata["amplitudes"][ensemble_members]
+
+    return df
+
+
+def plot_metric_over_rollout_by_bins(
+    results,
+    metadata,
+    train_size,
+    metric_key,
+    parameter,
+    bins,
+    ylabel,
+    filename,
+    use_log=True,
+):
+    df = add_initial_parameters_to_samples(
+        results[train_size][metric_key],
+        results[train_size]["metadata"],
+        metadata,
+    )
+
+    rollout_cols = get_rollout_columns(df)
+
+    df["bin"] = pd.cut(df[parameter], bins=bins, include_lowest=True)
+
+    fig, ax = plt.subplots(figsize=(10, 6))
+
+    print(f"\n{metric_key.upper()} grouped by {parameter}, train size {train_size}")
+
+    for bin_name, group in df.groupby("bin", observed=True):
+        if len(group) == 0:
+            continue
+
+        mean_over_time = group[rollout_cols].mean(axis=0)
+        rollouts = np.arange(1, len(rollout_cols) + 1)
+
+        if use_log:
+            ax.semilogy(
+                rollouts,
+                mean_over_time,
+                marker="o",
+                linestyle="--",
+                label=f"{bin_name}  n={len(group)}",
+            )
+        else:
+            ax.plot(
+                rollouts,
+                mean_over_time,
+                marker="o",
+                linestyle="--",
+                label=f"{bin_name}  n={len(group)}",
+            )
+
+        print(f"\nBin {bin_name}:")
+        print("  number of samples:", len(group))
+        print("  ensemble members:", sorted(group["ensemble_member"].unique()))
+
+    ax.set_xlabel("Rollout")
+    ax.set_ylabel(ylabel)
+    ax.set_title(f"{ylabel} over rollout grouped by {parameter}, train size {train_size}")
+    ax.grid(True, which="both")
+    ax.legend()
+
+    fig.tight_layout()
+    save_figure(fig, filename)
+
+
+def print_best_worst_by_metric(results, metadata, train_size, metric_key, n=10):
+    score = get_wave_scores(
+        results[train_size][metric_key],
+        results[train_size]["metadata"],
+    )
+
+    df_wave = build_wave_dataframe(score, metadata)
+
+    print_best_worst_waves(
+        df_wave,
+        label=f"{metric_key}, train size {train_size}",
+        n=n,
+    )
+
+
+def analyze_sigma_amplitude_ranges(results, metadata, train_size=50):
+    sigmas = metadata["sigmas"]
+    amplitudes = metadata["amplitudes"]
+
+    sigma_bins = np.linspace(np.nanmin(sigmas), np.nanmax(sigmas), 5)
+    amplitude_bins = np.linspace(np.nanmin(amplitudes), np.nanmax(amplitudes), 5)
+
+    # RMSE grouped by sigma and amplitude
+    plot_metric_over_rollout_by_bins(
+        results,
+        metadata,
+        train_size=train_size,
+        metric_key="rmse",
+        parameter="sigma",
+        bins=sigma_bins,
+        ylabel="RMSE",
+        filename=f"rmse_over_time_by_sigma_train{train_size}.png",
+        use_log=True,
+    )
+
+    plot_metric_over_rollout_by_bins(
+        results,
+        metadata,
+        train_size=train_size,
+        metric_key="rmse",
+        parameter="A",
+        bins=amplitude_bins,
+        ylabel="RMSE",
+        filename=f"rmse_over_time_by_amplitude_train{train_size}.png",
+        use_log=True,
+    )
+
+    # Relative energy error grouped by sigma and amplitude
+    plot_metric_over_rollout_by_bins(
+        results,
+        metadata,
+        train_size=train_size,
+        metric_key="rel_error",
+        parameter="sigma",
+        bins=sigma_bins,
+        ylabel="Relative energy error",
+        filename=f"rel_energy_error_over_time_by_sigma_train{train_size}.png",
+        use_log=True,
+    )
+
+    plot_metric_over_rollout_by_bins(
+        results,
+        metadata,
+        train_size=train_size,
+        metric_key="rel_error",
+        parameter="A",
+        bins=amplitude_bins,
+        ylabel="Relative energy error",
+        filename=f"rel_energy_error_over_time_by_amplitude_train{train_size}.png",
+        use_log=True,
+    )
+
+    # Print best/worst ensemble members
+    print_best_worst_by_metric(results, metadata, train_size, "rmse", n=10)
+    print_best_worst_by_metric(results, metadata, train_size, "rel_error", n=10)
 
 def load_test_metadata(result_dir):
     path = Path(result_dir) / "test_metadata.csv"
@@ -1008,6 +1157,12 @@ def main():
     plot_mean_improvement_over_rollout(results)
 
     analyze_initial_conditions(results, metadata)
+
+    analyze_sigma_amplitude_ranges(
+        results,
+        metadata,
+        train_size=50,
+    )
 
     plot_best_worst_parameter_stripplot(
         results,
