@@ -1,24 +1,13 @@
 """
 Cleaned plotting script for training-size experiments.
 
-This script loads per-sample CSV metrics for different training sizes and produces:
-- sample-wise heatmaps
-- energy drift / relative energy error curves
-- RMSE curves
-- one-step heatmaps
-- per-wave heatmaps
-- per-wave improvement heatmaps
-- per-wave median + IQR plots
-- per-wave parameter diagnostics
-
-Assumptions:
-- Test waves correspond to ensemble members 50:100 in the original NetCDF file.
-- Training waves for training size N correspond to ensemble members 100:100+N.
-- Each metric CSV has shape (n_test_samples, n_rollouts).
+Updated version:
+- Loads test_metadata.csv for each training size.
+- Uses true ensemble_member from metadata.
+- Does NOT infer wave_id from row order.
 """
 
 from pathlib import Path
-import sys
 
 import numpy as np
 import pandas as pd
@@ -37,16 +26,22 @@ BASE_DIR = Path("GNN_training/one_wave/different_training_size")
 RESULTS_DIR = BASE_DIR / "all_results_plot"
 DATASET_PATH = Path("GNN_training/one_wave/nc_files/wave_200_ts_600_g4_sigmamin_15.nc")
 
-TRAINING_SIZES = [10, 25, 50, 75, 100]
-MAIN_TRAINING_SIZES = [10, 50, 100]
-
-N_WAVES_TEST = 50
-TEST_MEMBER_SLICE = slice(50, 100)
+TRAINING_SIZES = [50,50,50]#10, 25, 50, 75, 100]
+MAIN_TRAINING_SIZES = [50,50,50]#10, 50, 100]
 
 RMSE_NORM = LogNorm(vmin=1e-4, vmax=1e-1)
 REL_ENERGY_NORM = LogNorm(vmin=1e-4, vmax=1e-1)
 
 RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+
+# Use a unique, ordered list internally. This prevents repeated keys/plots if
+# TRAINING_SIZES is temporarily set to something like [50, 50, 50].
+AVAILABLE_TRAINING_SIZES = list(dict.fromkeys(TRAINING_SIZES))
+AVAILABLE_MAIN_TRAINING_SIZES = [
+    n for n in list(dict.fromkeys(MAIN_TRAINING_SIZES))
+    if n in AVAILABLE_TRAINING_SIZES
+]
+
 
 
 # ---------------------------------------------------------------------
@@ -63,28 +58,28 @@ METRIC_FILENAMES = {
 }
 
 
-def load_training_size_results(base_dir, training_sizes):
-    """Load all metric CSVs into a nested dictionary.
+def load_test_metadata(result_dir):
+    path = Path(result_dir) / "test_metadata.csv"
+    return pd.read_csv(path)
 
-    Returns
-    -------
-    results[train_size][metric_name] = DataFrame
-    """
+
+def load_training_size_results(base_dir, training_sizes):
     results = {}
 
-    for train_size in training_sizes:
-        result_dir = Path(base_dir) / f"test_{train_size}_results"
+    for train_size in list(dict.fromkeys(training_sizes)):
+        result_dir = Path(base_dir) / f"test_{train_size}_results_new"
         results[train_size] = {}
 
         for metric_name, filename in METRIC_FILENAMES.items():
             path = result_dir / filename
             results[train_size][metric_name] = pd.read_csv(path)
 
+        results[train_size]["metadata"] = load_test_metadata(result_dir)
+
     return results
 
 
 def load_initial_condition_metadata(dataset_path):
-    """Load center, sigma and amplitude metadata from the original NetCDF file."""
     ds = xr.open_dataset(dataset_path)
 
     metadata = {
@@ -97,75 +92,55 @@ def load_initial_condition_metadata(dataset_path):
 
 
 # ---------------------------------------------------------------------
-# Per-wave utilities
+# Per-wave utilities using true metadata
 # ---------------------------------------------------------------------
 
 def get_rollout_columns(df_metric):
-    """Return metric columns, excluding helper columns such as wave_id."""
-    return [col for col in df_metric.columns if col != "wave_id"]
+    return [col for col in df_metric.columns if col.startswith("rollout_")]
 
 
-def add_wave_id(df_metric, n_waves=N_WAVES_TEST):
-    """Add wave_id assuming samples are ordered by wave."""
-    df = df_metric.copy()
-
-    n_samples = df.shape[0]
-    samples_per_wave = n_samples // n_waves
-
-    if n_samples % n_waves != 0:
-        print(
-            f"Warning: {n_samples=} is not divisible by {n_waves=}. "
-            f"Using samples_per_wave={samples_per_wave}."
+def attach_metadata(df_metric, df_meta):
+    if len(df_metric) != len(df_meta):
+        raise ValueError(
+            f"Metric and metadata length mismatch: "
+            f"{len(df_metric)=}, {len(df_meta)=}"
         )
 
-    df["wave_id"] = np.arange(n_samples) // samples_per_wave
-    df = df[df["wave_id"] < n_waves]
-
+    df = df_metric.copy()
+    df["ensemble_member"] = df_meta["ensemble_member"].values
+    df["sample_idx"] = df_meta["sample_idx"].values
     return df
 
 
-def compute_per_wave_metric(df_metric, n_waves=N_WAVES_TEST):
-    """Average metric over all samples belonging to the same wave.
-
-    Returns
-    -------
-    DataFrame with shape (n_waves, n_rollouts)
-    """
-    df = add_wave_id(df_metric, n_waves=n_waves)
+def compute_per_wave_metric(df_metric, df_meta):
+    df = attach_metadata(df_metric, df_meta)
     rollout_cols = get_rollout_columns(df)
 
-    return df.groupby("wave_id")[rollout_cols].mean()
+    return df.groupby("ensemble_member")[rollout_cols].mean()
 
 
-def get_wave_scores(df_metric, n_waves=N_WAVES_TEST):
-    """Mean over all rollouts for each wave."""
-    per_wave = compute_per_wave_metric(df_metric, n_waves=n_waves)
+def get_wave_scores(df_metric, df_meta):
+    per_wave = compute_per_wave_metric(df_metric, df_meta)
     return per_wave.mean(axis=1)
 
 
-def get_wave_scores_at_rollout(df_metric, rollout_idx, n_waves=N_WAVES_TEST):
-    """Mean over samples for each wave at one rollout index."""
-    per_wave = compute_per_wave_metric(df_metric, n_waves=n_waves)
+def get_wave_scores_at_rollout(df_metric, df_meta, rollout_idx):
+    per_wave = compute_per_wave_metric(df_metric, df_meta)
     rollout_col = per_wave.columns[rollout_idx]
     return per_wave[rollout_col]
 
 
-def build_wave_dataframe(score, metadata, test_member_slice=TEST_MEMBER_SLICE):
-    """Combine wave scores with initial-condition metadata."""
-    centers = metadata["centers"][test_member_slice]
-    sigmas = metadata["sigmas"][test_member_slice]
-    amplitudes = metadata["amplitudes"][test_member_slice]
-
-    n_waves = len(score)
+def build_wave_dataframe(score, metadata):
+    ensemble_members = score.index.to_numpy(dtype=int)
 
     return pd.DataFrame({
-        "wave_id": np.arange(n_waves),
+        "ensemble_member": ensemble_members,
         "score": score.values,
-        "sigma": sigmas[:n_waves],
-        "A": amplitudes[:n_waves],
-        "center_x": centers[:n_waves, 0],
-        "center_y": centers[:n_waves, 1],
-        "center_z": centers[:n_waves, 2],
+        "sigma": metadata["sigmas"][ensemble_members],
+        "A": metadata["amplitudes"][ensemble_members],
+        "center_x": metadata["centers"][ensemble_members, 0],
+        "center_y": metadata["centers"][ensemble_members, 1],
+        "center_z": metadata["centers"][ensemble_members, 2],
     })
 
 
@@ -189,7 +164,6 @@ def plot_stacked_heatmaps(
     y_label="Test sample",
     filename=None,
 ):
-    """Plot vertically stacked heatmaps with one shared colorbar."""
     fig, axes = plt.subplots(
         len(matrices),
         1,
@@ -236,8 +210,7 @@ def plot_stacked_heatmaps(
 # ---------------------------------------------------------------------
 
 def plot_sample_heatmaps(results):
-    """Sample-wise RMSE and relative-energy heatmaps."""
-    selected = MAIN_TRAINING_SIZES
+    selected = AVAILABLE_MAIN_TRAINING_SIZES
 
     plot_stacked_heatmaps(
         matrices=[results[n]["rmse"].values for n in selected],
@@ -261,10 +234,9 @@ def plot_sample_heatmaps(results):
 
 
 def plot_energy_drift_and_error(results):
-    """Plot mean relative energy drift and relative energy error over rollout."""
     fig, axes = plt.subplots(2, 1, figsize=(16, 10))
 
-    for train_size in TRAINING_SIZES:
+    for train_size in AVAILABLE_TRAINING_SIZES:
         pred_energy = results[train_size]["pred_energy"]
         rel_error = results[train_size]["rel_error"]
 
@@ -282,7 +254,7 @@ def plot_energy_drift_and_error(results):
             marker="o",
         )
 
-        axes[1].semilogy(
+        axes[1].loglog(
             rollouts_error,
             rel_error.mean(),
             label=rf"${train_size}$",
@@ -306,22 +278,29 @@ def plot_energy_drift_and_error(results):
     save_figure(fig, "energy_drift_over_time.png")
 
 
-def plot_metric_over_rollout(results, metric_name, ylabel, filename, semilogy=False):
-    """Plot mean metric over rollout for each training size."""
+def plot_metric_over_rollout(results, metric_name, ylabel, filename, semilogy=True):
     fig, ax = plt.subplots(figsize=(16, 10))
 
-    for train_size in TRAINING_SIZES:
+    for train_size in AVAILABLE_TRAINING_SIZES:
         df = results[train_size][metric_name]
         rollouts = np.arange(1, df.shape[1] + 1)
 
-        plot_func = ax.semilogy if semilogy else ax.plot
-        plot_func(
-            rollouts,
-            df.mean(),
-            label=rf"${train_size}$",
-            linestyle="--",
-            marker="o",
-        )
+        if semilogy:
+            ax.semilogy(
+                rollouts,
+                df.mean(),
+                label=rf"${train_size}$",
+                linestyle="--",
+                marker="o",
+            )
+        else:
+            ax.loglog(
+                rollouts,
+                df.mean(),
+                label=rf"${train_size}$",
+                linestyle="--",
+                marker="o",
+            )
 
     ax.set_xlabel("Rollout", fontsize=18)
     ax.set_ylabel(ylabel, fontsize=18)
@@ -335,7 +314,6 @@ def plot_metric_over_rollout(results, metric_name, ylabel, filename, semilogy=Fa
 
 
 def plot_one_step_heatmap(results, metric_name, title, colorbar_label, filename, norm):
-    """Plot first-rollout metric across training sizes and samples."""
     matrix = np.vstack([
         results[train_size][metric_name].iloc[:, 0].values
         for train_size in TRAINING_SIZES
@@ -353,10 +331,10 @@ def plot_one_step_heatmap(results, metric_name, title, colorbar_label, filename,
 
     ax.set_title(title, fontsize=18)
     ax.set_ylabel("Training size", fontsize=16)
-    ax.set_yticks(np.arange(len(TRAINING_SIZES)))
-    ax.set_yticklabels([rf"${n}$" for n in TRAINING_SIZES])
+    ax.set_yticks(np.arange(len(AVAILABLE_TRAINING_SIZES)))
+    ax.set_yticklabels([rf"${n}$" for n in AVAILABLE_TRAINING_SIZES])
 
-    for y in np.arange(0.5, len(TRAINING_SIZES), 1):
+    for y in np.arange(0.5, len(AVAILABLE_TRAINING_SIZES), 1):
         ax.axhline(y, color="black", linewidth=1)
 
     cbar = fig.colorbar(im, ax=ax)
@@ -373,10 +351,13 @@ def plot_one_step_heatmap(results, metric_name, title, colorbar_label, filename,
 # ---------------------------------------------------------------------
 
 def plot_per_wave_heatmaps(results):
-    """Per-wave RMSE heatmaps for selected training sizes."""
-    selected = MAIN_TRAINING_SIZES
+    selected = AVAILABLE_MAIN_TRAINING_SIZES
+
     per_wave_rmse = [
-        compute_per_wave_metric(results[n]["rmse"]).values
+        compute_per_wave_metric(
+            results[n]["rmse"],
+            results[n]["metadata"],
+        ).values
         for n in selected
     ]
 
@@ -386,13 +367,12 @@ def plot_per_wave_heatmaps(results):
         title="Per-wave RMSE heatmaps for different training sizes",
         colorbar_label="RMSE",
         norm=RMSE_NORM,
-        y_label="Wave ID",
+        y_label="Ensemble member",
         filename="rmse_heatmaps_per_wave.png",
     )
 
 
-def plot_per_wave_score_boxplots(results, rollout_indices=(0, 9, 18)):
-    """Boxplots of per-wave metric distributions across training sizes."""
+def plot_per_wave_score_boxplots(results, rollout_indices=(0, 9, 17)):
     metrics = {
         "RMSE": ("rmse", "rmse_rollout_comparison.png"),
         "Relative energy error": ("rel_error", "relative_energy_error_rollout_comparison.png"),
@@ -412,14 +392,15 @@ def plot_per_wave_score_boxplots(results, rollout_indices=(0, 9, 18)):
         for ax, rollout_idx in zip(axes, rollout_indices):
             plot_data = []
 
-            for train_size in TRAINING_SIZES:
+            for train_size in AVAILABLE_TRAINING_SIZES:
                 score = get_wave_scores_at_rollout(
                     results[train_size][metric_key],
-                    rollout_idx=rollout_idx,
+                    results[train_size]["metadata"],
+                    rollout_idx,
                 )
                 plot_data.append(score.values)
 
-            ax.boxplot(plot_data, labels=[str(n) for n in TRAINING_SIZES], showmeans=True)
+            ax.boxplot(plot_data, labels=[str(n) for n in AVAILABLE_TRAINING_SIZES], showmeans=True)
 
             for i, values in enumerate(plot_data, start=1):
                 jitter = np.random.normal(0, 0.04, size=len(values))
@@ -439,7 +420,6 @@ def plot_per_wave_score_boxplots(results, rollout_indices=(0, 9, 18)):
 
 
 def plot_median_iqr_vs_training_size(results, rollout_indices=(0, 9, 17)):
-    """Median and interquartile range across waves as a function of training size."""
     metrics = {
         "RMSE": ("rmse", "rmse_median_iqr_vs_training_size.png"),
         "Relative energy error": ("rel_error", "relative_energy_error_median_iqr_vs_training_size.png"),
@@ -453,10 +433,11 @@ def plot_median_iqr_vs_training_size(results, rollout_indices=(0, 9, 17)):
             q25s = []
             q75s = []
 
-            for train_size in TRAINING_SIZES:
+            for train_size in AVAILABLE_TRAINING_SIZES:
                 scores = get_wave_scores_at_rollout(
                     results[train_size][metric_key],
-                    rollout_idx=rollout_idx,
+                    results[train_size]["metadata"],
+                    rollout_idx,
                 ).values
 
                 medians.append(np.median(scores))
@@ -468,14 +449,14 @@ def plot_median_iqr_vs_training_size(results, rollout_indices=(0, 9, 17)):
             q75s = np.asarray(q75s)
 
             ax.plot(
-                TRAINING_SIZES,
+                AVAILABLE_TRAINING_SIZES,
                 medians,
                 marker="o",
                 linewidth=2,
                 label=f"Rollout {rollout_idx}",
             )
 
-            ax.fill_between(TRAINING_SIZES, q25s, q75s, alpha=0.2)
+            ax.fill_between(AVAILABLE_TRAINING_SIZES, q25s, q75s, alpha=0.2)
 
         ax.set_xlabel("Training size")
         ax.set_ylabel(metric_label)
@@ -490,33 +471,62 @@ def plot_median_iqr_vs_training_size(results, rollout_indices=(0, 9, 17)):
 
 
 def plot_improvement_heatmaps(results):
-    """Per-wave RMSE improvement heatmaps.
+    rmse_waves = {}
 
-    Positive values mean the larger training size has lower RMSE.
-    """
-    rmse_waves = {
-        n: compute_per_wave_metric(results[n]["rmse"]).values
-        for n in TRAINING_SIZES
-    }
+    for train_size in AVAILABLE_TRAINING_SIZES:
+        rmse_waves[train_size] = compute_per_wave_metric(
+            results[train_size]["rmse"],
+            results[train_size]["metadata"],
+        )
 
-    diff_pairs = [
+    requested_pairs = [
         (10, 25),
         (25, 50),
         (50, 75),
         (75, 100),
     ]
 
-    diffs = [
-        rmse_waves[a] - rmse_waves[b]
-        for a, b in diff_pairs
+    # Only keep comparison pairs that are actually available.
+    diff_pairs = [
+        (a, b)
+        for a, b in requested_pairs
+        if a in rmse_waves and b in rmse_waves
     ]
 
-    labels = [
-        f"Train {a} - Train {b}"
-        for a, b in diff_pairs
-    ]
+    if len(diff_pairs) == 0:
+        print(
+            "Skipping RMSE improvement heatmaps: need at least one available "
+            "pair among (10,25), (25,50), (50,75), (75,100). "
+            f"Currently available: {AVAILABLE_TRAINING_SIZES}"
+        )
+        return
+
+    diffs = []
+    labels = []
+
+    for a, b in diff_pairs:
+        common_members = rmse_waves[a].index.intersection(rmse_waves[b].index)
+
+        if len(common_members) == 0:
+            print(f"Skipping pair {a}->{b}: no common ensemble members.")
+            continue
+
+        diff = (
+            rmse_waves[a].loc[common_members].values
+            - rmse_waves[b].loc[common_members].values
+        )
+
+        diffs.append(diff)
+        labels.append(f"Train {a} - Train {b}")
+
+    if len(diffs) == 0:
+        print("Skipping RMSE improvement heatmaps: no valid differences.")
+        return
 
     max_abs = max(np.nanmax(np.abs(diff)) for diff in diffs)
+
+    if max_abs == 0 or not np.isfinite(max_abs):
+        max_abs = 1e-12
 
     norm = SymLogNorm(
         linthresh=1e-4,
@@ -548,7 +558,7 @@ def plot_improvement_heatmaps(results):
             norm=norm,
         )
 
-        ax.set_ylabel("Wave ID")
+        ax.set_ylabel("Ensemble member")
         ax.set_title(label, fontsize=14, fontweight="bold")
         ax.set_xticks(np.arange(diff.shape[1]))
 
@@ -562,25 +572,50 @@ def plot_improvement_heatmaps(results):
 
     save_figure(fig, "rmse_difference_heatmaps_per_wave.png")
 
-
 def plot_mean_improvement_over_rollout(results):
-    """Mean RMSE improvement over rollout for adjacent training-size pairs."""
     rmse_waves = {
-        n: compute_per_wave_metric(results[n]["rmse"]).values
-        for n in TRAINING_SIZES
+        n: compute_per_wave_metric(
+            results[n]["rmse"],
+            results[n]["metadata"],
+        )
+        for n in AVAILABLE_TRAINING_SIZES
     }
 
-    pairs = [
+    requested_pairs = [
         (10, 25),
         (25, 50),
         (50, 75),
         (75, 100),
     ]
 
+    pairs = [
+        (a, b)
+        for a, b in requested_pairs
+        if a in rmse_waves and b in rmse_waves
+    ]
+
+    if len(pairs) == 0:
+        print(
+            "Skipping mean RMSE improvement plot: need at least one available "
+            "pair among (10,25), (25,50), (50,75), (75,100). "
+            f"Currently available: {AVAILABLE_TRAINING_SIZES}"
+        )
+        return
+
     fig, ax = plt.subplots(figsize=(7, 5))
 
     for a, b in pairs:
-        diff = rmse_waves[a] - rmse_waves[b]
+        common_members = rmse_waves[a].index.intersection(rmse_waves[b].index)
+
+        if len(common_members) == 0:
+            print(f"Skipping pair {a}->{b}: no common ensemble members.")
+            continue
+
+        diff = (
+            rmse_waves[a].loc[common_members].values
+            - rmse_waves[b].loc[common_members].values
+        )
+
         mean_improvement = diff.mean(axis=0)
         ax.plot(mean_improvement, label=f"{a} → {b}", marker="o")
 
@@ -599,11 +634,10 @@ def plot_mean_improvement_over_rollout(results):
 # ---------------------------------------------------------------------
 
 def print_best_worst_waves(df_wave, label, n=5):
-    """Print best/worst waves with metadata."""
     print(f"\n{label}: worst {n} waves")
     for _, row in df_wave.nlargest(n, "score").iterrows():
         print(
-            int(row["wave_id"]),
+            int(row["ensemble_member"]),
             "sigma =", row["sigma"],
             "A =", row["A"],
             "center =",
@@ -614,7 +648,7 @@ def print_best_worst_waves(df_wave, label, n=5):
     print(f"\n{label}: best {n} waves")
     for _, row in df_wave.nsmallest(n, "score").iterrows():
         print(
-            int(row["wave_id"]),
+            int(row["ensemble_member"]),
             "sigma =", row["sigma"],
             "A =", row["A"],
             "center =",
@@ -624,7 +658,6 @@ def print_best_worst_waves(df_wave, label, n=5):
 
 
 def plot_score_vs_initial_parameters(df_wave, score_label, filename_prefix):
-    """Scatter score against sigma and amplitude, highlighting best/worst waves."""
     best_idx = df_wave.nsmallest(10, "score").index
     worst_idx = df_wave.nlargest(10, "score").index
 
@@ -675,7 +708,6 @@ def plot_score_histogram(df_wave, score_label, filename):
 
 
 def plot_centers_colored_by_score(df_wave, score_label, filename):
-    """3D scatter of wave centers colored by score."""
     best_idx = df_wave.nsmallest(5, "score").index
     worst_idx = df_wave.nlargest(5, "score").index
 
@@ -716,7 +748,7 @@ def plot_centers_colored_by_score(df_wave, score_label, filename):
             df_wave.loc[idx, "center_x"],
             df_wave.loc[idx, "center_y"],
             df_wave.loc[idx, "center_z"],
-            str(int(df_wave.loc[idx, "wave_id"])),
+            str(int(df_wave.loc[idx, "ensemble_member"])),
             fontsize=8,
         )
 
@@ -735,24 +767,34 @@ def plot_centers_colored_by_score(df_wave, score_label, filename):
 
 
 def analyze_initial_conditions(results, metadata):
-    """Initial-condition analysis for relative energy and RMSE."""
     diagnostics = [
         (
             "Relative energy error",
             "rel_error",
-            10,
+            50,
             "rel_energy",
         ),
         (
             "Mean RMSE",
             "rmse",
-            100,
+            50,
             "rmse_train100",
         ),
     ]
 
     for score_label, metric_key, train_size, prefix in diagnostics:
-        score = get_wave_scores(results[train_size][metric_key])
+        if train_size not in results:
+            print(
+                f"Skipping initial-condition diagnostic for train size {train_size}: "
+                f"available sizes are {AVAILABLE_TRAINING_SIZES}."
+            )
+            continue
+
+        score = get_wave_scores(
+            results[train_size][metric_key],
+            results[train_size]["metadata"],
+        )
+
         df_wave = build_wave_dataframe(score, metadata)
 
         print_best_worst_waves(df_wave, label=f"{score_label}, train size {train_size}")
@@ -783,8 +825,21 @@ def analyze_initial_conditions(results, metadata):
         )
 
 
-def plot_best_worst_parameter_stripplot(results, metadata, training_sizes=(10, 50, 100), rollout_indices=(0, 9, 17)):
-    """Strip plot of training parameters vs best/worst test waves for several rollouts."""
+def plot_best_worst_parameter_stripplot(
+    results,
+    metadata,
+    training_sizes=(10, 50, 100),
+    rollout_indices=(0, 9, 17),
+):
+    training_sizes = [n for n in training_sizes if n in results]
+
+    if len(training_sizes) == 0:
+        print(
+            "Skipping best/worst parameter stripplot: none of the requested "
+            f"training sizes are available. Available sizes: {AVAILABLE_TRAINING_SIZES}"
+        )
+        return
+
     sigmas = metadata["sigmas"]
     amplitudes = metadata["amplitudes"]
 
@@ -800,6 +855,9 @@ def plot_best_worst_parameter_stripplot(results, metadata, training_sizes=(10, 5
         figsize=(17, 3.6 * len(training_sizes)),
         sharex=False,
     )
+
+    if len(training_sizes) == 1:
+        axes = np.asarray([axes])
 
     rng = np.random.default_rng(42)
 
@@ -836,21 +894,30 @@ def plot_best_worst_parameter_stripplot(results, metadata, training_sizes=(10, 5
             for rollout_idx in rollout_indices:
                 color = rollout_colors[rollout_idx]
 
-                rmse_score = get_wave_scores_at_rollout(results[train_size]["rmse"], rollout_idx)
-                rel_score = get_wave_scores_at_rollout(results[train_size]["rel_error"], rollout_idx)
+                rmse_score = get_wave_scores_at_rollout(
+                    results[train_size]["rmse"],
+                    results[train_size]["metadata"],
+                    rollout_idx,
+                )
+
+                rel_score = get_wave_scores_at_rollout(
+                    results[train_size]["rel_error"],
+                    results[train_size]["metadata"],
+                    rollout_idx,
+                )
 
                 groups = {
-                    1: rmse_score.nsmallest(10).index.values,
-                    2: rmse_score.nlargest(10).index.values,
-                    3: rel_score.nsmallest(10).index.values,
-                    4: rel_score.nlargest(10).index.values,
+                    1: rmse_score.nsmallest(10).index.to_numpy(dtype=int),
+                    2: rmse_score.nlargest(10).index.to_numpy(dtype=int),
+                    3: rel_score.nsmallest(10).index.to_numpy(dtype=int),
+                    4: rel_score.nlargest(10).index.to_numpy(dtype=int),
                 }
 
                 for x_pos, ids in groups.items():
                     if param_name == "sigma":
-                        group_vals = sigmas[TEST_MEMBER_SLICE][ids]
+                        group_vals = sigmas[ids]
                     else:
-                        group_vals = amplitudes[TEST_MEMBER_SLICE][ids]
+                        group_vals = amplitudes[ids]
 
                     jitter = rng.normal(0, 0.035, size=len(group_vals))
 
@@ -897,7 +964,7 @@ def plot_best_worst_parameter_stripplot(results, metadata, training_sizes=(10, 5
 # ---------------------------------------------------------------------
 
 def main():
-    results = load_training_size_results(BASE_DIR, TRAINING_SIZES)
+    results = load_training_size_results(BASE_DIR, AVAILABLE_TRAINING_SIZES)
     metadata = load_initial_condition_metadata(DATASET_PATH)
 
     plot_sample_heatmaps(results)

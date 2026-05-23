@@ -11,11 +11,13 @@ args = [
 "--logger_run_name", "test_50",
 "--batch_size", "32" ,
 "--logger-project" ,"different_training_size_test",
-"--precompute_in_memory", "True",
+"--precompute_in_memory", 
 "--eval", "test",
-"--load", "saved_models/train_50/min_val_loss-v1.ckpt",
+"--load", "saved_models/train_50/step-step=200000.ckpt",
 "--ar_steps_eval", "20",
 "--save_eval_to_zarr_path", "GNN_training/one_wave/different_training_size/test_50_results.zarr"
 ]
 
 main(args)
+
+
