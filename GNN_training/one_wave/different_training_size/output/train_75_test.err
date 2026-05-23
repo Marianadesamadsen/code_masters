@@ -47,3 +47,135 @@ Loaded model weights from the checkpoint at saved_models/train_75/step-step=2000
   warnings.warn(
 /zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
   warnings.warn(
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Seed set to 42
+2026-05-23 12:38:06.978 | ERROR    | __main__:<module>:447 - An error has been caught in function '<module>', process 'MainProcess' (496999), thread 'MainThread' (139790025623360):
+Traceback (most recent call last):
+
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+
+> File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 447, in <module>
+    main()
+    └ <function main at 0x7f2234e6b6a0>
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 327, in main
+    config, datastore = load_config_and_datastore(config_path=args.config_path)
+                        │                                     │    └ 'GNN_training/one_wave/yaml_files/config_wave_75_train.yaml'
+                        │                                     └ Namespace(config_path='GNN_training/one_wave/yaml_files/config_wave_75_train.yaml', model='graph_lam', seed=42, num_workers=0...
+                        └ <function load_config_and_datastore at 0x7f2366690cc0>
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/config.py", line 184, in load_config_and_datastore
+    datastore = init_datastore(
+                └ <function init_datastore at 0x7f2239a2f1a0>
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/__init__.py", line 25, in init_datastore
+    datastore = DatastoreClass(config_path=config_path)
+                │                          └ PosixPath('GNN_training/one_wave/yaml_files/wave_75_train.yaml')
+                └ <class 'neural_lam.datastore.mdp.MDPDatastore'>
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py", line 74, in __init__
+    self._ds = xr.open_zarr(fp_ds, consolidated=True)
+    │    │     │  │         └ PosixPath('GNN_training/one_wave/yaml_files/wave_75_train.zarr')
+    │    │     │  └ <function open_zarr at 0x7f22378ee340>
+    │    │     └ <module 'xarray' from '/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/__init__.py'>
+    │    └ None
+    └ <neural_lam.datastore.mdp.MDPDatastore object at 0x7f22357bb490>
+
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 1609, in open_zarr
+    ds = open_dataset(
+         └ <function open_dataset at 0x7f223791a0c0>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/api.py", line 607, in open_dataset
+    backend_ds = backend.open_dataset(
+                 │       └ <function ZarrBackendEntrypoint.open_dataset at 0x7f22378ef600>
+                 └ <ZarrBackendEntrypoint>
+                     Open zarr files (.zarr) using zarr in Xarray
+                     Learn more at https://docs.xarray.dev/en/stable/gene...
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 1683, in open_dataset
+    store = ZarrStore.open_group(
+            │         └ <classmethod(<function ZarrStore.open_group at 0x7f22378ee480>)>
+            └ <class 'xarray.backends.zarr.ZarrStore'>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 722, in open_group
+    ) = _get_open_params(
+        └ <function _get_open_params at 0x7f22378ef4c0>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 1887, in _get_open_params
+    zarr_root_group = zarr.open_consolidated(store, **open_kwargs)
+                      │    │                 │        └ {'mode': 'r', 'synchronizer': None, 'storage_options': None, 'zarr_format': None}
+                      │    │                 └ '/zhome/5e/a/152106/code_masters/GNN_training/one_wave/yaml_files/wave_75_train.zarr'
+                      │    └ <function open_consolidated at 0x7f223715d9e0>
+                      └ <module 'zarr' from '/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/__init__.py'>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/synchronous.py", line 238, in open_consolidated
+    sync(async_api.open_consolidated(*args, use_consolidated=use_consolidated, **kwargs))
+    │    │         │                  │                      │                   └ {'mode': 'r', 'synchronizer': None, 'storage_options': None, 'zarr_format': None}
+    │    │         │                  │                      └ True
+    │    │         │                  └ ('/zhome/5e/a/152106/code_masters/GNN_training/one_wave/yaml_files/wave_75_train.zarr',)
+    │    │         └ <function open_consolidated at 0x7f223715c7c0>
+    │    └ <module 'zarr.api.asynchronous' from '/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronou...
+    └ <function sync at 0x7f22370f5da0>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/sync.py", line 159, in sync
+    raise return_result
+          └ GroupNotFoundError("No group found in store '/zhome/5e/a/152106/code_masters/GNN_training/one_wave/yaml_files/wave_75_train.z...
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/sync.py", line 119, in _runner
+    return await coro
+                 └ <coroutine object open_consolidated at 0x7f2234e271f0>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronous.py", line 415, in open_consolidated
+    return await open_group(*args, use_consolidated=use_consolidated, **kwargs)
+                 │           │                      │                   └ {'mode': 'r', 'synchronizer': None, 'storage_options': None, 'zarr_format': None}
+                 │           │                      └ True
+                 │           └ ('/zhome/5e/a/152106/code_masters/GNN_training/one_wave/yaml_files/wave_75_train.zarr',)
+                 └ <function open_group at 0x7f223715cd60>
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronous.py", line 881, in open_group
+    raise GroupNotFoundError(msg)
+          │                  └ "No group found in store '/zhome/5e/a/152106/code_masters/GNN_training/one_wave/yaml_files/wave_75_train.zarr' at path ''"
+          └ <class 'zarr.errors.GroupNotFoundError'>
+
+zarr.errors.GroupNotFoundError: No group found in store '/zhome/5e/a/152106/code_masters/GNN_training/one_wave/yaml_files/wave_75_train.zarr' at path ''
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 447, in <module>
+    main()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/loguru/_logger.py", line 1297, in catch_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 327, in main
+    config, datastore = load_config_and_datastore(config_path=args.config_path)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/config.py", line 184, in load_config_and_datastore
+    datastore = init_datastore(
+                ^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/__init__.py", line 25, in init_datastore
+    datastore = DatastoreClass(config_path=config_path)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py", line 74, in __init__
+    self._ds = xr.open_zarr(fp_ds, consolidated=True)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 1609, in open_zarr
+    ds = open_dataset(
+         ^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/api.py", line 607, in open_dataset
+    backend_ds = backend.open_dataset(
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 1683, in open_dataset
+    store = ZarrStore.open_group(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 722, in open_group
+    ) = _get_open_params(
+        ^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 1887, in _get_open_params
+    zarr_root_group = zarr.open_consolidated(store, **open_kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/synchronous.py", line 238, in open_consolidated
+    sync(async_api.open_consolidated(*args, use_consolidated=use_consolidated, **kwargs))
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/sync.py", line 159, in sync
+    raise return_result
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/sync.py", line 119, in _runner
+    return await coro
+           ^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronous.py", line 415, in open_consolidated
+    return await open_group(*args, use_consolidated=use_consolidated, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronous.py", line 881, in open_group
+    raise GroupNotFoundError(msg)
+zarr.errors.GroupNotFoundError: No group found in store '/zhome/5e/a/152106/code_masters/GNN_training/one_wave/yaml_files/wave_75_train.zarr' at path ''

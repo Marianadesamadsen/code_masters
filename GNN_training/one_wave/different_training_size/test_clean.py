@@ -26,8 +26,8 @@ BASE_DIR = Path("GNN_training/one_wave/different_training_size")
 RESULTS_DIR = BASE_DIR / "all_results_plot"
 DATASET_PATH = Path("GNN_training/one_wave/nc_files/wave_200_ts_600_g4_sigmamin_15.nc")
 
-TRAINING_SIZES = [50,50,50]#10, 25, 50, 75, 100]
-MAIN_TRAINING_SIZES = [50,50,50]#10, 50, 100]
+TRAINING_SIZES = [1, 5, 10, 25, 50, 75, 100]
+MAIN_TRAINING_SIZES = [10, 50, 100]
 
 RMSE_NORM = LogNorm(vmin=1e-4, vmax=1e-1)
 REL_ENERGY_NORM = LogNorm(vmin=1e-4, vmax=1e-1)

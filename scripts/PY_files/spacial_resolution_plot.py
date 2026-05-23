@@ -3,11 +3,11 @@ import matplotlib.pyplot as plt
 
 # Grid spacing
 dx =  0.020718449365429062  # radians
-dt = 0.01232234018801084
+dt =  0.0077576101114189
 
 # Gaussian widths
-sigma6 = np.deg2rad(4) #8
-sigma10 = np.deg2rad(30.0) #30
+sigma6 = np.deg2rad(6) #8
+sigma10 = np.deg2rad(25.0) #30
 
 # Angular distance axis
 alpha = np.linspace(-0.5, 0.5, 800)
@@ -18,8 +18,8 @@ g10 = np.exp(-(alpha**2) / (2 * sigma10**2))
 
 # Plot
 plt.figure(figsize=(8, 5))
-plt.plot(alpha, g6, label=r"$\sigma = 8^\circ$")
-plt.plot(alpha, g10, label=r"$\sigma = 30^\circ$")
+plt.plot(alpha, g6, label=r"$\sigma = 6^\circ$")
+plt.plot(alpha, g10, label=r"$\sigma = 25^\circ$")
 
 # Draw vertical lines for the grid spacing
 for k in range(-25, 25):

@@ -10,19 +10,19 @@ def main():
 
     R = 1.0 
     C = 1 
-    Lmax = 25
+    Lmax = 40
     generations = 4
     omega_max = (C / R) * np.sqrt(Lmax * (Lmax + 1))
     T_min = 2 * np.pi / omega_max
     print("dt compute",T_min / 20 )
     dt = T_min / 20 # 0.010361252408621261/3 # 
     N_members = 200
-    tmax = dt*600
+    tmax = dt*810
     print("tmax",tmax) 
-    title = "wave_250_ts_600_g4_sigmamin_15"
+    title = "wave_250_ts_600_g4_sigmamin_6"
     nc_path = r"GNN_training\one_wave\nc_files"
 
-    sigma_range=(15.0, 20.0)
+    sigma_range=(6.0, 25.0)
     A_range=(1.0, 2.0)
     
     rng = np.random.default_rng(42) 

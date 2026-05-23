@@ -2,7 +2,7 @@
 
 ### General options
 ### –- specify queue --
-#BSUB -q gpua40
+#BSUB -q gpul40s
 
 ### -- set the job Name --
 #BSUB -J train_10_test

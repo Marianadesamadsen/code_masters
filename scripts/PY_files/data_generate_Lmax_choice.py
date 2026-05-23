@@ -8,7 +8,7 @@ import os
 
 R = 1.0
 C = 1.0
-Lmax = 50
+Lmax = 40
 A = 1
 generations = 4
 
@@ -34,7 +34,7 @@ def f_handle(x, y, z):
     cos_alpha = np.clip(dot / R**2, -1.0, 1.0)
 
     alpha = np.arccos(cos_alpha)
-    sigma = np.deg2rad(4.0)
+    sigma = np.deg2rad(6.0)
     return A*np.exp(-(alpha**2) / (2*sigma**2))
 
 sim = simu.SimulatorWaveEquation(
