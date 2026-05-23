@@ -5,7 +5,7 @@
 #BSUB -q gpua100
 
 ### -- set the job Name --
-#BSUB -J train_0005
+#BSUB -J train_005
 
 ### -- ask for number of cores (default: 1) --
 #BSUB -n 4
@@ -31,8 +31,8 @@
 ### -- Specify the output and error file. %J is the job-id --
 ### -- -o and -e mean append, -oo and -eo mean overwrite --
 
-#BSUB -o GNN_training/one_wave/different_LR/output/train_0005.out
-#BSUB -e GNN_training/one_wave/different_LR/output/train_0005.err
+#BSUB -o GNN_training/one_wave/different_LR/output/train_005.out
+#BSUB -e GNN_training/one_wave/different_LR/output/train_005.err
 # -- end of LSF options --
 
 cd /zhome/5e/a/152106/code_masters
@@ -50,7 +50,7 @@ python -m neural_lam.train_model \
     --seed 42 \
     --num_workers 0 \
     --processor_layers 1 \
-    --logger_run_name train_0005 \
+    --logger_run_name train_005 \
     --batch_size 32 \
     --logger-project different_LR \
     --precompute_in_memory \

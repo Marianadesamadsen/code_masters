@@ -2,12 +2,12 @@ import xarray as xr
 import numpy as np
 
 paths = [
-    "GNN_training/one_wave/yaml_files/wave_1_train.zarr",
-    "GNN_training/one_wave/yaml_files/wave_10_train.zarr",
-    "GNN_training/one_wave/yaml_files/wave_25_train.zarr",
+    #"GNN_training/one_wave/yaml_files/wave_1_train.zarr",
+    #"GNN_training/one_wave/yaml_files/wave_10_train.zarr",
+    #"GNN_training/one_wave/yaml_files/wave_25_train.zarr",
     "GNN_training/one_wave/yaml_files/wave_50_train.zarr",
-    "GNN_training/one_wave/yaml_files/wave_75_train.zarr",
-   "GNN_training/one_wave/yaml_files/wave_100_train.zarr",
+    #"GNN_training/one_wave/yaml_files/wave_75_train.zarr",
+   #"GNN_training/one_wave/yaml_files/wave_100_train.zarr",
 ]
 
 for p in paths:

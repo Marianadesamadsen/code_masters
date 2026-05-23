@@ -20,9 +20,10 @@ plot_animations.plot_results(
     ds_geo_dir=ds_geo_dir,
     raw_dirs=[
         "GNN_training/one_wave/different_training_size/test_5_results_new.zarr",
+        "GNN_training/one_wave/different_training_size/test_10_results_new.zarr",
         "GNN_training/one_wave/different_training_size/test_25_results_new.zarr",
         "GNN_training/one_wave/different_training_size/test_50_results_new.zarr",
-        "GNN_training/one_wave/different_training_size/test_100_results_new.zarr",
+        #"GNN_training/one_wave/different_training_size/test_75_results_new.zarr",
     ],
     plot_dir=plot_dir,
     anim_dir=anim_dir,

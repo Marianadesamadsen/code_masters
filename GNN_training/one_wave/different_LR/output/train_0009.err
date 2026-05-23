@@ -41,3 +41,131 @@ LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
 /zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
 /zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:434: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=3` in the `DataLoader` to improve performance.
 `Trainer.fit` stopped: `max_steps=250000` reached.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Seed set to 42
+2026-05-23 14:32:17.936 | INFO     | mllam_data_prep.create_dataset:create_dataset:176 - Loading dataset wave_sphere from GNN_training/one_wave/nc_files/wave_200_ts_600_g4_sigmamin_6.nc
+2026-05-23 14:32:18.492 | INFO     | mllam_data_prep.create_dataset:create_dataset:190 - Extracting selected variables from dataset wave_sphere
+2026-05-23 14:32:18.492 | INFO     | mllam_data_prep.create_dataset:create_dataset:236 - Mapping dimensions and variables for dataset wave_sphere to state
+2026-05-23 14:32:59.466 | ERROR    | __main__:<module>:447 - An error has been caught in function '<module>', process 'MainProcess' (938319), thread 'MainThread' (140036674287424):
+Traceback (most recent call last):
+
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+
+> File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 447, in <module>
+    main()
+    └ <function main at 0x7f5ba24d3600>
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 327, in main
+    config, datastore = load_config_and_datastore(config_path=args.config_path)
+                        │                                     │    └ 'GNN_training/one_wave/yaml_files/config_wave_50_train.yaml'
+                        │                                     └ Namespace(config_path='GNN_training/one_wave/yaml_files/config_wave_50_train.yaml', model='graph_lam', seed=42, num_workers=0...
+                        └ <function load_config_and_datastore at 0x7f5cd3d20cc0>
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/config.py", line 184, in load_config_and_datastore
+    datastore = init_datastore(
+                └ <function init_datastore at 0x7f5ba7063100>
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/__init__.py", line 25, in init_datastore
+    datastore = DatastoreClass(config_path=config_path)
+                │                          └ PosixPath('GNN_training/one_wave/yaml_files/wave_50_train.yaml')
+                └ <class 'neural_lam.datastore.mdp.MDPDatastore'>
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py", line 82, in __init__
+    self._ds = mdp.create_dataset(config=self._config)
+    │    │     │   │                     │    └ Config(output=Output(variables={'static': ['grid_index', 'static_feature'], 'state': ['time', 'grid_index', 'state_feature', ...
+    │    │     │   │                     └ <neural_lam.datastore.mdp.MDPDatastore object at 0x7f5ba2b23890>
+    │    │     │   └ <function create_dataset at 0x7f5ba3837e20>
+    │    │     └ <module 'mllam_data_prep' from '/zhome/5e/a/152106/code_masters/mllam-data-prep/mllam_data_prep/__init__.py'>
+    │    └ None
+    └ <neural_lam.datastore.mdp.MDPDatastore object at 0x7f5ba2b23890>
+
+  File "/zhome/5e/a/152106/code_masters/mllam-data-prep/mllam_data_prep/create_dataset.py", line 263, in create_dataset
+    da_target = select_by_kwargs(da_target, **output_coord_ranges_tmp)
+                │                │            └ {'time': Range(start=0, end=6.283664190249309, step=None)}
+                │                └ <xarray.DataArray 'u' (state_feature: 1, ensemble_member: 200, time: 810,
+                │                                         grid_index: 2562)> Size: 3GB...
+                └ <function select_by_kwargs at 0x7f5ba47af4c0>
+
+  File "/zhome/5e/a/152106/code_masters/mllam-data-prep/mllam_data_prep/ops/selection.py", line 78, in select_by_kwargs
+    check_point_in_dataset(coord, sel_end, ds)
+    │                      │      │        └ <xarray.DataArray 'u' (state_feature: 1, ensemble_member: 200, time: 810,
+    │                      │      │                                 grid_index: 2562)> Size: 3GB...
+    │                      │      └ 6.283664190249309
+    │                      └ 'time'
+    └ <function check_point_in_dataset at 0x7f5ba47af6a0>
+
+  File "/zhome/5e/a/152106/code_masters/mllam-data-prep/mllam_data_prep/ops/selection.py", line 100, in check_point_in_dataset
+    raise ValueError(
+
+ValueError: Provided value for coordinate time (6.283664190249309) is not in the data.
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 447, in <module>
+    main()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/loguru/_logger.py", line 1297, in catch_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 327, in main
+    config, datastore = load_config_and_datastore(config_path=args.config_path)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/config.py", line 184, in load_config_and_datastore
+    datastore = init_datastore(
+                ^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/__init__.py", line 25, in init_datastore
+    datastore = DatastoreClass(config_path=config_path)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py", line 82, in __init__
+    self._ds = mdp.create_dataset(config=self._config)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/mllam-data-prep/mllam_data_prep/create_dataset.py", line 263, in create_dataset
+    da_target = select_by_kwargs(da_target, **output_coord_ranges_tmp)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/mllam-data-prep/mllam_data_prep/ops/selection.py", line 78, in select_by_kwargs
+    check_point_in_dataset(coord, sel_end, ds)
+  File "/zhome/5e/a/152106/code_masters/mllam-data-prep/mllam_data_prep/ops/selection.py", line 100, in check_point_in_dataset
+    raise ValueError(
+ValueError: Provided value for coordinate time (6.283664190249309) is not in the data.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Seed set to 42
+2026-05-23 16:03:57.618 | INFO     | neural_lam.utils:log_on_rank_zero:457 - The loaded datastore contains the following features:
+2026-05-23 16:03:57.619 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  state   : u
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:210: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+2026-05-23 16:03:57.621 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  static  : x_static y_static z_static
+2026-05-23 16:03:57.621 | INFO     | neural_lam.utils:log_on_rank_zero:457 - With the following splits (over time):
+2026-05-23 16:03:57.744 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  train   : 100 to 149
+2026-05-23 16:03:57.754 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  val     : 0 to 49
+2026-05-23 16:03:57.763 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  test    : 50 to 99
+2026-05-23 16:04:00.563 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Loaded graph with 5124 nodes (2562 grid, 2562 mesh)
+2026-05-23 16:04:00.647 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Edges in subgraphs: m2m=15360, g2m=2562, m2g=2562
+2026-05-23 16:04:00.700 | INFO     | neural_lam.utils:setup_training_logger:514 - Wandb resume mode: None (id: None)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+wandb: WARNING The anonymous setting has no effect and will be removed in a future version.
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /zhome/5e/a/152106/.netrc.
+wandb: Currently logged in as: s201205 (s201205-danmarks-tekniske-universitet-dtu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run lpgmr44h
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in wandb/run-20260523_160407-lpgmr44h
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run train_0009
+wandb: ⭐️ View project at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/different_LR
+wandb: 🚀 View run at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/different_LR/runs/lpgmr44h
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:295: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+2026-05-23 16:04:20.918 | INFO     | neural_lam.weather_dataset:_precompute_samples:166 - Precomputing train samples in memory
+2026-05-23 16:05:06.196 | INFO     | neural_lam.weather_dataset:_precompute_samples:297 - Precomputed arrays: init=(40350, 2, 2562, 1), target=(40350, 1, 2562, 1), forcing=(40350, 1, 2562, 0), times=(40350, 1)
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:295: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+2026-05-23 16:05:06.267 | INFO     | neural_lam.weather_dataset:_precompute_samples:166 - Precomputing val samples in memory
+2026-05-23 16:05:50.370 | INFO     | neural_lam.weather_dataset:_precompute_samples:297 - Precomputed arrays: init=(2700, 2, 2562, 1), target=(2700, 10, 2562, 1), forcing=(2700, 10, 2562, 0), times=(2700, 10)
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:434: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=3` in the `DataLoader` to improve performance.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:434: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=3` in the `DataLoader` to improve performance.

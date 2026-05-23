@@ -26,8 +26,8 @@ BASE_DIR = Path("GNN_training/one_wave/different_training_size")
 RESULTS_DIR = BASE_DIR / "all_results_plot"
 DATASET_PATH = Path("GNN_training/one_wave/nc_files/wave_200_ts_600_g4_sigmamin_15.nc")
 
-TRAINING_SIZES = [1, 5, 10, 25, 50, 75, 100]
-MAIN_TRAINING_SIZES = [10, 50, 100]
+TRAINING_SIZES = [5, 10, 25, 50]
+MAIN_TRAINING_SIZES = [10, 25, 50, 75]
 
 RMSE_NORM = LogNorm(vmin=1e-4, vmax=1e-1)
 REL_ENERGY_NORM = LogNorm(vmin=1e-4, vmax=1e-1)
@@ -771,14 +771,14 @@ def analyze_initial_conditions(results, metadata):
         (
             "Relative energy error",
             "rel_error",
-            50,
-            "rel_energy",
+            10,
+            "rel_energy10",
         ),
         (
             "Mean RMSE",
             "rmse",
             50,
-            "rmse_train100",
+            "rmse_train50",
         ),
     ]
 
@@ -828,7 +828,7 @@ def analyze_initial_conditions(results, metadata):
 def plot_best_worst_parameter_stripplot(
     results,
     metadata,
-    training_sizes=(10, 50, 100),
+    training_sizes=(5, 10, 25, 50),
     rollout_indices=(0, 9, 17),
 ):
     training_sizes = [n for n in training_sizes if n in results]
@@ -1012,7 +1012,7 @@ def main():
     plot_best_worst_parameter_stripplot(
         results,
         metadata,
-        training_sizes=(10, 50, 100),
+        training_sizes=(10, 25, 50),
         rollout_indices=(0, 9, 17),
     )
 

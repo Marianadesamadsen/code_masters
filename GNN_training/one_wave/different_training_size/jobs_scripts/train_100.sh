@@ -2,7 +2,7 @@
 
 ### General options
 ### –- specify queue --
-#BSUB -q gpua40
+#BSUB -q gpua100
 
 ### -- set the job Name --
 #BSUB -J train_100
@@ -56,7 +56,7 @@ python -m neural_lam.train_model \
     --precompute_in_memory \
     --checkpoint_every_n_steps 20000 \
     --val_time_stride 15 \
-    --max_steps 200000 \
-    --lr 0.0009 
+    --max_steps 350000 \
+    --lr 0.0005 
 
 

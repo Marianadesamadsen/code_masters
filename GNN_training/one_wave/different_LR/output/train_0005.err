@@ -84,3 +84,90 @@ LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
 /zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
 /zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:434: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=3` in the `DataLoader` to improve performance.
 `Trainer.fit` stopped: `max_steps=250000` reached.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Seed set to 42
+2026-05-23 15:04:12.801 | INFO     | mllam_data_prep.create_dataset:create_dataset:176 - Loading dataset wave_sphere from GNN_training/one_wave/nc_files/wave_200_ts_600_g4_sigmamin_6.nc
+2026-05-23 15:04:13.387 | INFO     | mllam_data_prep.create_dataset:create_dataset:190 - Extracting selected variables from dataset wave_sphere
+2026-05-23 15:04:13.388 | INFO     | mllam_data_prep.create_dataset:create_dataset:236 - Mapping dimensions and variables for dataset wave_sphere to state
+2026-05-23 15:04:52.435 | ERROR    | __main__:<module>:447 - An error has been caught in function '<module>', process 'MainProcess' (3613024), thread 'MainThread' (139999884445504):
+Traceback (most recent call last):
+
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+
+> File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 447, in <module>
+    main()
+    └ <function main at 0x7f531177b6a0>
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 327, in main
+    config, datastore = load_config_and_datastore(config_path=args.config_path)
+                        │                                     │    └ 'GNN_training/one_wave/yaml_files/config_wave_50_train.yaml'
+                        │                                     └ Namespace(config_path='GNN_training/one_wave/yaml_files/config_wave_50_train.yaml', model='graph_lam', seed=42, num_workers=0...
+                        └ <function load_config_and_datastore at 0x7f5442f8ccc0>
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/config.py", line 184, in load_config_and_datastore
+    datastore = init_datastore(
+                └ <function init_datastore at 0x7f531659b1a0>
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/__init__.py", line 25, in init_datastore
+    datastore = DatastoreClass(config_path=config_path)
+                │                          └ PosixPath('GNN_training/one_wave/yaml_files/wave_50_train.yaml')
+                └ <class 'neural_lam.datastore.mdp.MDPDatastore'>
+
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py", line 82, in __init__
+    self._ds = mdp.create_dataset(config=self._config)
+    │    │     │   │                     │    └ Config(output=Output(variables={'static': ['grid_index', 'static_feature'], 'state': ['time', 'grid_index', 'state_feature', ...
+    │    │     │   │                     └ <neural_lam.datastore.mdp.MDPDatastore object at 0x7f5311723050>
+    │    │     │   └ <function create_dataset at 0x7f5312b0bec0>
+    │    │     └ <module 'mllam_data_prep' from '/zhome/5e/a/152106/code_masters/mllam-data-prep/mllam_data_prep/__init__.py'>
+    │    └ None
+    └ <neural_lam.datastore.mdp.MDPDatastore object at 0x7f5311723050>
+
+  File "/zhome/5e/a/152106/code_masters/mllam-data-prep/mllam_data_prep/create_dataset.py", line 263, in create_dataset
+    da_target = select_by_kwargs(da_target, **output_coord_ranges_tmp)
+                │                │            └ {'time': Range(start=0, end=6.283664190249309, step=None)}
+                │                └ <xarray.DataArray 'u' (state_feature: 1, ensemble_member: 200, time: 810,
+                │                                         grid_index: 2562)> Size: 3GB...
+                └ <function select_by_kwargs at 0x7f5313a87560>
+
+  File "/zhome/5e/a/152106/code_masters/mllam-data-prep/mllam_data_prep/ops/selection.py", line 78, in select_by_kwargs
+    check_point_in_dataset(coord, sel_end, ds)
+    │                      │      │        └ <xarray.DataArray 'u' (state_feature: 1, ensemble_member: 200, time: 810,
+    │                      │      │                                 grid_index: 2562)> Size: 3GB...
+    │                      │      └ 6.283664190249309
+    │                      └ 'time'
+    └ <function check_point_in_dataset at 0x7f5313a87740>
+
+  File "/zhome/5e/a/152106/code_masters/mllam-data-prep/mllam_data_prep/ops/selection.py", line 100, in check_point_in_dataset
+    raise ValueError(
+
+ValueError: Provided value for coordinate time (6.283664190249309) is not in the data.
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 447, in <module>
+    main()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/loguru/_logger.py", line 1297, in catch_wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 327, in main
+    config, datastore = load_config_and_datastore(config_path=args.config_path)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/config.py", line 184, in load_config_and_datastore
+    datastore = init_datastore(
+                ^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/__init__.py", line 25, in init_datastore
+    datastore = DatastoreClass(config_path=config_path)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py", line 82, in __init__
+    self._ds = mdp.create_dataset(config=self._config)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/mllam-data-prep/mllam_data_prep/create_dataset.py", line 263, in create_dataset
+    da_target = select_by_kwargs(da_target, **output_coord_ranges_tmp)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/mllam-data-prep/mllam_data_prep/ops/selection.py", line 78, in select_by_kwargs
+    check_point_in_dataset(coord, sel_end, ds)
+  File "/zhome/5e/a/152106/code_masters/mllam-data-prep/mllam_data_prep/ops/selection.py", line 100, in check_point_in_dataset
+    raise ValueError(
+ValueError: Provided value for coordinate time (6.283664190249309) is not in the data.
