@@ -1,74 +1,118 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import trimesh
+from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 
 # -------------------------------------------------
 # Generate random 3D Gaussian vectors
 # -------------------------------------------------
 rng = np.random.default_rng(42)
 
-N = 1000
+N = 200
 
-# Sample from 3D standard normal
 v = rng.normal(size=(N, 3))
 
 # -------------------------------------------------
-# Normalize each vector to unit length
+# Normalize vectors to unit sphere
 # -------------------------------------------------
 norms = np.linalg.norm(v, axis=1, keepdims=True)
-
 v_normalized = v / norms
+
+# -------------------------------------------------
+# Create icosahedral mesh
+# -------------------------------------------------
+mesh = trimesh.creation.icosphere(
+    subdivisions=3,
+    radius=1.0,
+)
+
+vertices = mesh.vertices
+faces = mesh.faces
 
 # -------------------------------------------------
 # Plot
 # -------------------------------------------------
 fig = plt.figure(figsize=(14, 6))
 
-# -----------------------------
-# Original Gaussian cloud
-# -----------------------------
+# =================================================
+# LEFT: Original Gaussian cloud
+# =================================================
 ax1 = fig.add_subplot(121, projection="3d")
 
 ax1.scatter(
     v[:, 0],
     v[:, 1],
     v[:, 2],
-    s=2,
-    alpha=0.3,
+    s=10,
+    color="red",
+    alpha=0.9,
 )
 
-ax1.set_title("3D Gaussian samples")
+ax1.set_title("3D Gaussian samples for the centers")
+
 ax1.set_xlabel("x")
 ax1.set_ylabel("y")
 ax1.set_zlabel("z")
 
-# Make axes equal
 max_range = np.max(np.abs(v))
+
 ax1.set_xlim(-max_range, max_range)
 ax1.set_ylim(-max_range, max_range)
 ax1.set_zlim(-max_range, max_range)
 
-# -----------------------------
-# Normalized vectors
-# -----------------------------
+# =================================================
+# RIGHT: Projected centers + colored mesh
+# =================================================
 ax2 = fig.add_subplot(122, projection="3d")
 
+# -----------------------------
+# Plot colored triangular faces
+# -----------------------------
+triangles = vertices[faces]
+
+mesh_collection = Poly3DCollection(
+    triangles,
+    alpha=0.25,
+    edgecolor="white",
+    linewidth=0.001,
+)
+
+# Light blue color
+mesh_collection.set_facecolor("cornflowerblue")
+
+ax2.add_collection3d(mesh_collection)
+
+# -----------------------------
+# Plot projected Gaussian points
+# -----------------------------
 ax2.scatter(
     v_normalized[:, 0],
     v_normalized[:, 1],
     v_normalized[:, 2],
-    s=2,
-    alpha=0.5,
+    s=10,
+    color="red",
+    alpha=0.9,
 )
 
-ax2.set_title("Normalized 3D Gaussian samples")
+ax2.set_title("Projected centers onto sphere")
+
 ax2.set_xlabel("x")
 ax2.set_ylabel("y")
 ax2.set_zlabel("z")
 
-# Unit sphere limits
 ax2.set_xlim(-1, 1)
 ax2.set_ylim(-1, 1)
 ax2.set_zlim(-1, 1)
 
+# Equal aspect ratio
+ax2.set_box_aspect([1, 1, 1])
+
 plt.tight_layout()
+
+plt.savefig(
+    "Gaussian3d_with_colored_icosahedral_mesh.png",
+    dpi=300,
+    bbox_inches="tight",
+)
+
 plt.show()

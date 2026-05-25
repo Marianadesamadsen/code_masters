@@ -5,7 +5,7 @@
 #BSUB -q gpul40s
 
 ### -- set the job Name --
-#BSUB -J train_75_test
+#BSUB -J train_75_test_500
 
 ### -- ask for number of cores (default: 1) --
 #BSUB -n 4
@@ -14,7 +14,7 @@
 #BSUB -gpu "num=1:mode=exclusive_process"
 
 ### -- set walltime limit: hh:mm --  maximum 24 hours for GPU-queues right now
-#BSUB -W 1:00
+#BSUB -W 12:00
 
 ### request 3GB of system-memory
 #BSUB -R "rusage[mem=5GB]"
@@ -31,8 +31,8 @@
 ### -- Specify the output and error file. %J is the job-id --
 ### -- -o and -e mean append, -oo and -eo mean overwrite --
 
-#BSUB -o GNN_training/one_wave/different_training_size/output/train_75_test.out
-#BSUB -e GNN_training/one_wave/different_training_size/output/train_75_test.err
+#BSUB -o GNN_training/one_wave/different_training_size/output/train_75_test_500.out
+#BSUB -e GNN_training/one_wave/different_training_size/output/train_75_test_500.err
 # -- end of LSF options --
 
 cd /zhome/5e/a/152106/code_masters
@@ -52,12 +52,13 @@ python -m neural_lam.train_model \
     --num_workers 0 \
     --epochs 200 \
     --processor_layers 1 \
-    --logger_run_name test_75 \
-    --batch_size 32 \
-    --precompute_in_memory \
+    --logger_run_name test_75_100 \
+    --batch_size 1 \
     --logger-project different_training_size_test \
     --eval "test" \
-    --load "saved_models/old_dataset/train_75/min_val_loss-epoch=128-val_mean_loss=0.000254.ckpt" \
-    --ar_steps_eval "30" \
-    --save_eval_to_zarr_path "GNN_training/one_wave/different_training_size/test_75_results_new.zarr"
+    --precompute_in_memory \
+    --load "saved_models/train_75/min_val_loss-epoch=179-val_mean_loss=0.000154.ckpt" \
+    --ar_steps_eval "100" \
+    --test_time_stride 300\
+    --save_eval_to_zarr_path "GNN_training/one_wave/different_training_size/test_75_results_100.zarr"
 

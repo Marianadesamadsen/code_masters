@@ -1,0 +1,155 @@
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Seed set to 42
+2026-05-24 11:40:30.869 | INFO     | mllam_data_prep.create_dataset:create_dataset:176 - Loading dataset wave_sphere from GNN_training/one_wave/nc_files/wave_200_ts_600_g4_sigmamin_6.nc
+2026-05-24 11:40:31.304 | INFO     | mllam_data_prep.create_dataset:create_dataset:190 - Extracting selected variables from dataset wave_sphere
+2026-05-24 11:40:31.304 | INFO     | mllam_data_prep.create_dataset:create_dataset:236 - Mapping dimensions and variables for dataset wave_sphere to state
+2026-05-24 11:41:11.932 | INFO     | mllam_data_prep.create_dataset:create_dataset:176 - Loading dataset wave_sphere_static from GNN_training/one_wave/nc_files/wave_200_ts_600_g4_sigmamin_6.nc
+2026-05-24 11:41:11.967 | INFO     | mllam_data_prep.create_dataset:create_dataset:190 - Extracting selected variables from dataset wave_sphere_static
+2026-05-24 11:41:11.969 | INFO     | mllam_data_prep.create_dataset:create_dataset:236 - Mapping dimensions and variables for dataset wave_sphere_static to static
+2026-05-24 11:41:11.980 | INFO     | mllam_data_prep.create_dataset:_merge_dataarrays_by_target:72 - Merging dataarrays for target variable `state`
+2026-05-24 11:41:13.109 | INFO     | mllam_data_prep.create_dataset:_merge_dataarrays_by_target:72 - Merging dataarrays for target variable `static`
+/zhome/5e/a/152106/code_masters/mllam-data-prep/mllam_data_prep/create_dataset.py:105: FutureWarning: In a future version of xarray the default value for compat will change from compat='no_conflicts' to compat='override'. This is likely to lead to different results when combining overlapping variables with the same name. To opt in to new defaults and get rid of these warnings now use `set_options(use_new_combine_kwarg_defaults=True) or set compat explicitly.
+  ds = xr.merge(dataarrays, join="exact")
+/zhome/5e/a/152106/code_masters/mllam-data-prep/mllam_data_prep/create_dataset.py:105: FutureWarning: In a future version of xarray the default value for compat will change from compat='no_conflicts' to compat='override'. This is likely to lead to different results when combining overlapping variables with the same name. To opt in to new defaults and get rid of these warnings now use `set_options(use_new_combine_kwarg_defaults=True) or set compat explicitly.
+  ds = xr.merge(dataarrays, join="exact")
+2026-05-24 11:41:14.246 | INFO     | mllam_data_prep.create_dataset:create_dataset:274 - Chunking dataset with {'state_feature': 1, 'ensemble_member': 50, 'time': 600, 'grid_index': 2562, 'static_feature': 3}
+2026-05-24 11:41:18.499 | INFO     | mllam_data_prep.create_dataset:create_dataset:287 - Subsetting ensemble_member to only needed range: 0 to 174
+2026-05-24 11:41:18.501 | INFO     | mllam_data_prep.create_dataset:create_dataset:296 - Setting splitting information to define `['train', 'val', 'test']` splits along dimension `ensemble_member`
+2026-05-24 11:41:18.502 | INFO     | mllam_data_prep.create_dataset:create_dataset:306 - Computing statistics for split train
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/dtype/npy/string.py:249: UnstableSpecificationWarning: The data type (FixedLengthUTF32(length=18, endianness='little')) does not have a Zarr V3 specification. That means that the representation of arrays saved with this data type may change without warning in a future version of Zarr Python. Arrays stored with this data type may be unreadable by other Zarr libraries. Use this data type at your own risk! Check https://github.com/zarr-developers/zarr-extensions/tree/main/data-types for the status of data type specifications for Zarr V3.
+  v3_unstable_dtype_warning(self)
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/dtype/npy/string.py:249: UnstableSpecificationWarning: The data type (FixedLengthUTF32(length=8, endianness='little')) does not have a Zarr V3 specification. That means that the representation of arrays saved with this data type may change without warning in a future version of Zarr Python. Arrays stored with this data type may be unreadable by other Zarr libraries. Use this data type at your own risk! Check https://github.com/zarr-developers/zarr-extensions/tree/main/data-types for the status of data type specifications for Zarr V3.
+  v3_unstable_dtype_warning(self)
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/dtype/npy/string.py:249: UnstableSpecificationWarning: The data type (FixedLengthUTF32(length=1, endianness='little')) does not have a Zarr V3 specification. That means that the representation of arrays saved with this data type may change without warning in a future version of Zarr Python. Arrays stored with this data type may be unreadable by other Zarr libraries. Use this data type at your own risk! Check https://github.com/zarr-developers/zarr-extensions/tree/main/data-types for the status of data type specifications for Zarr V3.
+  v3_unstable_dtype_warning(self)
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/dtype/npy/string.py:249: UnstableSpecificationWarning: The data type (FixedLengthUTF32(length=11, endianness='little')) does not have a Zarr V3 specification. That means that the representation of arrays saved with this data type may change without warning in a future version of Zarr Python. Arrays stored with this data type may be unreadable by other Zarr libraries. Use this data type at your own risk! Check https://github.com/zarr-developers/zarr-extensions/tree/main/data-types for the status of data type specifications for Zarr V3.
+  v3_unstable_dtype_warning(self)
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/dtype/npy/string.py:249: UnstableSpecificationWarning: The data type (FixedLengthUTF32(length=5, endianness='little')) does not have a Zarr V3 specification. That means that the representation of arrays saved with this data type may change without warning in a future version of Zarr Python. Arrays stored with this data type may be unreadable by other Zarr libraries. Use this data type at your own risk! Check https://github.com/zarr-developers/zarr-extensions/tree/main/data-types for the status of data type specifications for Zarr V3.
+  v3_unstable_dtype_warning(self)
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
+  warnings.warn(
+2026-05-24 11:41:47.171 | INFO     | neural_lam.utils:log_on_rank_zero:457 - The loaded datastore contains the following features:
+2026-05-24 11:41:47.172 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  state   : u
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:210: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+2026-05-24 11:41:47.173 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  static  : x_static y_static z_static
+2026-05-24 11:41:47.173 | INFO     | neural_lam.utils:log_on_rank_zero:457 - With the following splits (over time):
+2026-05-24 11:41:47.174 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  train   : 100 to 174
+2026-05-24 11:41:47.175 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  val     : 0 to 49
+2026-05-24 11:41:47.175 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  test    : 50 to 99
+2026-05-24 11:41:52.604 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Loaded graph with 5124 nodes (2562 grid, 2562 mesh)
+2026-05-24 11:41:52.608 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Edges in subgraphs: m2m=15360, g2m=2562, m2g=2562
+2026-05-24 11:41:52.616 | INFO     | neural_lam.utils:setup_training_logger:514 - Wandb resume mode: None (id: None)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+wandb: WARNING The anonymous setting has no effect and will be removed in a future version.
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /zhome/5e/a/152106/.netrc.
+wandb: Currently logged in as: s201205 (s201205-danmarks-tekniske-universitet-dtu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run jqs6rq4l
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in wandb/run-20260524_114155-jqs6rq4l
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run train_75
+wandb: ⭐️ View project at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/different_training_size
+wandb: 🚀 View run at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/different_training_size/runs/jqs6rq4l
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:295: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+2026-05-24 11:41:58.342 | INFO     | neural_lam.weather_dataset:_precompute_samples:166 - Precomputing train samples in memory
+2026-05-24 11:44:59.269 | INFO     | neural_lam.weather_dataset:_precompute_samples:297 - Precomputed arrays: init=(60525, 2, 2562, 1), target=(60525, 1, 2562, 1), forcing=(60525, 1, 2562, 0), times=(60525, 1)
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:295: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+2026-05-24 11:45:00.550 | INFO     | neural_lam.weather_dataset:_precompute_samples:166 - Precomputing val samples in memory
+2026-05-24 11:46:46.325 | INFO     | neural_lam.weather_dataset:_precompute_samples:297 - Precomputed arrays: init=(2700, 2, 2562, 1), target=(2700, 10, 2562, 1), forcing=(2700, 10, 2562, 0), times=(2700, 10)
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:434: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=3` in the `DataLoader` to improve performance.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:434: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=3` in the `DataLoader` to improve performance.
+
+Detected KeyboardInterrupt, attempting graceful shutdown ...
+Exception ignored in atexit callback: <function _start_and_connect_service.<locals>.teardown_atexit at 0x7fd4501c6020>
+Traceback (most recent call last):
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/lib/service/service_connection.py", line 73, in teardown_atexit
+    conn.teardown(hooks.exit_code)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/lib/service/service_connection.py", line 344, in teardown
+    self._asyncer.run(publish_teardown_and_close)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/lib/asyncio_manager.py", line 137, in run
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/lib/asyncio_manager.py", line 220, in _wrap
+    return await fn()
+           ^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/lib/service/service_connection.py", line 335, in publish_teardown_and_close
+    await self._client.publish(
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/lib/service/service_client.py", line 45, in publish
+    await self._send_server_request(request)
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/lib/service/service_client.py", line 87, in _send_server_request
+    await self._drain_writer()
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/lib/service/service_client.py", line 96, in _drain_writer
+    await self._writer.drain()
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/streams.py", line 380, in drain
+    raise exc
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/lib/service/service_client.py", line 127, in _forward_responses
+    while response := await self._read_server_response():
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/wandb/sdk/lib/service/service_client.py", line 141, in _read_server_response
+    header = await self._reader.readexactly(_HEADER_BYTE_INT_LEN)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/streams.py", line 750, in readexactly
+    await self._wait_for_data('readexactly')
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/streams.py", line 543, in _wait_for_data
+    await self._waiter
+  File "/zhome/5e/a/152106/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/selector_events.py", line 999, in _read_ready__data_received
+    data = self._sock.recv(self.max_size)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [Errno 104] Connection reset by peer
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Seed set to 42
+2026-05-24 14:04:46.157 | INFO     | neural_lam.utils:log_on_rank_zero:457 - The loaded datastore contains the following features:
+2026-05-24 14:04:46.157 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  state   : u
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:210: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+2026-05-24 14:04:46.158 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  static  : x_static y_static z_static
+2026-05-24 14:04:46.159 | INFO     | neural_lam.utils:log_on_rank_zero:457 - With the following splits (over time):
+2026-05-24 14:04:46.192 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  train   : 100 to 174
+2026-05-24 14:04:46.215 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  val     : 0 to 49
+2026-05-24 14:04:46.240 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  test    : 50 to 99
+2026-05-24 14:04:46.493 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Loaded graph with 5124 nodes (2562 grid, 2562 mesh)
+2026-05-24 14:04:46.497 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Edges in subgraphs: m2m=15360, g2m=2562, m2g=2562
+2026-05-24 14:04:46.506 | INFO     | neural_lam.utils:setup_training_logger:514 - Wandb resume mode: None (id: None)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+wandb: WARNING The anonymous setting has no effect and will be removed in a future version.
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /zhome/5e/a/152106/.netrc.
+wandb: Currently logged in as: s201205 (s201205-danmarks-tekniske-universitet-dtu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run 071zi2c5
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in wandb/run-20260524_140452-071zi2c5
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run train_75
+wandb: ⭐️ View project at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/different_training_size
+wandb: 🚀 View run at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/different_training_size/runs/071zi2c5
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:295: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+2026-05-24 14:04:55.133 | INFO     | neural_lam.weather_dataset:_precompute_samples:166 - Precomputing train samples in memory
+2026-05-24 14:06:06.486 | INFO     | neural_lam.weather_dataset:_precompute_samples:297 - Precomputed arrays: init=(60525, 2, 2562, 1), target=(60525, 1, 2562, 1), forcing=(60525, 1, 2562, 0), times=(60525, 1)
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:295: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+2026-05-24 14:06:06.558 | INFO     | neural_lam.weather_dataset:_precompute_samples:166 - Precomputing val samples in memory
+2026-05-24 14:06:43.586 | INFO     | neural_lam.weather_dataset:_precompute_samples:297 - Precomputed arrays: init=(2700, 2, 2562, 1), target=(2700, 10, 2562, 1), forcing=(2700, 10, 2562, 0), times=(2700, 10)
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:881: Checkpoint directory /zhome/5e/a/152106/code_masters/saved_models/train_75 exists and is not empty.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:434: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=3` in the `DataLoader` to improve performance.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:434: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=3` in the `DataLoader` to improve performance.
+`Trainer.fit` stopped: `max_steps=350000` reached.

@@ -68,14 +68,6 @@ def plot_results(
         all_target.append(target_rollout)
         all_error.append(error_rollout)
 
-    pred_10 = all_pred[0]
-    target_10 = all_target[0]
-    pred_25 = all_pred[1]
-    target_25 = all_target[1]
-    pred_50 = all_pred[2]
-    target_50 = all_target[2]
-    pred_100 = all_pred[3]
-    target_100 = all_target[3]
     u_min = float(np.nanmin([np.nanmin(arr) for arr in all_pred + all_target]))
     u_max = float(np.nanmax([np.nanmax(arr) for arr in all_pred + all_target]))
     field_norm = colors.Normalize(vmin=u_min, vmax=u_max)

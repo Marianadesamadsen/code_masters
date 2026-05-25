@@ -2,7 +2,7 @@
 
 ### General options
 ### –- specify queue --
-#BSUB -q gpua100
+#BSUB -q gpua40
 
 ### -- set the job Name --
 #BSUB -J train_mp6
@@ -14,7 +14,7 @@
 #BSUB -gpu "num=1:mode=exclusive_process"
 
 ### -- set walltime limit: hh:mm --  maximum 24 hours for GPU-queues right now
-#BSUB -W 12:00
+#BSUB -W 24:00
 
 ### request 3GB of system-memory
 #BSUB -R "rusage[mem=5GB]"
@@ -44,7 +44,7 @@ which python
 python --version
 nvidia-smi
 python -m neural_lam.train_model \
-    --config_path GNN_training/one_wave/yaml_files/config_wave_75_train.yaml \
+    --config_path GNN_training/one_wave/yaml_files/config_wave_50_train.yaml \
     --graph GNN_training/graphs/gsub4_msub4_nn1 \
     --loss mse \
     --seed 42 \
@@ -54,5 +54,9 @@ python -m neural_lam.train_model \
     --logger_run_name train_mp6 \
     --batch_size 32 \
     --logger-project different_mp \
-    --precompute_in_memory True
+    --precompute_in_memory \
+    --checkpoint_every_n_steps 20000 \
+    --val_time_stride 15 \
+    --max_steps 350000 \
+    --lr 0.0005 
 

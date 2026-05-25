@@ -13,11 +13,12 @@ A = 1
 generations = 4
 
 omega_max = (C / R) * np.sqrt(Lmax * (Lmax + 1))
+print("oomega max",omega_max)
 T_min = 2 * np.pi / omega_max
 print("dt:",T_min / 20)
 dt = T_min / 20  # 0.010361252408621268/3 # 
 print("used dt:",dt)
-tmax = dt*600
+tmax = dt*810
 print("tmax:",tmax)
 rng = np.random.default_rng(42)
 
@@ -54,6 +55,7 @@ u_min = float(np.nanmin(ds["u"].values))
 u_max = float(np.nanmax(ds["u"].values))
 norm = colors.Normalize(vmin=u_min, vmax=u_max)
 plot_true = dp.DataPlotter(ds=ds)
+print("cfl",ds.attrs["cfl_value"])
 #anim_true = plot_true.animate_sphere(norm=norm,out_path="final_data.gif", fps=15)
 #plt.close()
 
@@ -74,9 +76,12 @@ ulm = coeffs["ulm"]
 
 E = degree_spectrum(ulm)
 import matplotlib.pyplot as plt
-plt.semilogy(E,'-o')   # avoid log(0)
+plt.semilogy(E,'-o',color="red",alpha=0.7)   # avoid log(0)
 plt.xlabel("$\ell$")
-plt.ylabel("$\sum_m |u_{\ell m}|^2$") 
+plt.ylabel("$\sum_m |u_{\ell m}|^2$")
+plt.hlines(1e-6,xmin=0,xmax=40,label="$10^{-6}$",color="black",linestyles="--",alpha=0.9)
+plt.legend()
+plt.grid() 
 plt.savefig("Lmax_choice.png")
 
 cum = np.cumsum(E) / np.sum(E)

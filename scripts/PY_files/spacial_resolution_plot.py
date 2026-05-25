@@ -18,16 +18,19 @@ g10 = np.exp(-(alpha**2) / (2 * sigma10**2))
 
 # Plot
 plt.figure(figsize=(8, 5))
-plt.plot(alpha, g6, label=r"$\sigma = 6^\circ$")
-plt.plot(alpha, g10, label=r"$\sigma = 25^\circ$")
+plt.plot(alpha, g6, label=r"$\sigma_{\min} = 6^\circ$")
+plt.plot(alpha, g10, label=r"$\sigma_{\max} = 25^\circ$")
 
 # Draw vertical lines for the grid spacing
 for k in range(-25, 25):
     plt.axvline(k * dx, linestyle="--", linewidth=0.8)
+plt.axvline(sigma6, linestyle="-", linewidth=1,color="red",label="$\pm \sigma_{\min}$")
+plt.axvline(-sigma6, linestyle="-", linewidth=1,color="red")
+
 
 plt.xlabel("Angular distance (radians)")
 plt.ylabel("Amplitude")
-plt.title(f"Inspection of spatial resolution with dx={dx}")
+plt.title(fr"Inspection of spatial resolution with $dx\approx{np.round(dx,3)}$")
 plt.legend()
 plt.tight_layout()
 plt.savefig("spatial_resolution_plot.png")

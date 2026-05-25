@@ -44,3 +44,10 @@ Total estimated model params size (MB): 0
 Modules in train mode: 71                                                       
 Modules in eval mode: 0                                                         
 Total FLOPs: 0                                                                  
+Epoch 198/-2 ━━━━━━━━━━━━━━━ 322/322 0:00:09 •       35.49it/s v_num: xbi6      
+                                     0:00:00                   train_loss_step: 
+                                                               0.000            
+                                                               train_loss_epoch:
+                                                               0.000            
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mtrain_005[0m at: [34mhttps://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/different_LR/runs/k7iwxbi6[0m

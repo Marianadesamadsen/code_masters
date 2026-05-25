@@ -1,6 +1,6 @@
 /zhome/5e/a/152106/code_masters/.venv/bin/python
 Python 3.11.15
-Fri May 15 10:54:33 2026       
+Mon May 25 10:42:37 2026       
 +-----------------------------------------------------------------------------------------+
 | NVIDIA-SMI 595.71.05              Driver Version: 595.71.05      CUDA Version: 13.2     |
 +-----------------------------------------+------------------------+----------------------+
@@ -8,8 +8,30 @@ Fri May 15 10:54:33 2026
 | Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
 |                                         |                        |               MIG M. |
 |=========================================+========================+======================|
-|   0  NVIDIA A40                     On  |   00000000:B1:00.0 Off |                    0 |
-|  0%   39C    P0             42W /  300W |       0MiB /  46068MiB |      0%   E. Process |
+|   0  NVIDIA L40S                    On  |   00000000:A1:00.0 Off |                    0 |
+| N/A   44C    P0             70W /  350W |       0MiB /  46068MiB |      0%   E. Process |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+/zhome/5e/a/152106/code_masters/.venv/bin/python
+Python 3.11.15
+Mon May 25 11:05:11 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 595.71.05              Driver Version: 595.71.05      CUDA Version: 13.2     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S                    On  |   00000000:A1:00.0 Off |                    0 |
+| N/A   40C    P0             67W /  350W |       0MiB /  46068MiB |      0%   E. Process |
 |                                         |                        |                  N/A |
 +-----------------------------------------+------------------------+----------------------+
 
@@ -26,183 +48,28 @@ devices arg: auto
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 ┃           Test metric           ┃          DataLoader 0           ┃
 ┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
-│ test_energy_abs_error_rollout1  │       0.02400655671954155       │
-│ test_energy_abs_error_rollout10 │       0.22158637642860413       │
-│ test_energy_abs_error_rollout2  │       0.03735599294304848       │
-│ test_energy_abs_error_rollout3  │       0.05105983838438988       │
-│ test_energy_abs_error_rollout5  │       0.08418089151382446       │
-│ test_energy_rel_error_rollout1  │      0.0064918710850179195      │
-│ test_energy_rel_error_rollout10 │       0.06329508870840073       │
-│ test_energy_rel_error_rollout2  │       0.01016220822930336       │
-│ test_energy_rel_error_rollout3  │      0.013956026174128056       │
-│ test_energy_rel_error_rollout5  │       0.02322523668408394       │
-│    test_loss_unroll10_epoch     │      0.0040647429414093494      │
-│     test_loss_unroll1_epoch     │     1.3932369711255888e-06      │
-│     test_loss_unroll2_epoch     │     1.2302501090744045e-05      │
-│     test_loss_unroll3_epoch     │     4.8617719585308805e-05      │
-│     test_loss_unroll5_epoch     │     0.00030023427098058164      │
-│   test_mean_energy_abs_error    │        1.153141975402832        │
-│  test_mean_energy_ratio_error   │       0.3416280746459961        │
-│   test_mean_energy_rel_error    │       0.3416280746459961        │
-│      test_mean_loss_epoch       │       0.07135363668203354       │
-│   test_mean_pred_energy_drift   │       1.4353923797607422        │
-│  test_mean_target_energy_drift  │      0.001825973391532898       │
+│ test_energy_abs_error_rollout1  │       0.01692858710885048       │
+│ test_energy_abs_error_rollout10 │       0.10768398642539978       │
+│ test_energy_abs_error_rollout2  │      0.027468053624033928       │
+│ test_energy_abs_error_rollout3  │       0.03767532855272293       │
+│ test_energy_abs_error_rollout5  │       0.05729026719927788       │
+│ test_energy_rel_error_rollout1  │       0.00459003821015358       │
+│ test_energy_rel_error_rollout10 │      0.030801182612776756       │
+│ test_energy_rel_error_rollout2  │      0.007479788735508919       │
+│ test_energy_rel_error_rollout3  │       0.01030350849032402       │
+│ test_energy_rel_error_rollout5  │       0.01582353748381138       │
+│    test_loss_unroll10_epoch     │      0.000607562658842653       │
+│     test_loss_unroll1_epoch     │      2.42434595065788e-07       │
+│     test_loss_unroll2_epoch     │      2.077358203678159e-06      │
+│     test_loss_unroll3_epoch     │      8.055293619690929e-06      │
+│     test_loss_unroll5_epoch     │      4.830871694139205e-05      │
+│   test_mean_energy_abs_error    │       0.1269402951002121        │
+│  test_mean_energy_ratio_error   │       0.03629486262798309       │
+│   test_mean_energy_rel_error    │      0.036294858902692795       │
+│      test_mean_loss_epoch       │      0.0018745556008070707      │
+│   test_mean_pred_energy_drift   │       0.09939303249120712       │
+│  test_mean_target_energy_drift  │       0.00169036362785846       │
 └─────────────────────────────────┴─────────────────────────────────┘
-Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 888/888 0:09:45 • 0:00:00 1.54it/s 
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1232/1232 0:05:41 • 0:00:00 3.65it/s 
 [1;34mwandb[0m: 
-[1;34mwandb[0m: 🚀 View run [33mtest_75[0m at: [34mhttps://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/different_training_size_test/runs/pyfn8bxs[0m
-/zhome/5e/a/152106/code_masters/.venv/bin/python
-Python 3.11.15
-Sat May 23 12:37:41 2026       
-+-----------------------------------------------------------------------------------------+
-| NVIDIA-SMI 595.58.03              Driver Version: 595.58.03      CUDA Version: 13.2     |
-+-----------------------------------------+------------------------+----------------------+
-| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
-|                                         |                        |               MIG M. |
-|=========================================+========================+======================|
-|   0  NVIDIA L40S                    On  |   00000000:41:00.0 Off |                    0 |
-| N/A   29C    P8             32W /  350W |       0MiB /  46068MiB |      0%   E. Process |
-|                                         |                        |                  N/A |
-+-----------------------------------------+------------------------+----------------------+
-
-+-----------------------------------------------------------------------------------------+
-| Processes:                                                                              |
-|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
-|        ID   ID                                                               Usage      |
-|=========================================================================================|
-|  No running processes found                                                             |
-+-----------------------------------------------------------------------------------------+
-/zhome/5e/a/152106/code_masters/.venv/bin/python
-Python 3.11.15
-Sat May 23 12:47:24 2026       
-+-----------------------------------------------------------------------------------------+
-| NVIDIA-SMI 595.58.03              Driver Version: 595.58.03      CUDA Version: 13.2     |
-+-----------------------------------------+------------------------+----------------------+
-| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
-|                                         |                        |               MIG M. |
-|=========================================+========================+======================|
-|   0  NVIDIA L40S                    On  |   00000000:41:00.0 Off |                    0 |
-| N/A   30C    P0             53W /  350W |       0MiB /  46068MiB |      0%   E. Process |
-|                                         |                        |                  N/A |
-+-----------------------------------------+------------------------+----------------------+
-
-+-----------------------------------------------------------------------------------------+
-| Processes:                                                                              |
-|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
-|        ID   ID                                                               Usage      |
-|=========================================================================================|
-|  No running processes found                                                             |
-+-----------------------------------------------------------------------------------------+
-[1;34mwandb[0m: 
-[1;34mwandb[0m: 🚀 View run [33mtest_75[0m at: [34mhttps://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/different_training_size_test/runs/xmceplv4[0m
-torch.cuda.is_available(): True
-device_name: cuda
-devices arg: auto
-/zhome/5e/a/152106/code_masters/.venv/bin/python
-Python 3.11.15
-Sat May 23 12:51:48 2026       
-+-----------------------------------------------------------------------------------------+
-| NVIDIA-SMI 595.58.03              Driver Version: 595.58.03      CUDA Version: 13.2     |
-+-----------------------------------------+------------------------+----------------------+
-| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
-|                                         |                        |               MIG M. |
-|=========================================+========================+======================|
-|   0  NVIDIA L40S                    On  |   00000000:41:00.0 Off |                    0 |
-| N/A   30C    P0             49W /  350W |       0MiB /  46068MiB |      0%   E. Process |
-|                                         |                        |                  N/A |
-+-----------------------------------------+------------------------+----------------------+
-
-+-----------------------------------------------------------------------------------------+
-| Processes:                                                                              |
-|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
-|        ID   ID                                                               Usage      |
-|=========================================================================================|
-|  No running processes found                                                             |
-+-----------------------------------------------------------------------------------------+
-torch.cuda.is_available(): True
-device_name: cuda
-devices arg: auto
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃           Test metric           ┃          DataLoader 0           ┃
-┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
-│ test_energy_abs_error_rollout1  │       0.02400483377277851       │
-│ test_energy_abs_error_rollout10 │       0.22164008021354675       │
-│ test_energy_abs_error_rollout2  │      0.037352897226810455       │
-│ test_energy_abs_error_rollout3  │       0.0510561428964138        │
-│ test_energy_abs_error_rollout5  │       0.0841812789440155        │
-│ test_energy_rel_error_rollout1  │      0.0064889853820204735      │
-│ test_energy_rel_error_rollout10 │       0.06328883022069931       │
-│ test_energy_rel_error_rollout2  │      0.010157632641494274       │
-│ test_energy_rel_error_rollout3  │      0.013950071297585964       │
-│ test_energy_rel_error_rollout5  │       0.02321758307516575       │
-│    test_loss_unroll10_epoch     │      0.0040647475980222225      │
-│     test_loss_unroll1_epoch     │     1.3932374258729396e-06      │
-│     test_loss_unroll2_epoch     │     1.2302512914175168e-05      │
-│     test_loss_unroll3_epoch     │     4.8617694119457155e-05      │
-│     test_loss_unroll5_epoch     │      0.0003002345038112253      │
-│   test_mean_energy_abs_error    │       1.1533857583999634        │
-│  test_mean_energy_ratio_error   │       0.34156885743141174       │
-│   test_mean_energy_rel_error    │       0.34156885743141174       │
-│      test_mean_loss_epoch       │       0.0713535025715828        │
-│   test_mean_pred_energy_drift   │        1.435076355934143        │
-│  test_mean_target_energy_drift  │      0.0018558717565611005      │
-└─────────────────────────────────┴─────────────────────────────────┘
-Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 888/888 0:06:19 • 0:00:00 2.43it/s 
-[1;34mwandb[0m: 
-[1;34mwandb[0m: 🚀 View run [33mtest_75[0m at: [34mhttps://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/different_training_size_test/runs/361ybqzi[0m
-/zhome/5e/a/152106/code_masters/.venv/bin/python
-Python 3.11.15
-Sat May 23 13:40:28 2026       
-+-----------------------------------------------------------------------------------------+
-| NVIDIA-SMI 595.58.03              Driver Version: 595.58.03      CUDA Version: 13.2     |
-+-----------------------------------------+------------------------+----------------------+
-| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
-|                                         |                        |               MIG M. |
-|=========================================+========================+======================|
-|   0  NVIDIA L40S                    On  |   00000000:41:00.0 Off |                    0 |
-| N/A   39C    P0             54W /  350W |       0MiB /  46068MiB |      0%   E. Process |
-|                                         |                        |                  N/A |
-+-----------------------------------------+------------------------+----------------------+
-
-+-----------------------------------------------------------------------------------------+
-| Processes:                                                                              |
-|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
-|        ID   ID                                                               Usage      |
-|=========================================================================================|
-|  No running processes found                                                             |
-+-----------------------------------------------------------------------------------------+
-torch.cuda.is_available(): True
-device_name: cuda
-devices arg: auto
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃           Test metric           ┃          DataLoader 0           ┃
-┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
-│ test_energy_abs_error_rollout1  │       0.02028628997504711       │
-│ test_energy_abs_error_rollout10 │       0.12407664209604263       │
-│ test_energy_abs_error_rollout2  │       0.03308766707777977       │
-│ test_energy_abs_error_rollout3  │       0.04556270316243172       │
-│ test_energy_abs_error_rollout5  │        0.069457046687603        │
-│ test_energy_rel_error_rollout1  │      0.005169714335352182       │
-│ test_energy_rel_error_rollout10 │       0.03209279105067253       │
-│ test_energy_rel_error_rollout2  │      0.008427252061665058       │
-│ test_energy_rel_error_rollout3  │      0.011596594005823135       │
-│ test_energy_rel_error_rollout5  │       0.01766173727810383       │
-│    test_loss_unroll10_epoch     │      0.000973390880972147       │
-│     test_loss_unroll1_epoch     │       4.1786444171521e-07       │
-│     test_loss_unroll2_epoch     │     3.4916999993583886e-06      │
-│     test_loss_unroll3_epoch     │      1.330464510829188e-05      │
-│     test_loss_unroll5_epoch     │      7.813675620127469e-05      │
-│   test_mean_energy_abs_error    │       0.4218757748603821        │
-│  test_mean_energy_ratio_error   │       0.12527109682559967       │
-│   test_mean_energy_rel_error    │       0.12527109682559967       │
-│      test_mean_loss_epoch       │      0.013695942237973213       │
-│   test_mean_pred_energy_drift   │       0.5402649641036987        │
-│  test_mean_target_energy_drift  │      0.0018558717565611005      │
-└─────────────────────────────────┴─────────────────────────────────┘
-Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 888/888 0:06:08 • 0:00:00 2.43it/s 
-[1;34mwandb[0m: 
-[1;34mwandb[0m: 🚀 View run [33mtest_75[0m at: [34mhttps://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/different_training_size_test/runs/vxh8kvgo[0m
+[1;34mwandb[0m: 🚀 View run [33mtest_75[0m at: [34mhttps://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/different_training_size_test/runs/soq8bb0y[0m

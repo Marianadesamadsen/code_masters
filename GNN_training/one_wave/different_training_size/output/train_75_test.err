@@ -1,406 +1,74 @@
 /zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
   import pynvml  # type: ignore[import]
 Seed set to 42
-2026-05-15 10:55:19.684 | INFO     | neural_lam.utils:log_on_rank_zero:457 - The loaded datastore contains the following features:
-2026-05-15 10:55:19.685 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  state   : u
+2026-05-25 10:43:03.159 | INFO     | neural_lam.utils:log_on_rank_zero:457 - The loaded datastore contains the following features:
+2026-05-25 10:43:03.160 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  state   : u
 /zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:210: UserWarning: no forcing or static data found in datastore
   warnings.warn("no forcing or static data found in datastore")
-2026-05-15 10:55:19.687 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  static  : x_static y_static z_static
-2026-05-15 10:55:19.687 | INFO     | neural_lam.utils:log_on_rank_zero:457 - With the following splits (over time):
-2026-05-15 10:55:19.769 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  train   : 100 to 174
-2026-05-15 10:55:19.802 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  val     : 0 to 49
-2026-05-15 10:55:19.833 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  test    : 50 to 99
-2026-05-15 10:55:20.106 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Loaded graph with 5124 nodes (2562 grid, 2562 mesh)
-2026-05-15 10:55:20.111 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Edges in subgraphs: m2m=15360, g2m=2562, m2g=2562
-2026-05-15 10:55:20.120 | INFO     | neural_lam.utils:setup_training_logger:514 - Wandb resume mode: None (id: None)
+2026-05-25 10:43:03.161 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  static  : x_static y_static z_static
+2026-05-25 10:43:03.161 | INFO     | neural_lam.utils:log_on_rank_zero:457 - With the following splits (over time):
+2026-05-25 10:43:03.179 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  train   : 100 to 174
+2026-05-25 10:43:03.190 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  val     : 0 to 49
+2026-05-25 10:43:03.201 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  test    : 50 to 99
+2026-05-25 10:43:03.365 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Loaded graph with 5124 nodes (2562 grid, 2562 mesh)
+2026-05-25 10:43:03.369 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Edges in subgraphs: m2m=15360, g2m=2562, m2g=2562
+2026-05-25 10:43:03.377 | INFO     | neural_lam.utils:setup_training_logger:514 - Wandb resume mode: None (id: None)
 GPU available: True (cuda), used: True
 TPU available: False, using: 0 TPU cores
 💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
 wandb: WARNING The anonymous setting has no effect and will be removed in a future version.
 wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /zhome/5e/a/152106/.netrc.
 wandb: Currently logged in as: s201205 (s201205-danmarks-tekniske-universitet-dtu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
-wandb: setting up run pyfn8bxs
+wandb: setting up run 38otiz7w
 wandb: Tracking run with wandb version 0.25.1
-wandb: Run data is saved locally in wandb/run-20260515_105525-pyfn8bxs
+wandb: Run data is saved locally in wandb/run-20260525_104306-38otiz7w
 wandb: Run `wandb offline` to turn off syncing.
 wandb: Syncing run test_75
 wandb: ⭐️ View project at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/different_training_size_test
-wandb: 🚀 View run at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/different_training_size_test/runs/pyfn8bxs
+wandb: 🚀 View run at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/different_training_size_test/runs/38otiz7w
 /zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:295: UserWarning: no forcing or static data found in datastore
   warnings.warn("no forcing or static data found in datastore")
-2026-05-15 10:55:27.102 | INFO     | neural_lam.weather_dataset:_precompute_samples:166 - Precomputing test samples in memory
-2026-05-15 10:55:57.197 | INFO     | neural_lam.weather_dataset:_precompute_samples:286 - Precomputed arrays: init=(28400, 2, 2562, 1), target=(28400, 30, 2562, 1), forcing=(28400, 30, 2562, 0), times=(28400, 30)
-Restoring states from the checkpoint path at saved_models/train_75/step-step=200000.ckpt
+2026-05-25 10:43:07.777 | INFO     | neural_lam.weather_dataset:_precompute_samples:166 - Precomputing test samples in memory
+/zhome/5e/a/152106/.lsbatch/1779697725.28499194.shell: line 62: 1071961 Killed                  python -m neural_lam.train_model --config_path GNN_training/one_wave/yaml_files/config_wave_75_train.yaml --graph GNN_training/graphs/gsub4_msub4_nn1 --loss mse --seed 42 --num_workers 0 --epochs 200 --processor_layers 1 --logger_run_name test_75 --batch_size 32 --logger-project different_training_size_test --eval "test" --precompute_in_memory --load "saved_models/train_75/min_val_loss-epoch=179-val_mean_loss=0.000154.ckpt" --ar_steps_eval "30" --save_eval_to_zarr_path "GNN_training/one_wave/different_training_size/test_75_results_new.zarr"
+/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Seed set to 42
+2026-05-25 11:06:53.810 | INFO     | neural_lam.utils:log_on_rank_zero:457 - The loaded datastore contains the following features:
+2026-05-25 11:06:53.811 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  state   : u
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:210: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+2026-05-25 11:06:53.822 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  static  : x_static y_static z_static
+2026-05-25 11:06:53.823 | INFO     | neural_lam.utils:log_on_rank_zero:457 - With the following splits (over time):
+2026-05-25 11:06:53.840 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  train   : 100 to 174
+2026-05-25 11:06:53.851 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  val     : 0 to 49
+2026-05-25 11:06:53.861 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  test    : 50 to 99
+2026-05-25 11:06:54.067 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Loaded graph with 5124 nodes (2562 grid, 2562 mesh)
+2026-05-25 11:06:54.071 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Edges in subgraphs: m2m=15360, g2m=2562, m2g=2562
+2026-05-25 11:06:54.080 | INFO     | neural_lam.utils:setup_training_logger:514 - Wandb resume mode: None (id: None)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+wandb: WARNING The anonymous setting has no effect and will be removed in a future version.
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /zhome/5e/a/152106/.netrc.
+wandb: Currently logged in as: s201205 (s201205-danmarks-tekniske-universitet-dtu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run soq8bb0y
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in wandb/run-20260525_110659-soq8bb0y
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run test_75
+wandb: ⭐️ View project at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/different_training_size_test
+wandb: 🚀 View run at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/different_training_size_test/runs/soq8bb0y
+/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:295: UserWarning: no forcing or static data found in datastore
+  warnings.warn("no forcing or static data found in datastore")
+2026-05-25 11:07:02.329 | INFO     | neural_lam.weather_dataset:_precompute_samples:166 - Precomputing test samples in memory
+2026-05-25 11:07:27.716 | INFO     | neural_lam.weather_dataset:_precompute_samples:297 - Precomputed arrays: init=(39400, 2, 2562, 1), target=(39400, 20, 2562, 1), forcing=(39400, 20, 2562, 0), times=(39400, 20)
+Restoring states from the checkpoint path at saved_models/train_75/min_val_loss-epoch=179-val_mean_loss=0.000154.ckpt
 /zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:566: The dirpath has changed from '/zhome/5e/a/152106/code_masters/saved_models/train_75' to '/zhome/5e/a/152106/code_masters/saved_models/test_75', therefore `best_model_score`, `kth_best_model_path`, `kth_value`, `last_model_path` and `best_k_models` won't be reloaded. Only `best_model_path` will be reloaded.
 LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
-Loaded model weights from the checkpoint at saved_models/train_75/step-step=200000.ckpt
+Loaded model weights from the checkpoint at saved_models/train_75/min_val_loss-epoch=179-val_mean_loss=0.000154.ckpt
 /zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
 /zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:434: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=3` in the `DataLoader` to improve performance.
-2026-05-15 10:55:58.528 | INFO     | neural_lam.models.ar_model:_save_predictions_and_targets_to_zarr:972 - Saving predictions and targets to GNN_training/one_wave/different_training_size/test_75_results_new.zarr
-/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
-  warnings.warn(
-/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
-  warnings.warn(
-/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
-  warnings.warn(
-/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
-  warnings.warn(
-/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
-  warnings.warn(
-/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
-  import pynvml  # type: ignore[import]
-Seed set to 42
-2026-05-23 12:38:06.978 | ERROR    | __main__:<module>:447 - An error has been caught in function '<module>', process 'MainProcess' (496999), thread 'MainThread' (139790025623360):
-Traceback (most recent call last):
-
-  File "<frozen runpy>", line 198, in _run_module_as_main
-  File "<frozen runpy>", line 88, in _run_code
-
-> File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 447, in <module>
-    main()
-    └ <function main at 0x7f2234e6b6a0>
-
-  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 327, in main
-    config, datastore = load_config_and_datastore(config_path=args.config_path)
-                        │                                     │    └ 'GNN_training/one_wave/yaml_files/config_wave_75_train.yaml'
-                        │                                     └ Namespace(config_path='GNN_training/one_wave/yaml_files/config_wave_75_train.yaml', model='graph_lam', seed=42, num_workers=0...
-                        └ <function load_config_and_datastore at 0x7f2366690cc0>
-
-  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/config.py", line 184, in load_config_and_datastore
-    datastore = init_datastore(
-                └ <function init_datastore at 0x7f2239a2f1a0>
-
-  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/__init__.py", line 25, in init_datastore
-    datastore = DatastoreClass(config_path=config_path)
-                │                          └ PosixPath('GNN_training/one_wave/yaml_files/wave_75_train.yaml')
-                └ <class 'neural_lam.datastore.mdp.MDPDatastore'>
-
-  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py", line 74, in __init__
-    self._ds = xr.open_zarr(fp_ds, consolidated=True)
-    │    │     │  │         └ PosixPath('GNN_training/one_wave/yaml_files/wave_75_train.zarr')
-    │    │     │  └ <function open_zarr at 0x7f22378ee340>
-    │    │     └ <module 'xarray' from '/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/__init__.py'>
-    │    └ None
-    └ <neural_lam.datastore.mdp.MDPDatastore object at 0x7f22357bb490>
-
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 1609, in open_zarr
-    ds = open_dataset(
-         └ <function open_dataset at 0x7f223791a0c0>
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/api.py", line 607, in open_dataset
-    backend_ds = backend.open_dataset(
-                 │       └ <function ZarrBackendEntrypoint.open_dataset at 0x7f22378ef600>
-                 └ <ZarrBackendEntrypoint>
-                     Open zarr files (.zarr) using zarr in Xarray
-                     Learn more at https://docs.xarray.dev/en/stable/gene...
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 1683, in open_dataset
-    store = ZarrStore.open_group(
-            │         └ <classmethod(<function ZarrStore.open_group at 0x7f22378ee480>)>
-            └ <class 'xarray.backends.zarr.ZarrStore'>
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 722, in open_group
-    ) = _get_open_params(
-        └ <function _get_open_params at 0x7f22378ef4c0>
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 1887, in _get_open_params
-    zarr_root_group = zarr.open_consolidated(store, **open_kwargs)
-                      │    │                 │        └ {'mode': 'r', 'synchronizer': None, 'storage_options': None, 'zarr_format': None}
-                      │    │                 └ '/zhome/5e/a/152106/code_masters/GNN_training/one_wave/yaml_files/wave_75_train.zarr'
-                      │    └ <function open_consolidated at 0x7f223715d9e0>
-                      └ <module 'zarr' from '/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/__init__.py'>
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/synchronous.py", line 238, in open_consolidated
-    sync(async_api.open_consolidated(*args, use_consolidated=use_consolidated, **kwargs))
-    │    │         │                  │                      │                   └ {'mode': 'r', 'synchronizer': None, 'storage_options': None, 'zarr_format': None}
-    │    │         │                  │                      └ True
-    │    │         │                  └ ('/zhome/5e/a/152106/code_masters/GNN_training/one_wave/yaml_files/wave_75_train.zarr',)
-    │    │         └ <function open_consolidated at 0x7f223715c7c0>
-    │    └ <module 'zarr.api.asynchronous' from '/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronou...
-    └ <function sync at 0x7f22370f5da0>
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/sync.py", line 159, in sync
-    raise return_result
-          └ GroupNotFoundError("No group found in store '/zhome/5e/a/152106/code_masters/GNN_training/one_wave/yaml_files/wave_75_train.z...
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/sync.py", line 119, in _runner
-    return await coro
-                 └ <coroutine object open_consolidated at 0x7f2234e271f0>
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronous.py", line 415, in open_consolidated
-    return await open_group(*args, use_consolidated=use_consolidated, **kwargs)
-                 │           │                      │                   └ {'mode': 'r', 'synchronizer': None, 'storage_options': None, 'zarr_format': None}
-                 │           │                      └ True
-                 │           └ ('/zhome/5e/a/152106/code_masters/GNN_training/one_wave/yaml_files/wave_75_train.zarr',)
-                 └ <function open_group at 0x7f223715cd60>
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronous.py", line 881, in open_group
-    raise GroupNotFoundError(msg)
-          │                  └ "No group found in store '/zhome/5e/a/152106/code_masters/GNN_training/one_wave/yaml_files/wave_75_train.zarr' at path ''"
-          └ <class 'zarr.errors.GroupNotFoundError'>
-
-zarr.errors.GroupNotFoundError: No group found in store '/zhome/5e/a/152106/code_masters/GNN_training/one_wave/yaml_files/wave_75_train.zarr' at path ''
-Traceback (most recent call last):
-  File "<frozen runpy>", line 198, in _run_module_as_main
-  File "<frozen runpy>", line 88, in _run_code
-  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 447, in <module>
-    main()
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/loguru/_logger.py", line 1297, in catch_wrapper
-    return function(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 327, in main
-    config, datastore = load_config_and_datastore(config_path=args.config_path)
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/config.py", line 184, in load_config_and_datastore
-    datastore = init_datastore(
-                ^^^^^^^^^^^^^^^
-  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/__init__.py", line 25, in init_datastore
-    datastore = DatastoreClass(config_path=config_path)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py", line 74, in __init__
-    self._ds = xr.open_zarr(fp_ds, consolidated=True)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 1609, in open_zarr
-    ds = open_dataset(
-         ^^^^^^^^^^^^^
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/api.py", line 607, in open_dataset
-    backend_ds = backend.open_dataset(
-                 ^^^^^^^^^^^^^^^^^^^^^
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 1683, in open_dataset
-    store = ZarrStore.open_group(
-            ^^^^^^^^^^^^^^^^^^^^^
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 722, in open_group
-    ) = _get_open_params(
-        ^^^^^^^^^^^^^^^^^
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/xarray/backends/zarr.py", line 1887, in _get_open_params
-    zarr_root_group = zarr.open_consolidated(store, **open_kwargs)
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/synchronous.py", line 238, in open_consolidated
-    sync(async_api.open_consolidated(*args, use_consolidated=use_consolidated, **kwargs))
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/sync.py", line 159, in sync
-    raise return_result
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/core/sync.py", line 119, in _runner
-    return await coro
-           ^^^^^^^^^^
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronous.py", line 415, in open_consolidated
-    return await open_group(*args, use_consolidated=use_consolidated, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronous.py", line 881, in open_group
-    raise GroupNotFoundError(msg)
-zarr.errors.GroupNotFoundError: No group found in store '/zhome/5e/a/152106/code_masters/GNN_training/one_wave/yaml_files/wave_75_train.zarr' at path ''
-/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
-  import pynvml  # type: ignore[import]
-Seed set to 42
-2026-05-23 12:47:50.177 | INFO     | neural_lam.utils:log_on_rank_zero:457 - The loaded datastore contains the following features:
-2026-05-23 12:47:50.177 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  state   : u
-/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:210: UserWarning: no forcing or static data found in datastore
-  warnings.warn("no forcing or static data found in datastore")
-2026-05-23 12:47:50.178 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  static  : x_static y_static z_static
-2026-05-23 12:47:50.179 | INFO     | neural_lam.utils:log_on_rank_zero:457 - With the following splits (over time):
-2026-05-23 12:47:50.336 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  train   : 100 to 174
-2026-05-23 12:47:50.347 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  val     : 0 to 49
-2026-05-23 12:47:50.358 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  test    : 50 to 99
-2026-05-23 12:47:52.933 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Loaded graph with 5124 nodes (2562 grid, 2562 mesh)
-2026-05-23 12:47:53.018 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Edges in subgraphs: m2m=15360, g2m=2562, m2g=2562
-2026-05-23 12:47:53.103 | INFO     | neural_lam.utils:setup_training_logger:514 - Wandb resume mode: None (id: None)
-GPU available: True (cuda), used: True
-TPU available: False, using: 0 TPU cores
-💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
-wandb: WARNING The anonymous setting has no effect and will be removed in a future version.
-wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /zhome/5e/a/152106/.netrc.
-wandb: Currently logged in as: s201205 (s201205-danmarks-tekniske-universitet-dtu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
-wandb: setting up run xmceplv4
-wandb: Tracking run with wandb version 0.25.1
-wandb: Run data is saved locally in wandb/run-20260523_124800-xmceplv4
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run test_75
-wandb: ⭐️ View project at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/different_training_size_test
-wandb: 🚀 View run at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/different_training_size_test/runs/xmceplv4
-/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:295: UserWarning: no forcing or static data found in datastore
-  warnings.warn("no forcing or static data found in datastore")
-2026-05-23 12:48:17.860 | INFO     | neural_lam.weather_dataset:_precompute_samples:166 - Precomputing test samples in memory
-2026-05-23 12:48:34.707 | INFO     | neural_lam.weather_dataset:_precompute_samples:297 - Precomputed arrays: init=(28400, 2, 2562, 1), target=(28400, 30, 2562, 1), forcing=(28400, 30, 2562, 0), times=(28400, 30)
-Restoring states from the checkpoint path at saved_models/train_75/step-step=200000.ckpt
-2026-05-23 12:48:34.742 | ERROR    | __main__:<module>:447 - An error has been caught in function '<module>', process 'MainProcess' (502233), thread 'MainThread' (139909717550912):
-Traceback (most recent call last):
-
-  File "<frozen runpy>", line 198, in _run_module_as_main
-  File "<frozen runpy>", line 88, in _run_code
-
-> File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 447, in <module>
-    main()
-    └ <function main at 0x7f3e131f36a0>
-
-  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 436, in main
-    trainer.test(
-    │       └ <function Trainer.test at 0x7f3e2631e340>
-    └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7f3e13fbd0d0>
-
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 821, in test
-    return call._call_and_handle_interrupt(
-           │    └ <function _call_and_handle_interrupt at 0x7f3e263e6fc0>
-           └ <module 'pytorch_lightning.trainer.call' from '/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lig...
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 49, in _call_and_handle_interrupt
-    return trainer_fn(*args, **kwargs)
-           │           │       └ {}
-           │           └ (GraphLAM(
-           │               (grid_embedder): Sequential(
-           │                 (0): Linear(in_features=5, out_features=64, bias=True)
-           │                 (1): SiLU()
-           │                 (2):...
-           └ <bound method Trainer._test_impl of <pytorch_lightning.trainer.trainer.Trainer object at 0x7f3e13fbd0d0>>
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 864, in _test_impl
-    results = self._run(model, ckpt_path=ckpt_path, weights_only=weights_only)
-              │    │    │                │                       └ False
-              │    │    │                └ 'saved_models/train_75/step-step=200000.ckpt'
-              │    │    └ GraphLAM(
-              │    │        (grid_embedder): Sequential(
-              │    │          (0): Linear(in_features=5, out_features=64, bias=True)
-              │    │          (1): SiLU()
-              │    │          (2): ...
-              │    └ <function Trainer._run at 0x7f3e2631e7a0>
-              └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7f3e13fbd0d0>
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1046, in _run
-    self._checkpoint_connector._restore_modules_and_callbacks(ckpt_path, weights_only)
-    │    │                     │                              │          └ False
-    │    │                     │                              └ 'saved_models/train_75/step-step=200000.ckpt'
-    │    │                     └ <function _CheckpointConnector._restore_modules_and_callbacks at 0x7f3e2631d080>
-    │    └ <pytorch_lightning.trainer.connectors.checkpoint_connector._CheckpointConnector object at 0x7f3e130b7a90>
-    └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7f3e13fbd0d0>
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/connectors/checkpoint_connector.py", line 410, in _restore_modules_and_callbacks
-    self.resume_start(checkpoint_path, weights_only=weights_only)
-    │    │            │                             └ False
-    │    │            └ 'saved_models/train_75/step-step=200000.ckpt'
-    │    └ <function _CheckpointConnector.resume_start at 0x7f3e2631c7c0>
-    └ <pytorch_lightning.trainer.connectors.checkpoint_connector._CheckpointConnector object at 0x7f3e130b7a90>
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/connectors/checkpoint_connector.py", line 83, in resume_start
-    loaded_checkpoint = self.trainer.strategy.load_checkpoint(checkpoint_path, weights_only=weights_only)
-                        │    │       │                        │                             └ False
-                        │    │       │                        └ 'saved_models/train_75/step-step=200000.ckpt'
-                        │    │       └ <property object at 0x7f3e26319580>
-                        │    └ <pytorch_lightning.trainer.trainer.Trainer object at 0x7f3e13fbd0d0>
-                        └ <pytorch_lightning.trainer.connectors.checkpoint_connector._CheckpointConnector object at 0x7f3e130b7a90>
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/strategies/strategy.py", line 368, in load_checkpoint
-    return self.checkpoint_io.load_checkpoint(checkpoint_path, weights_only=weights_only)
-           │    │                             │                             └ False
-           │    │                             └ 'saved_models/train_75/step-step=200000.ckpt'
-           │    └ <property object at 0x7f3e2642f060>
-           └ <pytorch_lightning.strategies.single_device.SingleDeviceStrategy object at 0x7f3e1079d910>
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/lightning_fabric/plugins/io/torch_io.py", line 89, in load_checkpoint
-    raise FileNotFoundError(f"Checkpoint file not found: {path}")
-
-FileNotFoundError: Checkpoint file not found: saved_models/train_75/step-step=200000.ckpt
-Traceback (most recent call last):
-  File "<frozen runpy>", line 198, in _run_module_as_main
-  File "<frozen runpy>", line 88, in _run_code
-  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 447, in <module>
-    main()
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/loguru/_logger.py", line 1297, in catch_wrapper
-    return function(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/train_model.py", line 436, in main
-    trainer.test(
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 821, in test
-    return call._call_and_handle_interrupt(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/call.py", line 49, in _call_and_handle_interrupt
-    return trainer_fn(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 864, in _test_impl
-    results = self._run(model, ckpt_path=ckpt_path, weights_only=weights_only)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/trainer.py", line 1046, in _run
-    self._checkpoint_connector._restore_modules_and_callbacks(ckpt_path, weights_only)
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/connectors/checkpoint_connector.py", line 410, in _restore_modules_and_callbacks
-    self.resume_start(checkpoint_path, weights_only=weights_only)
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/connectors/checkpoint_connector.py", line 83, in resume_start
-    loaded_checkpoint = self.trainer.strategy.load_checkpoint(checkpoint_path, weights_only=weights_only)
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/strategies/strategy.py", line 368, in load_checkpoint
-    return self.checkpoint_io.load_checkpoint(checkpoint_path, weights_only=weights_only)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/lightning_fabric/plugins/io/torch_io.py", line 89, in load_checkpoint
-    raise FileNotFoundError(f"Checkpoint file not found: {path}")
-FileNotFoundError: Checkpoint file not found: saved_models/train_75/step-step=200000.ckpt
-/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
-  import pynvml  # type: ignore[import]
-Seed set to 42
-2026-05-23 12:52:13.505 | INFO     | neural_lam.utils:log_on_rank_zero:457 - The loaded datastore contains the following features:
-2026-05-23 12:52:13.506 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  state   : u
-/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:210: UserWarning: no forcing or static data found in datastore
-  warnings.warn("no forcing or static data found in datastore")
-2026-05-23 12:52:13.507 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  static  : x_static y_static z_static
-2026-05-23 12:52:13.507 | INFO     | neural_lam.utils:log_on_rank_zero:457 - With the following splits (over time):
-2026-05-23 12:52:13.525 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  train   : 100 to 174
-2026-05-23 12:52:13.536 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  val     : 0 to 49
-2026-05-23 12:52:13.546 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  test    : 50 to 99
-2026-05-23 12:52:13.693 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Loaded graph with 5124 nodes (2562 grid, 2562 mesh)
-2026-05-23 12:52:13.697 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Edges in subgraphs: m2m=15360, g2m=2562, m2g=2562
-2026-05-23 12:52:13.704 | INFO     | neural_lam.utils:setup_training_logger:514 - Wandb resume mode: None (id: None)
-GPU available: True (cuda), used: True
-TPU available: False, using: 0 TPU cores
-💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
-wandb: WARNING The anonymous setting has no effect and will be removed in a future version.
-wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /zhome/5e/a/152106/.netrc.
-wandb: Currently logged in as: s201205 (s201205-danmarks-tekniske-universitet-dtu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
-wandb: setting up run 361ybqzi
-wandb: Tracking run with wandb version 0.25.1
-wandb: Run data is saved locally in wandb/run-20260523_125216-361ybqzi
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run test_75
-wandb: ⭐️ View project at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/different_training_size_test
-wandb: 🚀 View run at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/different_training_size_test/runs/361ybqzi
-/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:295: UserWarning: no forcing or static data found in datastore
-  warnings.warn("no forcing or static data found in datastore")
-2026-05-23 12:52:18.028 | INFO     | neural_lam.weather_dataset:_precompute_samples:166 - Precomputing test samples in memory
-2026-05-23 12:52:33.690 | INFO     | neural_lam.weather_dataset:_precompute_samples:297 - Precomputed arrays: init=(28400, 2, 2562, 1), target=(28400, 30, 2562, 1), forcing=(28400, 30, 2562, 0), times=(28400, 30)
-Restoring states from the checkpoint path at saved_models/old_dataset/train_75/step-step=200000.ckpt
-/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:566: The dirpath has changed from '/zhome/5e/a/152106/code_masters/saved_models/train_75' to '/zhome/5e/a/152106/code_masters/saved_models/test_75', therefore `best_model_score`, `kth_best_model_path`, `kth_value`, `last_model_path` and `best_k_models` won't be reloaded. Only `best_model_path` will be reloaded.
-LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
-Loaded model weights from the checkpoint at saved_models/old_dataset/train_75/step-step=200000.ckpt
-/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
-/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:434: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=3` in the `DataLoader` to improve performance.
-2026-05-23 12:52:44.979 | INFO     | neural_lam.models.ar_model:_save_predictions_and_targets_to_zarr:983 - Saving predictions and targets to GNN_training/one_wave/different_training_size/test_75_results_new.zarr
-/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
-  warnings.warn(
-/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
-  warnings.warn(
-/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
-  warnings.warn(
-/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
-  warnings.warn(
-/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
-  warnings.warn(
-/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
-  import pynvml  # type: ignore[import]
-Seed set to 42
-2026-05-23 13:40:53.663 | INFO     | neural_lam.utils:log_on_rank_zero:457 - The loaded datastore contains the following features:
-2026-05-23 13:40:53.663 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  state   : u
-/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:210: UserWarning: no forcing or static data found in datastore
-  warnings.warn("no forcing or static data found in datastore")
-2026-05-23 13:40:53.664 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  static  : x_static y_static z_static
-2026-05-23 13:40:53.664 | INFO     | neural_lam.utils:log_on_rank_zero:457 - With the following splits (over time):
-2026-05-23 13:40:53.684 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  train   : 100 to 174
-2026-05-23 13:40:53.695 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  val     : 0 to 49
-2026-05-23 13:40:53.706 | INFO     | neural_lam.utils:log_on_rank_zero:457 -  test    : 50 to 99
-2026-05-23 13:40:53.855 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Loaded graph with 5124 nodes (2562 grid, 2562 mesh)
-2026-05-23 13:40:53.859 | INFO     | neural_lam.utils:log_on_rank_zero:457 - Edges in subgraphs: m2m=15360, g2m=2562, m2g=2562
-2026-05-23 13:40:53.866 | INFO     | neural_lam.utils:setup_training_logger:514 - Wandb resume mode: None (id: None)
-GPU available: True (cuda), used: True
-TPU available: False, using: 0 TPU cores
-💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
-wandb: WARNING The anonymous setting has no effect and will be removed in a future version.
-wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /zhome/5e/a/152106/.netrc.
-wandb: Currently logged in as: s201205 (s201205-danmarks-tekniske-universitet-dtu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
-wandb: setting up run vxh8kvgo
-wandb: Tracking run with wandb version 0.25.1
-wandb: Run data is saved locally in wandb/run-20260523_134056-vxh8kvgo
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run test_75
-wandb: ⭐️ View project at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/different_training_size_test
-wandb: 🚀 View run at https://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/different_training_size_test/runs/vxh8kvgo
-/zhome/5e/a/152106/code_masters/neural-lam/neural_lam/datastore/mdp.py:295: UserWarning: no forcing or static data found in datastore
-  warnings.warn("no forcing or static data found in datastore")
-2026-05-23 13:40:58.225 | INFO     | neural_lam.weather_dataset:_precompute_samples:166 - Precomputing test samples in memory
-2026-05-23 13:41:13.816 | INFO     | neural_lam.weather_dataset:_precompute_samples:297 - Precomputed arrays: init=(28400, 2, 2562, 1), target=(28400, 30, 2562, 1), forcing=(28400, 30, 2562, 0), times=(28400, 30)
-Restoring states from the checkpoint path at saved_models/old_dataset/train_75/min_val_loss-epoch=128-val_mean_loss=0.000254.ckpt
-/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:566: The dirpath has changed from '/zhome/5e/a/152106/code_masters/saved_models/train_75' to '/zhome/5e/a/152106/code_masters/saved_models/test_75', therefore `best_model_score`, `kth_best_model_path`, `kth_value`, `last_model_path` and `best_k_models` won't be reloaded. Only `best_model_path` will be reloaded.
-LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
-Loaded model weights from the checkpoint at saved_models/old_dataset/train_75/min_val_loss-epoch=128-val_mean_loss=0.000254.ckpt
-/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
-/zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:434: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=3` in the `DataLoader` to improve performance.
-2026-05-23 13:41:14.862 | INFO     | neural_lam.models.ar_model:_save_predictions_and_targets_to_zarr:983 - Saving predictions and targets to GNN_training/one_wave/different_training_size/test_75_results_new.zarr
+2026-05-25 11:07:28.740 | INFO     | neural_lam.models.ar_model:_save_predictions_and_targets_to_zarr:983 - Saving predictions and targets to GNN_training/one_wave/different_training_size/test_75_results_new.zarr
 /zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
   warnings.warn(
 /zhome/5e/a/152106/code_masters/.venv/lib/python3.11/site-packages/zarr/api/asynchronous.py:247: ZarrUserWarning: Consolidated metadata is currently not part in the Zarr format 3 specification. It may not be supported by other zarr implementations and may change in the future.
