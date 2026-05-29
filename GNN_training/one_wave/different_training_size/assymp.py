@@ -3,11 +3,6 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-
-# =============================================================================
-# Paths
-# =============================================================================
-
 energy_csv_path = (
     "GNN_training/one_wave/different_training_size/"
     "trainsize_validationlossenergy.csv"
@@ -25,10 +20,6 @@ out_dir = (
 
 os.makedirs(out_dir, exist_ok=True)
 
-
-# =============================================================================
-# Settings
-# =============================================================================
 
 train_sizes = [1, 10, 25, 50, 75]
 
@@ -53,10 +44,6 @@ window = 20000
 tail_fraction = 0.15
 
 
-# =============================================================================
-# Helper function
-# =============================================================================
-
 def smooth_and_estimate_asymptote(df, columns, window, tail_fraction):
     df_smooth = (
         df[columns]
@@ -78,9 +65,6 @@ def smooth_and_estimate_asymptote(df, columns, window, tail_fraction):
     return df_smooth, np.array(asymptotic_values)
 
 
-# =============================================================================
-# Load data
-# =============================================================================
 
 df_energy = pd.read_csv(energy_csv_path)
 df_rmse = pd.read_csv(rmse_csv_path)
@@ -91,10 +75,6 @@ steps = np.arange(1, num_steps + 1)
 df_energy = df_energy.iloc[:num_steps]
 df_rmse = df_rmse.iloc[:num_steps]
 
-
-# =============================================================================
-# Smooth curves and estimate asymptotes
-# =============================================================================
 
 energy_smooth, energy_asymptotes = smooth_and_estimate_asymptote(
     df=df_energy,
@@ -111,9 +91,6 @@ rmse_smooth, rmse_asymptotes = smooth_and_estimate_asymptote(
 )
 
 
-# =============================================================================
-# Plot 1: smoothed curves, energy above and RMSE below
-# =============================================================================
 
 fig, ax = plt.subplots(
     2,
@@ -122,9 +99,7 @@ fig, ax = plt.subplots(
     sharex=True,
 )
 
-# -------------------------
 # Relative energy error
-# -------------------------
 
 for train_size, col, asymptote in zip(
     train_sizes,
@@ -155,9 +130,6 @@ ax[0].set_ylabel("Relative energy error", fontsize=16)
 ax[0].grid(True, which="both", alpha=0.4)
 ax[0].legend(fontsize=12)
 
-# -------------------------
-# RMSE / validation loss
-# -------------------------
 
 for train_size, col, asymptote in zip(
     train_sizes,
@@ -208,10 +180,6 @@ plt.close()
 print(f"Saved: {out_path_1}")
 
 
-# =============================================================================
-# Plot 2: asymptotic values vs dataset size
-# =============================================================================
-
 fig, ax = plt.subplots(
     2,
     1,
@@ -219,9 +187,6 @@ fig, ax = plt.subplots(
     sharex=True,
 )
 
-# -------------------------
-# Energy asymptote
-# -------------------------
 
 ax[0].loglog(
     dataset_sizes,
@@ -250,10 +215,6 @@ ax[0].set_ylabel(
 )
 
 ax[0].grid(True, which="both", alpha=0.4)
-
-# -------------------------
-# RMSE asymptote
-# -------------------------
 
 ax[1].loglog(
     dataset_sizes,
@@ -298,10 +259,6 @@ plt.close()
 print(f"Saved: {out_path_2}")
 
 
-# =============================================================================
-# Fit power laws: error = C * N^(-alpha)
-# =============================================================================
-
 def fit_power_law(dataset_sizes, values, label):
     log_N = np.log(dataset_sizes)
     log_E = np.log(values)
@@ -330,9 +287,6 @@ rmse_C, rmse_alpha = fit_power_law(
 )
 
 
-# =============================================================================
-# Save summary
-# =============================================================================
 
 summary_df = pd.DataFrame({
     "train_size_waves": train_sizes,

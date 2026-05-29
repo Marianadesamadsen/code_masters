@@ -29,7 +29,7 @@ df_train_loss_mp1 = pd.read_csv(
 )
 
 df_val_loss_mp1 = pd.read_csv(
-    "GNN_training/one_wave/different_training_size/trainsize_validationloss1.csv"
+    "GNN_training/one_wave/different_training_size/trainsize_validationlossmean.csv"
 )
 
 
@@ -56,7 +56,7 @@ epochs = np.arange(num_steps)
 # MP1 from training-size experiment
 rel_energy_mp1_col = "train_75 - val_batch_energy_rel_error"
 train_loss_mp1_col = "train_75 - train_loss_step"
-val_loss_mp1_col = "train_75 - val_loss_unroll1_step"
+val_loss_mp1_col = "train_75 - val_mean_loss_step"
 
 # MP2 and MP3 from MP experiment
 rel_energy_mp_cols = [
