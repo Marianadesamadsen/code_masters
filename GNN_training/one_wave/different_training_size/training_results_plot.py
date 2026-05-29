@@ -34,7 +34,7 @@ columns_val_loss_1 = [
 ]
 
 num_steps = 35000
-window = 5000  # moving average window size
+window = 5000#5000  # moving average window size
 
 epochs = np.arange(num_steps)
 
