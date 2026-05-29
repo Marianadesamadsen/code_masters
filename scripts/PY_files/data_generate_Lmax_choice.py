@@ -16,9 +16,9 @@ omega_max = (C / R) * np.sqrt(Lmax * (Lmax + 1))
 print("oomega max",omega_max)
 T_min = 2 * np.pi / omega_max
 print("dt:",T_min / 20)
-dt = T_min / 20  # 0.010361252408621268/3 # 
+dt = T_min / 10  # 0.010361252408621268/3 # 
 print("used dt:",dt)
-tmax = dt*810
+tmax = dt*405
 print("tmax:",tmax)
 rng = np.random.default_rng(42)
 

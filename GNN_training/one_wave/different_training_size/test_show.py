@@ -20,9 +20,9 @@ plot_animations.plot_results(
     ds_geo_dir=ds_geo_dir,
     raw_dirs=[
         #"GNN_training/one_wave/different_training_size/test_5_results_new.zarr",
-        #"GNN_training/one_wave/different_training_size/test_25_results_new.zarr",
-        #"GNN_training/one_wave/different_training_size/test_25_results_new.zarr",
-        "GNN_training/one_wave/different_training_size/test_75_results_100.zarr",
+        "GNN_training/one_wave/different_training_size/test_10_results_new.zarr",
+        "GNN_training/one_wave/different_training_size/test_25_results_new.zarr",
+        "GNN_training/one_wave/different_training_size/test_75_results_new.zarr",
         #"GNN_training/one_wave/different_training_size/test_75_results_new.zarr",
     ],
     plot_dir=plot_dir,
@@ -30,11 +30,11 @@ plot_animations.plot_results(
     generations=4,
     training_size_labels=[
         #"Train size: 1 wave",
-        #"Train size: 5 waves",
-        #"Train size: 25 waves",
+        "Train size: 10 waves",
+        "Train size: 25 waves",
         "Train size: 75 waves",
     ],
-    rolloutidx=1,
+    rolloutidx=150,
     azim=135,
     elev=30,
     plot_animations_rollout=True

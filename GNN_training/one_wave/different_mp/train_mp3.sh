@@ -2,7 +2,7 @@
 
 ### General options
 ### –- specify queue --
-#BSUB -q gpua40
+#BSUB -q gpuv100
 
 ### -- set the job Name --
 #BSUB -J train_mp3
@@ -44,12 +44,11 @@ which python
 python --version
 nvidia-smi
 python -m neural_lam.train_model \
-    --config_path GNN_training/one_wave/yaml_files/config_wave_50_train.yaml \
+    --config_path GNN_training/one_wave/yaml_files/config_wave_75_train.yaml \
     --graph GNN_training/graphs/gsub4_msub4_nn1 \
     --loss mse \
     --seed 42 \
     --num_workers 0 \
-    --epochs 200 \
     --processor_layers 3 \
     --logger_run_name train_mp3 \
     --batch_size 32 \
@@ -59,4 +58,3 @@ python -m neural_lam.train_model \
     --val_time_stride 15 \
     --max_steps 350000 \
     --lr 0.0005 
-

@@ -2,10 +2,10 @@
 
 ### General options
 ### –- specify queue --
-#BSUB -q gpua100
+#BSUB -q gpua40
 
 ### -- set the job Name --
-#BSUB -J train_75
+#BSUB -J train_75_AR5
 
 ### -- ask for number of cores (default: 1) --
 #BSUB -n 4
@@ -14,7 +14,7 @@
 #BSUB -gpu "num=1:mode=exclusive_process"
 
 ### -- set walltime limit: hh:mm --  maximum 24 hours for GPU-queues right now
-#BSUB -W 10:00
+#BSUB -W 24:00
 
 ### request 3GB of system-memory
 #BSUB -R "rusage[mem=5GB]"
@@ -31,8 +31,8 @@
 ### -- Specify the output and error file. %J is the job-id --
 ### -- -o and -e mean append, -oo and -eo mean overwrite --
 
-#BSUB -o GNN_training/one_wave/different_training_size/output/train_75.out
-#BSUB -e GNN_training/one_wave/different_training_size/output/train_75.err
+#BSUB -o GNN_training/one_wave/different_training_size/output/train_75_AR5.out
+#BSUB -e GNN_training/one_wave/different_training_size/output/train_75_AR5.err
 # -- end of LSF options --
 
 cd /zhome/5e/a/152106/code_masters
@@ -50,12 +50,14 @@ python -m neural_lam.train_model \
     --seed 42 \
     --num_workers 0 \
     --processor_layers 1 \
-    --logger_run_name train_75 \
+    --logger_run_name train_75_AR5 \
     --batch_size 32 \
     --logger-project different_training_size \
     --precompute_in_memory \
     --checkpoint_every_n_steps 20000 \
     --val_time_stride 15 \
     --max_steps 350000 \
-    --lr 0.0005 
+    --lr 0.0005 \
+    --ar_steps_train "5"
+
 

@@ -90,3 +90,8 @@ Total estimated model params size (MB): 0
 Modules in train mode: 71                                                       
 Modules in eval mode: 0                                                         
 Total FLOPs: 0                                                                  
+Epoch 1355/-2                  6/253 0:00:00 •       38.39it/s v_num: mny9      
+                                     0:00:07                   train_loss_step: 
+                                                               0.000            
+                                                               train_loss_epoch:
+                                                               0.000            
