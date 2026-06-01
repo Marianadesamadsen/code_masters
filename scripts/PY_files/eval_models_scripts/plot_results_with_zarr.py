@@ -50,20 +50,20 @@ def plot_results(ds_geo_dir,raw_dir,plot_dir,anim_dir, generations, plot_animati
     error_1step_1wave = pred_1step_1wave - target_1step_1wave
 
     # Plotting error metrics over time 1-step 1-wave
-    fig_errors = plot_funcs.plot_error_metrics(errors_dict["rmse"][:,:].mean(axis=1), errors_dict["mae"][:,:].mean(axis=1), errors_dict["err_max"][:, :].mean(axis=1), time_1step_1wave)
-    fig_errors.savefig(os.path.join(plot_dir, f"error_metrics_1_step.png"), dpi=200, bbox_inches="tight")
+    # fig_errors = plot_funcs.plot_error_metrics(errors_dict["rmse"][:,:].mean(axis=1), errors_dict["mae"][:,:].mean(axis=1), errors_dict["err_max"][:, :].mean(axis=1), time_1step_1wave)
+    # fig_errors.savefig(os.path.join(plot_dir, f"error_metrics_1_step.png"), dpi=200, bbox_inches="tight")
 
-    fig_hist = plot_funcs.plot_error_histogram(error_1step_1wave)
-    fig_hist.savefig(os.path.join(plot_dir, f"error_histogram_1_step.png"), dpi=200, bbox_inches="tight")
+    # fig_hist = plot_funcs.plot_error_histogram(error_1step_1wave)
+    # fig_hist.savefig(os.path.join(plot_dir, f"error_histogram_1_step.png"), dpi=200, bbox_inches="tight")
 
-    fig_rmse_heatmap = plot_funcs.plot_rmse_heatmap(errors_dict["rmse"][:, :])
-    fig_rmse_heatmap.savefig(os.path.join(plot_dir, f"heatmap_rmse.png"), dpi=200, bbox_inches="tight")
+    # fig_rmse_heatmap = plot_funcs.plot_rmse_heatmap(errors_dict["rmse"][:, :])
+    # fig_rmse_heatmap.savefig(os.path.join(plot_dir, f"heatmap_rmse.png"), dpi=200, bbox_inches="tight")
 
-    fig_rollout_error = plot_funcs.plot_rollout_error_growth(errors_dict["rmse"][:, :].mean(axis=0), errors_dict["mae"][:, :].mean(axis=0))
-    fig_rollout_error.savefig(os.path.join(plot_dir, f"rollout_error_growth_wave.png"), dpi=200, bbox_inches="tight")
+    # fig_rollout_error = plot_funcs.plot_rollout_error_growth(errors_dict["rmse"][:, :].mean(axis=0), errors_dict["mae"][:, :].mean(axis=0))
+    # fig_rollout_error.savefig(os.path.join(plot_dir, f"rollout_error_growth_wave.png"), dpi=200, bbox_inches="tight")
 
-    fig_max_error = plot_funcs.plot_max_over_time(errors_dict["max_pred"][:, :].mean(axis=0), errors_dict["max_true"][:, :].mean(axis=0))
-    fig_max_error.savefig(os.path.join(plot_dir, f"plot_max_over_time_overall.png"), dpi=200, bbox_inches="tight")
+    # fig_max_error = plot_funcs.plot_max_over_time(errors_dict["max_pred"][:, :].mean(axis=0), errors_dict["max_true"][:, :].mean(axis=0))
+    # fig_max_error.savefig(os.path.join(plot_dir, f"plot_max_over_time_overall.png"), dpi=200, bbox_inches="tight")
 
     # Computing energy
     pred_energy_input = pred_all[:, :, :, 0].mean(axis=0)
@@ -93,8 +93,8 @@ def plot_results(ds_geo_dir,raw_dir,plot_dir,anim_dir, generations, plot_animati
         dt=dt,
     )
 
-    fig_energy = plot_funcs.plot_energy_over_time(E_pred, E_target)
-    fig_energy.savefig(os.path.join(plot_dir, f"energy_over_time.png"))
+    # fig_energy = plot_funcs.plot_energy_over_time(E_pred, E_target)
+    # fig_energy.savefig(os.path.join(plot_dir, f"energy_over_time.png"))
 
     plt.close("all")
 
@@ -116,7 +116,7 @@ def plot_results(ds_geo_dir,raw_dir,plot_dir,anim_dir, generations, plot_animati
         pred_all_1feature = pred_all[:,:,:,0]
         target_all_1feature = target_all[:,:,:,0]
         error_all_1feature = pred_all_1feature - target_all_1feature
-        rolloutidx = 150
+        rolloutidx = 0
 
         # This setup is for dataplotter 3Ds
         ds_pred = helper.setup_simple_xarray(pred_all_1feature[rolloutidx], rollout_steps, P, tri, R=R)
@@ -136,7 +136,7 @@ def plot_results(ds_geo_dir,raw_dir,plot_dir,anim_dir, generations, plot_animati
             ds_pred=ds_pred,
             ds_target=ds_true,
             ds_error=ds_err,
-            out_path=os.path.join(anim_dir, f"result_rollout_idx{rolloutidx}.gif"),
+            out_path=os.path.join(anim_dir, f"result_rollout_idx{rolloutidx}.mp4"),
             fps=10,
             interval=100,
             pred_target_cmap="viridis",

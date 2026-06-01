@@ -44,3 +44,10 @@ Total estimated model params size (MB): 0
 Modules in train mode: 71                                                       
 Modules in eval mode: 0                                                         
 Total FLOPs: 0                                                                  
+Epoch 187/-2 ━━━━━━━━━━━━━━━━ 123/123 0:00:25 •       4.81it/s v_num: 1sge      
+                                      0:00:00                  train_loss_step: 
+                                                               0.000            
+                                                               train_loss_epoch:
+                                                               0.001            
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mtrain_75_AR10[0m at: [34mhttps://wandb.ai/s201205-danmarks-tekniske-universitet-dtu/different_training_size/runs/jwga1sge[0m

@@ -2,7 +2,7 @@ import xarray as xr
 import numpy as np
 
 ds = xr.open_dataset(
-    "GNN_training/one_wave/nc_files/wave_200_ts_405_g4_sigmamin_6.nc"
+    "GNN_training/one_wave/nc_files/wave_200_ts_100_Tmax6_g5.nc"
 )
 
 print("Final time:")

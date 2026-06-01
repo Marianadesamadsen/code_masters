@@ -10,14 +10,14 @@ R = 1 # Radius
 C = 1 # Wave speed 
 Lmax = 5 # Maximum degree of spherical harmonics 
 tmax = 10 # Maximum time  
-generations = 4 # level of refinement for the grid
+generations = 5 # level of refinement for the grid
 x0,y0,z0 = R,R,R # Initial position of the gaussian pulse
 omega = C/R*np.sqrt(Lmax*(Lmax+1)) 
 T_period = 2*np.pi/omega
 dt = T_period/20 # Time step 
 
-outputdir = "GNN_training/graphs/gsub4_msub1_nn7"
-outputdir_fig =  "GNN_training/graphs/gsub4_msub1_nn7.png"
+outputdir = "GNN_training/graphs/gsub5_msub5_nn1"
+outputdir_fig =  "GNN_training/graphs/gsub5_msub5_nn1.png"
 
 # Initial condition: Gaussian pulse centered at (x0, y0, z0)
 def f_handle(x, y, z):
