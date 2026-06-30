@@ -111,32 +111,77 @@ def plot_results(ds_geo_dir,raw_dir,plot_dir,anim_dir, generations, plot_animati
         err_abs = float(np.nanmax(np.abs(error_1step_1wave)))
         err_norm = colors.Normalize(vmin=-err_abs, vmax=err_abs)
 
-
     if plot_animations_rollout:
-        pred_all_1feature = pred_all[:,:,:,0]
-        target_all_1feature = target_all[:,:,:,0]
-        error_all_1feature = pred_all_1feature - target_all_1feature
+        pred_all_1feature = pred_all[:, :, :, 0]
+        target_all_1feature = target_all[:, :, :, 0]
+
         rolloutidx = 0
 
-        # This setup is for dataplotter 3Ds
-        ds_pred = helper.setup_simple_xarray(pred_all_1feature[rolloutidx], rollout_steps, P, tri, R=R)
-        ds_true = helper.setup_simple_xarray(target_all_1feature[rolloutidx], rollout_steps, P, tri, R=R)
-        ds_err = helper.setup_simple_xarray(error_all_1feature[rolloutidx], rollout_steps, P, tri, R=R)
+        pred_rollout = pred_all_1feature[rolloutidx]
+        target_rollout = target_all_1feature[rolloutidx]
 
-        # Color scales
-        field_norm = helper.color_scales(pred_all_1feature[rolloutidx], target_all_1feature[rolloutidx])
+        # Get IC from original dataset
+        u0 = ds_geo["u"].isel(time=0).values
+        u0 = np.squeeze(u0)
 
-        err_abs = float(np.nanmax(np.abs(error_all_1feature[rolloutidx])))
+        if u0.ndim == 2:
+            u0 = u0[rolloutidx]
+
+        if u0.ndim == 2:
+            u0 = u0[:, 0]
+
+        print("u0 shape:", u0.shape)
+        print("pred_rollout shape:", pred_rollout.shape)
+
+        pred_with_ic = np.concatenate(
+            [u0[None, :], pred_rollout],
+            axis=0,
+        )
+
+        target_with_ic = np.concatenate(
+            [u0[None, :], target_rollout],
+            axis=0,
+        )
+
+        pred_with_ic = np.concatenate(
+            [u0[None, :], pred_rollout],
+            axis=0,
+        )
+
+        target_with_ic = np.concatenate(
+            [u0[None, :], target_rollout],
+            axis=0,
+        )
+
+        error_with_ic = pred_with_ic - target_with_ic
+
+        rollout_steps_with_ic = np.concatenate(
+            [[0], rollout_steps],
+            axis=0,
+        )
+
+        ds_pred = helper.setup_simple_xarray(
+            pred_with_ic, rollout_steps_with_ic, P, tri, R=R
+        )
+        ds_true = helper.setup_simple_xarray(
+            target_with_ic, rollout_steps_with_ic, P, tri, R=R
+        )
+        ds_err = helper.setup_simple_xarray(
+            error_with_ic, rollout_steps_with_ic, P, tri, R=R
+        )
+
+        field_norm =  colors.Normalize(vmin=-0.5, vmax=0.5)#helper.color_scales(pred_with_ic, target_with_ic)
+
+        err_abs = float(np.nanmax(np.abs(error_with_ic)))
         err_norm = colors.Normalize(vmin=-err_abs, vmax=err_abs)
 
-        # Sphere animations
         plotter = DataPlotterAll.DataPlotter(ds=ds_true)
 
         anim = plotter.animate_three_spheres(
             ds_pred=ds_pred,
             ds_target=ds_true,
             ds_error=ds_err,
-            out_path=os.path.join(anim_dir, f"result_rollout_idx{rolloutidx}.mp4"),
+            out_path=os.path.join(anim_dir, f"result_rollout_idx{rolloutidx}_with_ic.mp4"),
             fps=10,
             interval=100,
             pred_target_cmap="viridis",
@@ -145,6 +190,42 @@ def plot_results(ds_geo_dir,raw_dir,plot_dir,anim_dir, generations, plot_animati
             error_norm=err_norm,
             titles=("Prediction", "Target", "Error"),
             colorbar_label="u",
-            azim =azim, elev=elev
+            azim=azim,
+            elev=elev,
         )
+    # if plot_animations_rollout:
+    #     pred_all_1feature = pred_all[:,:,:,0]
+    #     target_all_1feature = target_all[:,:,:,0]
+    #     error_all_1feature = pred_all_1feature - target_all_1feature
+    #     rolloutidx = 0
+
+    #     # This setup is for dataplotter 3Ds
+    #     ds_pred = helper.setup_simple_xarray(pred_all_1feature[rolloutidx], rollout_steps, P, tri, R=R)
+    #     ds_true = helper.setup_simple_xarray(target_all_1feature[rolloutidx], rollout_steps, P, tri, R=R)
+    #     ds_err = helper.setup_simple_xarray(error_all_1feature[rolloutidx], rollout_steps, P, tri, R=R)
+
+    #     # Color scales
+    #     field_norm = helper.color_scales(pred_all_1feature[rolloutidx], target_all_1feature[rolloutidx])
+
+    #     err_abs = float(np.nanmax(np.abs(error_all_1feature[rolloutidx])))
+    #     err_norm = colors.Normalize(vmin=-err_abs, vmax=err_abs)
+
+    #     # Sphere animations
+    #     plotter = DataPlotterAll.DataPlotter(ds=ds_true)
+
+    #     anim = plotter.animate_three_spheres(
+    #         ds_pred=ds_pred,
+    #         ds_target=ds_true,
+    #         ds_error=ds_err,
+    #         out_path=os.path.join(anim_dir, f"result_rollout_idx{rolloutidx}.mp4"),
+    #         fps=10,
+    #         interval=100,
+    #         pred_target_cmap="viridis",
+    #         error_cmap="coolwarm",
+    #         pred_target_norm=field_norm,
+    #         error_norm=err_norm,
+    #         titles=("Prediction", "Target", "Error"),
+    #         colorbar_label="u",
+    #         azim =azim, elev=elev
+    #     )
 

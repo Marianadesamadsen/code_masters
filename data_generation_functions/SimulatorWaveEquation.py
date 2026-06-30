@@ -5,7 +5,7 @@ from . import wave_sphere_exact_split as exact
 import trimesh
 
 class SimulatorWaveEquation: 
-    def __init__(self, R, C, Lmax, tmax, f_handle, g_handle, generations, dt: int = 0.1):
+    def __init__(self, R, C, Lmax, tmax, f_handle, g_handle, generations, dt):
         self.R = float(R)
         self.C = float(C)
         self.Lmax = int(Lmax)
@@ -17,7 +17,7 @@ class SimulatorWaveEquation:
         self.P, tri = self.create_mesh()
         self.tri = np.asarray(tri)  # (N,3)
         self.time = self.create_time_steps()
-        self.time_datetime = self.time#self.time.astype("timedelta64[s]")  # convert to timedelta for xarray
+        self.time_datetime = self.time
         self.xyz = np.asarray(self.P.T, dtype=np.float64)  # (N, 3)
         self.N = self.xyz.shape[0]
         self.edges = self.tri_to_edges() # (N,2)
@@ -25,16 +25,10 @@ class SimulatorWaveEquation:
         y = self.xyz[:, 1]
         z = self.xyz[:, 2]
 
-        # Vertices used to compute dx (needed in Allans code)
         vx = x[self.tri.T]
         vy = y[self.tri.T]
         vz = z[self.tri.T]
 
-        self.dx_elem = compute_dx(vx, vy, vz)
-        self.dx_true = np.min(self.dx_elem)
-        self.dx_old = self.R * np.sqrt(4 * np.pi / self.N)
-        self.cfl = self.dt <= (self.dx_true / self.C)  # CFL condition
-        self.cfl_value = self.C * self.dt / self.dx_true
         self.lat, self.lon = self.get_lat_long()
 
         #### From exact solution that is only needed to be computed once rather than everytime step
@@ -120,19 +114,16 @@ class SimulatorWaveEquation:
             }
             data_vars["u"] = (u_dims, u)
 
-            if centers is not None:
-                centers = np.asarray(centers)
-                data_vars["center"] = (("ensemble_member", "xyz"), centers)
+            centers = np.asarray(centers)
+            data_vars["center"] = (("ensemble_member", "xyz"), centers)
 
-            if sigmas is not None:
-                sigmas = np.asarray(sigmas)
-                data_vars["sigma"] = (("ensemble_member",), sigmas) # radians
-                sigma_deg = np.rad2deg(sigmas)
-                data_vars["sigma_deg"] = (("ensemble_member",), sigma_deg)
+            sigmas = np.asarray(sigmas)
+            data_vars["sigma"] = (("ensemble_member",), sigmas) # radians
+            sigma_deg = np.rad2deg(sigmas)
+            data_vars["sigma_deg"] = (("ensemble_member",), sigma_deg)
 
-            if amplitudes is not None:
-                amplitudes = np.asarray(amplitudes)
-                data_vars["A"] = (("ensemble_member",), amplitudes)
+            amplitudes = np.asarray(amplitudes)
+            data_vars["A"] = (("ensemble_member",), amplitudes)
 
         else:
             raise ValueError(f"u must be 2D or 3D; got {u.shape}")
@@ -141,9 +132,6 @@ class SimulatorWaveEquation:
             data_vars=data_vars,
             coords={
                 **coords,
-                # "x": ("grid_index", self.xyz[:, 0]),
-                # "y": ("grid_index", self.xyz[:, 1]),
-                # "z": ("grid_index", self.xyz[:, 2]),
                 "lat": ("grid_index", self.lat),
                 "lon": ("grid_index", self.lon),
                 "triangle": np.arange(Ttri),

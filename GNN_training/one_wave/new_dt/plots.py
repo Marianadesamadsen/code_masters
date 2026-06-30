@@ -23,22 +23,20 @@ BASE_DIR = Path("GNN_training/one_wave/new_dt")
 RESULTS_DIR = BASE_DIR / Path("newsetup_mp3_results")
 DATASET_PATH = Path("GNN_training/one_wave/nc_files/ wave_200_ts_100_Tmax6_g5.nc.nc")
 
-TRAINING_SIZES = ["new_setup_mp3"]#5, 10, 25, 50]
-MAIN_TRAINING_SIZES = ["new_setup_mp3"]#, 25, 50, 75]
+TRAINING_SIZES = ["new_setup","new_setup_mp3"]#5, 10, 25, 50]
+MAIN_TRAINING_SIZES = ["new_setup","new_setup_mp3"]#, 25, 50, 75]
 
 RMSE_NORM = LogNorm(vmin=1e-4, vmax=1e-1)
 REL_ENERGY_NORM = LogNorm(vmin=1e-4, vmax=1e-1)
 
 RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
-# Use a unique, ordered list internally. This prevents repeated keys/plots if
-# TRAINING_SIZES is temporarily set to something like [50, 50, 50].
+
 AVAILABLE_TRAINING_SIZES = list(dict.fromkeys(TRAINING_SIZES))
 AVAILABLE_MAIN_TRAINING_SIZES = [
     n for n in list(dict.fromkeys(MAIN_TRAINING_SIZES))
     if n in AVAILABLE_TRAINING_SIZES
 ]
-
 
 
 METRIC_FILENAMES = {
@@ -235,7 +233,6 @@ def plot_median_iqr_vs_training_size(results, rollout_indices=(0, 9, 17)):
                 label=f"Rollout {rollout_idx}",
             )
 
-            #ax.fill_between(AVAILABLE_TRAINING_SIZES, q25s, q75s, alpha=0.2)
 
         ax.set_xlabel("Training size")
         ax.set_ylabel(metric_label)

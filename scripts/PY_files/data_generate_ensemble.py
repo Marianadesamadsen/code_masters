@@ -15,11 +15,11 @@ def main():
     omega_max = (C / R) * np.sqrt(Lmax * (Lmax + 1))
     T_min = 2 * np.pi / omega_max
     print("dt compute",T_min / 20 )
-    dt = T_min / 20 # 0.010361252408621261/3 # 
-    N_members = 200
-    tmax = dt*810
+    dt = T_min / 10 # 0.010361252408621261/3 # 
+    N_members = 3
+    tmax = 4*np.pi+dt*2#dt*810
     print("tmax",tmax) 
-    title = "wave_250_ts_600_g4_sigmamin_6"
+    title = "wave_250_ts_600_g4_sigmamin_6_zerodata"
     nc_path = r"GNN_training\one_wave\nc_files"
 
     sigma_range=(6.0, 25.0)
@@ -109,7 +109,6 @@ def main():
     print(f"dt = {dt}")
     print(f"dx = {sim.dx_true}")
     print(f"tmax = {tmax}")
-    print(f"cfl: {sim.cfl_value}")
 
     t_start = time.perf_counter()
     ds,u = sim.simulate_ensemble(
@@ -127,16 +126,8 @@ def main():
     print("time save",time.perf_counter()-t_start)
 
 if __name__ == "__main__":
-    #profiler = cProfile.Profile()
-    #profiler.enable()
 
     main()
-
-    #profiler.disable() 
-    #stats = pstats.Stats(profiler)
-    #stats.strip_dirs().sort_stats("cumtime").print_stats(30)
-    #print("\nOnly my file:\n")
-    #stats.print_stats("PY_09_03_26_data_generate_ensemble")
 
 
 

@@ -52,8 +52,6 @@ P = ds_geo["P"].values
 tri = ds_geo["tri"].values
 R = ds_geo.attrs["R"]
 
-#####################################################################
-
 # Full rollout metrics
 # Average over nodes and features, keep rollout and time
 errors_dict = helper.compute_errors(pred_all, target_all, axis=(3, 4))
@@ -82,12 +80,6 @@ for wave in range(num_waves):
 
     fig_rollout_error = plot_funcs.plot_rollout_error_growth(errors_dict["rmse"][:, wave, :].mean(axis=0), errors_dict["mae"][:, wave, :].mean(axis=0))
     fig_rollout_error.savefig(os.path.join(plot_dir, f"rollout_error_growth_wave{wave}.png"), dpi=200, bbox_inches="tight")
-
-    # fig_heatmap_L2norm = plot_funcs.plot_E_norm_heatmap(errors_dict["E_error"][:, wave, :])
-    # fig_heatmap_L2norm.savefig(os.path.join(plot_dir, f"heatmap_E_norm_wave{wave}.png"), dpi=200, bbox_inches="tight")
-
-    # fig_L2_norm = plot_funcs.plot_E_norm(errors_dict["E_pred"][:, wave, :].mean(axis=1), errors_dict["E_true"][:, wave, :].mean(axis=1))
-    # fig_L2_norm.savefig(os.path.join(plot_dir, f"plot_E_energy_overall_wave{wave}.png"), dpi=200, bbox_inches="tight")
 
     fig_max_error = plot_funcs.plot_max_over_time(errors_dict["max_pred"][:, wave, :].mean(axis=0), errors_dict["max_true"][:, wave, :].mean(axis=0))
     fig_max_error.savefig(os.path.join(plot_dir, f"plot_max_over_time_overall_wave{wave}.png"), dpi=200, bbox_inches="tight")

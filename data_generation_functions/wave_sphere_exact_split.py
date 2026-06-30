@@ -25,8 +25,6 @@ def wave_sphere_exact(XYZ, t, f_handle, g_handle, Lmax, c, R, return_coeffs=Fals
     return u
 
 
-# ===================== main stages =====================
-
 def setup_quadrature(Lmax, R):
     """
     Set up Gauss-Legendre in mu and uniform quadrature in phi.
@@ -182,8 +180,6 @@ def precompute_Ylm_basis(eval_data, Lmax):
     return Y_basis
 
 
-# ===================== reusable math blocks =====================
-
 def associated_legendre_block(ell, mu):
     """
     Return array P[m, i] = (-1)^m lpmv(m, ell, mu_i), for m=0..ell.
@@ -219,8 +215,6 @@ def build_Ylm_matrix_for_degree(ell, mu_pts, Em, Lmax):
 
     return Y_lm_all
 
-
-# ======================= helpers =======================
 
 def gausslegendre(n: int):
     """Gauss-Legendre nodes mu in [-1,1] and weights (n-point), Golub-Welsch."""
