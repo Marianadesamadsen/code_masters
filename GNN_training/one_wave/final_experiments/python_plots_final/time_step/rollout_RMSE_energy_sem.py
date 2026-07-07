@@ -45,10 +45,6 @@ def load_metric(filename):
 
     for dt_key, cfg in RUN_DIRS.items():
         csv_path = BASE_DIR / cfg["result_dir"] / filename
-
-        if not csv_path.exists():
-            raise FileNotFoundError(csv_path)
-
         data[dt_key] = pd.read_csv(csv_path)
 
     return data
@@ -58,29 +54,17 @@ def load_metadata(dt_key):
     cfg = RUN_DIRS[dt_key]
     metadata_path = BASE_DIR / cfg["result_dir"] / "test_metadata.csv"
 
-    if not metadata_path.exists():
-        raise FileNotFoundError(
-            f"Missing metadata file: {metadata_path}\n"
-            "You need this file to align each energy row with ensemble_member and sample_idx."
-        )
-
     return pd.read_csv(metadata_path)
 
 
 def load_true_u():
     ds = xr.open_dataset(NC_FILE)
 
-    if "u" not in ds:
-        raise KeyError("Variable 'u' was not found in the nc file.")
-
     u = ds["u"].transpose("ensemble_member", "time", "grid_index")
     return u
 
 def load_analytical_energy():
     ds_E = xr.open_dataset(ANALYTICAL_ENERGY_FILE)
-
-    if "analytical_energy_sem" not in ds_E:
-        raise KeyError("Variable 'analytical_energy_sem' was not found.")
 
     analytical_energy = ds_E["analytical_energy_sem"].transpose("ensemble_member", "time")
 
@@ -102,9 +86,6 @@ def compute_relative_energy_error_from_sem_nc(
 
     members = metadata_df["ensemble_member"].values.astype(int)
     sample_indices = metadata_df["sample_idx"].values.astype(int)
-
-    if len(members) != E_pred.shape[0]:
-        raise ValueError("metadata_df and pred_energy_df do not have the same number of rows.")
 
     member_values = analytical_energy["ensemble_member"].values.astype(int)
     member_to_index = {m: i for i, m in enumerate(member_values)}

@@ -52,9 +52,6 @@ def load_metric(filename):
     for dt_key, cfg in RUN_DIRS.items():
         csv_path = BASE_DIR / cfg["result_dir"] / filename
 
-        if not csv_path.exists():
-            raise FileNotFoundError(csv_path)
-
         data[dt_key] = pd.read_csv(csv_path)
 
     return data
@@ -64,29 +61,16 @@ def load_metadata(dt_key):
     cfg = RUN_DIRS[dt_key]
     metadata_path = BASE_DIR / cfg["result_dir"] / "test_metadata.csv"
 
-    if not metadata_path.exists():
-        raise FileNotFoundError(
-            f"Missing metadata file: {metadata_path}\n"
-            "You need this file to align each energy row with ensemble_member and sample_idx."
-        )
-
     return pd.read_csv(metadata_path)
 
 
 def load_true_u():
     ds = xr.open_dataset(NC_FILE)
-
-    if "u" not in ds:
-        raise KeyError("Variable 'u' was not found in the nc file.")
-
     u = ds["u"].transpose("ensemble_member", "time", "grid_index")
     return u,ds
 
 def load_analytical_energy():
     ds_E = xr.open_dataset(ANALYTICAL_ENERGY_FILE)
-
-    if "analytical_energy_sem" not in ds_E:
-        raise KeyError("Variable 'analytical_energy_sem' was not found.")
 
     analytical_energy = ds_E["analytical_energy_sem"].transpose("ensemble_member", "time")
 
@@ -109,9 +93,6 @@ def compute_relative_energy_error_from_sem_nc(
 
     members = metadata_df["ensemble_member"].values.astype(int)
     sample_indices = metadata_df["sample_idx"].values.astype(int)
-
-    if len(members) != E_pred.shape[0]:
-        raise ValueError("metadata_df and pred_energy_df do not have the same number of rows.")
 
     member_values = analytical_energy["ensemble_member"].values.astype(int)
     member_to_index = {m: i for i, m in enumerate(member_values)}
@@ -151,34 +132,6 @@ def compute_relative_energy_error_from_sem_nc(
     pred_energy_df = pd.DataFrame(E_pred, columns=energy_cols)
 
     return rel_error_df, true_energy_df, energy_rollouts, pred_energy_df 
- 
-def compute_persistence_rmse_curve_from_nc_new2(u, metadata_df, rollouts, dt_scale):
-    members = metadata_df["ensemble_member"].values.astype(int)
-    sample_indices = metadata_df["sample_idx"].values.astype(int)
-
-    n_time = u.sizes["time"]
-    y_persistence = []
-
-    for rollout in rollouts:
-        horizon = int(rollout * dt_scale)
-        rmse_values = []
-
-        for member, sample_idx in zip(members, sample_indices):
-            input_idx = sample_idx
-            future_idx = sample_idx + horizon
-
-            if future_idx >= n_time:
-                continue
-
-            u_pers = u.sel(ensemble_member=member).isel(time=input_idx).values
-            u_true = u.sel(ensemble_member=member).isel(time=future_idx).values
-
-            rmse = np.sqrt(np.mean((u_true - u_pers) ** 2))
-            rmse_values.append(rmse)
-
-        y_persistence.append(np.mean(rmse_values))
-
-    return np.array(y_persistence)
 
 def compute_persistence_rmse_curve_from_nc(u, rollouts, dt_scale):
     n_time = u.sizes["time"]
@@ -224,87 +177,6 @@ def compute_persistence_rmse_curve_from_nc(u, rollouts, dt_scale):
 
     return np.array(y_persistence)
 
-def compute_persistence_rmse_curve_from_nc_new(u, metadata_df, rollouts, dt_scale):
-    members = metadata_df["ensemble_member"].values.astype(int)
-    sample_indices = metadata_df["sample_idx"].values.astype(int)
-
-    n_time = u.sizes["time"]
-    y_persistence = []
-
-    for rollout in rollouts:
-        horizon = int(rollout * dt_scale)
-        rmse_values = []
-
-        for member, sample_idx in zip(members, sample_indices):
-            future_idx = sample_idx + horizon
-
-            if future_idx >= n_time:
-                continue
-
-            u0 = u.sel(ensemble_member=member).isel(time=sample_idx).values
-            uh = u.sel(ensemble_member=member).isel(time=future_idx).values
-
-            rmse = np.sqrt(np.mean((uh - u0) ** 2))
-            rmse_values.append(rmse)
-
-        if len(rmse_values) == 0:
-            y_persistence.append(np.nan)
-        else:
-            y_persistence.append(np.mean(rmse_values))
-
-    return np.array(y_persistence)
-
-def compute_persistence_energy_error_curve_from_sem_nc(
-    metadata_df,
-    analytical_energy,
-    rollouts,
-    dt_scale,
-):
-    members = metadata_df["ensemble_member"].values.astype(int)
-    sample_indices = metadata_df["sample_idx"].values.astype(int)
-
-    member_values = analytical_energy["ensemble_member"].values.astype(int)
-    member_to_index = {m: i for i, m in enumerate(member_values)}
-
-    E_true_all = analytical_energy.values
-
-    ut_order = int(analytical_energy.attrs.get("ut_order", 4))
-    cut = ut_order // 2
-
-    ree_values = []
-
-    for rollout in rollouts:
-        errors = []
-
-        for row in range(len(metadata_df)):
-            member = members[row]
-            sample_idx = sample_indices[row]
-
-            if member not in member_to_index:
-                continue
-
-            member_index = member_to_index[member]
-
-            # Persistence energy = energy of initial state
-            initial_time_index = sample_idx
-            future_time_index = sample_idx + int(rollout * dt_scale)
-
-            initial_energy_index = initial_time_index - cut
-            future_energy_index = future_time_index - cut
-
-            if (
-                0 <= initial_energy_index < E_true_all.shape[1]
-                and 0 <= future_energy_index < E_true_all.shape[1]
-            ):
-                E_pers = E_true_all[member_index, initial_energy_index]
-                E_true = E_true_all[member_index, future_energy_index]
-
-                error = abs(E_pers - E_true) / (abs(E_true) + 1e-12)
-                errors.append(error)
-
-        ree_values.append(np.mean(errors))
-
-    return np.array(ree_values)
 
 def plot_rollout_rmse_energy():
     data_rmse = load_metric("test_rmse_per_sample.csv")
@@ -323,9 +195,6 @@ def plot_rollout_rmse_energy():
         color = DT_COLORS[dt_scale]
         linestyle = "--" if "AR2" in dt_key else "-"
 
-        # -----------------------------
-        # RMSE
-        # -----------------------------
         rmse_df = data_rmse[dt_key]
         rmse_cols, rmse_rollouts = get_rollout_cols(rmse_df)
 
@@ -337,23 +206,14 @@ def plot_rollout_rmse_energy():
             x_rmse = x_rmse[:-1]
             y_rmse = y_rmse[:-1]
 
-                # -----------------------------
+
         # Persistence RMSE baseline
-        # -----------------------------
         if dt_key == "10dt":
             y_pers_rmse = compute_persistence_rmse_curve_from_nc(
                 u=u,
                 rollouts=rmse_rollouts,
                 dt_scale=dt_scale,
             )
-            # metadata_df = load_metadata(dt_key)
-
-            # y_pers_rmse = compute_persistence_rmse_curve_from_nc(
-            #     u=u,
-            #     metadata_df=metadata_df,
-            #     rollouts=rmse_rollouts,
-            #     dt_scale=dt_scale,
-            # )
 
             x_pers_rmse = rmse_rollouts * dt_scale * 0.0155
 
@@ -430,30 +290,6 @@ def plot_rollout_rmse_energy():
             color=color
         )
 
-
-        if dt_key == "-1":
-            y_pers_energy = compute_persistence_energy_error_curve_from_sem_nc(
-                metadata_df=metadata_df,
-                analytical_energy=analytical_energy,
-                rollouts=energy_rollouts,
-                dt_scale=dt_scale,
-            )
-
-            x_pers_energy = energy_rollouts * dt_scale * 0.0155
-
-            if dt_key == "100dt":
-                x_pers_energy = x_pers_energy[:-1]
-                y_pers_energy = y_pers_energy[:-1]
-
-            axes[1].loglog(
-                x_pers_energy,
-                y_pers_energy,
-                linestyle="--",
-                color="black",
-                alpha=0.7,
-                label="Persistence",
-            )
-    
     axes[0].set_ylabel("RMSE", fontsize=20)
     axes[0].legend(fontsize=20)
     axes[0].grid(True, which="both", alpha=0.4)
@@ -474,52 +310,6 @@ def plot_rollout_rmse_energy():
     out_path = RESULTS_DIR / "rmse_energy_sem_reference.png"
     fig.savefig(out_path, dpi=300, bbox_inches="tight")
     plt.close(fig)
-
-    print(f"Saved: {out_path}")
-
-    times, rmses = diagnose_persistence_period(u, member=50, start_idx=10)
-
-    plt.figure(figsize=(10, 5))
-    plt.plot(times, rmses)
-    plt.axvline(2*np.pi, linestyle="--", color="black", label=r"$2\pi$")
-    plt.xlabel("Time separation")
-    plt.ylabel("Persistence RMSE")
-    plt.legend()
-    plt.grid(True, alpha=0.4)
-    plt.savefig("persistence_diagnositcs.png")
-
-    dt_base = 0.015515220223
-
-    print("Persistence horizons:")
-    for r in rmse_rollouts:
-        h = r * dt_scale * dt_base
-        print(r, h, "distance to 2pi:", h - 2*np.pi)
-
-    plt.figure()
-    plt.plot(ds.time, u.sel(ensemble_member=50).isel(grid_index=1000))
-    plt.savefig("Something.png")
-
-    print(ds.time.values[:10])
-    print(ds.attrs["Lmax"])
-    print(ds.attrs["C"])
-
-def diagnose_persistence_period(u, member=50, start_idx=0, max_horizon=560):
-    u_member = u.sel(ensemble_member=member).values
-
-    rmses = []
-    times = []
-
-    dt_base = 0.015515220223
-
-    for h in range(1, max_horizon):
-        if start_idx + h >= u_member.shape[0]:
-            break
-
-        rmse = np.sqrt(np.mean((u_member[start_idx + h] - u_member[start_idx]) ** 2))
-        rmses.append(rmse)
-        times.append(h * dt_base)
-
-    return np.array(times), np.array(rmses)
 
 if __name__ == "__main__":
 

@@ -278,8 +278,5 @@ def main():
     fig.savefig(out_path, dpi=300, bbox_inches="tight")
     plt.close(fig)
 
-    print(f"\nSaved: {out_path}")
-
-
 if __name__ == "__main__":
     main()

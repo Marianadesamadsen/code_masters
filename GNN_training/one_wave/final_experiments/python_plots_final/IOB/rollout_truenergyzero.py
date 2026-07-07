@@ -97,9 +97,6 @@ def get_mean_energy_curves(energy_pred_df, energy_true_df):
     cols_pred, rollouts_pred = get_rollout_cols(energy_pred_df)
     cols_true, rollouts_true = get_rollout_cols(energy_true_df)
 
-    if not np.array_equal(rollouts_pred, rollouts_true):
-        raise ValueError("Predicted and true energy files have different rollout columns.")
-
     energy_pred = energy_pred_df[cols_pred].values
     energy_true = energy_true_df[cols_true].values
 

@@ -149,9 +149,5 @@ def main():
     plt.close(fig)
     ds_nc.close()
 
-    print()
-    print(f"Saved: {out_path}")
-
-
 if __name__ == "__main__":
     main()

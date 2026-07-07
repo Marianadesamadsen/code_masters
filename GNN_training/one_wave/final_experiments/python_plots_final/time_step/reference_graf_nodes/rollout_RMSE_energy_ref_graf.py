@@ -46,9 +46,6 @@ def load_metric(filename):
     for dt_key, cfg in RUN_DIRS.items():
         csv_path = BASE_DIR / cfg["result_dir"] / filename
 
-        if not csv_path.exists():
-            raise FileNotFoundError(csv_path)
-
         data[dt_key] = pd.read_csv(csv_path)
 
     return data
@@ -58,29 +55,17 @@ def load_metadata(dt_key):
     cfg = RUN_DIRS[dt_key]
     metadata_path = BASE_DIR / cfg["result_dir"] / "test_metadata.csv"
 
-    if not metadata_path.exists():
-        raise FileNotFoundError(
-            f"Missing metadata file: {metadata_path}\n"
-            "You need this file to align each energy row with ensemble_member and sample_idx."
-        )
-
     return pd.read_csv(metadata_path)
 
 
 def load_true_u():
     ds = xr.open_dataset(NC_FILE)
 
-    if "u" not in ds:
-        raise KeyError("Variable 'u' was not found in the nc file.")
-
     u = ds["u"].transpose("ensemble_member", "time", "grid_index")
     return u,ds
 
 def load_analytical_energy():
     ds_E = xr.open_dataset(ANALYTICAL_ENERGY_FILE)
-
-    if "analytical_energy_sem" not in ds_E:
-        raise KeyError("Variable 'analytical_energy_sem' was not found.")
 
     analytical_energy = ds_E["analytical_energy_sem"].transpose("ensemble_member", "time")
 
@@ -214,23 +199,6 @@ def plot_rollout_rmse_energy():
     out_path = RESULTS_DIR / "rmse_energy_graf_reference.png"
     fig.savefig(out_path, dpi=300, bbox_inches="tight")
     plt.close(fig)
-
-    print(f"Saved: {out_path}")
-
-    dt_base = 0.015515220223
-
-    print("Persistence horizons:")
-    for r in rmse_rollouts:
-        h = r * dt_scale * dt_base
-        print(r, h, "distance to 2pi:", h - 2*np.pi)
-
-    plt.figure()
-    plt.plot(ds.time, u.sel(ensemble_member=50).isel(grid_index=1000))
-    plt.savefig("Something.png")
-
-    print(ds.time.values[:10])
-    print(ds.attrs["Lmax"])
-    print(ds.attrs["C"])
 
 
 if __name__ == "__main__":

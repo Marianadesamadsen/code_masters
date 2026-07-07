@@ -312,34 +312,6 @@ def plot_rollout_rmse_energy():
     fig.savefig(out_path, dpi=300, bbox_inches="tight")
     plt.close(fig)
 
-    print(f"Saved: {out_path}")
-
-    times, rmses = diagnose_persistence_period(u, member=50, start_idx=10)
-
-    plt.figure(figsize=(10, 5))
-    plt.plot(times, rmses)
-    plt.axvline(2 * np.pi, linestyle="--", color="black", label=r"$2\pi$")
-    plt.xlabel("Time separation")
-    plt.ylabel("Persistence RMSE")
-    plt.legend()
-    plt.grid(True, alpha=0.4)
-    plt.savefig("persistence_diagnositcs.png")
-    plt.close()
-
-    print("Persistence horizons:")
-    for r in rmse_rollouts:
-        h = r * dt_scale * DT_BASE
-        print(r, h, "distance to 2pi:", h - 2 * np.pi)
-
-    plt.figure()
-    plt.plot(ds.time, u.sel(ensemble_member=50).isel(grid_index=1000))
-    plt.savefig("Something.png")
-    plt.close()
-
-    print(ds.time.values[:10])
-    print(ds.attrs["Lmax"])
-    print(ds.attrs["C"])
-
 
 
 if __name__ == "__main__":

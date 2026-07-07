@@ -84,7 +84,6 @@ def find_matching_nc_member_and_time(ds_nc, ds_zarr, sample_idx, feature_idx):
     mse = np.mean(( target0[None, :]-nc_fields) ** 2, axis=1)
     ensemble_idx = int(np.argmin(mse))
 
-    print()
     print("Matching zarr sample to NC:")
     print("zarr valid_time:", valid_time)
     print("closest NC time:", matched_time)

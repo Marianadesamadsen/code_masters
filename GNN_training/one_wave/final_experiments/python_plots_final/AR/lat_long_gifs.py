@@ -40,7 +40,7 @@ target = np.squeeze(target)
 lat = ds_geo["lat"].values
 lon = ds_geo["lon"].values
 
-# Convert lon to [-180, 180] if needed
+
 lon_plot = ((lon + 180) % 360) - 180
 
 # Regular lat-lon grid
