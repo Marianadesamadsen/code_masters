@@ -20,7 +20,7 @@ The main modifications include: Implementation of an icosahedral mesh, implement
 ## Generating data
 The data generation code is located in the data_generation_functions folder. The SimulatorWaveEquation class generates multiple ensemble members from the analytical solution of the linear wave equation and stores the output in an .nc file required by mllam-data-prep. After the data has been generated, mllam-data-prep is used to convert the datasets into the final .zarr format required by Neural-LAM. All the .yaml files used for this is located in GNN_training/one_wave/yaml_files.
 The DataPlotter class can be used to visualize the generated solutions as 3D animations. 
-The datasets used throughout the thesis is generated using the script scripts/PY_files/data_generate_ensemble.py.
+The datasets used throughout the thesis is generated using the script scripts/PY_files/data_generate_ensemble.py. Note that the datasets are not visible in the repository as the files are very large. 
 
 ## Creating graphs
 Graphs are created using the modified weather-model-graphs repository. The script used to generate the graphs is scripts/PY_files/create_save_graph.py. The number of nearest neighbors and mesh subdivision are currently hard-coded in the modified weather-model-graphs repository. Generated graphs are stored in GNN_training/graphs.
