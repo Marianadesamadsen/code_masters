@@ -17,7 +17,7 @@ The branch used in this repository is: research.
 
 The main modifications include: Implementation of an icosahedral mesh, implementations of the corresponding edge features vdiff and len, replacing euclidean distance with haversine distance when constructing graph connectivity such that the graphs correctly account for the spherical geometry. 
 
-## Generating data :
+## Generating data
 The data generation code is located in the data_generation_functions folder. The SimulatorWaveEquation class generates multiple ensemble members from the analytical solution of the linear wave equation and stores the output in an .nc file required by mllam-data-prep. After the data has been generated, mllam-data-prep is used to convert the datasets into the final .zarr format required by Neural-LAM. All the .yaml files used for this is located in GNN_training/one_wave/yaml_files.
 The DataPlotter class can be used to visualize the generated solutions as 3D animations. 
 The datasets used throughout the thesis is generated using the script scripts/PY_files/data_generate_ensemble.py.
@@ -32,10 +32,10 @@ Training is performed using the modified Neural-LAM repository. All shell script
 All evaluation shell scripts can be found in GNN_training/one_wave/final_experiments/test_sh_files. 
 
 ## Energy computation 
-The script used to compute the energy can be found in integrate_sphere/compute_energy.py. This is directly integrated in Neural-LAM.
+The script used to compute the energy can be found in integrate_sphere/compute_energy.py. This is directly integrated in Neural-LAM. 
 
 ## Plotting and analysis
-The scripts used to generate the figure presented in the thesis are found in GNN_training/one_wave/final_experiments/python_plots_final organized by the experiment type autoregressive (AR), communication distance, time step, train size.
+The scripts used to generate the figures presented in the thesis are found in GNN_training/one_wave/final_experiments/python_plots_final organized by the experiment type autoregressive (AR), communication distance, time step, train size.
 
 
 
