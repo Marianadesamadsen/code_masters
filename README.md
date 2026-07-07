@@ -1,30 +1,41 @@
 
 # About 
-This repository includes code for master student. It can generate simulated data, set graphs, and train GNNs. 
+This repository contains the code used for my master's thesis project. It includes scripts for generating analytical solutions of the linear wave equation on the sphere, constructing graph representations, training graph neural networks (GNNs), and evaluating the resulting models. 
 
-It includes 3 other repositories: mllam-data-prep, neural-lam and weather-model-graphs 
+The repository also includes adapted versions of three existing repositories: mllam-data-prep, neural-lam, and weather-model-graphs. These repositories were modified to support experiments on global spherical wave propagation rather than their original limited-area weather forecasting setup. 
 
-# Data 
-Data is saved in the folder called data/nc_files (ignored by the repo). In data/ there can also be found coarse_data.yaml (used in mllam-data-prep + neural-lam), and config.yaml (used in neural-lam) 
+## Neural-LAM changes:
+The branch used in this repository is: research-med-zarr-output. 
 
-# Generating data 
-The functions concerning data generation is in the folder /scripts_data_generation. An example of generating the data can be found in /scripts/PY_files/data_generate_ensemble.py. After generating data you can call the mllam-data-prep with the script in /data/save_data.py, which save the final data in a .zarr file in the folder /data. To show a 3D animation of the generated data use the function in /data_generation_functions/DataPlotter.py
+The main changes include: Removing the use of boundary points, removing static or forcing variables, splitting the dataset along the ensemble-member dimension instead of the time dimension, adding a time jump variable in order to achieve larger timestep sizes, adding checkpoint tracking, energy calculations and precomputing all training samples in memory for faster training. 
 
-# Creating graph
-Graphs are created using weather-model-graphs. Example of creating a graph can be found in /scripts/PY_files/create_save_graph.py. The graph is saved under /data/graph/graph_coarse_data
+## Mllam-data-prep changes:
+The primary change in this repository is computing the diff statistics along the time dimension rather than the ensemble dimension. 
 
-# Training GNN using neural-lam 
-A function call to train_model in neural-lam can be found in /scripts/PY_files/train_model1.py (this uses coarse_data.yaml, graph_coarse_data, config.yaml)
+## Weather-model-graphs:
+The branch used in this repository is: research. 
 
-# Eval GNN using neural-lam
-A function call to train_model using the --eval mode in neural-lam can be found in /scripts/PY_files/eval_model1.py. Test af eval er forsøgt i filen /scripts/load_mydataset_zarr.py, der opstår noget mærkeligt med kun 10 tidsskridt, har ikke lige nået at undersøge hvorfor. 
+The main modifications include: Implementation of an icosahedral mesh, implementations of the corresponding edge features vdiff and len, replacing euclidean distance with haversine distance when constructing graph connectivity such that the graphs correctly account for the spherical geometry. 
 
-# Own start up of GNN
-Under /GNN_model_startup, there is a start up code for a simple GNN without encode-process-decode developed by me. A test script of running it can be found in scripts/NB_files/test_GNN.ipynb
+## Generating data 
+The data generation code is located in the data_generation_functions folder. The SimulatorWaveEquation class generates multiple ensemble members from the analytical solution of the linear wave equation and stores the output in an .nc file required by mllam-data-prep. After the data has been generated, mllam-data-prep is used to convert the datasets into the final .zarr format required by Neural-LAM. The DataPlotter class can be used to visualize the generated solutions as 3D animations. 
+The datasets used throughout the thesis is generated using the script scripts/PY_files/data_generate_ensemble.py.
 
-# Running code in general
-All running scripts are in the folder /scripts
-- Under scripts/PY_files there are different python files that can be run
-- Under scripts/NB_files there are different notebooks that can be run
+## Creating graphs
+Graphs are created using the modified weather-model-graphs repository. The script used to generate the graphs is scripts/PY_files/create_save_graph.py. The number of nearest neighbors and mesh subdivision are currently hard-coded in the modified weather-model-graphs repository. Generated graphs are stored in GNN_training/graphs.
+
+## Training GNN using Neural-LAM 
+Training is performed using the modified Neural-LAM repository. All shell scripts used to train the models can be found in GNN_training/one_wave/final_experiments/train_sh_files.
+
+## Eval GNN using neural-lam
+All evaluation shell scripts can be found in GNN_training/one_wave/final_experiments/test_sh_files. 
+
+## Energy computation 
+The script used to compute the energy can be found in integrate_sphere/compute_energy.py. This is directly integrated in Neural-LAM, where energy 
+
+## Plotting and analysis
+The scripts used to generate the figure presented in the thesis are found in GNN_training/one_wave/final_experiments/python_plots_final organized by the experiment type
+
+
 
 
