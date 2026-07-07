@@ -28,14 +28,14 @@ Graphs are created using the modified weather-model-graphs repository. The scrip
 ## Training GNN using Neural-LAM 
 Training is performed using the modified Neural-LAM repository. All shell scripts used to train the models can be found in GNN_training/one_wave/final_experiments/train_sh_files.
 
-## Eval GNN using neural-lam
+## Eval GNN using Nerual-LAM
 All evaluation shell scripts can be found in GNN_training/one_wave/final_experiments/test_sh_files. 
 
 ## Energy computation 
 The script used to compute the energy can be found in integrate_sphere/compute_energy.py. This is directly integrated in Neural-LAM. 
 
-## Plotting and analysis
-The scripts used to generate the figures presented in the thesis are found in GNN_training/one_wave/final_experiments/python_plots_final organized by the experiment type autoregressive (AR), communication distance, time step, train size.
+## Plotting 
+The scripts used to generate the figures presented in the thesis are found in GNN_training/one_wave/final_experiments/python_plots_final organized by the experiment type autoregressive (AR), communication distance, time step, train size. The energy and RMSEs are computed during evaluation within Neural-LAM
 
 
 
