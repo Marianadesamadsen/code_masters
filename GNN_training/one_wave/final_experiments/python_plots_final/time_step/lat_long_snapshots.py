@@ -7,9 +7,6 @@ import matplotlib.tri as mtri
 import trimesh
 
 
-# -----------------------------
-# Settings
-# -----------------------------
 BASE_DIR = Path("GNN_training/one_wave/different_mesh_size/final_results")
 PLOT_DIR = Path("GNN_training/one_wave/different_mesh_size/final_results_plots/time_step/final")
 PLOT_DIR.mkdir(parents=True, exist_ok=True)

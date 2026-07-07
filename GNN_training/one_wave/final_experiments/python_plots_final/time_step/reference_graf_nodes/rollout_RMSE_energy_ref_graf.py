@@ -217,17 +217,6 @@ def plot_rollout_rmse_energy():
 
     print(f"Saved: {out_path}")
 
-    times, rmses = diagnose_persistence_period(u, member=50, start_idx=10)
-
-    plt.figure(figsize=(10, 5))
-    plt.plot(times, rmses)
-    plt.axvline(2*np.pi, linestyle="--", color="black", label=r"$2\pi$")
-    plt.xlabel("Time separation")
-    plt.ylabel("Persistence RMSE")
-    plt.legend()
-    plt.grid(True, alpha=0.4)
-    plt.savefig("persistence_diagnositcs.png")
-
     dt_base = 0.015515220223
 
     print("Persistence horizons:")

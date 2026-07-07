@@ -15,7 +15,7 @@ anim_dir = Path("GNN_training/one_wave/different_mesh_size/final_results_plots/l
 anim_dir.mkdir(parents=True, exist_ok=True)
 
 # Settings
-sample_idx = 7          # choose which test sample to animate
+sample_idx = 7          
 state_feature = 0
 fps = 4
 n_lon = 360

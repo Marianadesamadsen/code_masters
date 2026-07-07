@@ -5,7 +5,6 @@ import xarray as xr
 import matplotlib.pyplot as plt
 
 
-
 BASE_DIR = Path("GNN_training/one_wave/different_mesh_size/final_results")
 #Path("GNN_training/one_wave/different_training_size")#
 PLOT_DIR = Path("GNN_training/one_wave/different_mesh_size/final_results_plots/IB/final") 
@@ -101,21 +100,10 @@ def find_matching_nc_member_and_time(ds_nc, ds_zarr, sample_idx, feature_idx):
 
 
 def get_initial_center_from_nc(ds_nc, ensemble_idx, xyz):
-    if "center" in ds_nc:
-        center = ds_nc["center"].isel(ensemble_member=ensemble_idx).values
-        center = center.astype(float)
-        center = center / np.linalg.norm(center)
-        print("Using center variable from NC file.")
-    else:
-        u0 = ds_nc["u"].isel(
-            ensemble_member=ensemble_idx,
-            time=0,
-        ).values
 
-        center_idx = int(np.argmax(np.abs(u0)))
-        center = xyz[center_idx]
-        center = center / np.linalg.norm(center)
-        print("Using argmax of u(t=0) from NC file.")
+    center = ds_nc["center"].isel(ensemble_member=ensemble_idx).values
+    center = center.astype(float)
+    center = center / np.linalg.norm(center)
 
     r_nodes = np.arccos(np.clip(xyz @ center, -1.0, 1.0))
 
@@ -286,10 +274,6 @@ def main():
     out_path = PLOT_DIR / save_name
     fig.savefig(out_path, dpi=300, bbox_inches="tight")
     plt.close(fig)
-
-    print(f"\nSaved: {out_path}")
-    
-
 
 if __name__ == "__main__":
     main()

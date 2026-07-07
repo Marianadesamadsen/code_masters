@@ -105,10 +105,6 @@ def plot_rollout_rmse_energy():
         dt_scale = cfg["dt_scale"]
         label = cfg["label"]
 
-
-        # -----------------------------
-        # Relative energy error
-        # -----------------------------
         pred_energy_df = data_energy_pred[dt_key]
         true_energy_df = data_energy_true[dt_key]
         rel_energy_df = data_energy_rel[dt_key]
