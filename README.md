@@ -31,7 +31,7 @@ Training is performed using the modified Neural-LAM repository. All shell script
 All evaluation shell scripts can be found in GNN_training/one_wave/final_experiments/test_sh_files. 
 
 ## Energy computation 
-The script used to compute the energy can be found in integrate_sphere/compute_energy.py. This is directly integrated in Neural-LAM, where energy 
+The script used to compute the energy can be found in integrate_sphere/compute_energy.py. This is directly integrated in Neural-LAM.
 
 ## Plotting and analysis
 The scripts used to generate the figure presented in the thesis are found in GNN_training/one_wave/final_experiments/python_plots_final organized by the experiment type
